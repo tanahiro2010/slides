@@ -1,0 +1,14 @@
+# .env より先に書いている。シークレットは一度もコミットさせない。
+.env
+.env.*
+!.env.example
+.dev.vars
+.dev.vars.*
+node_modules/
+.wrangler/
+# 生ログ・測定データ（指紋化前のものを含む）
+data/
+*.raw.jsonl
+# scratch 置き場（あとで必ず生える）
+test.json
+scratch/
