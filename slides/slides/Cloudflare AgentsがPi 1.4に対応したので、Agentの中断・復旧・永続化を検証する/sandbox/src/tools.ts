@@ -32,6 +32,34 @@ export type ToolDeps = {
 };
 
 /**
+ * ツールの中でわざと時間を使う。C39（処理中の heartbeat）用。
+ *
+ * `settings` の `toolSleepMs` で長さを決める。既定は 0。
+ */
+async function maybeLinger(
+  deps: ToolDeps,
+  at: string,
+  api?: { output: (text: string) => void },
+): Promise<void> {
+  const ms = Number(deps.state.get("toolSleepMs") ?? 0);
+  // C24 用。`api.output()` を刻むと、タスクが進捗をコミットする。
+  const steps = Number(deps.state.get("toolProgress") ?? 0);
+  if (!ms && !steps) return;
+
+  await deps.evidence.record("observed", { probe: "tool_linger", at, ms, steps });
+
+  if (steps > 0 && api) {
+    for (let i = 0; i < steps; i += 1) {
+      api.output(`progress ${i + 1}/${steps}\n`);
+      await deps.state.bump("tool:progress");
+      await new Promise((resolve) => setTimeout(resolve, Math.max(ms / steps, 300)));
+    }
+    return;
+  }
+  if (ms) await new Promise((resolve) => setTimeout(resolve, ms));
+}
+
+/**
  * 発火点で障害を撃つ。
  *
  * 撃つ前に発火回数を確定させてから撃つ。
@@ -69,6 +97,7 @@ export function createLabTools(deps: ToolDeps): ToolRegistration<typeof Args>[] 
     async execute({ key }) {
       await state.bump("write_record:started");
       await evidence.record("tool_started", { tool: "write_record", key });
+      await maybeLinger(deps, "write_record");
       await maybeFault(deps, "write_record:before_commit");
 
       state.put(`record:${key}`, "written");
@@ -112,9 +141,10 @@ export function createLabTools(deps: ToolDeps): ToolRegistration<typeof Args>[] 
     description: "Add one to a counter. Declared replay-safe even though it is not idempotent.",
     parameters: Args,
     replay: "safe",
-    async execute({ key }) {
+    async execute({ key }, api) {
       await state.bump("bump_safe_unguarded:started");
       await evidence.record("tool_started", { tool: "bump_safe_unguarded", key });
+      await maybeLinger(deps, "bump_safe_unguarded", api);
       await maybeFault(deps, "bump_safe_unguarded:before_commit");
 
       const value = await state.bump("side_effect:bump_safe_unguarded");

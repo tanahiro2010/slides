@@ -44,7 +44,21 @@ export const STREAM_ERRORS = {
 export type Scenario =
   | { kind: "answer"; text: string }
   | { kind: "call_tool"; tool: string; key: string; then: string }
-  | { kind: "stream_error"; errorMessage: string; failures: number; then: string };
+  | { kind: "stream_error"; errorMessage: string; failures: number; then: string }
+  /**
+   * C14: ツール呼び出しを積んだまま、ストリームが切れたことにする。
+   * `stopReason: "error"` なので、Pi はツールを走らせずに再試行するはず。
+   * 対照は同じ中身で `stopReason: "toolUse"`（= 正常完了）。
+   */
+  | {
+      kind: "tool_then_cut";
+      tool: string;
+      key: string;
+      then: string;
+      failures: number;
+      /** true にすると対照（切れずに正常なツール呼び出しとして返す） */
+      control?: boolean;
+    };
 
 export function createFaux(deps: { state: LabState; evidence: Evidence }): FauxProviderHandle {
   const faux = fauxProvider({
@@ -90,6 +104,30 @@ export function createFaux(deps: { state: LabState; evidence: Evidence }): FauxP
               // ツール呼び出しブロックを積んでも、"toolUse" にしないと Pi は実行せずにターンを終える。
               { stopReason: "toolUse" },
             );
+          }
+          return fauxAssistantMessage(scenario.then);
+        }
+
+        case "tool_then_cut": {
+          const failed = deps.state.counter("model:failures");
+          const call = fauxToolCall(scenario.tool, { key: scenario.key }, {
+            id: `call-${scenario.key}-${failed}`,
+          });
+          if (!scenario.control && failed < scenario.failures) {
+            await deps.state.bump("model:failures");
+            await deps.evidence.record("model_error", {
+              turn, failed: failed + 1, note: "ツール呼び出しを積んだままストリームが切れた",
+            });
+            // 途中まで流れたツール呼び出しを持ったまま、error で終わる
+            return fauxAssistantMessage([call], {
+              stopReason: "error",
+              errorMessage: "The stream ended without the model finishing its answer.",
+            });
+          }
+          const calls = deps.state.counter(`model:called:${scenario.tool}`);
+          if (calls === 0) {
+            await deps.state.bump(`model:called:${scenario.tool}`);
+            return fauxAssistantMessage([call], { stopReason: "toolUse" });
           }
           return fauxAssistantMessage(scenario.then);
         }

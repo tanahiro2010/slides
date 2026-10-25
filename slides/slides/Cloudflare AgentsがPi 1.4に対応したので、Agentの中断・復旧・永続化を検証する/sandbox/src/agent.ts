@@ -157,6 +157,10 @@ export class RecoveryLab extends DurableObject<Env> {
     return this.state.counters();
   }
 
+  async readSchema() {
+    return this.state.piSchema();
+  }
+
   async readTables() {
     return this.state.tables();
   }
@@ -256,6 +260,67 @@ export class RecoveryLab extends DurableObject<Env> {
     const entries = await this.harness.session().messages();
     // transcript をそのまま返すと RPC の型が深くなりすぎるので、観測に要る形に落とす。
     return entries.map((e) => ({ kind: e.kind, id: String(e.id) }));
+  }
+
+  /**
+   * WebSocket で session.events() を流す。C08 / C10 / C43 用。
+   *
+   * 切断しても Agent の実行は続くか（C08）、
+   * 再接続時に snapshot から現在状態を組み直せるか（C10）、
+   * リスナーが遅れるとイベントが snapshot に畳まれるか（C43）を見る。
+   */
+  /**
+   * WebSocket は RPC の戻り値にできない（`DataCloneError`）。
+   * Durable Object 自身の `fetch()` で受ける必要がある。
+   */
+  override async fetch(request: Request): Promise<Response> {
+    const url = new URL(request.url);
+    if (url.pathname !== "/stream") return new Response("not found", { status: 404 });
+    if (request.headers.get("Upgrade") !== "websocket") {
+      return new Response("expected websocket", { status: 426 });
+    }
+    return await this.#openStream(Number(url.searchParams.get("slow") ?? 0));
+  }
+
+  async #openStream(slowMs = 0): Promise<Response> {
+    const pair = new WebSocketPair();
+    const [client, server] = Object.values(pair);
+    server.accept();
+
+    const stream = await this.harness.session().events();
+    const send = (payload: unknown) => {
+      try {
+        server.send(JSON.stringify(payload));
+      } catch {
+        // 相手が消えていてもここで落とさない。観測は evidence に残る。
+      }
+    };
+
+    send({ _snapshot: true, entries: stream.snapshot.entries?.length ?? null });
+    await this.evidence.record("observed", {
+      probe: "stream_open",
+      snapshotEntries: stream.snapshot.entries?.length ?? null,
+    });
+
+    let batches = 0;
+    let events = 0;
+    stream.start(async (batch) => {
+      batches += 1;
+      events += batch.length;
+      // 遅いリスナーを作る（C43）
+      if (slowMs > 0) await new Promise((r) => setTimeout(r, slowMs));
+      for (const e of batch) send({ type: (e as { type?: string }).type ?? "?" });
+      await this.evidence.record("observed", {
+        probe: "stream_batch", batches, events, batchSize: batch.length,
+      });
+    });
+
+    server.addEventListener("close", () => {
+      void stream.stop();
+      void this.evidence.record("observed", { probe: "stream_closed", batches, events });
+    });
+
+    return new Response(null, { status: 101, webSocket: client });
   }
 
   /** transcript の生データ。モデルのエラー文言を取り出すために使う。 */

@@ -155,6 +155,18 @@ export class LabState {
     this.#sql.exec(`DELETE FROM exp_kv`);
   }
 
+  /**
+   * Pi のスキーマ版を読む。C41（マイグレーションが一方向か）の確認に使う。
+   * 読むのは `pi_durable_schema` だけ。任意の SQL は受け付けない。
+   */
+  piSchema(): Record<string, unknown>[] {
+    try {
+      return [...this.#sql.exec(`SELECT * FROM pi_durable_schema`)] as Record<string, unknown>[];
+    } catch (error) {
+      return [{ _error: error instanceof Error ? error.message : String(error) }];
+    }
+  }
+
   /** `pi_` で始まる表を数える。C04 の確認に使う。 */
   tables(): { pi: string[]; own: string[] } {
     const names = [...this.#sql.exec(

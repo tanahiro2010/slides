@@ -2,8 +2,8 @@
 
 | | |
 | --- | --- |
-| フェーズ | **5（実機で測る）完了。** ゲートの最終正常系も通過。結果は `results.md` |
-| 次 | **6. 判定**（`verify-judge`）→ 8. 執筆。残り 8 本は追加の対照環境が要る（C38 / C41 / C15 / WebSocket 系） |
+| フェーズ | **5（実機で測る）完了。** 44 本中 38 本確定・1 本否定・3 本保留・2 本未検証。結果は `results.md` |
+| 次 | **6. 判定**（`verify-judge`）→ 8. 執筆。残るのは C15 と C38 で、どちらも別環境か長時間測定が要る |
 | 人間待ち | なし。**Worker `pi14-recovery-sandbox` が公開状態のまま**（不要なら削除してよい） |
 | 開示 | 方針のみ決定。新しい不具合が出たら内容を見せて相談してから報告する |
 | 作成日 | 2026-10-25 |
@@ -107,27 +107,27 @@ PRD の EXP-01〜07 を、真偽判定できる単位に割り直しました。
 | **C05** | DO が再生成されても `messages()` が読み戻せる | Pi doc / 設計記事 | abort → 再リクエスト → `messages()` | **インスタンス識別子が変わっていること。これが無いと「そもそも死んでいない」と区別できない** | ローカル可 | ✅ **実測**（対照あり） | **EXP-01** |
 | **C06** | 完了済みタスクは再起動後に二重実行されない | 設計記事「continues from its last checkpoint」 | ツール実行回数カウンタ | **同じ構成で未完了タスクは再実行されること** | ローカル可 | ✅ **実測** | EXP-01 |
 | **C07** | 同じ `operationId` の再 submit は `accepted: false` を返す | Pi doc「Submitting the same id again returns the same operation」 | 同一 id で 2 回 submit | **違う id なら `accepted: true` になること** | ローカル可 | ✅ **実測**（対照あり） | EXP-01 |
-| **C08** | WebSocket を切っても Agent の実行は継続する | PRD の仮説 | 実行中に切断 → 別経路で `wait()` | **インスタンス識別子が変わっていないこと（切断と再起動の区別）** | ローカル可 | ⬜ | **EXP-02** |
+| **C08** | WebSocket を切っても Agent の実行は継続する | PRD の仮説 | 実行中に切断 → 別経路で `wait()` | **インスタンス識別子が変わっていないこと（切断と再起動の区別）** | ローカル可 | ✅ **実測**（対照あり） | **EXP-02** |
 | **C09** | イベントストリームにカーソル再生は無い | Pi doc「There is no cursor to resume a stream from」 | 型定義を読む | — | **不要** | ✅ **型定義** | EXP-02 |
-| **C10** | 再接続時は snapshot から現在状態を再構築できる | Pi doc「A client that connects mid-run gets a snapshot that includes the partial answer」 | 切断中に進んだ分が snapshot に入っているか | **切断中に流れたイベントは個別には取れないこと** | ローカル可 | ⬜ | EXP-02 |
+| **C10** | 再接続時は snapshot から現在状態を再構築できる | Pi doc「A client that connects mid-run gets a snapshot that includes the partial answer」 | 切断中に進んだ分が snapshot に入っているか | **切断中に流れたイベントは個別には取れないこと** | ローカル可 | ✅ **実測** | EXP-02 |
 | **C11** | 途切れたモデルストリームが一時的エラーとして再試行される | Changelog | 偽 Provider でストリームを途中切断 | **`agents@0.29.0` では再試行されないこと（バージョン対照）** | ローカル可 | ✅ **静的 + 実測** | **EXP-03** |
 | **C12** | 再試行はモデルリクエスト全体の再実行である | Pi doc「Pi keeps the partial answer it stored and makes the model call again」 | Provider への到達回数を数える | **部分出力が履歴に残っていること** | ローカル可 | ✅ **実測**（3 回） | EXP-03 |
-| **C13** | モデルリトライの既定は 3 回・初回 2 秒・倍々・上限 60 秒 | `DEFAULT_RETRY_POLICY` | 失敗を連続させて間隔を測る | **`settings.retry` を変えると追従すること** | ローカル可 | ✅ **静的に確認済み** | EXP-03 |
-| **C14** | 再試行の前に、途中まで流れたツール呼び出しは実行されない | PR #2643「a cut-off message has `stopReason: "error"`, so no streamed tool call runs before the retry」 | ツール呼び出しを含む応答を途中で切る | **正常完了時は同じツールが走ること** | ローカル可 | ⬜ | 📭 EXP-03 |
+| **C13** | モデルリトライの既定は 3 回・初回 2 秒・倍々・上限 60 秒 | `DEFAULT_RETRY_POLICY` | 失敗を連続させて間隔を測る | **`settings.retry` を変えると追従すること** | ローカル可 | ✅ **静的 + 実測**（60 秒の天井） | EXP-03 |
+| **C14** | 再試行の前に、途中まで流れたツール呼び出しは実行されない | PR #2643「a cut-off message has `stopReason: "error"`, so no streamed tool call runs before the retry」 | ツール呼び出しを含む応答を途中で切る | **正常完了時は同じツールが走ること** | ローカル可 | ✅ **実測**（対照あり） | 📭 EXP-03 |
 | **C15** | 15 分を超えるモデルストリームは切られうる | Pi doc Limitations | 長時間ストリームを返す偽 Provider | 10 分での alarm 引き継ぎが起きていること | **要デプロイ**・長時間 | ⬜ | EXP-03 |
 | **C16** | `replay` 未指定のツールは unsafe 扱いになる | Extensions doc「`replay: "unsafe"`, the default」 | 型定義と既定値を読む | — | **不要** | ✅ **型定義 + 実測** | **EXP-04** |
 | **C17** | `replay: "safe"` のツールは中断後に再実行される | Pi doc Recovery 表 | 実行中に `ctx.abort()` → 実行回数 | **同一 run 内の unsafe ツールが再実行されないこと** | ローカル可 | ✅ **実測** | **EXP-04** |
 | **C18** | unsafe なツールは再実行されず、モデルに中断結果が渡る | 同上 | 同上 + transcript を読む | **上と対。同じスクリプトで両方を測る** | ローカル可 | ✅ **実測** | **EXP-04** |
 | **C19** | 副作用が確定した**直後**に中断した safe ツールは、副作用を 2 回起こす | **記載なし** | 副作用を書いた直後に `ctx.abort()` | **冪等キーを付けた版では 1 回に収まること** | ローカル可 | ✅ **実測・中核** | **📭 EXP-04 中核** |
 | **C20** | 中断された unsafe ツールを、モデルが呼び直すことがある | **記載なし**（PRD の仮説） | 実モデルで同条件を繰り返す | **中断しない同じプロンプト**（3/3 で実行 1 回） | **要 Workers AI** | ⚠️ **呼び直さなかった**（n=3・1 モデル） | **📭 EXP-04 中核** |
-| **C21** | 中断は transcript に専用のエントリとして残る | Pi doc「The model gets an interrupted result」 | `messages()` のエントリ種別 | **正常終了時のエントリと違うこと** | ローカル可 | ⚠️ **中断版を未観測** | EXP-04 |
+| **C21** | 中断は transcript に専用のエントリとして残る | Pi doc「The model gets an interrupted result」 | `messages()` のエントリ種別 | **正常終了時のエントリと違うこと** | ローカル可 | ❌ **同じ `pi.tool-result`**。`isError` と平文で区別 | EXP-04 |
 | **C22** | `restartLimit` の既定値は 5 | `DEFAULT_RESTART_LIMIT = 5` | 配布物を読む | **1 未満や非数値は既定に落ちること** | **不要** | ✅ **静的に確認済み** | EXP-05 |
 | **C23** | 正常な `close()` は再起動カウントに入らない | pi-durable README「a close is not counted」 | 正常終了を 6 回繰り返す | **`ctx.abort()` 6 回では parked になること。これが一番効く対照** | ローカル可 | ✅ **実測**（対照あり） | **EXP-05** |
-| **C24** | タスクが新しい状態をコミットするとカウントが 0 に戻る | 同 README「a new state the task commits starts the count over」 | 進捗あり／なしで中断を繰り返す | **進捗なしなら上限に達すること** | ローカル可 | ⚠️ **対照が判別せず** | EXP-05 |
+| **C24** | タスクが新しい状態をコミットするとカウントが 0 に戻る | 同 README「a new state the task commits」 | `api.output()` を刻んでから落とす | **進捗なしと同条件で比べる**（どちらも 2 回で parked） | ローカル可 | ⚠️ **出力は進捗に数えられない** | EXP-05 |
 | **C25** | 上限到達でタスクが parked になり `pending()` に出る | Pi doc / PR #2624 | `restartLimit: 2` にして 2 回クラッシュ | **1 回では `running` のままであること** | ローカル可 | ✅ **実測** | **EXP-05** |
 | **C26** | parked されたタスクは DO を起こし続けない | Changelog「a task stopped by Pi's restart limit no longer keeps the object awake」 | `ctx.storage.getAlarm()` を見る | **parked 前は 30 秒後に alarm があること** | ローカル可 | ✅ **実測**（alarm なし） | EXP-05 |
 | **C27** | `session.retry()` で parked タスクが再開し、最終的に完了する | Pi doc | 障害条件を解除して `retry()` | **何も parked されていなければ `false` を返すこと** | ローカル可 | ✅ **実測**（対照あり） | **EXP-05** |
-| **C28** | `session.abort()` で parked タスクを放棄できる | Pi doc | `abort()` 後に `pending()` | **`retry()` した場合は完了すること** | ローカル可 | ⬜ | EXP-05 |
+| **C28** | `session.abort()` で parked タスクを放棄できる | Pi doc | `abort()` 後に `pending()` | **`retry()` した場合は完了すること** | ローカル可 | ✅ **実測**（`retry()` と対） | EXP-05 |
 | **C29** | parked の間も `wait()` は待ち続ける | Pi doc「`wait()` keeps waiting」 | parked 状態で `wait()` を張る | **`retry()` 後に解決すること** | ローカル可 | ✅ **実測**（対照あり） | EXP-05 |
 | **C30** | factory が受け取る `storage` をラップして差し替えられる | **記載なし**（EXP-06 の前提） | Proxy で包んで `Harness.open()` に渡す | **包まない場合と同じ結果になること** | ローカル可 | ✅ **型定義** | **📭 EXP-06 前提** |
 | **C31** | ストレージエラーは Session を殺し、進行中の呼び出しは `SessionFailed` で reject する | **`Storage` インターフェースの契約**（下記） | 書き込みで投げさせる | **正常時は同じ呼び出しが成功すること** | ローカル可 | ✅ **実測**（対照あり） | EXP-06 |
@@ -135,14 +135,14 @@ PRD の EXP-01〜07 を、真偽判定できる単位に割り直しました。
 | **C33** | 復旧は Pi の機能ではなく、PiHarness がキャッシュを捨てる動作である | PR #2648「PiHarness kept the dead pi cached」 | C32 の factory 実行回数で示す | **Pi 単体（`agents` を介さない）では開き直らないこと** | ローカル可 | ✅ **実測**（DO 再起動なし） | **📭 EXP-06** |
 | **C34** | 読み取りで投げた `StorageRequestError` は Session を殺さない | **`Storage` インターフェースの契約**（下記） | 読み取りだけで投げさせる | **`commit()` で投げると殺すこと** | ローカル可 | ✅ **実測**（対照あり） | **EXP-06** |
 | **C35** | `onWake` を渡さないと警告ログが出る | PR #2619「the harness logs one warning when it opens pi」 | factory から外して起動 | **渡すと出ないこと** | ローカル可 | ✅ **実装** | EXP-07 |
-| **C36** | `onWake` を渡すと Pi はスリープ用のタイマーを持たない | **`HarnessOptions.onWake` の契約**（下記） | タイマー数を観測 | **渡さない場合はタイマーが残ること** | ローカル可 | ⬜ 仕様は確定 | EXP-07 |
+| **C36** | `onWake` を渡すと Pi はスリープ用のタイマーを持たない | **`HarnessOptions.onWake` の契約**（下記） | タイマー数を観測 | **渡さない場合はタイマーが残ること** | ローカル可 | ✅ **間接**（退避の有無から） | EXP-07 |
 | **C37** | リトライ待機中の alarm は、30 秒の heartbeat ではなく wake 時刻に設定される | Pi doc「the job is due when the first one wakes」 | 待機中に `ctx.storage.getAlarm()` | **`onWake` 無しでは 30 秒後になること（PR #2619 の表の再現）** | **要デプロイ** | ✅ **実デプロイで確認** | **EXP-07 中核** |
 | **C38** | 他タスクの実行中でも、期限の来たスリープが再開される | 0.30.1 の修正 | 生成と圧縮リトライを並行させる | **`agents@0.30.0` では止まること（issue #2683 の独立再現）** | ローカル可 | ⬜ | **📭 EXP-07** |
-| **C39** | 処理中の alarm は 30 秒ごとに発火する | `HEARTBEAT_MS = 3e4` | 発火時刻を記録 | **スリープ中は 30 秒では発火しないこと** | **要デプロイ** | ⚠️ **部分的**（`onWake` 無しで 30 秒は観測） | EXP-07 |
+| **C39** | 処理中の alarm は 30 秒ごとに発火する | `HEARTBEAT_MS = 3e4` | 発火時刻を記録 | **スリープ中は 30 秒では発火しないこと** | **要デプロイ** | ✅ **実測**（ノコギリ波） | EXP-07 |
 | **C40** | 待機明けにコンストラクタが再実行される（= メモリから落ちていた） | Changelog「the Durable Object can hibernate」 | 長い待機の前後でインスタンス識別子を比較 | **短い待機では変わらないこと** | **要デプロイ** | ✅ **実デプロイ・中核** | **📭 EXP-07 中核** |
-| **C41** | Pi 1.4 で開いた SQLite は Pi 1.3 で開けない | Changelog「a deployment cannot roll back past this upgrade」 | 1.4 で開いた DO に 1.3 をデプロイ | **1.3 のまま開いた DO は 1.3 で開けること** | ローカル可 | ⬜ | EXP-07 / §7 |
+| **C41** | Pi 1.4 で開いた SQLite は Pi 1.3 で開けない | Changelog「a deployment cannot roll back past this upgrade」 | スキーマ版の実測 + 両版の定義 + 1.3 の拒否コード | **1.3 の上限が 1 であること**（1.4 は 2 を書く） | ローカル可 | ✅ **実測 + 実装**（1.3 の実行は未実施） | EXP-07 / §7 |
 | **C42** | レジストリをモジュールスコープに置くと、退避ごとにハーネスがメモリに残る | 0.30.0 CHANGELOG の Upgrading 手順 4 | 退避を繰り返してメモリを見る | **クラスフィールドに置いた版では増えないこと** | ローカル可 | ✅ **実装**（機構を特定） | 📭 実装注意 |
-| **C43** | イベントが溢れると、未配信バッチが 1 つの snapshot に置き換わる | **記載なし**（`watchEvents` の実装コメント） | 遅いリスナーを張って大量にコミットする | **速いリスナーでは個別イベントが届くこと** | ローカル可 | ⬜ | **📭 EXP-02 で発見** |
+| **C43** | イベントが溢れると、未配信バッチが 1 つの snapshot に置き換わる | **記載なし**（`watchEvents` の実装コメント） | 遅いリスナーを張って大量にコミットする | **速いリスナーとイベント数を比べる**（22 対 22 で同数） | ローカル可 | ⚠️ **この規模では再現せず** | **📭 EXP-02 で発見** |
 | **C44** | unsafe なツールは crash-loop を作れない（再実行されないため parked に到達しない） | **記載なし**（EXP-05 の過程で判明） | unsafe なツールで同じ中断を繰り返す | **safe なツールでは parked に到達すること** | ローカル可 | ✅ **実測** | **📭 EXP-05 で発見** |
 
 ---

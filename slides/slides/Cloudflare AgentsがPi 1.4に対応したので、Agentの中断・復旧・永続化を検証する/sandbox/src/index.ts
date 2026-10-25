@@ -24,6 +24,11 @@ export default {
     // 実験ごとに Durable Object を分ける。
     // C41（Pi 1.4 のマイグレーションは一方向）があるので、名前を使い回さない。
     const lab = env.LAB.getByName(url.searchParams.get("lab") ?? "default");
+    // WebSocket は RPC の戻り値にできないので、リクエストごと Durable Object へ渡す
+    if (url.pathname === "/stream") {
+      return await lab.fetch(request);
+    }
+
     const body =
       request.method === "POST"
         ? ((await request.json().catch(() => ({}))) as Record<string, unknown>)
@@ -38,6 +43,8 @@ export default {
           return json(await lab.readEvents(url.searchParams.get("exp") ?? undefined));
         case "/counters":
           return json(await lab.readCounters());
+        case "/schema": // C41
+          return json(await lab.readSchema());
         case "/tables": // C04
           return json(await lab.readTables());
         case "/reset":
