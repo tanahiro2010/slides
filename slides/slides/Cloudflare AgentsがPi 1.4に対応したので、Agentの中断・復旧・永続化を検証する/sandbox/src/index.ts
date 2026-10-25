@@ -70,6 +70,8 @@ export default {
           );
         case "/scenario":
           return json(await lab.setScenario(body));
+        case "/slow-model": // C15。遅いストリームに切り替える
+          return json(await lab.useSlowModel(url.searchParams.get("session") ?? undefined));
         case "/real-model": // C20。実モデルに切り替える
           return json(await lab.useRealModel(body.model ? String(body.model) : undefined));
 
@@ -87,6 +89,7 @@ export default {
             await lab.piSubmit(
               String(body.text ?? "go"),
               body.operationId ? String(body.operationId) : undefined,
+              body.session ? String(body.session) : undefined,
             ),
           );
         case "/wait": {
@@ -95,7 +98,11 @@ export default {
           return json(await lab.piWait(op));
         }
         case "/pending":
-          return json(await lab.piPending());
+          return json(await lab.piPending(url.searchParams.get("session") ?? undefined));
+        case "/session/create":
+          return json(await lab.createSession());
+        case "/session/list":
+          return json(await lab.listSessions());
         case "/messages":
           return json(await lab.piMessages());
         case "/transcript":

@@ -24,6 +24,40 @@ export const FAUX_MODEL_ID = "faux/recovery-lab";
 /** C20 用。Workers AI 経由の実モデル。 */
 export const REAL_MODEL_ID = "@cf/zai-org/glm-4.7-flash";
 
+/** C15 用。わざと遅くストリームする偽モデル。 */
+export const SLOW_MODEL_ID = "faux/slow-stream";
+
+/**
+ * C15: 15 分を超えるストリームを作る。
+ *
+ * faux は `tokensPerSecond` を `setTimeout` で実際に守る。
+ * `estimateTokens` は `ceil(文字数 / 4)` なので、
+ * 1 トークン/秒 なら 4 文字で 1 秒かかる。
+ */
+export function createSlowFaux(deps: { state: LabState; evidence: Evidence }): FauxProviderHandle {
+  const faux = fauxProvider({
+    provider: "faux-slow",
+    api: "faux-slow",
+    models: [{ id: SLOW_MODEL_ID, name: "Slow Stream", contextWindow: 128_000, maxTokens: 8192 }],
+    tokensPerSecond: 1,
+    tokenSize: { min: 4, max: 4 },
+  });
+
+  const step = async () => {
+    faux.appendResponses([step]);
+    // 既定は 18 分ぶん。`/settings` の `slowChars` で変えられる。
+    const chars = Number(deps.state.get("slowChars") ?? 4400);
+    const turn = await deps.state.bump("model:requests");
+    await deps.evidence.record("model_request", {
+      turn, scenario: "slow_stream", chars, 予想秒数: Math.round(chars / 4),
+    });
+    return fauxAssistantMessage("slow ".repeat(Math.ceil(chars / 5)).slice(0, chars));
+  };
+  faux.setResponses([step]);
+
+  return faux;
+}
+
 /**
  * `agents@0.29.0` と `0.30.x` が実際に投げるストリーム断の文言。
  * C11 のバージョン対照は、この 2 つを撃ち分けて作る。
@@ -58,7 +92,14 @@ export type Scenario =
       failures: number;
       /** true にすると対照（切れずに正常なツール呼び出しとして返す） */
       control?: boolean;
-    };
+    }
+  /**
+   * C38: 1 つのハーネスで 2 本を並行させる。
+   * 応答はプロンプトの目印で振り分けるので、セッションごとの scenario を持たずに済む。
+   *   "LONGRUN" → 長く走るツールを呼ぶ（= work がある状態を作る）
+   *   "RETRYME" → 再試行対象のエラーを返す（= sleeping なタスクを作る）
+   */
+  | { kind: "c38" };
 
 export function createFaux(deps: { state: LabState; evidence: Evidence }): FauxProviderHandle {
   const faux = fauxProvider({
@@ -106,6 +147,42 @@ export function createFaux(deps: { state: LabState; evidence: Evidence }): FauxP
             );
           }
           return fauxAssistantMessage(scenario.then);
+        }
+
+        case "c38": {
+          const prompt = JSON.stringify(_context ?? "");
+          if (prompt.includes("LONGRUN")) {
+            const calls = deps.state.counter("model:called:longrun");
+            if (calls === 0) {
+              await deps.state.bump("model:called:longrun");
+              return fauxAssistantMessage(
+                [fauxToolCall("write_record", { key: "longrun" }, { id: "call-longrun" })],
+                { stopReason: "toolUse" },
+              );
+            }
+            return fauxAssistantMessage("long run done");
+          }
+          if (prompt.includes("RETRYME")) {
+            const failed = deps.state.counter("model:failures");
+            if (failed < 1) {
+              await deps.state.bump("model:failures");
+              deps.state.put("retry:scheduledAt", String(Date.now()));
+              await deps.evidence.record("model_error", {
+                turn, note: "RETRYME: 再試行待機に入る",
+              });
+              return fauxAssistantMessage("", {
+                stopReason: "error",
+                errorMessage: "The stream ended without the model finishing its answer.",
+              });
+            }
+            deps.state.put("retry:resumedAt", String(Date.now()));
+            await deps.evidence.record("observed", {
+              probe: "retry_resumed",
+              待機ミリ秒: Date.now() - Number(deps.state.get("retry:scheduledAt") ?? Date.now()),
+            });
+            return fauxAssistantMessage("retried");
+          }
+          return fauxAssistantMessage("no marker");
         }
 
         case "tool_then_cut": {

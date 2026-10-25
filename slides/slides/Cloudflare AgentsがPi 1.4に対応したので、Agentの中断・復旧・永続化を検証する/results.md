@@ -630,6 +630,64 @@ Workers では保留中のタイマーがオブジェクトを掴みます。
 
 ---
 
+## C38 — issue #2683 を独立に再現しました
+
+Cloudflare 自身が報告した不具合を、こちらで作り直しました。
+
+> PiHarness onWake can leave due sleeps unresumed while another task is active
+
+条件を 2 本のセッションで作ります。
+
+- セッション A は 60 秒走るツールを呼びます（= Pi に work がある状態）
+- セッション B は再試行対象のエラーを返し、12 秒の backoff に入ります（= sleeping なタスク）
+
+A を 3 秒先に走らせてから B を投げ、B が再開するまでの実測を取りました。
+
+| | B 単独（対照） | 並行する work あり |
+| --- | ---: | ---: |
+| `agents@0.30.1` | 12s | **12s** |
+| `agents@0.30.0` | 12s | **57s** |
+
+**57 秒は、A の残り時間とほぼ一致します。**
+B の再試行が、A が終わるまで止まっていました。
+
+対照が 2 方向に効いています。
+
+- **B 単独が両バージョンとも 12 秒** → 差はバージョンそのものではなく、並行実行の有無で出ている
+- **0.30.1 の並行ありが 12 秒** → 並行実行そのものが遅いわけではない
+
+issue #2683 の報告どおりでした。
+報告者は workerd と Miniflare での再現までで、
+こちらも `wrangler dev --local` での再現です。
+
+### 原因は配布物の差分で確認できます
+
+0.30.0 の `#waitWhileActive` は `pi.wake().active` だけを見ていて、
+`wake.at`（次にスリープが明ける時刻）を締切に使わず、`pi.resume()` も呼びません。
+
+```diff
+-		while (pi.wake().active) {
+-			const left = deadline - Date.now();
++		let wake = pi.wake();
++		while (wake.active) {
++			const now = Date.now();
++			const left = deadline - now;
+ 			if (left <= 0) return true;
++			let sleep = onWakeWired ? left : Math.min(left, pollMs);
++			if (wake.at !== void 0) sleep = Math.min(sleep, wake.at - now);
+ 			...
++			if (wake.at !== void 0 && Date.now() >= wake.at) pi.resume();
++			wake = pi.wake();
+ 		}
+```
+
+A が走っている間、待機ループは `active` のまま回り続け、
+B のスリープが期限を迎えても誰も `resume()` を呼びませんでした。
+
+**判定: ✅ 確認。** `agents` は 0.30.1 以降を使ってください。
+
+---
+
 ## C41 — ロールバックできない理由は Hibernation の実装だった
 
 Cloudflare の Changelog は、このアップグレードを戻せないと明記しています。

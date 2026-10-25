@@ -15,7 +15,13 @@ import { Lifecycle } from "agents/lifecycle";
 import { Evidence } from "./evidence.ts";
 import { LabState } from "./state.ts";
 import { createLabTools } from "./tools.ts";
-import { createFaux, FAUX_MODEL_ID, REAL_MODEL_ID } from "./script.ts";
+import {
+  createFaux,
+  createSlowFaux,
+  FAUX_MODEL_ID,
+  REAL_MODEL_ID,
+  SLOW_MODEL_ID,
+} from "./script.ts";
 import { wrapStorage } from "./storage.ts";
 
 export class RecoveryLab extends DurableObject<Env> {
@@ -29,6 +35,7 @@ export class RecoveryLab extends DurableObject<Env> {
   evidence = new Evidence(this.ctx.storage, this.#instanceId);
   state = new LabState(this.ctx.storage);
   #faux = createFaux({ state: this.state, evidence: this.evidence });
+  #slowFaux = createSlowFaux({ state: this.state, evidence: this.evidence });
   #ai = createAI({ binding: this.env.AI });
   #factoryRuns = 0;
 
@@ -44,6 +51,7 @@ export class RecoveryLab extends DurableObject<Env> {
       // あとから設定を変えても届かないので、既定は偽モデルに固定し、
       // C20（実モデルが要る 1 本）だけ `useRealModel()` で切り替える。
       models.setProvider(this.#faux.provider);
+      models.setProvider(this.#slowFaux.provider);
       models.setProvider(this.#ai.provider);
 
       this.registry.install({
@@ -233,9 +241,38 @@ export class RecoveryLab extends DurableObject<Env> {
     return { ok: true, model: id };
   }
 
-  async piSubmit(text: string, operationId?: string) {
-    const receipt = await this.harness.submit(text, operationId ? { operationId } : undefined);
-    await this.evidence.record("submitted", { text, accepted: receipt.accepted }, {
+  /** C15 用。遅いストリームの偽モデルに切り替える。 */
+  async useSlowModel(session?: string) {
+    this.state.put("slowModel", "on");
+    await this.ctx.storage.sync();
+    // 引数ありの getModel は undefined を返しうる。カタログの先頭を使う。
+    await this.harness.session(session).setModel(this.#slowFaux.getModel());
+    await this.evidence.record("observed", { slowModel: SLOW_MODEL_ID });
+    return { ok: true, model: SLOW_MODEL_ID };
+  }
+
+  /**
+   * 新しいセッションを作る。C38 用。
+   *
+   * issue #2683 の条件は「実行中の別タスクの横で眠っているタスク」なので、
+   * 1 つのハーネスの中で 2 本を並行させる必要がある。
+   */
+  async createSession() {
+    const session = await this.harness.sessions.create();
+    await this.evidence.record("observed", { probe: "session_created", session: session.id });
+    return { id: session.id };
+  }
+
+  async listSessions() {
+    return (await this.harness.sessions.list()).map((s) => ({ id: s.id, busy: s.busy }));
+  }
+
+  async piSubmit(text: string, operationId?: string, session?: string) {
+    const receipt = await this.harness.submit(text, {
+      ...(operationId ? { operationId } : {}),
+      ...(session ? { session } : {}),
+    });
+    await this.evidence.record("submitted", { text, accepted: receipt.accepted, session }, {
       operationId: receipt.operationId,
     });
     return { operationId: receipt.operationId, accepted: receipt.accepted };
@@ -249,8 +286,8 @@ export class RecoveryLab extends DurableObject<Env> {
     return { status: result.status, reason: result.reason, text: result.text };
   }
 
-  async piPending() {
-    return (await this.harness.pending()).map((p) => ({
+  async piPending(session?: string) {
+    return (await this.harness.pending(session ? { session } : undefined)).map((p) => ({
       operationId: p.operationId,
       status: p.status,
     }));
