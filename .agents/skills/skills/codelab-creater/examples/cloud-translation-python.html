@@ -1,0 +1,1641 @@
+
+
+
+
+
+
+
+
+
+<!doctype html>
+<html 
+      lang="en"
+      dir="ltr">
+  <head>
+    <meta name="google-signin-client-id" content="721724668570-nbkv1cfusk7kk4eni4pjvepaus73b13t.apps.googleusercontent.com"><meta name="google-signin-scope"
+          content="profile email https://www.googleapis.com/auth/developerprofiles https://www.googleapis.com/auth/developerprofiles.award https://www.googleapis.com/auth/devprofiles.full_control.firstparty"><meta property="og:site_name" content="Google Codelabs">
+    <meta property="og:type" content="website"><meta name="theme-color" content="#1a73e8"><meta charset="utf-8">
+    <meta content="IE=Edge" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+
+    <link rel="manifest" href="/_pwa/codelabs/manifest.json"
+          crossorigin="use-credentials">
+    <link rel="preconnect" href="//www.gstatic.com" crossorigin>
+    <link rel="preconnect" href="//fonts.googleapis.com" crossorigin>
+    <link rel="preconnect" href="//www.google-analytics.com" crossorigin><link rel="stylesheet" href="//fonts.googleapis.com/css?family=Google+Sans:400,500|Roboto:400,400italic,500,500italic,700,700italic|Roboto+Mono:400,500,700&display=swap">
+      <link rel="stylesheet"
+            href="//fonts.googleapis.com/css2?family=Material+Icons&family=Material+Symbols+Outlined&display=block"><link rel="stylesheet" href="https://www.gstatic.com/devrel-devsite/prod/vb08cbdb02acf7f66ad9727ddfba9d81df8806422eb5dd63dba194c9c8c7997f7/codelabs/css/app.css">
+      <link rel="shortcut icon" href="https://www.gstatic.com/devrel-devsite/prod/vb08cbdb02acf7f66ad9727ddfba9d81df8806422eb5dd63dba194c9c8c7997f7/codelabs/images/favicon.png">
+    <link rel="apple-touch-icon" href="https://www.gstatic.com/devrel-devsite/prod/vb08cbdb02acf7f66ad9727ddfba9d81df8806422eb5dd63dba194c9c8c7997f7/codelabs/images/touchicon-180.png"><link rel="canonical" href="https://codelabs.developers.google.com/codelabs/cloud-translation-python3"><link rel="search" type="application/opensearchdescription+xml"
+            title="Google Codelabs" href="https://codelabs.developers.google.com/s/opensearch.xml">
+      <link rel="alternate" hreflang="en"
+          href="https://codelabs.developers.google.com/codelabs/cloud-translation-python3" /><link rel="alternate" hreflang="x-default" href="https://codelabs.developers.google.com/codelabs/cloud-translation-python3" /><link rel="alternate" hreflang="ar"
+          href="https://codelabs.developers.google.com/codelabs/cloud-translation-python3?hl=ar" /><link rel="alternate" hreflang="bn"
+          href="https://codelabs.developers.google.com/codelabs/cloud-translation-python3?hl=bn" /><link rel="alternate" hreflang="zh-Hans"
+          href="https://codelabs.developers.google.com/codelabs/cloud-translation-python3?hl=zh-cn" /><link rel="alternate" hreflang="zh-Hant"
+          href="https://codelabs.developers.google.com/codelabs/cloud-translation-python3?hl=zh-tw" /><link rel="alternate" hreflang="fa"
+          href="https://codelabs.developers.google.com/codelabs/cloud-translation-python3?hl=fa" /><link rel="alternate" hreflang="fr"
+          href="https://codelabs.developers.google.com/codelabs/cloud-translation-python3?hl=fr" /><link rel="alternate" hreflang="de"
+          href="https://codelabs.developers.google.com/codelabs/cloud-translation-python3?hl=de" /><link rel="alternate" hreflang="he"
+          href="https://codelabs.developers.google.com/codelabs/cloud-translation-python3?hl=he" /><link rel="alternate" hreflang="hi"
+          href="https://codelabs.developers.google.com/codelabs/cloud-translation-python3?hl=hi" /><link rel="alternate" hreflang="id"
+          href="https://codelabs.developers.google.com/codelabs/cloud-translation-python3?hl=id" /><link rel="alternate" hreflang="it"
+          href="https://codelabs.developers.google.com/codelabs/cloud-translation-python3?hl=it" /><link rel="alternate" hreflang="ja"
+          href="https://codelabs.developers.google.com/codelabs/cloud-translation-python3?hl=ja" /><link rel="alternate" hreflang="ko"
+          href="https://codelabs.developers.google.com/codelabs/cloud-translation-python3?hl=ko" /><link rel="alternate" hreflang="pl"
+          href="https://codelabs.developers.google.com/codelabs/cloud-translation-python3?hl=pl" /><link rel="alternate" hreflang="pt-BR"
+          href="https://codelabs.developers.google.com/codelabs/cloud-translation-python3?hl=pt-br" /><link rel="alternate" hreflang="ru"
+          href="https://codelabs.developers.google.com/codelabs/cloud-translation-python3?hl=ru" /><link rel="alternate" hreflang="es-419"
+          href="https://codelabs.developers.google.com/codelabs/cloud-translation-python3?hl=es-419" /><link rel="alternate" hreflang="th"
+          href="https://codelabs.developers.google.com/codelabs/cloud-translation-python3?hl=th" /><link rel="alternate" hreflang="tr"
+          href="https://codelabs.developers.google.com/codelabs/cloud-translation-python3?hl=tr" /><link rel="alternate" hreflang="vi"
+          href="https://codelabs.developers.google.com/codelabs/cloud-translation-python3?hl=vi" /><title>Using the Translation API with Python &nbsp;|&nbsp; Google Codelabs</title>
+
+<meta property="og:title" content="Using the Translation API with Python &nbsp;|&nbsp; Google Codelabs"><meta name="description" content="In this tutorial, you’ll learn to use the Translation API with Python.">
+  <meta property="og:description" content="In this tutorial, you’ll learn to use the Translation API with Python."><meta property="og:url" content="https://codelabs.developers.google.com/codelabs/cloud-translation-python3"><meta property="og:locale" content="en">
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  
+
+    </head>
+  <body class="color-scheme--light"
+        template="codelab"
+        theme="codelabs-theme"
+        type="codelab"
+        
+        
+        
+        layout="docs"
+        
+        
+        
+        
+        
+        display-toc
+        pending>
+  
+    <devsite-progress type="indeterminate" id="app-progress"></devsite-progress>
+  
+  
+    <a href="#main-content" class="skip-link button">
+      
+      Skip to main content
+    </a>
+    <section class="devsite-wrapper">
+      <devsite-cookie-notification-bar></devsite-cookie-notification-bar>
+        <devsite-header role="banner">
+  
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="devsite-header--inner" data-nosnippet>
+  <div class="devsite-top-logo-row-wrapper-wrapper">
+    <div class="devsite-top-logo-row-wrapper">
+      <div class="devsite-top-logo-row">
+        <button type="button" id="devsite-hamburger-menu"
+          class="devsite-header-icon-button button-flat material-icons gc-analytics-event"
+          data-category="Site-Wide Custom Events"
+          data-label="Navigation menu button"
+          visually-hidden
+          aria-label="Open menu">
+        </button>
+        
+<div class="devsite-product-name-wrapper">
+
+  <a href="/" class="devsite-site-logo-link gc-analytics-event"
+   data-category="Site-Wide Custom Events" data-label="Site logo" track-type="globalNav"
+   track-name="googleCodelabs" track-metadata-position="nav"
+   track-metadata-eventDetail="nav">
+  
+  <picture>
+    
+    <img src="https://www.gstatic.com/devrel-devsite/prod/vb08cbdb02acf7f66ad9727ddfba9d81df8806422eb5dd63dba194c9c8c7997f7/codelabs/images/lockup.svg" class="devsite-site-logo" alt="Google Codelabs">
+  </picture>
+  
+</a>
+
+
+
+</div>
+        <div class="devsite-top-logo-row-middle">
+          <div class="devsite-header-upper-tabs">
+            
+           </div>
+          
+<devsite-search
+    enable-signin
+    enable-search
+    enable-suggestions
+      enable-query-completion
+    
+    enable-search-summaries
+    
+    tenant-name="Google Codelabs"
+    
+    
+    
+    
+    
+    >
+  <form class="devsite-search-form" action="https://codelabs.developers.google.com/s/results" method="GET">
+    <div class="devsite-search-container">
+      <button type="button"
+              search-open
+              class="devsite-search-button devsite-header-icon-button button-flat material-icons"
+              
+              aria-label="Open search"></button>
+      <div class="devsite-searchbox">
+        <input
+          aria-activedescendant=""
+          aria-autocomplete="list"
+          
+          aria-label="Search"
+          aria-expanded="false"
+          aria-haspopup="listbox"
+          autocomplete="off"
+          class="devsite-search-field devsite-search-query"
+          name="q"
+          
+          placeholder="Search"
+          role="combobox"
+          type="text"
+          value=""
+          >
+          <div class="devsite-search-image material-icons" aria-hidden="true">
+            
+              <svg class="devsite-search-ai-image" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <g clip-path="url(#clip0_6641_386)">
+                    <path d="M19.6 21L13.3 14.7C12.8 15.1 12.225 15.4167 11.575 15.65C10.925 15.8833 10.2333 16 9.5 16C7.68333 16 6.14167 15.375 4.875 14.125C3.625 12.8583 3 11.3167 3 9.5C3 7.68333 3.625 6.15 4.875 4.9C6.14167 3.63333 7.68333 3 9.5 3C10.0167 3 10.5167 3.05833 11 3.175C11.4833 3.275 11.9417 3.43333 12.375 3.65L10.825 5.2C10.6083 5.13333 10.3917 5.08333 10.175 5.05C9.95833 5.01667 9.73333 5 9.5 5C8.25 5 7.18333 5.44167 6.3 6.325C5.43333 7.19167 5 8.25 5 9.5C5 10.75 5.43333 11.8167 6.3 12.7C7.18333 13.5667 8.25 14 9.5 14C10.6667 14 11.6667 13.625 12.5 12.875C13.35 12.1083 13.8417 11.15 13.975 10H15.975C15.925 10.6333 15.7833 11.2333 15.55 11.8C15.3333 12.3667 15.05 12.8667 14.7 13.3L21 19.6L19.6 21ZM17.5 12C17.5 10.4667 16.9667 9.16667 15.9 8.1C14.8333 7.03333 13.5333 6.5 12 6.5C13.5333 6.5 14.8333 5.96667 15.9 4.9C16.9667 3.83333 17.5 2.53333 17.5 0.999999C17.5 2.53333 18.0333 3.83333 19.1 4.9C20.1667 5.96667 21.4667 6.5 23 6.5C21.4667 6.5 20.1667 7.03333 19.1 8.1C18.0333 9.16667 17.5 10.4667 17.5 12Z" fill="#5F6368"/>
+                  </g>
+                <defs>
+                <clipPath id="clip0_6641_386">
+                <rect width="24" height="24" fill="white"/>
+                </clipPath>
+                </defs>
+              </svg>
+            
+          </div>
+          <div class="devsite-search-shortcut-icon-container" aria-hidden="true">
+            <kbd class="devsite-search-shortcut-icon">/</kbd>
+          </div>
+      </div>
+    </div>
+  </form>
+  <button type="button"
+          search-close
+          class="devsite-search-button devsite-header-icon-button button-flat material-icons"
+          
+          aria-label="Close search"></button>
+</devsite-search>
+
+        </div>
+
+        
+
+          
+
+          
+
+          
+
+          
+
+          
+<devsite-language-selector>
+  <ul role="presentation">
+    
+    
+    <li role="presentation">
+      <a role="menuitem" lang="en"
+        >English</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="de"
+        >Deutsch</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="es"
+        >Español</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="es_419"
+        >Español – América Latina</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="fr"
+        >Français</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="id"
+        >Indonesia</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="it"
+        >Italiano</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="pl"
+        >Polski</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="pt_br"
+        >Português – Brasil</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="vi"
+        >Tiếng Việt</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="tr"
+        >Türkçe</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="ru"
+        >Русский</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="he"
+        >עברית</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="ar"
+        >العربيّة</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="fa"
+        >فارسی</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="hi"
+        >हिंदी</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="bn"
+        >বাংলা</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="th"
+        >ภาษาไทย</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="zh_cn"
+        >中文 – 简体</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="zh_tw"
+        >中文 – 繁體</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="ja"
+        >日本語</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="ko"
+        >한국어</a>
+    </li>
+    
+  </ul>
+</devsite-language-selector>
+
+
+          
+
+        
+
+        
+          <devsite-user 
+                        
+                        
+                          enable-profiles
+                        
+                        
+                          fp-auth
+                        
+                        id="devsite-user">
+            
+              
+              <span class="button devsite-top-button" aria-hidden="true" visually-hidden>Sign in</span>
+            
+          </devsite-user>
+        
+        
+        
+      </div>
+    </div>
+  </div>
+
+
+
+</div>
+
+
+
+  
+</devsite-header>
+        <devsite-book-nav scrollbars hidden>
+          
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="devsite-book-nav-filter"
+     hidden>
+  <span class="filter-list-icon material-icons" aria-hidden="true"></span>
+  <input type="text"
+         placeholder="Filter"
+         
+         aria-label="Type to filter"
+         role="searchbox">
+  
+  <span class="filter-clear-button hidden"
+        data-title="Clear filter"
+        aria-label="Clear filter"
+        role="button"
+        tabindex="0"></span>
+</div>
+
+<nav class="devsite-book-nav devsite-nav nocontent" data-nosnippet
+     aria-label="Side menu">
+  <div class="devsite-mobile-header">
+    <button type="button"
+            id="devsite-close-nav"
+            class="devsite-header-icon-button button-flat material-icons gc-analytics-event"
+            data-category="Site-Wide Custom Events"
+            data-label="Close navigation"
+            aria-label="Close navigation">
+    </button>
+    <div class="devsite-product-name-wrapper">
+
+  <a href="/" class="devsite-site-logo-link gc-analytics-event"
+   data-category="Site-Wide Custom Events" data-label="Site logo" track-type="globalNav"
+   track-name="googleCodelabs" track-metadata-position="nav"
+   track-metadata-eventDetail="nav">
+  
+  <picture>
+    
+    <img src="https://www.gstatic.com/devrel-devsite/prod/vb08cbdb02acf7f66ad9727ddfba9d81df8806422eb5dd63dba194c9c8c7997f7/codelabs/images/lockup.svg" class="devsite-site-logo" alt="Google Codelabs">
+  </picture>
+  
+</a>
+
+
+</div>
+  </div>
+
+  <div class="devsite-book-nav-wrapper">
+    <div class="devsite-mobile-nav-top">
+      
+        <ul class="devsite-nav-list">
+          
+          
+          
+        </ul>
+      
+    </div>
+    
+  </div>
+</nav>
+          
+        </devsite-book-nav>
+      
+      <section id="gc-wrapper">
+        <main role="main" id="main-content" class="devsite-main-content"
+            
+              
+              has-sidebar
+            >
+          <div class="devsite-sidebar">
+            <div class="devsite-sidebar-content">
+                
+                <devsite-toc class="devsite-nav"
+                            role="navigation"
+                            aria-label="On this page"
+                            depth="1"
+                            scrollbars
+                            data-nosnippet
+                  ></devsite-toc>
+                <devsite-recommendations-sidebar class="nocontent devsite-nav" data-nosnippet>
+                </devsite-recommendations-sidebar>
+            </div>
+          </div>
+          <devsite-content>
+            
+              
+
+
+
+
+
+
+
+
+
+
+<article class="devsite-article"><style>
+      body {
+        transition: opacity ease-in 0.2s;
+      }
+
+      body[unresolved] {
+        opacity: 0;
+        display: block;
+        overflow: hidden;
+        position: relative;
+      }
+      </style>
+  
+  
+  
+  
+  
+
+  <div class="devsite-article-meta nocontent" role="navigation" data-nosnippet>
+    
+    
+    <ul class="devsite-breadcrumb-list"
+  >
+  
+</ul>
+    
+  </div>
+  
+    <h1 class="devsite-page-title" tabindex="-1">
+      Using the Translation API with Python<devsite-actions hidden data-nosnippet></devsite-actions>
+  
+      
+    </h1>
+  
+
+  <devsite-toc class="devsite-nav"
+    depth="1"
+    devsite-toc-embedded
+    >
+  </devsite-toc>
+  
+    
+  <div class="devsite-article-body clearfix
+  ">
+
+  
+    
+    
+    <google-codelab-analytics gaid="UA-49880327-14" ga4id="G-JTFZSJVVVZ"></google-codelab-analytics>
+    <google-codelab codelab-gaid="UA-66226300-1"
+                    codelab-ga4id=""
+                    doc-id="1P2dX83avEuA2DOJdV5axkQLexvyVviLWM59VHbsWq4w"
+                    id="cloud-translation-python3"
+                    title="Using the Translation API with Python"
+                    no-tooltip=""
+                    environment="web"
+                    category="cloud,machinelearning"
+                    feedback-link="https://github.com/googlecodelabs/feedback/issues/new?title=[cloud-translation-python3]…&amp;labels=cloud,python,ml&amp;assignees=picardparis"
+                    layout="paginated"
+                    >
+      
+        <google-codelab-step label="Overview" duration="0" step="0">
+          
+            <google-codelab-about codelab-title="Using the Translation API with Python"
+                                  authors="Laurent Picard &amp; Abby Carey"
+                                  last-updated="2026-03-20T17:30:16Z"
+                                  duration="8">
+            </google-codelab-about>
+          
+          <h2 class="step-title" id="0" data-text="Overview" tabindex="-1">
+              1. Overview
+          </h2>
+          
+          <p class="image-container"><img alt="1e2217da0416d129.png" style="width: 76.80px" src="/static/codelabs/cloud-translation-python3/img/1e2217da0416d129.png" srcset="https://codelabs.developers.google.com/static/codelabs/cloud-translation-python3/img/1e2217da0416d129_36.png 36w,https://codelabs.developers.google.com/static/codelabs/cloud-translation-python3/img/1e2217da0416d129_48.png 48w,https://codelabs.developers.google.com/static/codelabs/cloud-translation-python3/img/1e2217da0416d129_72.png 72w,https://codelabs.developers.google.com/static/codelabs/cloud-translation-python3/img/1e2217da0416d129_96.png 96w,https://codelabs.developers.google.com/static/codelabs/cloud-translation-python3/img/1e2217da0416d129_480.png 480w,https://codelabs.developers.google.com/static/codelabs/cloud-translation-python3/img/1e2217da0416d129_720.png 720w,https://codelabs.developers.google.com/static/codelabs/cloud-translation-python3/img/1e2217da0416d129_856.png 856w,https://codelabs.developers.google.com/static/codelabs/cloud-translation-python3/img/1e2217da0416d129_960.png 960w,https://codelabs.developers.google.com/static/codelabs/cloud-translation-python3/img/1e2217da0416d129_1440.png 1440w,https://codelabs.developers.google.com/static/codelabs/cloud-translation-python3/img/1e2217da0416d129_1920.png 1920w,https://codelabs.developers.google.com/static/codelabs/cloud-translation-python3/img/1e2217da0416d129_2880.png 2880w" sizes="(max-width: 840px) 100vw, 856px"></p>
+<p>The  <a href="https://cloud.google.com/translate/" target="_blank">Translation API</a> provides a simple, programmatic interface for dynamically translating an arbitrary string into any supported language using state-of-the-art Neural Machine Translation. It can also be used to detect a language in cases where the source language is unknown.</p>
+<p>In this tutorial, you&#39;ll use the Translation API with Python. Concepts covered include how to list available languages, translate text, and detect the language of a given text.</p>
+<h3 class="checklist" is-upgraded id="what-youll-learn" data-text="What you'll learn" tabindex="-1"><strong>What you'll learn</strong></h3>
+<ul class="checklist">
+<li>How to set up your environment</li>
+<li>How to list available languages</li>
+<li>How to translate text</li>
+<li>How to detect languages</li>
+</ul>
+<h3 is-upgraded id="what-youll-need" data-text="What you'll need" tabindex="-1"><strong>What you'll need</strong></h3>
+<ul>
+<li>A Google Cloud project</li>
+<li>A browser, such as  <a href="https://www.google.com/chrome" target="_blank">Chrome</a> or  <a href="https://www.mozilla.org/firefox/" target="_blank">Firefox</a></li>
+<li>Familiarity using Python</li>
+</ul>
+<h3 is-upgraded id="survey" data-text="Survey" tabindex="-1"><strong>Survey</strong></h3>
+<google-codelab-survey survey-id="cloud-translation-python3-1">
+<h4 id="how-will-you-use-this-tutorial" data-text="How will you use this tutorial?" tabindex="-1">How will you use this tutorial?</h4>
+<paper-radio-group>
+<paper-radio-button>Read it through only</paper-radio-button>
+<paper-radio-button>Read it and complete the exercises</paper-radio-button>
+</paper-radio-group>
+<h4 id="how-would-you-rate-your-experience-with-python" data-text="How would you rate your experience with Python?" tabindex="-1">How would you rate your experience with Python?</h4>
+<paper-radio-group>
+<paper-radio-button>Novice</paper-radio-button>
+<paper-radio-button>Intermediate</paper-radio-button>
+<paper-radio-button>Proficient</paper-radio-button>
+</paper-radio-group>
+<h4 id="how-would-you-rate-your-experience-with-google-cloud-services" data-text="How would you rate your experience with Google Cloud services?" tabindex="-1">How would you rate your experience with Google Cloud services?</h4>
+<paper-radio-group>
+<paper-radio-button>Novice</paper-radio-button>
+<paper-radio-button>Intermediate</paper-radio-button>
+<paper-radio-button>Proficient</paper-radio-button>
+</paper-radio-group>
+</google-codelab-survey>
+
+
+        </google-codelab-step>
+      
+        <google-codelab-step label="Setup and requirements" duration="2" step="1">
+          
+          <h2 class="step-title" id="1" data-text="Setup and requirements" tabindex="-1">
+              2. Setup and requirements
+          </h2>
+          
+          <h2 is-upgraded id="self-paced-environment-setup" data-text="Self-paced environment setup" tabindex="-1"><strong>Self-paced environment setup</strong></h2>
+<ol type="1">
+<li>Sign-in to the  <a href="http://console.cloud.google.com" target="_blank">Google Cloud Console</a> and create a new project or reuse an existing one. If you don&#39;t already have a Gmail or Google Workspace account, you must  <a href="https://accounts.google.com/SignUp" target="_blank">create one</a>.</li>
+</ol>
+<p class="image-container"><img alt="fbef9caa1602edd0.png" style="width: 328.00px" src="/static/codelabs/cloud-translation-python3/img/fbef9caa1602edd0.png" srcset="https://codelabs.developers.google.com/static/codelabs/cloud-translation-python3/img/fbef9caa1602edd0_36.png 36w,https://codelabs.developers.google.com/static/codelabs/cloud-translation-python3/img/fbef9caa1602edd0_48.png 48w,https://codelabs.developers.google.com/static/codelabs/cloud-translation-python3/img/fbef9caa1602edd0_72.png 72w,https://codelabs.developers.google.com/static/codelabs/cloud-translation-python3/img/fbef9caa1602edd0_96.png 96w,https://codelabs.developers.google.com/static/codelabs/cloud-translation-python3/img/fbef9caa1602edd0_480.png 480w,https://codelabs.developers.google.com/static/codelabs/cloud-translation-python3/img/fbef9caa1602edd0_720.png 720w,https://codelabs.developers.google.com/static/codelabs/cloud-translation-python3/img/fbef9caa1602edd0_856.png 856w,https://codelabs.developers.google.com/static/codelabs/cloud-translation-python3/img/fbef9caa1602edd0_960.png 960w,https://codelabs.developers.google.com/static/codelabs/cloud-translation-python3/img/fbef9caa1602edd0_1440.png 1440w,https://codelabs.developers.google.com/static/codelabs/cloud-translation-python3/img/fbef9caa1602edd0_1920.png 1920w,https://codelabs.developers.google.com/static/codelabs/cloud-translation-python3/img/fbef9caa1602edd0_2880.png 2880w" sizes="(max-width: 840px) 100vw, 856px"></p>
+<p class="image-container"><img alt="a99b7ace416376c4.png" style="width: 401.24px" src="/static/codelabs/cloud-translation-python3/img/a99b7ace416376c4.png" srcset="https://codelabs.developers.google.com/static/codelabs/cloud-translation-python3/img/a99b7ace416376c4_36.png 36w,https://codelabs.developers.google.com/static/codelabs/cloud-translation-python3/img/a99b7ace416376c4_48.png 48w,https://codelabs.developers.google.com/static/codelabs/cloud-translation-python3/img/a99b7ace416376c4_72.png 72w,https://codelabs.developers.google.com/static/codelabs/cloud-translation-python3/img/a99b7ace416376c4_96.png 96w,https://codelabs.developers.google.com/static/codelabs/cloud-translation-python3/img/a99b7ace416376c4_480.png 480w,https://codelabs.developers.google.com/static/codelabs/cloud-translation-python3/img/a99b7ace416376c4_720.png 720w,https://codelabs.developers.google.com/static/codelabs/cloud-translation-python3/img/a99b7ace416376c4_856.png 856w,https://codelabs.developers.google.com/static/codelabs/cloud-translation-python3/img/a99b7ace416376c4_960.png 960w,https://codelabs.developers.google.com/static/codelabs/cloud-translation-python3/img/a99b7ace416376c4_1440.png 1440w,https://codelabs.developers.google.com/static/codelabs/cloud-translation-python3/img/a99b7ace416376c4_1920.png 1920w,https://codelabs.developers.google.com/static/codelabs/cloud-translation-python3/img/a99b7ace416376c4_2880.png 2880w" sizes="(max-width: 840px) 100vw, 856px"></p>
+<p class="image-container"><img alt="5e3ff691252acf41.png" style="width: 466.00px" src="/static/codelabs/cloud-translation-python3/img/5e3ff691252acf41.png" srcset="https://codelabs.developers.google.com/static/codelabs/cloud-translation-python3/img/5e3ff691252acf41_36.png 36w,https://codelabs.developers.google.com/static/codelabs/cloud-translation-python3/img/5e3ff691252acf41_48.png 48w,https://codelabs.developers.google.com/static/codelabs/cloud-translation-python3/img/5e3ff691252acf41_72.png 72w,https://codelabs.developers.google.com/static/codelabs/cloud-translation-python3/img/5e3ff691252acf41_96.png 96w,https://codelabs.developers.google.com/static/codelabs/cloud-translation-python3/img/5e3ff691252acf41_480.png 480w,https://codelabs.developers.google.com/static/codelabs/cloud-translation-python3/img/5e3ff691252acf41_720.png 720w,https://codelabs.developers.google.com/static/codelabs/cloud-translation-python3/img/5e3ff691252acf41_856.png 856w,https://codelabs.developers.google.com/static/codelabs/cloud-translation-python3/img/5e3ff691252acf41_960.png 960w,https://codelabs.developers.google.com/static/codelabs/cloud-translation-python3/img/5e3ff691252acf41_1440.png 1440w,https://codelabs.developers.google.com/static/codelabs/cloud-translation-python3/img/5e3ff691252acf41_1920.png 1920w,https://codelabs.developers.google.com/static/codelabs/cloud-translation-python3/img/5e3ff691252acf41_2880.png 2880w" sizes="(max-width: 840px) 100vw, 856px"></p>
+<ul>
+<li>The <strong>Project name</strong> is the display name for this project&#39;s participants. It is a character string not used by Google APIs. You can always update it.</li>
+<li>The <strong>Project ID</strong> is unique across all Google Cloud projects and is immutable (cannot be changed after it has been set). The Cloud Console auto-generates a unique string; usually you don&#39;t care what it is. In most codelabs, you&#39;ll need to reference your Project ID (typically identified as <code translate="no" dir="ltr">PROJECT_ID</code>). If you don&#39;t like the generated ID, you might generate another random one. Alternatively, you can try your own, and see if it&#39;s available. It can&#39;t be changed after this step and remains for the duration of the project.</li>
+<li>For your information, there is a third value, a <strong>Project Number</strong>, which some APIs use. Learn more about all three of these values in the  <a href="https://cloud.google.com/resource-manager/docs/creating-managing-projects#before_you_begin" target="_blank">documentation</a>.</li>
+</ul>
+<aside class="warning"><p><strong>Caution:</strong> A project ID is globally unique and can&#39;t be used by anyone else after you&#39;ve selected it. You are the only user of that ID. Even if a project is deleted, the ID can&#39;t be used again</p>
+</aside>
+<aside class="special"><p><strong>Note:</strong> If you use a Gmail account, you can leave the default location set to <strong>No organization</strong>. If you use a Google Workspace account, choose a location that makes sense for your organization.</p>
+</aside>
+<ol type="1" start="2">
+<li>Next, you&#39;ll need to  <a href="https://console.cloud.google.com/billing" target="_blank">enable billing</a> in the Cloud Console to use Cloud resources/APIs. Running through this codelab won&#39;t cost much, if anything at all. To shut down resources to avoid incurring billing beyond this tutorial, you can delete the resources you created or delete the project. New Google Cloud users are eligible for the  <a href="http://cloud.google.com/free" target="_blank">$300 USD Free Trial</a> program.</li>
+</ol>
+<h2 is-upgraded id="start-cloud-shell" data-text="Start Cloud Shell" tabindex="-1"><strong>Start Cloud Shell</strong></h2>
+<p>While Google Cloud can be operated remotely from your laptop, in this codelab you will be using  <a href="https://cloud.google.com/shell" target="_blank">Cloud Shell</a>, a command line environment running in the Cloud.</p>
+<h3 is-upgraded id="activate-cloud-shell" data-text="Activate Cloud Shell" tabindex="-1">Activate Cloud Shell</h3>
+<ol type="1">
+<li>From the Cloud Console, click <strong>Activate Cloud Shell  </strong><img alt="853e55310c205094.png" style="width: 21.60px" src="/static/codelabs/cloud-translation-python3/img/853e55310c205094.png" srcset="https://codelabs.developers.google.com/static/codelabs/cloud-translation-python3/img/853e55310c205094_36.png 36w,https://codelabs.developers.google.com/static/codelabs/cloud-translation-python3/img/853e55310c205094_48.png 48w,https://codelabs.developers.google.com/static/codelabs/cloud-translation-python3/img/853e55310c205094_72.png 72w,https://codelabs.developers.google.com/static/codelabs/cloud-translation-python3/img/853e55310c205094_96.png 96w,https://codelabs.developers.google.com/static/codelabs/cloud-translation-python3/img/853e55310c205094_480.png 480w,https://codelabs.developers.google.com/static/codelabs/cloud-translation-python3/img/853e55310c205094_720.png 720w,https://codelabs.developers.google.com/static/codelabs/cloud-translation-python3/img/853e55310c205094_856.png 856w,https://codelabs.developers.google.com/static/codelabs/cloud-translation-python3/img/853e55310c205094_960.png 960w,https://codelabs.developers.google.com/static/codelabs/cloud-translation-python3/img/853e55310c205094_1440.png 1440w,https://codelabs.developers.google.com/static/codelabs/cloud-translation-python3/img/853e55310c205094_1920.png 1920w,https://codelabs.developers.google.com/static/codelabs/cloud-translation-python3/img/853e55310c205094_2880.png 2880w" sizes="(max-width: 840px) 100vw, 856px">.</li>
+</ol>
+<p class="image-container"><img alt="3c1dabeca90e44e5.png" style="width: 624.00px" src="/static/codelabs/cloud-translation-python3/img/3c1dabeca90e44e5.png" srcset="https://codelabs.developers.google.com/static/codelabs/cloud-translation-python3/img/3c1dabeca90e44e5_36.png 36w,https://codelabs.developers.google.com/static/codelabs/cloud-translation-python3/img/3c1dabeca90e44e5_48.png 48w,https://codelabs.developers.google.com/static/codelabs/cloud-translation-python3/img/3c1dabeca90e44e5_72.png 72w,https://codelabs.developers.google.com/static/codelabs/cloud-translation-python3/img/3c1dabeca90e44e5_96.png 96w,https://codelabs.developers.google.com/static/codelabs/cloud-translation-python3/img/3c1dabeca90e44e5_480.png 480w,https://codelabs.developers.google.com/static/codelabs/cloud-translation-python3/img/3c1dabeca90e44e5_720.png 720w,https://codelabs.developers.google.com/static/codelabs/cloud-translation-python3/img/3c1dabeca90e44e5_856.png 856w,https://codelabs.developers.google.com/static/codelabs/cloud-translation-python3/img/3c1dabeca90e44e5_960.png 960w,https://codelabs.developers.google.com/static/codelabs/cloud-translation-python3/img/3c1dabeca90e44e5_1440.png 1440w,https://codelabs.developers.google.com/static/codelabs/cloud-translation-python3/img/3c1dabeca90e44e5_1920.png 1920w,https://codelabs.developers.google.com/static/codelabs/cloud-translation-python3/img/3c1dabeca90e44e5_2880.png 2880w" sizes="(max-width: 840px) 100vw, 856px"></p>
+<p>If this is your first time starting Cloud Shell, you&#39;re presented with an intermediate screen describing what it is. If you were presented with an intermediate screen, click <strong>Continue</strong>.</p>
+<p class="image-container"><img alt="9c92662c6a846a5c.png" style="width: 583.00px" src="/static/codelabs/cloud-translation-python3/img/9c92662c6a846a5c.png" srcset="https://codelabs.developers.google.com/static/codelabs/cloud-translation-python3/img/9c92662c6a846a5c_36.png 36w,https://codelabs.developers.google.com/static/codelabs/cloud-translation-python3/img/9c92662c6a846a5c_48.png 48w,https://codelabs.developers.google.com/static/codelabs/cloud-translation-python3/img/9c92662c6a846a5c_72.png 72w,https://codelabs.developers.google.com/static/codelabs/cloud-translation-python3/img/9c92662c6a846a5c_96.png 96w,https://codelabs.developers.google.com/static/codelabs/cloud-translation-python3/img/9c92662c6a846a5c_480.png 480w,https://codelabs.developers.google.com/static/codelabs/cloud-translation-python3/img/9c92662c6a846a5c_720.png 720w,https://codelabs.developers.google.com/static/codelabs/cloud-translation-python3/img/9c92662c6a846a5c_856.png 856w,https://codelabs.developers.google.com/static/codelabs/cloud-translation-python3/img/9c92662c6a846a5c_960.png 960w,https://codelabs.developers.google.com/static/codelabs/cloud-translation-python3/img/9c92662c6a846a5c_1440.png 1440w,https://codelabs.developers.google.com/static/codelabs/cloud-translation-python3/img/9c92662c6a846a5c_1920.png 1920w,https://codelabs.developers.google.com/static/codelabs/cloud-translation-python3/img/9c92662c6a846a5c_2880.png 2880w" sizes="(max-width: 840px) 100vw, 856px"></p>
+<p>It should only take a few moments to provision and connect to Cloud Shell.</p>
+<p class="image-container"><img alt="9f0e51b578fecce5.png" style="width: 701.23px" src="/static/codelabs/cloud-translation-python3/img/9f0e51b578fecce5.png" srcset="https://codelabs.developers.google.com/static/codelabs/cloud-translation-python3/img/9f0e51b578fecce5_36.png 36w,https://codelabs.developers.google.com/static/codelabs/cloud-translation-python3/img/9f0e51b578fecce5_48.png 48w,https://codelabs.developers.google.com/static/codelabs/cloud-translation-python3/img/9f0e51b578fecce5_72.png 72w,https://codelabs.developers.google.com/static/codelabs/cloud-translation-python3/img/9f0e51b578fecce5_96.png 96w,https://codelabs.developers.google.com/static/codelabs/cloud-translation-python3/img/9f0e51b578fecce5_480.png 480w,https://codelabs.developers.google.com/static/codelabs/cloud-translation-python3/img/9f0e51b578fecce5_720.png 720w,https://codelabs.developers.google.com/static/codelabs/cloud-translation-python3/img/9f0e51b578fecce5_856.png 856w,https://codelabs.developers.google.com/static/codelabs/cloud-translation-python3/img/9f0e51b578fecce5_960.png 960w,https://codelabs.developers.google.com/static/codelabs/cloud-translation-python3/img/9f0e51b578fecce5_1440.png 1440w,https://codelabs.developers.google.com/static/codelabs/cloud-translation-python3/img/9f0e51b578fecce5_1920.png 1920w,https://codelabs.developers.google.com/static/codelabs/cloud-translation-python3/img/9f0e51b578fecce5_2880.png 2880w" sizes="(max-width: 840px) 100vw, 856px"></p>
+<p>This virtual machine is loaded with all the development tools needed. It offers a persistent 5 GB home directory and runs in Google Cloud, greatly enhancing network performance and authentication.  Much, if not all, of your work in this codelab can be done with a browser.</p>
+<p>Once connected to Cloud Shell, you should see that you are authenticated and that the project is set to your project ID.</p>
+<ol type="1" start="2">
+<li>Run the following command in Cloud Shell to confirm that you are authenticated:</li>
+</ol>
+<div></div><devsite-code><pre translate="no" dir="ltr" is-upgraded>gcloud auth list
+</pre></devsite-code>
+<p><strong>Command output</strong></p>
+<div></div><devsite-code><pre translate="no" dir="ltr" is-upgraded> Credentialed Accounts
+ACTIVE  ACCOUNT
+*       &lt;my_account&gt;@&lt;my_domain.com&gt;
+
+To set the active account, run:
+    $ gcloud config set account `ACCOUNT`
+</pre></devsite-code>
+<aside class="special"><p><strong>Note:</strong> The <code translate="no" dir="ltr">gcloud</code> command-line tool is the powerful and unified command-line tool in Google Cloud. It comes preinstalled in Cloud Shell. You will notice its support for tab completion. <strong>You may be prompted to authenticate the first time you run a command.</strong> For more information, see  <a href="https://cloud.google.com/sdk/gcloud/" target="_blank">gcloud command-line tool overview</a>.</p>
+</aside>
+<ol type="1" start="3">
+<li>Run the following command in Cloud Shell to confirm that the gcloud command knows about your project:</li>
+</ol>
+<div></div><devsite-code><pre translate="no" dir="ltr" is-upgraded>gcloud config list project
+</pre></devsite-code>
+<p><strong>Command output</strong></p>
+<div></div><devsite-code><pre translate="no" dir="ltr" is-upgraded>[core]
+project = &lt;PROJECT_ID&gt;
+</pre></devsite-code>
+<p>If it is not, you can set it with this command:</p>
+<div></div><devsite-code><pre translate="no" dir="ltr" is-upgraded>gcloud config set project &lt;PROJECT_ID&gt;
+</pre></devsite-code>
+<p><strong>Command output</strong></p>
+<div></div><devsite-code><pre translate="no" dir="ltr" is-upgraded>Updated property [core/project].
+</pre></devsite-code>
+<aside class="special"><p><strong>Note:</strong> If you&#39;re completing this tutorial outside of Cloud Shell, follow  <a href="https://cloud.google.com/docs/authentication/provide-credentials-adc" target="_blank">Set up Application Default Credentials</a>.</p>
+</aside>
+
+
+        </google-codelab-step>
+      
+        <google-codelab-step label="Environment setup" duration="1" step="2">
+          
+          <h2 class="step-title" id="2" data-text="Environment setup" tabindex="-1">
+              3. Environment setup
+          </h2>
+          
+          <p>Before you can begin using the Translation API, run the following command in Cloud Shell to enable the API:</p>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Python"><code translate="no" dir="ltr"><span class="devsite-syntax-n">gcloud</span> <span class="devsite-syntax-n">services</span> <span class="devsite-syntax-n">enable</span> <span class="devsite-syntax-n">translate</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">googleapis</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">com</span>
+</code></pre></devsite-code>
+<p>You should see something like this:</p>
+<div></div><devsite-code><pre translate="no" dir="ltr" is-upgraded>Operation &#34;operations/...&#34; finished successfully.
+</pre></devsite-code>
+<p>Now, you can use the Translation API!</p>
+<p>Set the following environment variable (to be used in your application):</p>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Python"><code translate="no" dir="ltr"><span class="devsite-syntax-n">export</span> <span class="devsite-syntax-n">PROJECT_ID</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-err">$</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">gcloud</span> <span class="devsite-syntax-n">config</span> <span class="devsite-syntax-n">get</span><span class="devsite-syntax-o">-</span><span class="devsite-syntax-n">value</span> <span class="devsite-syntax-n">core</span><span class="devsite-syntax-o">/</span><span class="devsite-syntax-n">project</span><span class="devsite-syntax-p">)</span>
+
+<span class="devsite-syntax-n">echo</span> <span class="devsite-syntax-s2">"PROJECT_ID: $PROJECT_ID"</span>
+</code></pre></devsite-code>
+<aside class="special"><p>Note: This environment variable only applies to your current shell session. Therefore, if you open a new session, set this variable again.</p>
+</aside>
+<p>Navigate to your home directory:</p>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Python"><code translate="no" dir="ltr"><span class="devsite-syntax-n">cd</span> <span class="devsite-syntax-o">~</span>
+</code></pre></devsite-code>
+<p>Create a Python virtual environment to isolate the dependencies:</p>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Python"><code translate="no" dir="ltr"><span class="devsite-syntax-n">virtualenv</span> <span class="devsite-syntax-n">venv</span><span class="devsite-syntax-o">-</span><span class="devsite-syntax-n">translate</span>
+</code></pre></devsite-code>
+<p>Activate the virtual environment:</p>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Python"><code translate="no" dir="ltr"><span class="devsite-syntax-n">source</span> <span class="devsite-syntax-n">venv</span><span class="devsite-syntax-o">-</span><span class="devsite-syntax-n">translate</span><span class="devsite-syntax-o">/</span><span class="devsite-syntax-nb">bin</span><span class="devsite-syntax-o">/</span><span class="devsite-syntax-n">activate</span>
+</code></pre></devsite-code>
+<aside class="special"><p>Note: To stop using the virtual environment and go back to your system Python version, you can use the <code translate="no" dir="ltr">deactivate</code> command.</p>
+</aside>
+<p>Install IPython and the Translation API client library:</p>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Python"><code translate="no" dir="ltr"><span class="devsite-syntax-n">pip</span> <span class="devsite-syntax-n">install</span> <span class="devsite-syntax-n">ipython</span> <span class="devsite-syntax-n">google</span><span class="devsite-syntax-o">-</span><span class="devsite-syntax-n">cloud</span><span class="devsite-syntax-o">-</span><span class="devsite-syntax-n">translate</span>
+</code></pre></devsite-code>
+<p>You should see something like this:</p>
+<div></div><devsite-code><pre translate="no" dir="ltr" is-upgraded>...
+Installing collected packages: ..., ipython, google-cloud-translate
+Successfully installed ... google-cloud-translate-3.16.0 ...
+</pre></devsite-code>
+<p>Now, you&#39;re ready to use the Translation API client library!</p>
+<aside class="special"><p>Note: If you&#39;re setting up your own Python development environment outside of Cloud Shell, you can follow these  <a href="https://cloud.google.com/python/setup" target="_blank">guidelines</a>.</p>
+</aside>
+<p>In the next steps, you&#39;ll use an interactive Python interpreter called  <a href="https://ipython.org/" target="_blank">IPython</a>, which you installed in the previous step. Start a session by running <code translate="no" dir="ltr">ipython</code> in Cloud Shell:</p>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Python"><code translate="no" dir="ltr"><span class="devsite-syntax-n">ipython</span>
+</code></pre></devsite-code>
+<p>You should see something like this:</p>
+<div></div><devsite-code><pre translate="no" dir="ltr" is-upgraded>Python 3.10.12 (main, Jul 29 2024, 16:56:48) [GCC 11.4.0]
+Type &#39;copyright&#39;, &#39;credits&#39; or &#39;license&#39; for more information
+IPython 8.27.0 -- An enhanced Interactive Python. Type &#39;?&#39; for help.
+
+In [1]:
+</pre></devsite-code>
+<aside class="special"><p>Note: If needed, you can quit your IPython session with the <code translate="no" dir="ltr">exit</code> command.</p>
+</aside>
+<p>Copy the following code into your IPython session:</p>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Python"><code translate="no" dir="ltr"><span class="devsite-syntax-kn">from</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">os</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kn">import</span> <span class="devsite-syntax-n">environ</span>
+
+<span class="devsite-syntax-kn">from</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">google.cloud</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kn">import</span> <span class="devsite-syntax-n">translate</span>
+
+
+<span class="devsite-syntax-n">PROJECT_ID</span> <span class="devsite-syntax-o">=</span> <span class="devsite-syntax-n">environ</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">get</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s2">"PROJECT_ID"</span><span class="devsite-syntax-p">,</span> <span class="devsite-syntax-s2">""</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-k">assert</span> <span class="devsite-syntax-n">PROJECT_ID</span>
+<span class="devsite-syntax-n">PARENT</span> <span class="devsite-syntax-o">=</span> <span class="devsite-syntax-sa">f</span><span class="devsite-syntax-s2">"projects/</span><span class="devsite-syntax-si">{</span><span class="devsite-syntax-n">PROJECT_ID</span><span class="devsite-syntax-si">}</span><span class="devsite-syntax-s2">"</span>
+</code></pre></devsite-code>
+<aside class="special"><p><strong>Notes:</strong></p>
+<ul>
+<li>This uses the <code translate="no" dir="ltr">PROJECT_ID</code> environment variable defined earlier.</li>
+<li>The <code translate="no" dir="ltr">PARENT</code> variable will be used for requests in the next steps. It refers to the caller&#39;s project.</li>
+</ul>
+</aside>
+<p>You&#39;re ready to make your first request and list the supported languages...</p>
+
+
+        </google-codelab-step>
+      
+        <google-codelab-step label="List available languages" duration="1" step="3">
+          
+          <h2 class="step-title" id="3" data-text="List available languages" tabindex="-1">
+              4. List available languages
+          </h2>
+          
+          <p>In this section, you&#39;ll list all available languages in the Translation API.</p>
+<p>To list available languages, copy the following code into your IPython session:</p>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Python"><code translate="no" dir="ltr"><span class="devsite-syntax-k">def</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">print_supported_languages</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">display_language_code</span><span class="devsite-syntax-p">:</span> <span class="devsite-syntax-nb">str</span><span class="devsite-syntax-p">):</span>
+    <span class="devsite-syntax-n">client</span> <span class="devsite-syntax-o">=</span> <span class="devsite-syntax-n">translate</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">TranslationServiceClient</span><span class="devsite-syntax-p">()</span>
+
+    <span class="devsite-syntax-n">response</span> <span class="devsite-syntax-o">=</span> <span class="devsite-syntax-n">client</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">get_supported_languages</span><span class="devsite-syntax-p">(</span>
+        <span class="devsite-syntax-n">parent</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-n">PARENT</span><span class="devsite-syntax-p">,</span>
+        <span class="devsite-syntax-n">display_language_code</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-n">display_language_code</span><span class="devsite-syntax-p">,</span>
+    <span class="devsite-syntax-p">)</span>
+
+    <span class="devsite-syntax-n">languages</span> <span class="devsite-syntax-o">=</span> <span class="devsite-syntax-n">response</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">languages</span>
+    <span class="devsite-syntax-nb">print</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-sa">f</span><span class="devsite-syntax-s2">" Languages: </span><span class="devsite-syntax-si">{</span><span class="devsite-syntax-nb">len</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">languages</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-si">}</span><span class="devsite-syntax-s2"> "</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">center</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-mi">60</span><span class="devsite-syntax-p">,</span> <span class="devsite-syntax-s2">"-"</span><span class="devsite-syntax-p">))</span>
+    <span class="devsite-syntax-k">for</span> <span class="devsite-syntax-n">language</span> <span class="devsite-syntax-ow">in</span> <span class="devsite-syntax-n">languages</span><span class="devsite-syntax-p">:</span>
+        <span class="devsite-syntax-n">language_code</span> <span class="devsite-syntax-o">=</span> <span class="devsite-syntax-n">language</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">language_code</span>
+        <span class="devsite-syntax-n">display_name</span> <span class="devsite-syntax-o">=</span> <span class="devsite-syntax-n">language</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">display_name</span>
+        <span class="devsite-syntax-nb">print</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-sa">f</span><span class="devsite-syntax-s2">"</span><span class="devsite-syntax-si">{</span><span class="devsite-syntax-n">language_code</span><span class="devsite-syntax-si">:</span><span class="devsite-syntax-s2">10</span><span class="devsite-syntax-si">}{</span><span class="devsite-syntax-n">display_name</span><span class="devsite-syntax-si">}</span><span class="devsite-syntax-s2">"</span><span class="devsite-syntax-p">)</span>
+    
+</code></pre></devsite-code>
+<p>Call the function:</p>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Python"><code translate="no" dir="ltr"><span class="devsite-syntax-n">print_supported_languages</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s2">"en"</span><span class="devsite-syntax-p">)</span>
+</code></pre></devsite-code>
+<p>You should get something like this:</p>
+<div></div><devsite-code><pre translate="no" dir="ltr" is-upgraded>---------------------- Languages: 137 ----------------------
+af        Afrikaans
+sq        Albanian
+am        Amharic
+ar        Arabic
+hy        Armenian
+...
+cy        Welsh
+xh        Xhosa
+yi        Yiddish
+yo        Yoruba
+zu        Zulu
+</pre></devsite-code>
+<aside class="warning"><p>If you get a <code translate="no" dir="ltr">PermissionDenied</code> error, type <code translate="no" dir="ltr">exit</code> to quit IPython, and return to the <strong>Setup and requirements</strong> step.</p>
+</aside>
+<p>Check out what you get with the display language in French:</p>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Python"><code translate="no" dir="ltr"><span class="devsite-syntax-n">print_supported_languages</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s2">"fr"</span><span class="devsite-syntax-p">)</span>
+</code></pre></devsite-code>
+<p>You should get the same list, sorted with the French names, similar to the following:</p>
+<div></div><devsite-code><pre translate="no" dir="ltr" is-upgraded>---------------------- Languages: 137 ----------------------
+af        Afrikaans
+sq        Albanais
+de        Allemand
+am        Amharique
+en        Anglais
+...
+vi        Vietnamien
+xh        Xhosa
+yi        Yiddish
+yo        Yoruba
+zu        Zoulou
+</pre></devsite-code>
+<p>You can try with another  <a href="https://cloud.google.com/translate/docs/languages" target="_blank">language code</a>.</p>
+<h2 is-upgraded id="summary" data-text="Summary" tabindex="-1"><strong>Summary</strong></h2>
+<p>In this step, you were able to list all available languages in the Translation API. You can find the complete list of supported languages on the  <a href="https://cloud.google.com/translate/docs/languages" target="_blank">language support</a> page.</p>
+
+
+        </google-codelab-step>
+      
+        <google-codelab-step label="Translate text" duration="2" step="4">
+          
+          <h2 class="step-title" id="4" data-text="Translate text" tabindex="-1">
+              5. Translate text
+          </h2>
+          
+          <p>You can use the Translation API to translate text from one language to another. Text is translated using the Neural Machine Translation (NMT) model. If the NMT model is not supported for the requested language translation pair, the Phrase-Based Machine Translation (PBMT) model is used. For more on Google Translate and its translation models, see the  <a href="https://www.blog.google/products/translate/found-translation-more-accurate-fluent-sentences-google-translate/" target="_blank">NMT announcement post</a>.</p>
+<p>To translate text, copy the following code into your IPython session:</p>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Python"><code translate="no" dir="ltr"><span class="devsite-syntax-k">def</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">translate_text</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">text</span><span class="devsite-syntax-p">:</span> <span class="devsite-syntax-nb">str</span><span class="devsite-syntax-p">,</span> <span class="devsite-syntax-n">target_language_code</span><span class="devsite-syntax-p">:</span> <span class="devsite-syntax-nb">str</span><span class="devsite-syntax-p">)</span> <span class="devsite-syntax-o">-</span>&gt; <span class="devsite-syntax-n">translate</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">Translation</span><span class="devsite-syntax-p">:</span>
+    <span class="devsite-syntax-n">client</span> <span class="devsite-syntax-o">=</span> <span class="devsite-syntax-n">translate</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">TranslationServiceClient</span><span class="devsite-syntax-p">()</span>
+
+    <span class="devsite-syntax-n">response</span> <span class="devsite-syntax-o">=</span> <span class="devsite-syntax-n">client</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">translate_text</span><span class="devsite-syntax-p">(</span>
+        <span class="devsite-syntax-n">parent</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-n">PARENT</span><span class="devsite-syntax-p">,</span>
+        <span class="devsite-syntax-n">contents</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-p">[</span><span class="devsite-syntax-n">text</span><span class="devsite-syntax-p">],</span>
+        <span class="devsite-syntax-n">target_language_code</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-n">target_language_code</span><span class="devsite-syntax-p">,</span>
+    <span class="devsite-syntax-p">)</span>
+
+    <span class="devsite-syntax-k">return</span> <span class="devsite-syntax-n">response</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">translations</span><span class="devsite-syntax-p">[</span><span class="devsite-syntax-mi">0</span><span class="devsite-syntax-p">]</span>
+    
+</code></pre></devsite-code>
+<p>Call the function to translate the same text in different languages:</p>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Python"><code translate="no" dir="ltr"><span class="devsite-syntax-n">text</span> <span class="devsite-syntax-o">=</span> <span class="devsite-syntax-s2">"Hello World!"</span>
+<span class="devsite-syntax-n">target_languages</span> <span class="devsite-syntax-o">=</span> <span class="devsite-syntax-p">[</span><span class="devsite-syntax-s2">"tr"</span><span class="devsite-syntax-p">,</span> <span class="devsite-syntax-s2">"de"</span><span class="devsite-syntax-p">,</span> <span class="devsite-syntax-s2">"es"</span><span class="devsite-syntax-p">,</span> <span class="devsite-syntax-s2">"it"</span><span class="devsite-syntax-p">,</span> <span class="devsite-syntax-s2">"el"</span><span class="devsite-syntax-p">,</span> <span class="devsite-syntax-s2">"zh"</span><span class="devsite-syntax-p">,</span> <span class="devsite-syntax-s2">"ja"</span><span class="devsite-syntax-p">,</span> <span class="devsite-syntax-s2">"ko"</span><span class="devsite-syntax-p">]</span>
+
+<span class="devsite-syntax-nb">print</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-sa">f</span><span class="devsite-syntax-s2">" </span><span class="devsite-syntax-si">{</span><span class="devsite-syntax-n">text</span><span class="devsite-syntax-si">}</span><span class="devsite-syntax-s2"> "</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">center</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-mi">50</span><span class="devsite-syntax-p">,</span> <span class="devsite-syntax-s2">"-"</span><span class="devsite-syntax-p">))</span>
+<span class="devsite-syntax-k">for</span> <span class="devsite-syntax-n">target_language</span> <span class="devsite-syntax-ow">in</span> <span class="devsite-syntax-n">target_languages</span><span class="devsite-syntax-p">:</span>
+    <span class="devsite-syntax-n">translation</span> <span class="devsite-syntax-o">=</span> <span class="devsite-syntax-n">translate_text</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">text</span><span class="devsite-syntax-p">,</span> <span class="devsite-syntax-n">target_language</span><span class="devsite-syntax-p">)</span>
+    <span class="devsite-syntax-n">source_language</span> <span class="devsite-syntax-o">=</span> <span class="devsite-syntax-n">translation</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">detected_language_code</span>
+    <span class="devsite-syntax-n">translated_text</span> <span class="devsite-syntax-o">=</span> <span class="devsite-syntax-n">translation</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">translated_text</span>
+    <span class="devsite-syntax-nb">print</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-sa">f</span><span class="devsite-syntax-s2">"</span><span class="devsite-syntax-si">{</span><span class="devsite-syntax-n">source_language</span><span class="devsite-syntax-si">}</span><span class="devsite-syntax-s2"> → </span><span class="devsite-syntax-si">{</span><span class="devsite-syntax-n">target_language</span><span class="devsite-syntax-si">}</span><span class="devsite-syntax-s2"> : </span><span class="devsite-syntax-si">{</span><span class="devsite-syntax-n">translated_text</span><span class="devsite-syntax-si">}</span><span class="devsite-syntax-s2">"</span><span class="devsite-syntax-p">)</span>
+    
+</code></pre></devsite-code>
+<p>You should get the following:</p>
+<div></div><devsite-code><pre translate="no" dir="ltr" is-upgraded>------------------ Hello World! ------------------
+en → tr : Selam Dünya!
+en → de : Hallo Welt!
+en → es : ¡Hola Mundo!
+en → it : Ciao mondo!
+en → el : Γεια σου Κόσμο!
+en → zh : 你好世界！
+en → ja : 「こんにちは世界」
+en → ko : 안녕하세요!
+</pre></devsite-code>
+<h2 is-upgraded id="summary_1" data-text="Summary" tabindex="-1"><strong>Summary</strong></h2>
+<p>In this step, you were able to use the Translation API to translate text into multiple languages. Read more about  <a href="https://cloud.google.com/translate/docs/advanced/translating-text-v3#translate_v3_translate_text-python" target="_blank">translating text</a>.</p>
+
+
+        </google-codelab-step>
+      
+        <google-codelab-step label="Detect languages" duration="2" step="5">
+          
+          <h2 class="step-title" id="5" data-text="Detect languages" tabindex="-1">
+              6. Detect languages
+          </h2>
+          
+          <p>You can also use the Translation API to detect the language of a text string.</p>
+<p>Copy the following code into your IPython session:</p>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Python"><code translate="no" dir="ltr"><span class="devsite-syntax-k">def</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">detect_language</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">text</span><span class="devsite-syntax-p">:</span> <span class="devsite-syntax-nb">str</span><span class="devsite-syntax-p">)</span> <span class="devsite-syntax-o">-</span>&gt; <span class="devsite-syntax-n">translate</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">DetectedLanguage</span><span class="devsite-syntax-p">:</span>
+    <span class="devsite-syntax-n">client</span> <span class="devsite-syntax-o">=</span> <span class="devsite-syntax-n">translate</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">TranslationServiceClient</span><span class="devsite-syntax-p">()</span>
+
+    <span class="devsite-syntax-n">response</span> <span class="devsite-syntax-o">=</span> <span class="devsite-syntax-n">client</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">detect_language</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">parent</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-n">PARENT</span><span class="devsite-syntax-p">,</span> <span class="devsite-syntax-n">content</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-n">text</span><span class="devsite-syntax-p">)</span>
+
+    <span class="devsite-syntax-k">return</span> <span class="devsite-syntax-n">response</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">languages</span><span class="devsite-syntax-p">[</span><span class="devsite-syntax-mi">0</span><span class="devsite-syntax-p">]</span>
+    
+</code></pre></devsite-code>
+<p>Call the function to detect the language of different sentences:</p>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Python"><code translate="no" dir="ltr"><span class="devsite-syntax-n">sentences</span> <span class="devsite-syntax-o">=</span> <span class="devsite-syntax-p">[</span>
+    <span class="devsite-syntax-s2">"Selam Dünya!"</span><span class="devsite-syntax-p">,</span>
+    <span class="devsite-syntax-s2">"Hallo Welt!"</span><span class="devsite-syntax-p">,</span>
+    <span class="devsite-syntax-s2">"¡Hola Mundo!"</span><span class="devsite-syntax-p">,</span>
+    <span class="devsite-syntax-s2">"Ciao mondo!"</span><span class="devsite-syntax-p">,</span>
+    <span class="devsite-syntax-s2">"Γεια σου Κόσμο!"</span><span class="devsite-syntax-p">,</span>
+    <span class="devsite-syntax-s2">"你好世界！"</span><span class="devsite-syntax-p">,</span>
+    <span class="devsite-syntax-s2">"「こんにちは世界」"</span><span class="devsite-syntax-p">,</span>
+    <span class="devsite-syntax-s2">"안녕하세요!"</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-p">]</span>
+<span class="devsite-syntax-k">for</span> <span class="devsite-syntax-n">sentence</span> <span class="devsite-syntax-ow">in</span> <span class="devsite-syntax-n">sentences</span><span class="devsite-syntax-p">:</span>
+    <span class="devsite-syntax-n">language</span> <span class="devsite-syntax-o">=</span> <span class="devsite-syntax-n">detect_language</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">sentence</span><span class="devsite-syntax-p">)</span>
+    <span class="devsite-syntax-n">confidence</span> <span class="devsite-syntax-o">=</span> <span class="devsite-syntax-n">language</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">confidence</span>
+    <span class="devsite-syntax-n">language_code</span> <span class="devsite-syntax-o">=</span> <span class="devsite-syntax-n">language</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">language_code</span>
+    <span class="devsite-syntax-nb">print</span><span class="devsite-syntax-p">(</span>
+        <span class="devsite-syntax-sa">f</span><span class="devsite-syntax-s2">"Confidence: </span><span class="devsite-syntax-si">{</span><span class="devsite-syntax-n">confidence</span><span class="devsite-syntax-si">:</span><span class="devsite-syntax-s2">4.0%</span><span class="devsite-syntax-si">}</span><span class="devsite-syntax-s2">"</span><span class="devsite-syntax-p">,</span>
+        <span class="devsite-syntax-sa">f</span><span class="devsite-syntax-s2">"Language: </span><span class="devsite-syntax-si">{</span><span class="devsite-syntax-n">language_code</span><span class="devsite-syntax-si">:</span><span class="devsite-syntax-s2">5</span><span class="devsite-syntax-si">}</span><span class="devsite-syntax-s2">"</span><span class="devsite-syntax-p">,</span>
+        <span class="devsite-syntax-n">sentence</span><span class="devsite-syntax-p">,</span>
+        <span class="devsite-syntax-n">sep</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-s2">" | "</span><span class="devsite-syntax-p">,</span>
+    <span class="devsite-syntax-p">)</span>
+    
+</code></pre></devsite-code>
+<p>You should get the following:</p>
+<div></div><devsite-code><pre translate="no" dir="ltr" is-upgraded>Confidence: 100% | Language: tr    | Selam Dünya!
+Confidence:  81% | Language: de    | Hallo Welt!
+Confidence: 100% | Language: es    | ¡Hola Mundo!
+Confidence: 100% | Language: it    | Ciao mondo!
+Confidence: 100% | Language: el    | Γεια σου Κόσμο!
+Confidence: 100% | Language: zh-CN | 你好世界！
+Confidence: 100% | Language: ja    | 「こんにちは世界」
+Confidence: 100% | Language: ko    | 안녕하세요!
+</pre></devsite-code>
+<h2 is-upgraded id="summary_2" data-text="Summary" tabindex="-1"><strong>Summary</strong></h2>
+<p>In this step, you were able to detect the language of a piece of text using the Translation API. Read more about  <a href="https://cloud.google.com/translate/docs/advanced/detecting-language-v3#translate_v3_detect_language-python" target="_blank">detecting languages</a>.</p>
+
+
+        </google-codelab-step>
+      
+        <google-codelab-step label="Congratulations!" duration="0" step="6">
+          
+          <h2 class="step-title" id="6" data-text="Congratulations!" tabindex="-1">
+              7. Congratulations!
+          </h2>
+          
+          <p class="image-container"><img alt="1e2217da0416d129.png" style="width: 76.80px" src="/static/codelabs/cloud-translation-python3/img/1e2217da0416d129.png" srcset="https://codelabs.developers.google.com/static/codelabs/cloud-translation-python3/img/1e2217da0416d129_36.png 36w,https://codelabs.developers.google.com/static/codelabs/cloud-translation-python3/img/1e2217da0416d129_48.png 48w,https://codelabs.developers.google.com/static/codelabs/cloud-translation-python3/img/1e2217da0416d129_72.png 72w,https://codelabs.developers.google.com/static/codelabs/cloud-translation-python3/img/1e2217da0416d129_96.png 96w,https://codelabs.developers.google.com/static/codelabs/cloud-translation-python3/img/1e2217da0416d129_480.png 480w,https://codelabs.developers.google.com/static/codelabs/cloud-translation-python3/img/1e2217da0416d129_720.png 720w,https://codelabs.developers.google.com/static/codelabs/cloud-translation-python3/img/1e2217da0416d129_856.png 856w,https://codelabs.developers.google.com/static/codelabs/cloud-translation-python3/img/1e2217da0416d129_960.png 960w,https://codelabs.developers.google.com/static/codelabs/cloud-translation-python3/img/1e2217da0416d129_1440.png 1440w,https://codelabs.developers.google.com/static/codelabs/cloud-translation-python3/img/1e2217da0416d129_1920.png 1920w,https://codelabs.developers.google.com/static/codelabs/cloud-translation-python3/img/1e2217da0416d129_2880.png 2880w" sizes="(max-width: 840px) 100vw, 856px"></p>
+<p>You learned how to use the Translation API using Python!</p>
+<h2 is-upgraded id="clean-up" data-text="Clean up" tabindex="-1"><strong>Clean up</strong></h2>
+<p>To clean up your development environment, from Cloud Shell:</p>
+<ul>
+<li>If you&#39;re still in your IPython session, go back to the shell: <code translate="no" dir="ltr">exit</code></li>
+<li>Stop using the Python virtual environment: <code translate="no" dir="ltr">deactivate</code></li>
+<li>Delete your virtual environment folder: <code translate="no" dir="ltr">cd ~ ; rm -rf ./venv-translate</code></li>
+</ul>
+<p>To delete your Google Cloud project, from Cloud Shell:</p>
+<ul>
+<li>Retrieve your current project ID: <code translate="no" dir="ltr">PROJECT_ID=$(gcloud config get-value core/project)</code></li>
+<li>Make sure this is the project you want to delete: <code translate="no" dir="ltr">echo $PROJECT_ID</code></li>
+<li>Delete the project: <code translate="no" dir="ltr">gcloud projects delete $PROJECT_ID</code></li>
+</ul>
+<h2 is-upgraded id="learn-more" data-text="Learn more" tabindex="-1"><strong>Learn more</strong></h2>
+<ul>
+<li>Cloud Translation documentation:  <a href="https://cloud.google.com/translate/docs" target="_blank">https://cloud.google.com/translate/docs</a></li>
+<li>Python on Google Cloud:  <a href="https://cloud.google.com/python/" target="_blank">https://cloud.google.com/python</a></li>
+<li>Cloud Client Libraries for Python:  <a href="https://github.com/googleapis/google-cloud-python#google-cloud-python-client" target="_blank">https://github.com/googleapis/google-cloud-python</a></li>
+</ul>
+<h2 is-upgraded id="license" data-text="License" tabindex="-1"><strong>License</strong></h2>
+<p>This work is licensed under a Creative Commons Attribution 2.0 Generic License.</p>
+
+
+        </google-codelab-step>
+      
+    </google-codelab>
+  
+  
+
+  
+</div>
+
+  
+    
+    
+    
+  
+
+  <div class="devsite-floating-action-buttons"></div></article>
+
+
+<devsite-content-footer class="nocontent" data-nosnippet>
+  <p>Except as otherwise noted, the content of this page is licensed under the <a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 License</a>, and code samples are licensed under the <a href="https://www.apache.org/licenses/LICENSE-2.0">Apache 2.0 License</a>. For details, see the <a href="https://developers.google.com/site-policies">Google Developers Site Policies</a>. Java is a registered trademark of Oracle and/or its affiliates.</p>
+  
+</devsite-content-footer>
+
+
+<devsite-notification
+>
+</devsite-notification>
+
+
+  
+<div class="devsite-content-data">
+  
+  
+    <template class="devsite-content-data-template">
+      [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Missing the information I need","missingTheInformationINeed","thumb-down"],["Too complicated / too many steps","tooComplicatedTooManySteps","thumb-down"],["Out of date","outOfDate","thumb-down"],["Samples / code issue","samplesCodeIssue","thumb-down"],["Other","otherDown","thumb-down"]],[],[],[]]
+    </template>
+  
+</div>
+            
+          </devsite-content>
+        </main>
+        <devsite-footer-promos class="devsite-footer">
+          
+            
+          
+        </devsite-footer-promos>
+        <devsite-footer-linkboxes class="devsite-footer">
+          
+            
+<nav class="devsite-footer-linkboxes nocontent"
+     aria-label="Footer links"
+     data-nosnippet>
+  
+  <ul class="devsite-footer-linkboxes-list">
+    
+    <li class="devsite-footer-linkbox ">
+    <h3 class="devsite-footer-linkbox-heading no-link">Connect</h3>
+      <ul class="devsite-footer-linkbox-list">
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//googledevelopers.blogspot.com"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 1)"
+            >
+            
+          
+            Blog
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//www.facebook.com/Google-Developers-967415219957038"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 2)"
+            >
+            
+          
+            Facebook
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//medium.com/google-developers"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 3)"
+            >
+            
+          
+            Medium
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//twitter.com/googledevs"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 4)"
+            >
+            
+          
+            Twitter
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//www.youtube.com/user/GoogleDevelopers"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 5)"
+            >
+            
+              
+              
+            
+          
+            YouTube
+          
+          </a>
+          
+          
+        </li>
+        
+      </ul>
+    </li>
+    
+    <li class="devsite-footer-linkbox ">
+    <h3 class="devsite-footer-linkbox-heading no-link">Programs</h3>
+      <ul class="devsite-footer-linkbox-list">
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//www.womentechmakers.com"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 1)"
+            >
+            
+          
+            Women Techmakers
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//developers.google.com/community/gdg"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 2)"
+            >
+            
+          
+            Google Developer Groups
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//developers.google.com/community/experts"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 3)"
+            >
+            
+          
+            Google Developer Experts
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//developers.google.com/community/accelerators"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 4)"
+            >
+            
+              
+              
+            
+          
+            Accelerators
+          
+          </a>
+          
+          
+        </li>
+        
+      </ul>
+    </li>
+    
+    <li class="devsite-footer-linkbox ">
+    <h3 class="devsite-footer-linkbox-heading no-link">Developer consoles</h3>
+      <ul class="devsite-footer-linkbox-list">
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//console.developers.google.com"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 1)"
+            >
+            
+          
+            Google API Console
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//console.cloud.google.com"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 2)"
+            >
+            
+          
+            Google Cloud Platform Console
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//play.google.com/apps/publish"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 3)"
+            >
+            
+          
+            Google Play Console
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//console.firebase.google.com"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 4)"
+            >
+            
+          
+            Firebase Console
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//console.actions.google.com"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 5)"
+            >
+            
+          
+            Actions on Google Console
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//cast.google.com/publish"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 6)"
+            >
+            
+          
+            Cast SDK Developer Console
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//chrome.google.com/webstore/developer/dashboard"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 7)"
+            >
+            
+              
+              
+            
+          
+            Chrome Web Store Dashboard
+          
+          </a>
+          
+          
+        </li>
+        
+      </ul>
+    </li>
+    
+  </ul>
+  
+</nav>
+          
+        </devsite-footer-linkboxes>
+        <devsite-footer-utility class="devsite-footer">
+          
+            
+
+<div class="devsite-footer-utility nocontent" data-nosnippet>
+  
+  
+  <nav class="devsite-footer-sites" aria-label="Other Google Developers websites">
+    <a href="https://developers.google.com/"
+       class="devsite-footer-sites-logo-link gc-analytics-event"
+       data-category="Site-Wide Custom Events"
+       data-label="Footer Google Developers Link">
+      <picture>
+        
+        <img class="devsite-footer-sites-logo"
+             src="https://www.gstatic.com/devrel-devsite/prod/vb08cbdb02acf7f66ad9727ddfba9d81df8806422eb5dd63dba194c9c8c7997f7/codelabs/images/lockup-google-for-developers.svg"
+             loading="lazy"
+             alt="Google Developers">
+      </picture>
+    </a>
+    <ul class="devsite-footer-sites-list">
+      
+      <li class="devsite-footer-sites-item">
+        <a href="//developer.android.com"
+           class="devsite-footer-sites-link
+                  gc-analytics-event"
+           data-category="Site-Wide Custom Events"
+         
+           data-label="Footer Android Link"
+         
+         >
+          Android
+        </a>
+      </li>
+      
+      <li class="devsite-footer-sites-item">
+        <a href="//developer.chrome.com/home"
+           class="devsite-footer-sites-link
+                  gc-analytics-event"
+           data-category="Site-Wide Custom Events"
+         
+           data-label="Footer Chrome Link"
+         
+         >
+          Chrome
+        </a>
+      </li>
+      
+      <li class="devsite-footer-sites-item">
+        <a href="//firebase.google.com"
+           class="devsite-footer-sites-link
+                  gc-analytics-event"
+           data-category="Site-Wide Custom Events"
+         
+           data-label="Footer Firebase Link"
+         
+         >
+          Firebase
+        </a>
+      </li>
+      
+      <li class="devsite-footer-sites-item">
+        <a href="//cloud.google.com"
+           class="devsite-footer-sites-link
+                  gc-analytics-event"
+           data-category="Site-Wide Custom Events"
+         
+           data-label="Footer Google Cloud Platform Link"
+         
+         >
+          Google Cloud Platform
+        </a>
+      </li>
+      
+      <li class="devsite-footer-sites-item">
+        <a href="//developers.google.com/products"
+           class="devsite-footer-sites-link
+                  gc-analytics-event"
+           data-category="Site-Wide Custom Events"
+         
+           data-label="Footer All products Link"
+         
+         >
+          All products
+        </a>
+      </li>
+      
+    </ul>
+  </nav>
+  
+
+  
+  <nav class="devsite-footer-utility-links" aria-label="Utility links">
+    
+    <ul class="devsite-footer-utility-list">
+      
+      <li class="devsite-footer-utility-item
+                 ">
+        
+        
+        <a class="devsite-footer-utility-link gc-analytics-event"
+           href="//developers.google.com/terms/site-terms"
+           data-category="Site-Wide Custom Events"
+           data-label="Footer Terms link"
+         >
+          Terms
+        </a>
+        
+      </li>
+      
+      <li class="devsite-footer-utility-item
+                 ">
+        
+        
+        <a class="devsite-footer-utility-link gc-analytics-event"
+           href="//policies.google.com/privacy"
+           data-category="Site-Wide Custom Events"
+           data-label="Footer Privacy link"
+         >
+          Privacy
+        </a>
+        
+      </li>
+      
+      <li class="devsite-footer-utility-item
+                 glue-cookie-notification-bar-control">
+        
+        
+        <a class="devsite-footer-utility-link gc-analytics-event"
+           href="#"
+           data-category="Site-Wide Custom Events"
+           data-label="Footer Manage cookies link"
+         
+           aria-hidden="true"
+         >
+          Manage cookies
+        </a>
+        
+      </li>
+      
+      <li class="devsite-footer-utility-item
+                 devsite-footer-utility-button">
+        
+        <span class="devsite-footer-utility-description">Sign up for the Google Developers newsletter</span>
+        
+        
+        <a class="devsite-footer-utility-link gc-analytics-event"
+           href="//services.google.com/fb/forms/googledevelopersnewsletter/?utm_medium=referral&amp;utm_source=google-products&amp;utm_team=googledevs&amp;utm_campaign=201611-newsletter-launch"
+           data-category="Site-Wide Custom Events"
+           data-label="Footer Subscribe link"
+         >
+          Subscribe
+        </a>
+        
+      </li>
+      
+    </ul>
+    
+    
+<devsite-language-selector>
+  <ul role="presentation">
+    
+    
+    <li role="presentation">
+      <a role="menuitem" lang="en"
+        >English</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="de"
+        >Deutsch</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="es"
+        >Español</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="es_419"
+        >Español – América Latina</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="fr"
+        >Français</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="id"
+        >Indonesia</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="it"
+        >Italiano</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="pl"
+        >Polski</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="pt_br"
+        >Português – Brasil</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="vi"
+        >Tiếng Việt</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="tr"
+        >Türkçe</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="ru"
+        >Русский</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="he"
+        >עברית</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="ar"
+        >العربيّة</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="fa"
+        >فارسی</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="hi"
+        >हिंदी</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="bn"
+        >বাংলা</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="th"
+        >ภาษาไทย</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="zh_cn"
+        >中文 – 简体</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="zh_tw"
+        >中文 – 繁體</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="ja"
+        >日本語</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="ko"
+        >한국어</a>
+    </li>
+    
+  </ul>
+</devsite-language-selector>
+
+  </nav>
+</div>
+          
+        </devsite-footer-utility>
+        <devsite-panel>
+          
+        </devsite-panel>
+        
+      </section>
+      </section>
+    <devsite-sitemask></devsite-sitemask>
+    <devsite-snackbar></devsite-snackbar>
+    <devsite-tooltip ></devsite-tooltip>
+    <devsite-heading-link></devsite-heading-link>
+    <devsite-analytics>
+      
+        <script type="application/json" analytics>[]</script>
+<script type="application/json" tag-management>{&#34;at&#34;: &#34;True&#34;, &#34;ga4&#34;: [], &#34;ga4p&#34;: [], &#34;gtm&#34;: [], &#34;parameters&#34;: {&#34;internalUser&#34;: &#34;False&#34;, &#34;language&#34;: {&#34;machineTranslated&#34;: &#34;False&#34;, &#34;requested&#34;: &#34;en&#34;, &#34;served&#34;: &#34;en&#34;}, &#34;pageType&#34;: &#34;codelab&#34;, &#34;projectName&#34;: null, &#34;signedIn&#34;: &#34;False&#34;, &#34;tenant&#34;: &#34;codelabs&#34;, &#34;recommendations&#34;: {&#34;sourcePage&#34;: &#34;&#34;, &#34;sourceType&#34;: 0, &#34;sourceRank&#34;: 0, &#34;sourceIdenticalDescriptions&#34;: 0, &#34;sourceTitleWords&#34;: 0, &#34;sourceDescriptionWords&#34;: 0, &#34;experiment&#34;: &#34;&#34;}, &#34;experiment&#34;: {&#34;ids&#34;: &#34;&#34;}}}</script>
+      
+    </devsite-analytics>
+    
+      <devsite-badger></devsite-badger>
+    
+    
+    
+    
+<script nonce="GkpFxZIfbGf8rBtNKSfBJjMTbRsnh/">
+  
+  (function(d,e,v,s,i,t,E){d['GoogleDevelopersObject']=i;
+    t=e.createElement(v);t.async=1;t.src=s;E=e.getElementsByTagName(v)[0];
+    E.parentNode.insertBefore(t,E);})(window, document, 'script',
+    'https://www.gstatic.com/devrel-devsite/prod/vb08cbdb02acf7f66ad9727ddfba9d81df8806422eb5dd63dba194c9c8c7997f7/codelabs/js/app_loader.js', '[17,"en",null,"/js/devsite_app_module.js","https://www.gstatic.com/devrel-devsite/prod/vb08cbdb02acf7f66ad9727ddfba9d81df8806422eb5dd63dba194c9c8c7997f7","https://www.gstatic.com/devrel-devsite/prod/vb08cbdb02acf7f66ad9727ddfba9d81df8806422eb5dd63dba194c9c8c7997f7/codelabs","https://codelabs-dot-devsite-v2-prod.appspot.com",1,null,["/_pwa/codelabs/manifest.json","https://www.gstatic.com/devrel-devsite/prod/vb08cbdb02acf7f66ad9727ddfba9d81df8806422eb5dd63dba194c9c8c7997f7/images/video-placeholder.svg","https://www.gstatic.com/devrel-devsite/prod/vb08cbdb02acf7f66ad9727ddfba9d81df8806422eb5dd63dba194c9c8c7997f7/codelabs/images/favicon.png","https://www.gstatic.com/devrel-devsite/prod/vb08cbdb02acf7f66ad9727ddfba9d81df8806422eb5dd63dba194c9c8c7997f7/codelabs/images/lockup.svg","https://fonts.googleapis.com/css?family=Google+Sans:400,500|Roboto:400,400italic,500,500italic,700,700italic|Roboto+Mono:400,500,700&display=swap"],1,null,[1,6,8,12,14,17,21,25,50,52,63,70,75,76,80,87,91,92,93,97,98,100,101,102,103,104,105,107,108,109,110,112,113,116,117,118,120,122,124,125,126,127,129,130,131,132,133,134,135,136,138,140,141,147,148,149,151,152,156,157,158,159,161,163,164,168,169,170,179,180,182,183,186,191,193,196],"AIzaSyAP-jjEJBzmIyKR4F-3XITp8yM9T1gEEI8","AIzaSyB6xiKGDR5O3Ak2okS4rLkauxGUG7XP0hg","codelabs.developers.google.com","AIzaSyAQk0fBONSGUqCNznf6Krs82Ap1-NV6J4o","AIzaSyCCxcqdrZ_7QMeLCRY20bh_SXdAYqy70KY",null,null,null,["Cloud__enable_llm_concierge_chat","TpcFeatures__enable_unmirrored_page_left_nav","MiscFeatureFlags__enable_appearance_cookies","Profiles__enable_dashboard_curated_recommendations","Cloud__enable_cloud_shell","Profiles__enable_callout_notifications","Profiles__enable_page_saving","DevPro__enable_firebase_workspaces_card","DevPro__enable_enterprise","Search__enable_suggestions_from_borg","Concierge__enable_remove_info_panel_tags","MiscFeatureFlags__enable_framebox_badge_methods","Profiles__enable_profile_collections","Search__enable_ai_search_summaries_for_all","Profiles__enable_public_developer_profiles","MiscFeatureFlags__fix_lower_breadcrumbs","Search__enable_ai_eligibility_checks","DevPro__enable_credits_banner","DevPro__enable_code_assist","DevPro__enable_vertex_credit_card","Profiles__enable_complete_playlist_endpoint","MiscFeatureFlags__gdp_dashboard_reskin_enabled","MiscFeatureFlags__remove_cross_domain_tracking_params","Profiles__enable_playlist_community_acl","Profiles__enable_recognition_badges","Cloud__cache_serialized_dynamic_content","CloudShell__cloud_code_overflow_menu","Concierge__enable_pushui","DevPro__enable_g1_integration","MiscFeatureFlags__enable_variable_operator","Profiles__enable_completequiz_endpoint","Analytics__enable_clearcut_logging","Cloud__enable_cloudx_experiment_ids","MiscFeatureFlags__developers_footer_image","Profiles__enable_release_notes_notifications","MiscFeatureFlags__enable_firebase_utm","MiscFeatureFlags__enable_explicit_template_dependencies","DevPro__enable_embed_profile_creation","Cloud__enable_cloud_shell_fte_user_flow","Cloud__enable_legacy_calculator_redirect","DevPro__enable_google_payments_buyflow","Cloud__fast_free_trial","Profiles__enable_completecodelab_endpoint","DevPro__enable_devsite_captcha","DevPro__enable_nvidia_credits_card","DevPro__enable_google_one_card","DevPro__enable_payments_first_batch","EngEduTelemetry__enable_engedu_telemetry","Cloud__enable_free_trial_server_call","Profiles__enable_auto_apply_credits","Profiles__enable_join_program_group_endpoint","Profiles__require_profile_eligibility_for_signin","Profiles__enable_purchase_prompts","Profiles__enable_stripe_subscription_management","MiscFeatureFlags__developers_footer_dark_image","DevPro__enable_devpro_offers","TpcFeatures__proxy_prod_host","MiscFeatureFlags__enable_variable_operator_index_yaml","CloudShell__cloud_shell_button","DevPro__enable_free_benefits","Profiles__enable_user_type","Profiles__enable_developer_profile_benefits_ui_redesign","DevPro__enable_developer_subscriptions","Analytics__enable_devpro_interaction_logging","MiscFeatureFlags__enable_view_transitions","SignIn__enable_l1_signup_flow","Profiles__enable_awarding_url","BookNav__enable_tenant_cache_key","Experiments__reqs_query_experiments","Search__enable_dynamic_content_confidential_banner","MiscFeatureFlags__enable_explain_this_code","Profiles__enable_targeted_hero","Profiles__enable_developer_profile_pages_as_content","Cloud__enable_cloud_dlp_service","MiscFeatureFlags__enable_project_variables","Search__enable_page_map","Concierge__enable_actions_menu","DevPro__enable_cloud_innovators_plus","Profiles__enable_developer_profiles_callout","DevPro__remove_eu_tax_intake_form"],null,null,"AIzaSyBLEMok-5suZ67qRPzx0qUtbnLmyT_kCVE","https://developerscontentserving-pa.clients6.google.com","AIzaSyCM4QpTRSqP5qI4Dvjt4OAScIN8sOUlO-k","https://developerscontentsearch-pa.clients6.google.com",1,4,null,"https://developerprofiles-pa.clients6.google.com",[17,"codelabs","Google Codelabs","codelabs.developers.google.com",null,"codelabs-dot-devsite-v2-prod.appspot.com",null,null,[null,1,null,null,null,null,null,null,null,null,null,[1],null,null,null,null,null,null,[1],null,null,null,null,[1],null,null,null,null,null,null,[1]],null,[33,null,null,null,null,null,"/images/lockup.svg",null,null,null,null,1,1,null,null,null,null,null,null,null,null,1,null,null,null,null,[]],[],null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,[6,1,14,15,20,22,23,29,32,36],null,[[],[1,1]],[[null,null,null,null,null,null,null,null,null,null,null,null,1]],null,4],null,"pk_live_5170syrHvgGVmSx9sBrnWtA5luvk9BwnVcvIi7HizpwauFG96WedXsuXh790rtij9AmGllqPtMLfhe2RSwD6Pn38V00uBCydV4m",1,1,"https://developerscontentinsights-pa.clients6.google.com","AIzaSyCg-ZUslalsEbXMfIo9ZP8qufZgo3LSBDU","AIzaSyDxT0vkxnY_KeINtA4LSePJO-4MAZPMRsE","https://developers.clients6.google.com",null,null,"AIzaSyBQom12tzI-rybN7Sf-KfeL4nwm-Rf7PmI\n",null,null,"https://developers.googleapis.com"]')
+  
+</script>
+
+    <devsite-a11y-announce></devsite-a11y-announce>
+  </body>
+</html>

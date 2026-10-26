@@ -1,0 +1,2109 @@
+
+
+
+
+
+
+
+
+
+<!doctype html>
+<html 
+      lang="en"
+      dir="ltr">
+  <head>
+    <meta name="google-signin-client-id" content="721724668570-nbkv1cfusk7kk4eni4pjvepaus73b13t.apps.googleusercontent.com"><meta name="google-signin-scope"
+          content="profile email https://www.googleapis.com/auth/developerprofiles https://www.googleapis.com/auth/developerprofiles.award https://www.googleapis.com/auth/devprofiles.full_control.firstparty"><meta property="og:site_name" content="Google Codelabs">
+    <meta property="og:type" content="website"><meta name="theme-color" content="#1a73e8"><meta charset="utf-8">
+    <meta content="IE=Edge" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+
+    <link rel="manifest" href="/_pwa/codelabs/manifest.json"
+          crossorigin="use-credentials">
+    <link rel="preconnect" href="//www.gstatic.com" crossorigin>
+    <link rel="preconnect" href="//fonts.googleapis.com" crossorigin>
+    <link rel="preconnect" href="//www.google-analytics.com" crossorigin><link rel="stylesheet" href="//fonts.googleapis.com/css?family=Google+Sans:400,500|Roboto:400,400italic,500,500italic,700,700italic|Roboto+Mono:400,500,700&display=swap">
+      <link rel="stylesheet"
+            href="//fonts.googleapis.com/css2?family=Material+Icons&family=Material+Symbols+Outlined&display=block"><link rel="stylesheet" href="https://www.gstatic.com/devrel-devsite/prod/vb08cbdb02acf7f66ad9727ddfba9d81df8806422eb5dd63dba194c9c8c7997f7/codelabs/css/app.css">
+      <link rel="shortcut icon" href="https://www.gstatic.com/devrel-devsite/prod/vb08cbdb02acf7f66ad9727ddfba9d81df8806422eb5dd63dba194c9c8c7997f7/codelabs/images/favicon.png">
+    <link rel="apple-touch-icon" href="https://www.gstatic.com/devrel-devsite/prod/vb08cbdb02acf7f66ad9727ddfba9d81df8806422eb5dd63dba194c9c8c7997f7/codelabs/images/touchicon-180.png"><link rel="canonical" href="https://codelabs.developers.google.com/bigquery-dataframes-iowa-liquor-sales"><link rel="search" type="application/opensearchdescription+xml"
+            title="Google Codelabs" href="https://codelabs.developers.google.com/s/opensearch.xml">
+      <link rel="alternate" hreflang="en"
+          href="https://codelabs.developers.google.com/bigquery-dataframes-iowa-liquor-sales" /><link rel="alternate" hreflang="x-default" href="https://codelabs.developers.google.com/bigquery-dataframes-iowa-liquor-sales" /><link rel="alternate" hreflang="ar"
+          href="https://codelabs.developers.google.com/bigquery-dataframes-iowa-liquor-sales?hl=ar" /><link rel="alternate" hreflang="bn"
+          href="https://codelabs.developers.google.com/bigquery-dataframes-iowa-liquor-sales?hl=bn" /><link rel="alternate" hreflang="zh-Hans"
+          href="https://codelabs.developers.google.com/bigquery-dataframes-iowa-liquor-sales?hl=zh-cn" /><link rel="alternate" hreflang="zh-Hant"
+          href="https://codelabs.developers.google.com/bigquery-dataframes-iowa-liquor-sales?hl=zh-tw" /><link rel="alternate" hreflang="fa"
+          href="https://codelabs.developers.google.com/bigquery-dataframes-iowa-liquor-sales?hl=fa" /><link rel="alternate" hreflang="fr"
+          href="https://codelabs.developers.google.com/bigquery-dataframes-iowa-liquor-sales?hl=fr" /><link rel="alternate" hreflang="de"
+          href="https://codelabs.developers.google.com/bigquery-dataframes-iowa-liquor-sales?hl=de" /><link rel="alternate" hreflang="he"
+          href="https://codelabs.developers.google.com/bigquery-dataframes-iowa-liquor-sales?hl=he" /><link rel="alternate" hreflang="hi"
+          href="https://codelabs.developers.google.com/bigquery-dataframes-iowa-liquor-sales?hl=hi" /><link rel="alternate" hreflang="id"
+          href="https://codelabs.developers.google.com/bigquery-dataframes-iowa-liquor-sales?hl=id" /><link rel="alternate" hreflang="it"
+          href="https://codelabs.developers.google.com/bigquery-dataframes-iowa-liquor-sales?hl=it" /><link rel="alternate" hreflang="ja"
+          href="https://codelabs.developers.google.com/bigquery-dataframes-iowa-liquor-sales?hl=ja" /><link rel="alternate" hreflang="ko"
+          href="https://codelabs.developers.google.com/bigquery-dataframes-iowa-liquor-sales?hl=ko" /><link rel="alternate" hreflang="pl"
+          href="https://codelabs.developers.google.com/bigquery-dataframes-iowa-liquor-sales?hl=pl" /><link rel="alternate" hreflang="pt-BR"
+          href="https://codelabs.developers.google.com/bigquery-dataframes-iowa-liquor-sales?hl=pt-br" /><link rel="alternate" hreflang="ru"
+          href="https://codelabs.developers.google.com/bigquery-dataframes-iowa-liquor-sales?hl=ru" /><link rel="alternate" hreflang="es-419"
+          href="https://codelabs.developers.google.com/bigquery-dataframes-iowa-liquor-sales?hl=es-419" /><link rel="alternate" hreflang="th"
+          href="https://codelabs.developers.google.com/bigquery-dataframes-iowa-liquor-sales?hl=th" /><link rel="alternate" hreflang="tr"
+          href="https://codelabs.developers.google.com/bigquery-dataframes-iowa-liquor-sales?hl=tr" /><link rel="alternate" hreflang="vi"
+          href="https://codelabs.developers.google.com/bigquery-dataframes-iowa-liquor-sales?hl=vi" /><title>Exploratory data analysis of Iowa liquor sales using the BigQuery DataFrames package &nbsp;|&nbsp; Google Codelabs</title>
+
+<meta property="og:title" content="Exploratory data analysis of Iowa liquor sales using the BigQuery DataFrames package &nbsp;|&nbsp; Google Codelabs"><meta name="description" content="In this lab, you will use BigQuery DataFrames from a Python notebook in BigQuery Studio to clean and analyze the Iowa liquor sales public dataset.">
+  <meta property="og:description" content="In this lab, you will use BigQuery DataFrames from a Python notebook in BigQuery Studio to clean and analyze the Iowa liquor sales public dataset."><meta property="og:url" content="https://codelabs.developers.google.com/bigquery-dataframes-iowa-liquor-sales"><meta property="og:locale" content="en">
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  
+
+    </head>
+  <body class="color-scheme--light"
+        template="codelab"
+        theme="codelabs-theme"
+        type="codelab"
+        
+        
+        
+        layout="docs"
+        
+        
+        
+        
+        
+        display-toc
+        pending>
+  
+    <devsite-progress type="indeterminate" id="app-progress"></devsite-progress>
+  
+  
+    <a href="#main-content" class="skip-link button">
+      
+      Skip to main content
+    </a>
+    <section class="devsite-wrapper">
+      <devsite-cookie-notification-bar></devsite-cookie-notification-bar>
+        <devsite-header role="banner">
+  
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="devsite-header--inner" data-nosnippet>
+  <div class="devsite-top-logo-row-wrapper-wrapper">
+    <div class="devsite-top-logo-row-wrapper">
+      <div class="devsite-top-logo-row">
+        <button type="button" id="devsite-hamburger-menu"
+          class="devsite-header-icon-button button-flat material-icons gc-analytics-event"
+          data-category="Site-Wide Custom Events"
+          data-label="Navigation menu button"
+          visually-hidden
+          aria-label="Open menu">
+        </button>
+        
+<div class="devsite-product-name-wrapper">
+
+  <a href="/" class="devsite-site-logo-link gc-analytics-event"
+   data-category="Site-Wide Custom Events" data-label="Site logo" track-type="globalNav"
+   track-name="googleCodelabs" track-metadata-position="nav"
+   track-metadata-eventDetail="nav">
+  
+  <picture>
+    
+    <img src="https://www.gstatic.com/devrel-devsite/prod/vb08cbdb02acf7f66ad9727ddfba9d81df8806422eb5dd63dba194c9c8c7997f7/codelabs/images/lockup.svg" class="devsite-site-logo" alt="Google Codelabs">
+  </picture>
+  
+</a>
+
+
+
+</div>
+        <div class="devsite-top-logo-row-middle">
+          <div class="devsite-header-upper-tabs">
+            
+           </div>
+          
+<devsite-search
+    enable-signin
+    enable-search
+    enable-suggestions
+      enable-query-completion
+    
+    enable-search-summaries
+    
+    tenant-name="Google Codelabs"
+    
+    
+    
+    
+    
+    >
+  <form class="devsite-search-form" action="https://codelabs.developers.google.com/s/results" method="GET">
+    <div class="devsite-search-container">
+      <button type="button"
+              search-open
+              class="devsite-search-button devsite-header-icon-button button-flat material-icons"
+              
+              aria-label="Open search"></button>
+      <div class="devsite-searchbox">
+        <input
+          aria-activedescendant=""
+          aria-autocomplete="list"
+          
+          aria-label="Search"
+          aria-expanded="false"
+          aria-haspopup="listbox"
+          autocomplete="off"
+          class="devsite-search-field devsite-search-query"
+          name="q"
+          
+          placeholder="Search"
+          role="combobox"
+          type="text"
+          value=""
+          >
+          <div class="devsite-search-image material-icons" aria-hidden="true">
+            
+              <svg class="devsite-search-ai-image" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <g clip-path="url(#clip0_6641_386)">
+                    <path d="M19.6 21L13.3 14.7C12.8 15.1 12.225 15.4167 11.575 15.65C10.925 15.8833 10.2333 16 9.5 16C7.68333 16 6.14167 15.375 4.875 14.125C3.625 12.8583 3 11.3167 3 9.5C3 7.68333 3.625 6.15 4.875 4.9C6.14167 3.63333 7.68333 3 9.5 3C10.0167 3 10.5167 3.05833 11 3.175C11.4833 3.275 11.9417 3.43333 12.375 3.65L10.825 5.2C10.6083 5.13333 10.3917 5.08333 10.175 5.05C9.95833 5.01667 9.73333 5 9.5 5C8.25 5 7.18333 5.44167 6.3 6.325C5.43333 7.19167 5 8.25 5 9.5C5 10.75 5.43333 11.8167 6.3 12.7C7.18333 13.5667 8.25 14 9.5 14C10.6667 14 11.6667 13.625 12.5 12.875C13.35 12.1083 13.8417 11.15 13.975 10H15.975C15.925 10.6333 15.7833 11.2333 15.55 11.8C15.3333 12.3667 15.05 12.8667 14.7 13.3L21 19.6L19.6 21ZM17.5 12C17.5 10.4667 16.9667 9.16667 15.9 8.1C14.8333 7.03333 13.5333 6.5 12 6.5C13.5333 6.5 14.8333 5.96667 15.9 4.9C16.9667 3.83333 17.5 2.53333 17.5 0.999999C17.5 2.53333 18.0333 3.83333 19.1 4.9C20.1667 5.96667 21.4667 6.5 23 6.5C21.4667 6.5 20.1667 7.03333 19.1 8.1C18.0333 9.16667 17.5 10.4667 17.5 12Z" fill="#5F6368"/>
+                  </g>
+                <defs>
+                <clipPath id="clip0_6641_386">
+                <rect width="24" height="24" fill="white"/>
+                </clipPath>
+                </defs>
+              </svg>
+            
+          </div>
+          <div class="devsite-search-shortcut-icon-container" aria-hidden="true">
+            <kbd class="devsite-search-shortcut-icon">/</kbd>
+          </div>
+      </div>
+    </div>
+  </form>
+  <button type="button"
+          search-close
+          class="devsite-search-button devsite-header-icon-button button-flat material-icons"
+          
+          aria-label="Close search"></button>
+</devsite-search>
+
+        </div>
+
+        
+
+          
+
+          
+
+          
+
+          
+
+          
+<devsite-language-selector>
+  <ul role="presentation">
+    
+    
+    <li role="presentation">
+      <a role="menuitem" lang="en"
+        >English</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="de"
+        >Deutsch</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="es"
+        >Español</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="es_419"
+        >Español – América Latina</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="fr"
+        >Français</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="id"
+        >Indonesia</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="it"
+        >Italiano</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="pl"
+        >Polski</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="pt_br"
+        >Português – Brasil</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="vi"
+        >Tiếng Việt</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="tr"
+        >Türkçe</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="ru"
+        >Русский</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="he"
+        >עברית</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="ar"
+        >العربيّة</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="fa"
+        >فارسی</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="hi"
+        >हिंदी</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="bn"
+        >বাংলা</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="th"
+        >ภาษาไทย</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="zh_cn"
+        >中文 – 简体</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="zh_tw"
+        >中文 – 繁體</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="ja"
+        >日本語</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="ko"
+        >한국어</a>
+    </li>
+    
+  </ul>
+</devsite-language-selector>
+
+
+          
+
+        
+
+        
+          <devsite-user 
+                        
+                        
+                          enable-profiles
+                        
+                        
+                          fp-auth
+                        
+                        id="devsite-user">
+            
+              
+              <span class="button devsite-top-button" aria-hidden="true" visually-hidden>Sign in</span>
+            
+          </devsite-user>
+        
+        
+        
+      </div>
+    </div>
+  </div>
+
+
+
+</div>
+
+
+
+  
+</devsite-header>
+        <devsite-book-nav scrollbars hidden>
+          
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="devsite-book-nav-filter"
+     hidden>
+  <span class="filter-list-icon material-icons" aria-hidden="true"></span>
+  <input type="text"
+         placeholder="Filter"
+         
+         aria-label="Type to filter"
+         role="searchbox">
+  
+  <span class="filter-clear-button hidden"
+        data-title="Clear filter"
+        aria-label="Clear filter"
+        role="button"
+        tabindex="0"></span>
+</div>
+
+<nav class="devsite-book-nav devsite-nav nocontent" data-nosnippet
+     aria-label="Side menu">
+  <div class="devsite-mobile-header">
+    <button type="button"
+            id="devsite-close-nav"
+            class="devsite-header-icon-button button-flat material-icons gc-analytics-event"
+            data-category="Site-Wide Custom Events"
+            data-label="Close navigation"
+            aria-label="Close navigation">
+    </button>
+    <div class="devsite-product-name-wrapper">
+
+  <a href="/" class="devsite-site-logo-link gc-analytics-event"
+   data-category="Site-Wide Custom Events" data-label="Site logo" track-type="globalNav"
+   track-name="googleCodelabs" track-metadata-position="nav"
+   track-metadata-eventDetail="nav">
+  
+  <picture>
+    
+    <img src="https://www.gstatic.com/devrel-devsite/prod/vb08cbdb02acf7f66ad9727ddfba9d81df8806422eb5dd63dba194c9c8c7997f7/codelabs/images/lockup.svg" class="devsite-site-logo" alt="Google Codelabs">
+  </picture>
+  
+</a>
+
+
+</div>
+  </div>
+
+  <div class="devsite-book-nav-wrapper">
+    <div class="devsite-mobile-nav-top">
+      
+        <ul class="devsite-nav-list">
+          
+          
+          
+        </ul>
+      
+    </div>
+    
+  </div>
+</nav>
+          
+        </devsite-book-nav>
+      
+      <section id="gc-wrapper">
+        <main role="main" id="main-content" class="devsite-main-content"
+            
+              
+              has-sidebar
+            >
+          <div class="devsite-sidebar">
+            <div class="devsite-sidebar-content">
+                
+                <devsite-toc class="devsite-nav"
+                            role="navigation"
+                            aria-label="On this page"
+                            depth="1"
+                            scrollbars
+                            data-nosnippet
+                  ></devsite-toc>
+                <devsite-recommendations-sidebar class="nocontent devsite-nav" data-nosnippet>
+                </devsite-recommendations-sidebar>
+            </div>
+          </div>
+          <devsite-content>
+            
+              
+
+
+
+
+
+
+
+
+
+
+<article class="devsite-article"><style>
+      body {
+        transition: opacity ease-in 0.2s;
+      }
+
+      body[unresolved] {
+        opacity: 0;
+        display: block;
+        overflow: hidden;
+        position: relative;
+      }
+      </style>
+  
+  
+  
+  
+  
+
+  <div class="devsite-article-meta nocontent" role="navigation" data-nosnippet>
+    
+    
+    <ul class="devsite-breadcrumb-list"
+  >
+  
+</ul>
+    
+  </div>
+  
+    <h1 class="devsite-page-title" tabindex="-1">
+      Exploratory data analysis of Iowa liquor sales using the BigQuery DataFrames package<devsite-actions hidden data-nosnippet></devsite-actions>
+  
+      
+    </h1>
+  
+
+  <devsite-toc class="devsite-nav"
+    depth="1"
+    devsite-toc-embedded
+    >
+  </devsite-toc>
+  
+    
+  <div class="devsite-article-body clearfix
+  ">
+
+  
+    
+    
+    <google-codelab-analytics gaid="UA-49880327-14" ga4id="G-JTFZSJVVVZ"></google-codelab-analytics>
+    <google-codelab codelab-gaid=""
+                    codelab-ga4id=""
+                    doc-id=""
+                    id="bigquery-dataframes-iowa-liquor-sales"
+                    title="Exploratory data analysis of Iowa liquor sales using the BigQuery DataFrames package"
+                    no-tooltip=""
+                    environment="web"
+                    category="bigquery,python,ml"
+                    feedback-link=""
+                    layout="paginated"
+                    >
+      
+        <google-codelab-step label="Overview" duration="0" step="0">
+          
+            <google-codelab-about codelab-title="Exploratory data analysis of Iowa liquor sales using the BigQuery DataFrames package"
+                                  authors="Tim Swena"
+                                  last-updated="2026-03-16T17:00:18Z"
+                                  >
+            </google-codelab-about>
+          
+          <h2 class="step-title" id="0" data-text="Overview" tabindex="-1">
+              1. Overview
+          </h2>
+          
+          <p>In this lab, you will use BigQuery DataFrames from a Python notebook in BigQuery Studio to clean and analyze the Iowa liquor sales public dataset. Make use of BigQuery ML and remote function capabilities to discover insights.</p>
+<p>You will create a Python notebook to compare sales across geographic areas. This can be adapted to work on any structured data.</p>
+<h2 is-upgraded id="objectives" data-text="Objectives" tabindex="-1">Objectives</h2>
+<p>In this lab, you learn how to perform the following tasks:</p>
+<ul>
+<li>Activate and use Python notebooks in BigQuery Studio</li>
+<li>Connect to BigQuery using the BigQuery DataFrames package</li>
+<li>Create a linear regression using BigQuery ML</li>
+<li>Perform complex aggregations and joins using a familiar pandas-like syntax</li>
+</ul>
+
+
+        </google-codelab-step>
+      
+        <google-codelab-step label="Requirements" duration="0" step="1">
+          
+          <h2 class="step-title" id="1" data-text="Requirements" tabindex="-1">
+              2. Requirements
+          </h2>
+          
+          <ul>
+<li>A browser, such as  <a href="https://www.google.com/chrome/browser/desktop/" target="_blank">Chrome</a> or  <a href="https://www.mozilla.org/firefox/" target="_blank">Firefox</a></li>
+<li>A Google Cloud project with billing enabled</li>
+</ul>
+<h2 is-upgraded id="before-you-begin" data-text="Before you begin" tabindex="-1">Before you begin</h2>
+<p>To follow the instructions in this codelab, you&#39;ll need a Google Cloud Project with BigQuery Studio enabled and a connected billing account.</p>
+<ol type="1">
+<li>In the  <a href="https://console.cloud.google.com/" target="_blank">Google Cloud Console</a>, on the project selector page, select or create a Google Cloud <a href="https://cloud.google.com/resource-manager/docs/creating-managing-projects" target="_blank">project</a></li>
+<li>Ensure that billing is enabled for your Google Cloud project. Learn how to  <a href="https://cloud.google.com/billing/docs/how-to/verify-billing-enabled" target="_blank">check if billing is enabled on a project</a></li>
+<li>Follow the instructions to <a href="https://cloud.google.com/bigquery/docs/enable-assets" target="_blank">Enable BigQuery Studio for asset management</a>.</li>
+</ol>
+<h2 is-upgraded id="prepare-bigquery-studio" data-text="Prepare BigQuery Studio" tabindex="-1">Prepare BigQuery Studio</h2>
+<p>Create an empty notebook and connect it to a runtime.</p>
+<ol type="1">
+<li>Go to <a href="https://console.cloud.google.com/bigquery" target="_blank">BigQuery Studio</a> in the Google Cloud Console.</li>
+<li>Click the <strong>▼</strong> next to the <strong>+</strong> button.</li>
+<li>Select <strong>Python notebook</strong>.</li>
+<li>Close the template selector.</li>
+<li>Select <strong>+ Code</strong> to create a new code cell.</li>
+<li>Install the latest version of the BigQuery DataFrames package from the code cell.Type the following command.<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="SWIG" syntax-guessed><code translate="no" dir="ltr"><span class="devsite-syntax-nf">%pip</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">install</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">--</span><span class="devsite-syntax-n">upgrade</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">bigframes</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">--</span><span class="devsite-syntax-n">quiet</span>
+</code></pre></devsite-code>
+Click the <strong>Run cell</strong> button or press <em>Shift + Enter</em> to run the code cell.</li>
+</ol>
+
+
+        </google-codelab-step>
+      
+        <google-codelab-step label="Read a public dataset" duration="0" step="2">
+          
+          <h2 class="step-title" id="2" data-text="Read a public dataset" tabindex="-1">
+              3. Read a public dataset
+          </h2>
+          
+          <p>Initialize the BigQuery DataFrames package by running the following in a new code cell:</p>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Python" syntax-guessed><code language="language-python" class="language-python" translate="no" dir="ltr"><span class="devsite-syntax-kn">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">bigframes.pandas</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-k">as</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">bpd</span>
+
+<span class="devsite-syntax-n">bpd</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">options</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">bigquery</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">ordering_mode</span> <span class="devsite-syntax-o">=</span> <span class="devsite-syntax-s2">"partial"</span>
+<span class="devsite-syntax-n">bpd</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">options</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">display</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">repr_mode</span> <span class="devsite-syntax-o">=</span> <span class="devsite-syntax-s2">"deferred"</span>
+</code></pre></devsite-code>
+<p>Note: in this tutorial, we use the experimental &#34;partial ordering mode&#34;, which allows for more efficient queries when used with pandas-like filtering. Some pandas features that require a strict ordering or index may not work.</p>
+<p>Check your <code translate="no" dir="ltr">bigframes</code> package version with</p>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="scdoc" syntax-guessed><code translate="no" dir="ltr">bpd.__version__
+</code></pre></devsite-code>
+<p>This tutorial requires version 1.27.0 or later.</p>
+<h2 is-upgraded id="iowa-liquor-retail-sales" data-text="Iowa liquor retail sales" tabindex="-1">Iowa liquor retail sales</h2>
+<p>The <a href="https://console.cloud.google.com/marketplace/product/iowa-department-of-commerce/iowa-liquor-sales" target="_blank">Iowa liquor retail sales dataset</a> is provided on BigQuery through <a href="https://cloud.google.com/datasets" target="_blank">Google Cloud&#39;s public dataset program</a>. This dataset contains every wholesale purchase of liquor in the State of Iowa by retailers for sale to individuals since January 1, 2012. Data are collected by the Alcoholic Beverages Division within the Iowa Department of Commerce.</p>
+<p>In BigQuery, query the <a href="https://console.cloud.google.com/bigquery?p=bigquery-public-data&d=iowa_liquor_sales&t=sales&page=table" target="_blank">bigquery-public-data.iowa_liquor_sales.sales</a> to analyze the Iowa liquor retail sales. Use the <code translate="no" dir="ltr">bigframes.pandas.read_gbq()</code> method to create a DataFrame from a query string or table ID.</p>
+<p>Run the following in a new code cell to create a DataFrame named &#34;df&#34;:</p>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="scdoc" syntax-guessed><code translate="no" dir="ltr">df = bpd.read_gbq_table("bigquery-public-data.iowa_liquor_sales.sales")
+</code></pre></devsite-code>
+<h2 is-upgraded id="discover-basic-information-about-a-dataframe" data-text="Discover basic information about a DataFrame" tabindex="-1">Discover basic information about a DataFrame</h2>
+<p>Use the <code translate="no" dir="ltr">DataFrame.peek()</code> method to download a small sample of the data.</p>
+<p><strong>Run this cell:</strong></p>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Text only" syntax-guessed><code translate="no" dir="ltr">df.peek()
+</code></pre></devsite-code>
+<p><strong>Expected output:</strong></p>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="scdoc" syntax-guessed><code translate="no" dir="ltr">index	invoice_and_item_number	date	store_number	store_name	...
+0	RINV-04620300080	2023-04-28	10197	SUNSHINE FOODS / HAWARDEN	
+1	RINV-04864800097	2023-09-25	2621	HY-VEE FOOD STORE #3 / SIOUX CITY	
+2	RINV-05057200028	2023-12-28	4255	FAREWAY STORES #058 / ORANGE CITY	
+3	...				
+</code></pre></devsite-code>
+<p>Note: <code translate="no" dir="ltr">head()</code> requires ordering and is generally less efficient than <code translate="no" dir="ltr">peek()</code> if you want to visualize a sample of data.</p>
+<p>Just as with pandas, use the <code translate="no" dir="ltr">DataFrame.dtypes</code> property to see all available columns and their corresponding data types. These are exposed in a pandas-compatible way.</p>
+<p><strong>Run this cell:</strong></p>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Carbon" syntax-guessed><code translate="no" dir="ltr"><span class="devsite-syntax-nx">df</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-nx">dtypes</span>
+</code></pre></devsite-code>
+<p><strong>Expected output:</strong></p>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Transact-SQL" syntax-guessed><code translate="no" dir="ltr"><span class="devsite-syntax-n">invoice_and_item_number</span><span class="devsite-syntax-w">	</span><span class="devsite-syntax-n">string</span><span class="devsite-syntax-o">[</span><span class="devsite-syntax-n">pyarrow</span><span class="devsite-syntax-o">]</span>
+<span class="devsite-syntax-nc">date</span><span class="devsite-syntax-w">	</span><span class="devsite-syntax-n">date32</span><span class="devsite-syntax-o">[</span><span class="devsite-syntax-n">day</span><span class="devsite-syntax-o">][</span><span class="devsite-syntax-n">pyarrow</span><span class="devsite-syntax-o">]</span>
+<span class="devsite-syntax-n">store_number</span><span class="devsite-syntax-w">	</span><span class="devsite-syntax-n">string</span><span class="devsite-syntax-o">[</span><span class="devsite-syntax-n">pyarrow</span><span class="devsite-syntax-o">]</span>
+<span class="devsite-syntax-n">store_name</span><span class="devsite-syntax-w">	</span><span class="devsite-syntax-n">string</span><span class="devsite-syntax-o">[</span><span class="devsite-syntax-n">pyarrow</span><span class="devsite-syntax-o">]</span>
+<span class="devsite-syntax-n">address</span><span class="devsite-syntax-w">	</span><span class="devsite-syntax-n">string</span><span class="devsite-syntax-o">[</span><span class="devsite-syntax-n">pyarrow</span><span class="devsite-syntax-o">]</span>
+<span class="devsite-syntax-n">city</span><span class="devsite-syntax-w">	</span><span class="devsite-syntax-n">string</span><span class="devsite-syntax-o">[</span><span class="devsite-syntax-n">pyarrow</span><span class="devsite-syntax-o">]</span>
+<span class="devsite-syntax-n">zip_code</span><span class="devsite-syntax-w">	</span><span class="devsite-syntax-n">string</span><span class="devsite-syntax-o">[</span><span class="devsite-syntax-n">pyarrow</span><span class="devsite-syntax-o">]</span>
+<span class="devsite-syntax-n">store_location</span><span class="devsite-syntax-w">	</span><span class="devsite-syntax-n">geometry</span>
+<span class="devsite-syntax-n">county_number</span><span class="devsite-syntax-w">	</span><span class="devsite-syntax-n">string</span><span class="devsite-syntax-o">[</span><span class="devsite-syntax-n">pyarrow</span><span class="devsite-syntax-o">]</span>
+<span class="devsite-syntax-n">county</span><span class="devsite-syntax-w">	</span><span class="devsite-syntax-n">string</span><span class="devsite-syntax-o">[</span><span class="devsite-syntax-n">pyarrow</span><span class="devsite-syntax-o">]</span>
+<span class="devsite-syntax-n">category</span><span class="devsite-syntax-w">	</span><span class="devsite-syntax-n">string</span><span class="devsite-syntax-o">[</span><span class="devsite-syntax-n">pyarrow</span><span class="devsite-syntax-o">]</span>
+<span class="devsite-syntax-n">category_name</span><span class="devsite-syntax-w">	</span><span class="devsite-syntax-n">string</span><span class="devsite-syntax-o">[</span><span class="devsite-syntax-n">pyarrow</span><span class="devsite-syntax-o">]</span>
+<span class="devsite-syntax-n">vendor_number</span><span class="devsite-syntax-w">	</span><span class="devsite-syntax-n">string</span><span class="devsite-syntax-o">[</span><span class="devsite-syntax-n">pyarrow</span><span class="devsite-syntax-o">]</span>
+<span class="devsite-syntax-n">vendor_name</span><span class="devsite-syntax-w">	</span><span class="devsite-syntax-n">string</span><span class="devsite-syntax-o">[</span><span class="devsite-syntax-n">pyarrow</span><span class="devsite-syntax-o">]</span>
+<span class="devsite-syntax-n">item_number</span><span class="devsite-syntax-w">	</span><span class="devsite-syntax-n">string</span><span class="devsite-syntax-o">[</span><span class="devsite-syntax-n">pyarrow</span><span class="devsite-syntax-o">]</span>
+<span class="devsite-syntax-n">item_description</span><span class="devsite-syntax-w">	</span><span class="devsite-syntax-n">string</span><span class="devsite-syntax-o">[</span><span class="devsite-syntax-n">pyarrow</span><span class="devsite-syntax-o">]</span>
+<span class="devsite-syntax-n">pack</span><span class="devsite-syntax-w">	</span><span class="devsite-syntax-n">Int64</span>
+<span class="devsite-syntax-n">bottle_volume_ml</span><span class="devsite-syntax-w">	</span><span class="devsite-syntax-n">Int64</span>
+<span class="devsite-syntax-n">state_bottle_cost</span><span class="devsite-syntax-w">	</span><span class="devsite-syntax-n">Float64</span>
+<span class="devsite-syntax-n">state_bottle_retail</span><span class="devsite-syntax-w">	</span><span class="devsite-syntax-n">Float64</span>
+<span class="devsite-syntax-n">bottles_sold</span><span class="devsite-syntax-w">	</span><span class="devsite-syntax-n">Int64</span>
+<span class="devsite-syntax-n">sale_dollars</span><span class="devsite-syntax-w">	</span><span class="devsite-syntax-n">Float64</span>
+<span class="devsite-syntax-n">volume_sold_liters</span><span class="devsite-syntax-w">	</span><span class="devsite-syntax-n">Float64</span>
+<span class="devsite-syntax-n">volume_sold_gallons</span><span class="devsite-syntax-w">	</span><span class="devsite-syntax-n">Float64</span>
+
+<span class="devsite-syntax-nl">dtype</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-k">object</span>
+</code></pre></devsite-code>
+<p>The <code translate="no" dir="ltr">DataFrame.describe()</code> method queries some basic statistics from the DataFrame. Run <code translate="no" dir="ltr">DataFrame.to_pandas()</code> to download these summary statistics as a pandas DataFrame.</p>
+<p><strong>Run this cell:</strong></p>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="scdoc" syntax-guessed><code translate="no" dir="ltr">df.describe("all").to_pandas()
+</code></pre></devsite-code>
+<p><strong>Expected output:</strong></p>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="scdoc" syntax-guessed><code translate="no" dir="ltr">	invoice_and_item_number	date	store_number	store_name	...
+nunique	30305765	&lt;NA&gt;	3158	3353	...
+std	&lt;NA&gt;	&lt;NA&gt;	&lt;NA&gt;	&lt;NA&gt;	...
+mean	&lt;NA&gt;	&lt;NA&gt;	&lt;NA&gt;	&lt;NA&gt;	...
+75%	&lt;NA&gt;	&lt;NA&gt;	&lt;NA&gt;	&lt;NA&gt;	...
+25%	&lt;NA&gt;	&lt;NA&gt;	&lt;NA&gt;	&lt;NA&gt;	...
+count	30305765	&lt;NA&gt;	30305765	30305765	...
+min	&lt;NA&gt;	&lt;NA&gt;	&lt;NA&gt;	&lt;NA&gt;	...
+50%	&lt;NA&gt;	&lt;NA&gt;	&lt;NA&gt;	&lt;NA&gt;	...
+max	&lt;NA&gt;	&lt;NA&gt;	&lt;NA&gt;	&lt;NA&gt;	...
+9 rows × 24 columns
+</code></pre></devsite-code>
+
+
+        </google-codelab-step>
+      
+        <google-codelab-step label="Visualize and clean the data" duration="0" step="3">
+          
+          <h2 class="step-title" id="3" data-text="Visualize and clean the data" tabindex="-1">
+              4. Visualize and clean the data
+          </h2>
+          
+          <p>The Iowa liquor retail sales dataset provides fine-grained geographic information, including where the retail stores are located. Use these data to identify trends and differences across geographic areas.</p>
+<h2 is-upgraded id="visualize-sales-per-zip-code" data-text="Visualize sales per zip code" tabindex="-1">Visualize sales per zip code</h2>
+<p>There are several built-in visualization methods such as <a href="https://cloud.google.com/python/docs/reference/bigframes/latest/bigframes.operations.plotting.PlotAccessor#bigframes_operations_plotting_PlotAccessor_hist" target="_blank">DataFrame.plot.hist()</a>. Use this method to compare liquor sales by ZIP code.</p>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="scdoc" syntax-guessed><code translate="no" dir="ltr">volume_by_zip = df.groupby("zip_code").agg({"volume_sold_liters": "sum"})
+volume_by_zip.plot.hist(bins=20)
+</code></pre></devsite-code>
+<p><strong>Expected output:</strong></p>
+<p class="image-container"><img alt="Histogram of volumes" src="/static/bigquery-dataframes-iowa-liquor-sales/img/iowa-volumes.png" srcset="https://codelabs.developers.google.com/static/bigquery-dataframes-iowa-liquor-sales/img/iowa-volumes_36.png 36w,https://codelabs.developers.google.com/static/bigquery-dataframes-iowa-liquor-sales/img/iowa-volumes_48.png 48w,https://codelabs.developers.google.com/static/bigquery-dataframes-iowa-liquor-sales/img/iowa-volumes_72.png 72w,https://codelabs.developers.google.com/static/bigquery-dataframes-iowa-liquor-sales/img/iowa-volumes_96.png 96w,https://codelabs.developers.google.com/static/bigquery-dataframes-iowa-liquor-sales/img/iowa-volumes_480.png 480w,https://codelabs.developers.google.com/static/bigquery-dataframes-iowa-liquor-sales/img/iowa-volumes_720.png 720w,https://codelabs.developers.google.com/static/bigquery-dataframes-iowa-liquor-sales/img/iowa-volumes_856.png 856w,https://codelabs.developers.google.com/static/bigquery-dataframes-iowa-liquor-sales/img/iowa-volumes_960.png 960w,https://codelabs.developers.google.com/static/bigquery-dataframes-iowa-liquor-sales/img/iowa-volumes_1440.png 1440w,https://codelabs.developers.google.com/static/bigquery-dataframes-iowa-liquor-sales/img/iowa-volumes_1920.png 1920w,https://codelabs.developers.google.com/static/bigquery-dataframes-iowa-liquor-sales/img/iowa-volumes_2880.png 2880w" sizes="(max-width: 840px) 100vw, 856px"></p>
+<p>Use a bar chart to see which zip colds sold the most alcohol.</p>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="scdoc" syntax-guessed><code translate="no" dir="ltr">(
+  volume_by_zip
+  .sort_values("volume_sold_liters", ascending=False)
+  .head(25)
+  .to_pandas()
+  .plot.bar(rot=80)
+)
+</code></pre></devsite-code>
+<p><strong>Expected output:</strong></p>
+<p class="image-container"><img alt="Bar chart of volumes of alcohol in the top selling zip codes" src="/static/bigquery-dataframes-iowa-liquor-sales/img/iowa-zips-dirty.png" srcset="https://codelabs.developers.google.com/static/bigquery-dataframes-iowa-liquor-sales/img/iowa-zips-dirty_36.png 36w,https://codelabs.developers.google.com/static/bigquery-dataframes-iowa-liquor-sales/img/iowa-zips-dirty_48.png 48w,https://codelabs.developers.google.com/static/bigquery-dataframes-iowa-liquor-sales/img/iowa-zips-dirty_72.png 72w,https://codelabs.developers.google.com/static/bigquery-dataframes-iowa-liquor-sales/img/iowa-zips-dirty_96.png 96w,https://codelabs.developers.google.com/static/bigquery-dataframes-iowa-liquor-sales/img/iowa-zips-dirty_480.png 480w,https://codelabs.developers.google.com/static/bigquery-dataframes-iowa-liquor-sales/img/iowa-zips-dirty_720.png 720w,https://codelabs.developers.google.com/static/bigquery-dataframes-iowa-liquor-sales/img/iowa-zips-dirty_856.png 856w,https://codelabs.developers.google.com/static/bigquery-dataframes-iowa-liquor-sales/img/iowa-zips-dirty_960.png 960w,https://codelabs.developers.google.com/static/bigquery-dataframes-iowa-liquor-sales/img/iowa-zips-dirty_1440.png 1440w,https://codelabs.developers.google.com/static/bigquery-dataframes-iowa-liquor-sales/img/iowa-zips-dirty_1920.png 1920w,https://codelabs.developers.google.com/static/bigquery-dataframes-iowa-liquor-sales/img/iowa-zips-dirty_2880.png 2880w" sizes="(max-width: 840px) 100vw, 856px"></p>
+<h2 is-upgraded id="clean-the-data" data-text="Clean the data" tabindex="-1">Clean the data</h2>
+<p>Some ZIP codes have a trailing <code translate="no" dir="ltr">.0</code>. Possibly somewhere in the data collection the ZIP codes were accidentally converted into floating point values. Use regular expressions to clean up the ZIP codes and repeat the analysis.</p>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="verilog" syntax-guessed><code translate="no" dir="ltr"><span class="devsite-syntax-n">df</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">bpd</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-n">read_gbq_table</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"bigquery-public-data.iowa_liquor_sales.sales"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-k">assign</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">zip_code</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-n">lambda</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nl">_:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">_</span><span class="devsite-syntax-p">[</span><span class="devsite-syntax-s">"zip_code"</span><span class="devsite-syntax-p">].</span><span class="devsite-syntax-n">str</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-n">replace</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">".0"</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">""</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-n">volume_by_zip</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">df</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-n">groupby</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"zip_code"</span><span class="devsite-syntax-p">).</span><span class="devsite-syntax-n">agg</span><span class="devsite-syntax-p">({</span><span class="devsite-syntax-s">"volume_sold_liters"</span><span class="devsite-syntax-o">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"sum"</span><span class="devsite-syntax-p">})</span>
+<span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">  </span><span class="devsite-syntax-n">volume_by_zip</span>
+<span class="devsite-syntax-w">  </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-n">sort_values</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"volume_sold_liters"</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">ascending</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-n">False</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">  </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-n">head</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-mh">25</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">  </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-n">to_pandas</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-w">  </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-n">plot</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-n">bar</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">rot</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-mh">80</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-p">)</span>
+</code></pre></devsite-code>
+<p><strong>Expected output:</strong></p>
+<p class="image-container"><img alt="Bar chart of volumes of alcohol in the top selling zip codes" src="/static/bigquery-dataframes-iowa-liquor-sales/img/iowa-zips.png" srcset="https://codelabs.developers.google.com/static/bigquery-dataframes-iowa-liquor-sales/img/iowa-zips_36.png 36w,https://codelabs.developers.google.com/static/bigquery-dataframes-iowa-liquor-sales/img/iowa-zips_48.png 48w,https://codelabs.developers.google.com/static/bigquery-dataframes-iowa-liquor-sales/img/iowa-zips_72.png 72w,https://codelabs.developers.google.com/static/bigquery-dataframes-iowa-liquor-sales/img/iowa-zips_96.png 96w,https://codelabs.developers.google.com/static/bigquery-dataframes-iowa-liquor-sales/img/iowa-zips_480.png 480w,https://codelabs.developers.google.com/static/bigquery-dataframes-iowa-liquor-sales/img/iowa-zips_720.png 720w,https://codelabs.developers.google.com/static/bigquery-dataframes-iowa-liquor-sales/img/iowa-zips_856.png 856w,https://codelabs.developers.google.com/static/bigquery-dataframes-iowa-liquor-sales/img/iowa-zips_960.png 960w,https://codelabs.developers.google.com/static/bigquery-dataframes-iowa-liquor-sales/img/iowa-zips_1440.png 1440w,https://codelabs.developers.google.com/static/bigquery-dataframes-iowa-liquor-sales/img/iowa-zips_1920.png 1920w,https://codelabs.developers.google.com/static/bigquery-dataframes-iowa-liquor-sales/img/iowa-zips_2880.png 2880w" sizes="(max-width: 840px) 100vw, 856px"></p>
+
+
+        </google-codelab-step>
+      
+        <google-codelab-step label="Discover correlations in sales" duration="0" step="4">
+          
+          <h2 class="step-title" id="4" data-text="Discover correlations in sales" tabindex="-1">
+              5. Discover correlations in sales
+          </h2>
+          
+          <p>Why do some zip codes sell more than others? One hypothesis is that it&#39;s due to population size differences. A zip code with more population will likely sell more liquor.</p>
+<p>Test this hypothesis by calculating the correlation between population and liquor sales volume.</p>
+<h2 is-upgraded id="join-with-other-datasets" data-text="Join with other datasets" tabindex="-1">Join with other datasets</h2>
+<p>Join with a population dataset such as the <a href="https://console.cloud.google.com/marketplace/product/united-states-census-bureau/acs" target="_blank">US Census Bureau&#39;s American Community Survey</a> ZIP code tabulation area survey.</p>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="scdoc" syntax-guessed><code translate="no" dir="ltr">census_acs = bpd.read_gbq_table("bigquery-public-data.census_bureau_acs.zcta_2020_5yr")
+</code></pre></devsite-code>
+<p>The American Community Survey identifies states by GEOID. In the case of ZIP code tabulation areas, the GEOID equals the ZIP code.</p>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="scdoc" syntax-guessed><code translate="no" dir="ltr">volume_by_pop = volume_by_zip.join(
+    census_acs.set_index("geo_id")
+)
+</code></pre></devsite-code>
+<p>Create a scatter plot to compare ZIP code tabulation area populations with liters of alcohol sold.</p>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="scdoc" syntax-guessed><code translate="no" dir="ltr">(
+    volume_by_pop[["volume_sold_liters", "total_pop"]]
+    .to_pandas()
+    .plot.scatter(x="total_pop", y="volume_sold_liters")
+)
+</code></pre></devsite-code>
+<p><strong>Expected output:</strong></p>
+<p class="image-container"><img alt="Scatter plot of zip code tabulation areas by the population and liters of liquor sold" src="/static/bigquery-dataframes-iowa-liquor-sales/img/iowa-pop-volume-scatter.png" srcset="https://codelabs.developers.google.com/static/bigquery-dataframes-iowa-liquor-sales/img/iowa-pop-volume-scatter_36.png 36w,https://codelabs.developers.google.com/static/bigquery-dataframes-iowa-liquor-sales/img/iowa-pop-volume-scatter_48.png 48w,https://codelabs.developers.google.com/static/bigquery-dataframes-iowa-liquor-sales/img/iowa-pop-volume-scatter_72.png 72w,https://codelabs.developers.google.com/static/bigquery-dataframes-iowa-liquor-sales/img/iowa-pop-volume-scatter_96.png 96w,https://codelabs.developers.google.com/static/bigquery-dataframes-iowa-liquor-sales/img/iowa-pop-volume-scatter_480.png 480w,https://codelabs.developers.google.com/static/bigquery-dataframes-iowa-liquor-sales/img/iowa-pop-volume-scatter_720.png 720w,https://codelabs.developers.google.com/static/bigquery-dataframes-iowa-liquor-sales/img/iowa-pop-volume-scatter_856.png 856w,https://codelabs.developers.google.com/static/bigquery-dataframes-iowa-liquor-sales/img/iowa-pop-volume-scatter_960.png 960w,https://codelabs.developers.google.com/static/bigquery-dataframes-iowa-liquor-sales/img/iowa-pop-volume-scatter_1440.png 1440w,https://codelabs.developers.google.com/static/bigquery-dataframes-iowa-liquor-sales/img/iowa-pop-volume-scatter_1920.png 1920w,https://codelabs.developers.google.com/static/bigquery-dataframes-iowa-liquor-sales/img/iowa-pop-volume-scatter_2880.png 2880w" sizes="(max-width: 840px) 100vw, 856px"></p>
+<h2 is-upgraded id="calculate-correlations" data-text="Calculate correlations" tabindex="-1">Calculate correlations</h2>
+<p>The trend looks roughly linear. Fit a linear regression model to this to check how well population can predict liquor sales.</p>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Python" syntax-guessed><code translate="no" dir="ltr"><span class="devsite-syntax-kn">from</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">bigframes.ml.linear_model</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kn">import</span> <span class="devsite-syntax-n">LinearRegression</span>
+
+<span class="devsite-syntax-n">feature_columns</span> <span class="devsite-syntax-o">=</span> <span class="devsite-syntax-n">volume_by_pop</span><span class="devsite-syntax-p">[[</span><span class="devsite-syntax-s2">"total_pop"</span><span class="devsite-syntax-p">]]</span>
+<span class="devsite-syntax-n">label_columns</span> <span class="devsite-syntax-o">=</span> <span class="devsite-syntax-n">volume_by_pop</span><span class="devsite-syntax-p">[[</span><span class="devsite-syntax-s2">"volume_sold_liters"</span><span class="devsite-syntax-p">]]</span>
+
+<span class="devsite-syntax-c1"># Create the linear model</span>
+<span class="devsite-syntax-n">model</span> <span class="devsite-syntax-o">=</span> <span class="devsite-syntax-n">LinearRegression</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-n">model</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">fit</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">feature_columns</span><span class="devsite-syntax-p">,</span> <span class="devsite-syntax-n">label_columns</span><span class="devsite-syntax-p">)</span>
+</code></pre></devsite-code>
+<p>Check how good the fit is by using the <code translate="no" dir="ltr">score</code> method.</p>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="scdoc" syntax-guessed><code translate="no" dir="ltr">model.score(feature_columns, label_columns).to_pandas()
+</code></pre></devsite-code>
+<p><strong>Sample output:</strong></p>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="GDScript" syntax-guessed><code translate="no" dir="ltr"><span class="devsite-syntax-w">	</span><span class="devsite-syntax-n">mean_absolute_error</span><span class="devsite-syntax-w">	</span><span class="devsite-syntax-n">mean_squared_error</span><span class="devsite-syntax-w">	</span><span class="devsite-syntax-n">mean_squared_log_error</span><span class="devsite-syntax-w">	</span><span class="devsite-syntax-n">median_absolute_error</span><span class="devsite-syntax-w">	</span><span class="devsite-syntax-n">r2_score</span><span class="devsite-syntax-w">	</span><span class="devsite-syntax-n">explained_variance</span>
+<span class="devsite-syntax-mi">0</span><span class="devsite-syntax-w">	</span><span class="devsite-syntax-mf">245065.664095</span><span class="devsite-syntax-w">	</span><span class="devsite-syntax-mf">224398167097.364288</span><span class="devsite-syntax-w">	</span><span class="devsite-syntax-mf">5.595021</span><span class="devsite-syntax-w">	</span><span class="devsite-syntax-mf">178196.31289</span><span class="devsite-syntax-w">	</span><span class="devsite-syntax-mf">0.380096</span><span class="devsite-syntax-w">	</span><span class="devsite-syntax-mf">0.380096</span>
+</code></pre></devsite-code>
+<p>Draw the best fit line but calling the <code translate="no" dir="ltr">predict</code> function on a range of population values.</p>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="NumPy" syntax-guessed><code translate="no" dir="ltr"><span class="devsite-syntax-kn">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">matplotlib.pyplot</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-k">as</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">pyplot</span>
+<span class="devsite-syntax-kn">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">numpy</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-k">as</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">np</span>
+<span class="devsite-syntax-kn">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">pandas</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-k">as</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">pd</span>
+
+<span class="devsite-syntax-n">line</span> <span class="devsite-syntax-o">=</span> <span class="devsite-syntax-n">pd</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">Series</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">np</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-kp">arange</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-mi">0</span><span class="devsite-syntax-p">,</span> <span class="devsite-syntax-mi">50_000</span><span class="devsite-syntax-p">),</span> <span class="devsite-syntax-n">name</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-s2">"total_pop"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-n">predictions</span> <span class="devsite-syntax-o">=</span> <span class="devsite-syntax-n">model</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">predict</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">line</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">to_pandas</span><span class="devsite-syntax-p">()</span>
+
+<span class="devsite-syntax-n">zips</span> <span class="devsite-syntax-o">=</span> <span class="devsite-syntax-n">volume_by_pop</span><span class="devsite-syntax-p">[[</span><span class="devsite-syntax-s2">"volume_sold_liters"</span><span class="devsite-syntax-p">,</span> <span class="devsite-syntax-s2">"total_pop"</span><span class="devsite-syntax-p">]]</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">to_pandas</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-n">pyplot</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">scatter</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">zips</span><span class="devsite-syntax-p">[</span><span class="devsite-syntax-s2">"total_pop"</span><span class="devsite-syntax-p">],</span> <span class="devsite-syntax-n">zips</span><span class="devsite-syntax-p">[</span><span class="devsite-syntax-s2">"volume_sold_liters"</span><span class="devsite-syntax-p">])</span>
+<span class="devsite-syntax-n">pyplot</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">plot</span><span class="devsite-syntax-p">(</span>
+  <span class="devsite-syntax-n">line</span><span class="devsite-syntax-p">,</span>
+  <span class="devsite-syntax-n">predictions</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">sort_values</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s2">"total_pop"</span><span class="devsite-syntax-p">)[</span><span class="devsite-syntax-s2">"predicted_volume_sold_liters"</span><span class="devsite-syntax-p">],</span>
+  <span class="devsite-syntax-n">marker</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-kc">None</span><span class="devsite-syntax-p">,</span>
+  <span class="devsite-syntax-n">color</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-s2">"red"</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-p">)</span>
+</code></pre></devsite-code>
+<p><strong>Expected output:</strong></p>
+<p class="image-container"><img alt="Scatter plot with a best fit line" src="/static/bigquery-dataframes-iowa-liquor-sales/img/iowa-pop-volume-line.png" srcset="https://codelabs.developers.google.com/static/bigquery-dataframes-iowa-liquor-sales/img/iowa-pop-volume-line_36.png 36w,https://codelabs.developers.google.com/static/bigquery-dataframes-iowa-liquor-sales/img/iowa-pop-volume-line_48.png 48w,https://codelabs.developers.google.com/static/bigquery-dataframes-iowa-liquor-sales/img/iowa-pop-volume-line_72.png 72w,https://codelabs.developers.google.com/static/bigquery-dataframes-iowa-liquor-sales/img/iowa-pop-volume-line_96.png 96w,https://codelabs.developers.google.com/static/bigquery-dataframes-iowa-liquor-sales/img/iowa-pop-volume-line_480.png 480w,https://codelabs.developers.google.com/static/bigquery-dataframes-iowa-liquor-sales/img/iowa-pop-volume-line_720.png 720w,https://codelabs.developers.google.com/static/bigquery-dataframes-iowa-liquor-sales/img/iowa-pop-volume-line_856.png 856w,https://codelabs.developers.google.com/static/bigquery-dataframes-iowa-liquor-sales/img/iowa-pop-volume-line_960.png 960w,https://codelabs.developers.google.com/static/bigquery-dataframes-iowa-liquor-sales/img/iowa-pop-volume-line_1440.png 1440w,https://codelabs.developers.google.com/static/bigquery-dataframes-iowa-liquor-sales/img/iowa-pop-volume-line_1920.png 1920w,https://codelabs.developers.google.com/static/bigquery-dataframes-iowa-liquor-sales/img/iowa-pop-volume-line_2880.png 2880w" sizes="(max-width: 840px) 100vw, 856px"></p>
+<h2 is-upgraded id="addressing-heteroscedasticity" data-text="Addressing heteroscedasticity" tabindex="-1">Addressing heteroscedasticity</h2>
+<p>The data in the previous chart appears to be heteroscedastic. The variance around the best fit line grows with the population.</p>
+<p>Perhaps the amount of alcohol purchased per person is relatively constant.</p>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="verilog" syntax-guessed><code translate="no" dir="ltr"><span class="devsite-syntax-n">volume_per_pop</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">volume_by_pop</span><span class="devsite-syntax-p">[</span><span class="devsite-syntax-n">volume_by_pop</span><span class="devsite-syntax-p">['</span><span class="devsite-syntax-n">total_pop</span><span class="devsite-syntax-p">']</span><span class="devsite-syntax-w"> &gt; </span><span class="devsite-syntax-mh">0</span><span class="devsite-syntax-p">]</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-k">assign</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">liters_per_pop</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-n">lambda</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nl">df:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">df</span><span class="devsite-syntax-p">[</span><span class="devsite-syntax-s">"volume_sold_liters"</span><span class="devsite-syntax-p">]</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">/</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">df</span><span class="devsite-syntax-p">[</span><span class="devsite-syntax-s">"total_pop"</span><span class="devsite-syntax-p">])</span>
+<span class="devsite-syntax-p">)</span>
+
+<span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">volume_per_pop</span><span class="devsite-syntax-p">[[</span><span class="devsite-syntax-s">"liters_per_pop"</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"total_pop"</span><span class="devsite-syntax-p">]]</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-n">to_pandas</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-n">plot</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-n">scatter</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">x</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-s">"total_pop"</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">y</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-s">"liters_per_pop"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-p">)</span>
+</code></pre></devsite-code>
+<p><strong>Expected output:</strong></p>
+<p class="image-container"><img alt="Scatter plot of liters per population" src="/static/bigquery-dataframes-iowa-liquor-sales/img/iowa-volume-per-pop-scatter.png" srcset="https://codelabs.developers.google.com/static/bigquery-dataframes-iowa-liquor-sales/img/iowa-volume-per-pop-scatter_36.png 36w,https://codelabs.developers.google.com/static/bigquery-dataframes-iowa-liquor-sales/img/iowa-volume-per-pop-scatter_48.png 48w,https://codelabs.developers.google.com/static/bigquery-dataframes-iowa-liquor-sales/img/iowa-volume-per-pop-scatter_72.png 72w,https://codelabs.developers.google.com/static/bigquery-dataframes-iowa-liquor-sales/img/iowa-volume-per-pop-scatter_96.png 96w,https://codelabs.developers.google.com/static/bigquery-dataframes-iowa-liquor-sales/img/iowa-volume-per-pop-scatter_480.png 480w,https://codelabs.developers.google.com/static/bigquery-dataframes-iowa-liquor-sales/img/iowa-volume-per-pop-scatter_720.png 720w,https://codelabs.developers.google.com/static/bigquery-dataframes-iowa-liquor-sales/img/iowa-volume-per-pop-scatter_856.png 856w,https://codelabs.developers.google.com/static/bigquery-dataframes-iowa-liquor-sales/img/iowa-volume-per-pop-scatter_960.png 960w,https://codelabs.developers.google.com/static/bigquery-dataframes-iowa-liquor-sales/img/iowa-volume-per-pop-scatter_1440.png 1440w,https://codelabs.developers.google.com/static/bigquery-dataframes-iowa-liquor-sales/img/iowa-volume-per-pop-scatter_1920.png 1920w,https://codelabs.developers.google.com/static/bigquery-dataframes-iowa-liquor-sales/img/iowa-volume-per-pop-scatter_2880.png 2880w" sizes="(max-width: 840px) 100vw, 856px"></p>
+<p>Calculate the average liters of alcohol purchased in two different ways:</p>
+<ol type="1">
+<li>What is the average amount of alcohol purchased per person in Iowa?</li>
+<li>What is the average over all zip codes of the amount of alcohol purchased per person.</li>
+</ol>
+<p>In (1), it reflects how much alcohol is purchased in the whole state. In (2), it reflects the average zip code, which won&#39;t necessarily be the same as (1) because different zip codes have different populations.</p>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="verilog" syntax-guessed><code translate="no" dir="ltr"><span class="devsite-syntax-n">df</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">bpd</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-n">read_gbq_table</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"bigquery-public-data.iowa_liquor_sales.sales"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-k">assign</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">zip_code</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-n">lambda</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nl">_:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">_</span><span class="devsite-syntax-p">[</span><span class="devsite-syntax-s">"zip_code"</span><span class="devsite-syntax-p">].</span><span class="devsite-syntax-n">str</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-n">replace</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">".0"</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">""</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-n">census_state</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">bpd</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-n">read_gbq</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-s">"bigquery-public-data.census_bureau_acs.state_2020_5yr"</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">index_col</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-s">"geo_id"</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-p">)</span>
+
+<span class="devsite-syntax-n">volume_per_pop_statewide</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">df</span><span class="devsite-syntax-p">['</span><span class="devsite-syntax-n">volume_sold_liters</span><span class="devsite-syntax-p">'].</span><span class="devsite-syntax-n">sum</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-o">/</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">census_state</span><span class="devsite-syntax-p">[</span><span class="devsite-syntax-s">"total_pop"</span><span class="devsite-syntax-p">].</span><span class="devsite-syntax-n">loc</span><span class="devsite-syntax-p">[</span><span class="devsite-syntax-m">'1</span><span class="devsite-syntax-mh">9</span><span class="devsite-syntax-p">']</span>
+<span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-n">volume_per_pop_statewide</span>
+</code></pre></devsite-code>
+<p><strong>Expected output: </strong><code translate="no" dir="ltr">87.997</code></p>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="scdoc" syntax-guessed><code translate="no" dir="ltr">average_per_zip = volume_per_pop["liters_per_pop"].mean()
+average_per_zip
+</code></pre></devsite-code>
+<p><strong>Expected output: </strong><code translate="no" dir="ltr">67.139</code></p>
+<p>Plot these averages, similar to above.</p>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="NumPy" syntax-guessed><code translate="no" dir="ltr"><span class="devsite-syntax-kn">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">numpy</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-k">as</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">np</span>
+<span class="devsite-syntax-kn">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">pandas</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-k">as</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">pd</span>
+<span class="devsite-syntax-kn">from</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">matplotlib</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kn">import</span> <span class="devsite-syntax-n">pyplot</span>
+
+<span class="devsite-syntax-n">line</span> <span class="devsite-syntax-o">=</span> <span class="devsite-syntax-n">pd</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">Series</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">np</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-kp">arange</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-mi">0</span><span class="devsite-syntax-p">,</span> <span class="devsite-syntax-mi">50_000</span><span class="devsite-syntax-p">),</span> <span class="devsite-syntax-n">name</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-s2">"total_pop"</span><span class="devsite-syntax-p">)</span>
+
+<span class="devsite-syntax-n">zips</span> <span class="devsite-syntax-o">=</span> <span class="devsite-syntax-n">volume_per_pop</span><span class="devsite-syntax-p">[[</span><span class="devsite-syntax-s2">"liters_per_pop"</span><span class="devsite-syntax-p">,</span> <span class="devsite-syntax-s2">"total_pop"</span><span class="devsite-syntax-p">]]</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">to_pandas</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-n">pyplot</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">scatter</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">zips</span><span class="devsite-syntax-p">[</span><span class="devsite-syntax-s2">"total_pop"</span><span class="devsite-syntax-p">],</span> <span class="devsite-syntax-n">zips</span><span class="devsite-syntax-p">[</span><span class="devsite-syntax-s2">"liters_per_pop"</span><span class="devsite-syntax-p">])</span>
+<span class="devsite-syntax-n">pyplot</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">plot</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">line</span><span class="devsite-syntax-p">,</span> <span class="devsite-syntax-n">np</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">full</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">line</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-kp">shape</span><span class="devsite-syntax-p">,</span> <span class="devsite-syntax-n">volume_per_pop_statewide</span><span class="devsite-syntax-p">),</span> <span class="devsite-syntax-n">marker</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-kc">None</span><span class="devsite-syntax-p">,</span> <span class="devsite-syntax-n">color</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-s2">"magenta"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-n">pyplot</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">plot</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">line</span><span class="devsite-syntax-p">,</span> <span class="devsite-syntax-n">np</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">full</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">line</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-kp">shape</span><span class="devsite-syntax-p">,</span> <span class="devsite-syntax-n">average_per_zip</span><span class="devsite-syntax-p">),</span> <span class="devsite-syntax-n">marker</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-kc">None</span><span class="devsite-syntax-p">,</span> <span class="devsite-syntax-n">color</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-s2">"red"</span><span class="devsite-syntax-p">)</span>
+</code></pre></devsite-code>
+<p><strong>Expected output:</strong></p>
+<p class="image-container"><img alt="Scatter plot of liters per population" src="/static/bigquery-dataframes-iowa-liquor-sales/img/iowa-volume-per-pop-lines.png" srcset="https://codelabs.developers.google.com/static/bigquery-dataframes-iowa-liquor-sales/img/iowa-volume-per-pop-lines_36.png 36w,https://codelabs.developers.google.com/static/bigquery-dataframes-iowa-liquor-sales/img/iowa-volume-per-pop-lines_48.png 48w,https://codelabs.developers.google.com/static/bigquery-dataframes-iowa-liquor-sales/img/iowa-volume-per-pop-lines_72.png 72w,https://codelabs.developers.google.com/static/bigquery-dataframes-iowa-liquor-sales/img/iowa-volume-per-pop-lines_96.png 96w,https://codelabs.developers.google.com/static/bigquery-dataframes-iowa-liquor-sales/img/iowa-volume-per-pop-lines_480.png 480w,https://codelabs.developers.google.com/static/bigquery-dataframes-iowa-liquor-sales/img/iowa-volume-per-pop-lines_720.png 720w,https://codelabs.developers.google.com/static/bigquery-dataframes-iowa-liquor-sales/img/iowa-volume-per-pop-lines_856.png 856w,https://codelabs.developers.google.com/static/bigquery-dataframes-iowa-liquor-sales/img/iowa-volume-per-pop-lines_960.png 960w,https://codelabs.developers.google.com/static/bigquery-dataframes-iowa-liquor-sales/img/iowa-volume-per-pop-lines_1440.png 1440w,https://codelabs.developers.google.com/static/bigquery-dataframes-iowa-liquor-sales/img/iowa-volume-per-pop-lines_1920.png 1920w,https://codelabs.developers.google.com/static/bigquery-dataframes-iowa-liquor-sales/img/iowa-volume-per-pop-lines_2880.png 2880w" sizes="(max-width: 840px) 100vw, 856px"></p>
+<p>There are still some zip codes that are quite large outliers, especially in areas with less population. It is left as an exercise to hypothesize why this is. For example, it could be that some zip codes are low population but high consumption because they contain the only liquor store in the area. If so, calculating based the population of surrounding zip codes may even these outliers out.</p>
+
+
+        </google-codelab-step>
+      
+        <google-codelab-step label="Comparing types of liquor sold" duration="0" step="5">
+          
+          <h2 class="step-title" id="5" data-text="Comparing types of liquor sold" tabindex="-1">
+              6. Comparing types of liquor sold
+          </h2>
+          
+          <p>In addition to geographic data, the Iowa liquor retail sales database also contains detailed information about the item sold. Perhaps by analyzing these, we can reveal differences in tastes across geographic areas.</p>
+<h2 is-upgraded id="explore-categories" data-text="Explore categories" tabindex="-1">Explore categories</h2>
+<p>Items are categorized in the database. How many categories are there?</p>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Python" syntax-guessed><code translate="no" dir="ltr"><span class="devsite-syntax-kn">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">bigframes.pandas</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-k">as</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">bpd</span>
+
+<span class="devsite-syntax-n">bpd</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">options</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">bigquery</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">ordering_mode</span> <span class="devsite-syntax-o">=</span> <span class="devsite-syntax-s2">"partial"</span>
+<span class="devsite-syntax-n">bpd</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">options</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">display</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">repr_mode</span> <span class="devsite-syntax-o">=</span> <span class="devsite-syntax-s2">"deferred"</span>
+
+<span class="devsite-syntax-n">df</span> <span class="devsite-syntax-o">=</span> <span class="devsite-syntax-n">bpd</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">read_gbq_table</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s2">"bigquery-public-data.iowa_liquor_sales.sales"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-n">df</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">category_name</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">nunique</span><span class="devsite-syntax-p">()</span>
+</code></pre></devsite-code>
+<p><strong>Expected output: </strong><code translate="no" dir="ltr">103</code></p>
+<p>Which are the most popular categories by volume?</p>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="scdoc" syntax-guessed><code translate="no" dir="ltr">counts = (
+    df.groupby("category_name")
+    .agg({"volume_sold_liters": "sum"})
+    .sort_values(["volume_sold_liters"], ascending=False)
+    .to_pandas()
+)
+counts.head(25).plot.bar(rot=80)
+</code></pre></devsite-code>
+<p class="image-container"><img alt="Bar chart of top categories of liquor sold" src="/static/bigquery-dataframes-iowa-liquor-sales/img/iowa-categories.png" srcset="https://codelabs.developers.google.com/static/bigquery-dataframes-iowa-liquor-sales/img/iowa-categories_36.png 36w,https://codelabs.developers.google.com/static/bigquery-dataframes-iowa-liquor-sales/img/iowa-categories_48.png 48w,https://codelabs.developers.google.com/static/bigquery-dataframes-iowa-liquor-sales/img/iowa-categories_72.png 72w,https://codelabs.developers.google.com/static/bigquery-dataframes-iowa-liquor-sales/img/iowa-categories_96.png 96w,https://codelabs.developers.google.com/static/bigquery-dataframes-iowa-liquor-sales/img/iowa-categories_480.png 480w,https://codelabs.developers.google.com/static/bigquery-dataframes-iowa-liquor-sales/img/iowa-categories_720.png 720w,https://codelabs.developers.google.com/static/bigquery-dataframes-iowa-liquor-sales/img/iowa-categories_856.png 856w,https://codelabs.developers.google.com/static/bigquery-dataframes-iowa-liquor-sales/img/iowa-categories_960.png 960w,https://codelabs.developers.google.com/static/bigquery-dataframes-iowa-liquor-sales/img/iowa-categories_1440.png 1440w,https://codelabs.developers.google.com/static/bigquery-dataframes-iowa-liquor-sales/img/iowa-categories_1920.png 1920w,https://codelabs.developers.google.com/static/bigquery-dataframes-iowa-liquor-sales/img/iowa-categories_2880.png 2880w" sizes="(max-width: 840px) 100vw, 856px"></p>
+<h2 is-upgraded id="working-with-the-array-data-type" data-text="Working with the ARRAY data type" tabindex="-1">Working with the ARRAY data type</h2>
+<p>There are several categories each of whiskey, rum, vodka, and more. I&#39;d like to group these together somehow.</p>
+<p>Start by splitting the category names into separate words by using the <a href="https://cloud.google.com/python/docs/reference/bigframes/latest/bigframes.operations.strings.StringMethods#bigframes_operations_strings_StringMethods_split" target="_blank">Series.str.split()</a> method. Unnest the array this creates by using the <code translate="no" dir="ltr">explode()</code> method.</p>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="scdoc" syntax-guessed><code translate="no" dir="ltr">category_parts = df.category_name.str.split(" ").explode()
+counts = (
+    category_parts
+    .groupby(category_parts)
+    .size()
+    .sort_values(ascending=False)
+    .to_pandas()
+)
+counts.head(25).plot.bar(rot=80)
+</code></pre></devsite-code>
+<p class="image-container"><img alt="Words by count from categories" src="/static/bigquery-dataframes-iowa-liquor-sales/img/iowa-words.png" srcset="https://codelabs.developers.google.com/static/bigquery-dataframes-iowa-liquor-sales/img/iowa-words_36.png 36w,https://codelabs.developers.google.com/static/bigquery-dataframes-iowa-liquor-sales/img/iowa-words_48.png 48w,https://codelabs.developers.google.com/static/bigquery-dataframes-iowa-liquor-sales/img/iowa-words_72.png 72w,https://codelabs.developers.google.com/static/bigquery-dataframes-iowa-liquor-sales/img/iowa-words_96.png 96w,https://codelabs.developers.google.com/static/bigquery-dataframes-iowa-liquor-sales/img/iowa-words_480.png 480w,https://codelabs.developers.google.com/static/bigquery-dataframes-iowa-liquor-sales/img/iowa-words_720.png 720w,https://codelabs.developers.google.com/static/bigquery-dataframes-iowa-liquor-sales/img/iowa-words_856.png 856w,https://codelabs.developers.google.com/static/bigquery-dataframes-iowa-liquor-sales/img/iowa-words_960.png 960w,https://codelabs.developers.google.com/static/bigquery-dataframes-iowa-liquor-sales/img/iowa-words_1440.png 1440w,https://codelabs.developers.google.com/static/bigquery-dataframes-iowa-liquor-sales/img/iowa-words_1920.png 1920w,https://codelabs.developers.google.com/static/bigquery-dataframes-iowa-liquor-sales/img/iowa-words_2880.png 2880w" sizes="(max-width: 840px) 100vw, 856px"></p>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="scdoc" syntax-guessed><code translate="no" dir="ltr">category_parts.nunique()
+</code></pre></devsite-code>
+<p><strong>Expected output: </strong><code translate="no" dir="ltr">113</code></p>
+<p>Looking at the chart above, the data still have VODKA separate from VODKAS. More grouping is needed to collapse categories into a smaller set.</p>
+
+
+        </google-codelab-step>
+      
+        <google-codelab-step label="Using NLTK with BigQuery DataFrames" duration="0" step="6">
+          
+          <h2 class="step-title" id="6" data-text="Using NLTK with BigQuery DataFrames" tabindex="-1">
+              7. Using NLTK with BigQuery DataFrames
+          </h2>
+          
+          <p>With only about 100 categories, it would be feasible to write some heuristics or even manually create a mapping from category to the wider liquor type. Alternatively, one could use a large language model such as Gemini to create such a mapping. Try the codelab <a href="/bigquery-dataframes-clustering-unstructured-data" target="_blank">Get insights from unstructured data using BigQuery DataFrames</a> to use BigQuery DataFrames with Gemini.</p>
+<p>Instead, use a more traditional natural language processing package, NLTK, to process these data. Technology called a &#34;stemmer&#34; can merge plural and singular nouns into the same value, for example.</p>
+<h2 is-upgraded id="using-nltk-to-stem-words" data-text="Using NLTK to stem words" tabindex="-1">Using NLTK to stem words</h2>
+<p>The <a href="https://www.nltk.org/" target="_blank">NLTK package</a> provides natural language processing methods that are accessible from Python. Install the package to try it out.</p>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="SWIG" syntax-guessed><code translate="no" dir="ltr"><span class="devsite-syntax-nf">%pip</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">install</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">nltk</span>
+</code></pre></devsite-code>
+<p>Next, import the package. Inspect the version. It will be used later on in the tutorial.</p>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Python" syntax-guessed><code translate="no" dir="ltr"><span class="devsite-syntax-kn">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">nltk</span>
+
+<span class="devsite-syntax-n">nltk</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">__version__</span>
+</code></pre></devsite-code>
+<p>One way of standardizing words to &#34;stem&#34; the word. This removes any suffixes, as a trailing &#34;s&#34; for plurals.</p>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Python" syntax-guessed><code translate="no" dir="ltr"><span class="devsite-syntax-k">def</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">stem</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">word</span><span class="devsite-syntax-p">:</span> <span class="devsite-syntax-nb">str</span><span class="devsite-syntax-p">)</span> <span class="devsite-syntax-o">-</span>&gt; <span class="devsite-syntax-nb">str</span><span class="devsite-syntax-p">:</span>
+    <span class="devsite-syntax-c1"># https://www.nltk.org/howto/stem.html</span>
+    <span class="devsite-syntax-kn">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">nltk.stem.snowball</span>
+
+    <span class="devsite-syntax-c1"># Avoid failure if a NULL is passed in.</span>
+    <span class="devsite-syntax-k">if</span> <span class="devsite-syntax-ow">not</span> <span class="devsite-syntax-n">word</span><span class="devsite-syntax-p">:</span>
+        <span class="devsite-syntax-k">return</span> <span class="devsite-syntax-n">word</span>
+
+    <span class="devsite-syntax-n">stemmer</span> <span class="devsite-syntax-o">=</span> <span class="devsite-syntax-n">nltk</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">stem</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">snowball</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">SnowballStemmer</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s2">"english"</span><span class="devsite-syntax-p">)</span>
+    <span class="devsite-syntax-k">return</span> <span class="devsite-syntax-n">stemmer</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">stem</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">word</span><span class="devsite-syntax-p">)</span>
+</code></pre></devsite-code>
+<p>Try this out on a few words.</p>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Text only" syntax-guessed><code translate="no" dir="ltr">stem("WHISKEY")
+</code></pre></devsite-code>
+<p><strong>Expected output: </strong><code translate="no" dir="ltr">whiskey</code></p>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Text only" syntax-guessed><code translate="no" dir="ltr">stem("WHISKIES")
+</code></pre></devsite-code>
+<p><strong>Expected output: </strong><code translate="no" dir="ltr">whiski</code></p>
+<p>Unfortunately, this didn&#39;t map whiskies to the same as whiskey. Stemmers don&#39;t work well with irregular plurals. Try a lemmatizer, which uses more sophisticated techniques to identify the base word, called a &#34;lemma&#34;.</p>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Python" syntax-guessed><code translate="no" dir="ltr"><span class="devsite-syntax-k">def</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">lemmatize</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">word</span><span class="devsite-syntax-p">:</span> <span class="devsite-syntax-nb">str</span><span class="devsite-syntax-p">)</span> <span class="devsite-syntax-o">-</span>&gt; <span class="devsite-syntax-nb">str</span><span class="devsite-syntax-p">:</span>
+    <span class="devsite-syntax-c1"># https://stackoverflow.com/a/18400977/101923</span>
+    <span class="devsite-syntax-c1"># https://www.nltk.org/api/nltk.stem.wordnet.html#module-nltk.stem.wordnet</span>
+    <span class="devsite-syntax-kn">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">nltk</span>
+    <span class="devsite-syntax-kn">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">nltk.stem.wordnet</span>
+
+
+    <span class="devsite-syntax-c1"># Avoid failure if a NULL is passed in.</span>
+    <span class="devsite-syntax-k">if</span> <span class="devsite-syntax-ow">not</span> <span class="devsite-syntax-n">word</span><span class="devsite-syntax-p">:</span>
+        <span class="devsite-syntax-k">return</span> <span class="devsite-syntax-n">word</span>
+
+    <span class="devsite-syntax-n">nltk</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">download</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s1">'wordnet'</span><span class="devsite-syntax-p">)</span>
+    <span class="devsite-syntax-n">wnl</span> <span class="devsite-syntax-o">=</span> <span class="devsite-syntax-n">nltk</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">stem</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">wordnet</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">WordNetLemmatizer</span><span class="devsite-syntax-p">()</span>
+    <span class="devsite-syntax-k">return</span> <span class="devsite-syntax-n">wnl</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">lemmatize</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">word</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">lower</span><span class="devsite-syntax-p">())</span>
+</code></pre></devsite-code>
+<p>Try this out on a few words.</p>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Text only" syntax-guessed><code translate="no" dir="ltr">lemmatize("WHISKIES")
+</code></pre></devsite-code>
+<p><strong>Expected output: </strong><code translate="no" dir="ltr">whisky</code></p>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Text only" syntax-guessed><code translate="no" dir="ltr">lemmatize("WHISKY")
+</code></pre></devsite-code>
+<p><strong>Expected output: </strong><code translate="no" dir="ltr">whisky</code></p>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Text only" syntax-guessed><code translate="no" dir="ltr">lemmatize("WHISKEY")
+</code></pre></devsite-code>
+<p><strong>Expected output: </strong><code translate="no" dir="ltr">whiskey</code></p>
+<p>Unfortunately, this lemmatizer doesn&#39;t map &#34;whiskey&#34; to the same lemma as &#34;whiskies&#34;. Since this word is particularly important for the Iowa retail liquor sales database, manually map it to the American spelling by using a dictionary.</p>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Python" syntax-guessed><code translate="no" dir="ltr"><span class="devsite-syntax-k">def</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">lemmatize</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">word</span><span class="devsite-syntax-p">:</span> <span class="devsite-syntax-nb">str</span><span class="devsite-syntax-p">)</span> <span class="devsite-syntax-o">-</span>&gt; <span class="devsite-syntax-nb">str</span><span class="devsite-syntax-p">:</span>
+    <span class="devsite-syntax-c1"># https://stackoverflow.com/a/18400977/101923</span>
+    <span class="devsite-syntax-c1"># https://www.nltk.org/api/nltk.stem.wordnet.html#module-nltk.stem.wordnet</span>
+    <span class="devsite-syntax-kn">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">nltk</span>
+    <span class="devsite-syntax-kn">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">nltk.stem.wordnet</span>
+
+
+    <span class="devsite-syntax-c1"># Avoid failure if a NULL is passed in.</span>
+    <span class="devsite-syntax-k">if</span> <span class="devsite-syntax-ow">not</span> <span class="devsite-syntax-n">word</span><span class="devsite-syntax-p">:</span>
+        <span class="devsite-syntax-k">return</span> <span class="devsite-syntax-n">word</span>
+
+    <span class="devsite-syntax-n">nltk</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">download</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s1">'wordnet'</span><span class="devsite-syntax-p">)</span>
+    <span class="devsite-syntax-n">wnl</span> <span class="devsite-syntax-o">=</span> <span class="devsite-syntax-n">nltk</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">stem</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">wordnet</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">WordNetLemmatizer</span><span class="devsite-syntax-p">()</span>
+    <span class="devsite-syntax-n">lemma</span> <span class="devsite-syntax-o">=</span> <span class="devsite-syntax-n">wnl</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">lemmatize</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">word</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">lower</span><span class="devsite-syntax-p">())</span>
+
+    <span class="devsite-syntax-n">table</span> <span class="devsite-syntax-o">=</span> <span class="devsite-syntax-p">{</span>
+        <span class="devsite-syntax-s2">"whisky"</span><span class="devsite-syntax-p">:</span> <span class="devsite-syntax-s2">"whiskey"</span><span class="devsite-syntax-p">,</span>  <span class="devsite-syntax-c1"># Use the American spelling.</span>
+    <span class="devsite-syntax-p">}</span>
+    <span class="devsite-syntax-k">return</span> <span class="devsite-syntax-n">table</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">get</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">lemma</span><span class="devsite-syntax-p">,</span> <span class="devsite-syntax-n">lemma</span><span class="devsite-syntax-p">)</span>
+</code></pre></devsite-code>
+<p>Try this out on a few words.</p>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Text only" syntax-guessed><code translate="no" dir="ltr">lemmatize("WHISKIES")
+</code></pre></devsite-code>
+<p><strong>Expected output: </strong><code translate="no" dir="ltr">whiskey</code></p>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Text only" syntax-guessed><code translate="no" dir="ltr">lemmatize("WHISKEY")
+</code></pre></devsite-code>
+<p><strong>Expected output: </strong><code translate="no" dir="ltr">whiskey</code></p>
+<p>Congrats! This lemmatizer should work well for narrowing the categories. To use it with BigQuery, you must deploy it to the cloud.</p>
+<h2 is-upgraded id="setup-your-project-for-function-deployment" data-text="Setup your project for function deployment" tabindex="-1">Setup your project for function deployment</h2>
+<p>Before you deploy this to the cloud so that BigQuery can access this function, you&#39;ll need to do some one time setup.</p>
+<p>Create a new code cell and replace <code translate="no" dir="ltr">your-project-id</code> with the Google Cloud project ID you&#39;re using for this tutorial.</p>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="scdoc" syntax-guessed><code translate="no" dir="ltr">project_id = "your-project-id"
+</code></pre></devsite-code>
+<p>Create a service account without any permissions, since this function doesn&#39;t need access to any cloud resources.</p>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Python" syntax-guessed><code translate="no" dir="ltr"><span class="devsite-syntax-kn">from</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">google.cloud</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kn">import</span> <span class="devsite-syntax-n">iam_admin_v1</span>
+<span class="devsite-syntax-kn">from</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">google.cloud.iam_admin_v1</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kn">import</span> <span class="devsite-syntax-n">types</span>
+
+<span class="devsite-syntax-n">iam_admin_client</span> <span class="devsite-syntax-o">=</span> <span class="devsite-syntax-n">iam_admin_v1</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">IAMClient</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-n">request</span> <span class="devsite-syntax-o">=</span> <span class="devsite-syntax-n">types</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">CreateServiceAccountRequest</span><span class="devsite-syntax-p">()</span>
+
+<span class="devsite-syntax-n">account_id</span> <span class="devsite-syntax-o">=</span> <span class="devsite-syntax-s2">"bigframes-no-permissions"</span>
+<span class="devsite-syntax-n">request</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">account_id</span> <span class="devsite-syntax-o">=</span> <span class="devsite-syntax-n">account_id</span>
+<span class="devsite-syntax-n">request</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">name</span> <span class="devsite-syntax-o">=</span> <span class="devsite-syntax-sa">f</span><span class="devsite-syntax-s2">"projects/</span><span class="devsite-syntax-si">{</span><span class="devsite-syntax-n">project_id</span><span class="devsite-syntax-si">}</span><span class="devsite-syntax-s2">"</span>
+
+<span class="devsite-syntax-n">display_name</span> <span class="devsite-syntax-o">=</span> <span class="devsite-syntax-s2">"bigframes remote function (no permissions)"</span>
+<span class="devsite-syntax-n">service_account</span> <span class="devsite-syntax-o">=</span> <span class="devsite-syntax-n">types</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">ServiceAccount</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-n">service_account</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">display_name</span> <span class="devsite-syntax-o">=</span> <span class="devsite-syntax-n">display_name</span>
+<span class="devsite-syntax-n">request</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">service_account</span> <span class="devsite-syntax-o">=</span> <span class="devsite-syntax-n">service_account</span>
+
+<span class="devsite-syntax-n">account</span> <span class="devsite-syntax-o">=</span> <span class="devsite-syntax-n">iam_admin_client</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">create_service_account</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">request</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-n">request</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-nb">print</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">account</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">email</span><span class="devsite-syntax-p">)</span>
+</code></pre></devsite-code>
+<p><strong>Expected output: </strong><code translate="no" dir="ltr">bigframes-no-permissions@your-project-id.iam.gserviceaccount.com</code></p>
+<p>Create a BigQuery dataset to hold the function.</p>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Python" syntax-guessed><code translate="no" dir="ltr"><span class="devsite-syntax-kn">from</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">google.cloud</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kn">import</span> <span class="devsite-syntax-n">bigquery</span>
+
+<span class="devsite-syntax-n">bqclient</span> <span class="devsite-syntax-o">=</span> <span class="devsite-syntax-n">bigquery</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">Client</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">project</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-n">project_id</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-n">dataset</span> <span class="devsite-syntax-o">=</span> <span class="devsite-syntax-n">bigquery</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">Dataset</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-sa">f</span><span class="devsite-syntax-s2">"</span><span class="devsite-syntax-si">{</span><span class="devsite-syntax-n">project_id</span><span class="devsite-syntax-si">}</span><span class="devsite-syntax-s2">.functions"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-n">bqclient</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">create_dataset</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">dataset</span><span class="devsite-syntax-p">,</span> <span class="devsite-syntax-n">exists_ok</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-kc">True</span><span class="devsite-syntax-p">)</span>
+</code></pre></devsite-code>
+<h2 is-upgraded id="deploying-a-remote-function" data-text="Deploying a remote function" tabindex="-1">Deploying a remote function</h2>
+<p>Enable the Cloud Functions API if not yet already enabled.</p>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Matlab" syntax-guessed><code translate="no" dir="ltr"><span class="devsite-syntax-sx">!gcloud services enable cloudfunctions.googleapis.com</span>
+</code></pre></devsite-code>
+<p>Now, deploy your function to the dataset you just created. Add a <code translate="no" dir="ltr">@bpd.remote_function</code> decorator to the function you created in the previous steps.</p>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Python" syntax-guessed><code translate="no" dir="ltr"><span class="devsite-syntax-nd">@bpd</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">remote_function</span><span class="devsite-syntax-p">(</span>
+    <span class="devsite-syntax-n">dataset</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-sa">f</span><span class="devsite-syntax-s2">"</span><span class="devsite-syntax-si">{</span><span class="devsite-syntax-n">project_id</span><span class="devsite-syntax-si">}</span><span class="devsite-syntax-s2">.functions"</span><span class="devsite-syntax-p">,</span>
+    <span class="devsite-syntax-n">name</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-s2">"lemmatize"</span><span class="devsite-syntax-p">,</span>
+    <span class="devsite-syntax-c1"># TODO: Replace this with your version of nltk.</span>
+    <span class="devsite-syntax-n">packages</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-p">[</span><span class="devsite-syntax-s2">"nltk==3.9.1"</span><span class="devsite-syntax-p">],</span>
+    <span class="devsite-syntax-n">cloud_function_service_account</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-sa">f</span><span class="devsite-syntax-s2">"bigframes-no-permissions@</span><span class="devsite-syntax-si">{</span><span class="devsite-syntax-n">project_id</span><span class="devsite-syntax-si">}</span><span class="devsite-syntax-s2">.iam.gserviceaccount.com"</span><span class="devsite-syntax-p">,</span>
+    <span class="devsite-syntax-n">cloud_function_ingress_settings</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-s2">"internal-only"</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-k">def</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">lemmatize</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">word</span><span class="devsite-syntax-p">:</span> <span class="devsite-syntax-nb">str</span><span class="devsite-syntax-p">)</span> <span class="devsite-syntax-o">-</span>&gt; <span class="devsite-syntax-nb">str</span><span class="devsite-syntax-p">:</span>
+    <span class="devsite-syntax-c1"># https://stackoverflow.com/a/18400977/101923</span>
+    <span class="devsite-syntax-c1"># https://www.nltk.org/api/nltk.stem.wordnet.html#module-nltk.stem.wordnet</span>
+    <span class="devsite-syntax-kn">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">nltk</span>
+    <span class="devsite-syntax-kn">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">nltk.stem.wordnet</span>
+
+
+    <span class="devsite-syntax-c1"># Avoid failure if a NULL is passed in.</span>
+    <span class="devsite-syntax-k">if</span> <span class="devsite-syntax-ow">not</span> <span class="devsite-syntax-n">word</span><span class="devsite-syntax-p">:</span>
+        <span class="devsite-syntax-k">return</span> <span class="devsite-syntax-n">word</span>
+
+    <span class="devsite-syntax-n">nltk</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">download</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s1">'wordnet'</span><span class="devsite-syntax-p">)</span>
+    <span class="devsite-syntax-n">wnl</span> <span class="devsite-syntax-o">=</span> <span class="devsite-syntax-n">nltk</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">stem</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">wordnet</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">WordNetLemmatizer</span><span class="devsite-syntax-p">()</span>
+    <span class="devsite-syntax-n">lemma</span> <span class="devsite-syntax-o">=</span> <span class="devsite-syntax-n">wnl</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">lemmatize</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">word</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">lower</span><span class="devsite-syntax-p">())</span>
+
+    <span class="devsite-syntax-n">table</span> <span class="devsite-syntax-o">=</span> <span class="devsite-syntax-p">{</span>
+        <span class="devsite-syntax-s2">"whisky"</span><span class="devsite-syntax-p">:</span> <span class="devsite-syntax-s2">"whiskey"</span><span class="devsite-syntax-p">,</span>  <span class="devsite-syntax-c1"># Use the American spelling.</span>
+    <span class="devsite-syntax-p">}</span>
+    <span class="devsite-syntax-k">return</span> <span class="devsite-syntax-n">table</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">get</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">lemma</span><span class="devsite-syntax-p">,</span> <span class="devsite-syntax-n">lemma</span><span class="devsite-syntax-p">)</span>
+</code></pre></devsite-code>
+<p>Deployment should take about two minutes.</p>
+<h2 is-upgraded id="using-the-remote-functions" data-text="Using the remote functions" tabindex="-1">Using the remote functions</h2>
+<p>Once the deployment completes, you can test this function.</p>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="scdoc" syntax-guessed><code translate="no" dir="ltr">lemmatize = bpd.read_gbq_function(f"{project_id}.functions.lemmatize")
+
+words = bpd.Series(["whiskies", "whisky", "whiskey", "vodkas", "vodka"])
+words.apply(lemmatize).to_pandas()
+</code></pre></devsite-code>
+<p><strong>Expected output:</strong></p>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="CBM BASIC V2" syntax-guessed><code translate="no" dir="ltr"><span class="devsite-syntax-mf">0</span><span class="devsite-syntax-w">	</span><span class="devsite-syntax-n">whiskey</span>
+<span class="devsite-syntax-mf">1</span><span class="devsite-syntax-w">	</span><span class="devsite-syntax-n">whiskey</span>
+<span class="devsite-syntax-mf">2</span><span class="devsite-syntax-w">	</span><span class="devsite-syntax-n">whiskey</span>
+<span class="devsite-syntax-mf">3</span><span class="devsite-syntax-w">	</span><span class="devsite-syntax-n">vodka</span>
+<span class="devsite-syntax-mf">4</span><span class="devsite-syntax-w">	</span><span class="devsite-syntax-n">vodka</span>
+
+<span class="devsite-syntax-n">dtype</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">string</span>
+</code></pre></devsite-code>
+
+
+        </google-codelab-step>
+      
+        <google-codelab-step label="Comparing alcohol consumption by county" duration="0" step="7">
+          
+          <h2 class="step-title" id="7" data-text="Comparing alcohol consumption by county" tabindex="-1">
+              8. Comparing alcohol consumption by county
+          </h2>
+          
+          <p>Now that the <code translate="no" dir="ltr">lemmatize</code> function is available, use it to combine categories.</p>
+<h2 is-upgraded id="finding-the-word-to-best-summarize-the-category" data-text="Finding the word to best summarize the category" tabindex="-1">Finding the word to best summarize the category</h2>
+<p>First, create a DataFrame of all categories in the database.</p>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="scdoc" syntax-guessed><code translate="no" dir="ltr">df = bpd.read_gbq_table("bigquery-public-data.iowa_liquor_sales.sales")
+
+categories = (
+    df['category_name']
+    .groupby(df['category_name'])
+    .size()
+    .to_frame()
+    .rename(columns={"category_name": "total_orders"})
+    .reset_index(drop=False)
+)
+categories.to_pandas()
+</code></pre></devsite-code>
+<p><strong>Expected output:</strong></p>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="scdoc" syntax-guessed><code translate="no" dir="ltr">category_name	total_orders
+0	100 PROOF VODKA	99124
+1	100% AGAVE TEQUILA	724374
+2	AGED DARK RUM	59433
+3	AMARETTO - IMPORTED	102
+4	AMERICAN ALCOHOL	24351
+...	...	...
+98	WATERMELON SCHNAPPS	17844
+99	WHISKEY LIQUEUR	1442732
+100	WHITE CREME DE CACAO	7213
+101	WHITE CREME DE MENTHE	2459
+102	WHITE RUM	436553
+103 rows × 2 columns
+</code></pre></devsite-code>
+<p>Next, create a DataFrame of all words in the categories, except for a few filler words like punctuation and &#34;item&#34;.</p>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="verilog" syntax-guessed><code translate="no" dir="ltr"><span class="devsite-syntax-n">words</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">categories</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-k">assign</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">words</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-n">categories</span><span class="devsite-syntax-p">['</span><span class="devsite-syntax-n">category_name</span><span class="devsite-syntax-p">']</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-n">str</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-n">lower</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-n">str</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-n">split</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">" "</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-k">assign</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">num_words</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-n">lambda</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nl">_:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">_</span><span class="devsite-syntax-p">['</span><span class="devsite-syntax-n">words</span><span class="devsite-syntax-p">'].</span><span class="devsite-syntax-n">str</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-n">len</span><span class="devsite-syntax-p">())</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-n">explode</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"words"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-n">rename</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">columns</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-p">{</span><span class="devsite-syntax-s">"words"</span><span class="devsite-syntax-o">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"word"</span><span class="devsite-syntax-p">})</span>
+<span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-n">words</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">words</span><span class="devsite-syntax-p">[</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">#</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Remove</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">punctuation</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-k">and</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"item"</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">unless</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">it</span><span class="devsite-syntax-p">'</span><span class="devsite-syntax-n">s</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">the</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">only</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">word</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">words</span><span class="devsite-syntax-p">['</span><span class="devsite-syntax-n">word</span><span class="devsite-syntax-p">'].</span><span class="devsite-syntax-n">str</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-n">isalnum</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> &amp; </span><span class="devsite-syntax-o">~</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">words</span><span class="devsite-syntax-p">['</span><span class="devsite-syntax-n">word</span><span class="devsite-syntax-p">'].</span><span class="devsite-syntax-n">str</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-n">startswith</span><span class="devsite-syntax-p">('</span><span class="devsite-syntax-n">item</span><span class="devsite-syntax-p">')))</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-o">|</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">words</span><span class="devsite-syntax-p">['</span><span class="devsite-syntax-n">num_words</span><span class="devsite-syntax-p">']</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">==</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-mh">1</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-p">]</span>
+<span class="devsite-syntax-n">words</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-n">to_pandas</span><span class="devsite-syntax-p">()</span>
+</code></pre></devsite-code>
+<p><strong>Expected output:</strong></p>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="scdoc" syntax-guessed><code translate="no" dir="ltr">category_name	total_orders	word	num_words
+0	100 PROOF VODKA	99124	100	3
+1	100 PROOF VODKA	99124	proof	3
+2	100 PROOF VODKA	99124	vodka	3
+...	...	...	...	...
+252	WHITE RUM	436553	white	2
+253	WHITE RUM	436553	rum	2
+254 rows × 4 columns
+</code></pre></devsite-code>
+<p>Note that by lemmatizing after grouping, you are reducing the load on your Cloud Function. It is possible to apply the lemmatize function on each of the several million rows in the database, but it would cost more than applying it after grouping and may require quota increases.</p>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="verilog" syntax-guessed><code translate="no" dir="ltr"><span class="devsite-syntax-n">lemmas</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">words</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-k">assign</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">lemma</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-n">lambda</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nl">_:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">_</span><span class="devsite-syntax-p">[</span><span class="devsite-syntax-s">"word"</span><span class="devsite-syntax-p">].</span><span class="devsite-syntax-n">apply</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">lemmatize</span><span class="devsite-syntax-p">))</span>
+<span class="devsite-syntax-n">lemmas</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-n">to_pandas</span><span class="devsite-syntax-p">()</span>
+</code></pre></devsite-code>
+<p><strong>Expected output:</strong></p>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="scdoc" syntax-guessed><code translate="no" dir="ltr">category_name	total_orders	word	num_words	lemma
+0	100 PROOF VODKA	99124	100	3	100
+1	100 PROOF VODKA	99124	proof	3	proof
+2	100 PROOF VODKA	99124	vodka	3	vodka
+...	...	...	...	...	...
+252	WHITE RUM	436553	white	2	white
+253	WHITE RUM	436553	rum	2	rum
+254 rows × 5 columns
+</code></pre></devsite-code>
+<p>Now that the words have been lemmatized, you need to select the lemma that best summarizes the category. Since there aren&#39;t many function words in the categories, use the heuristic that if a word appears in multiple other categories, it&#39;s likely better as a summarizing word (e.g. whiskey).</p>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="scdoc" syntax-guessed><code translate="no" dir="ltr">lemma_counts = (
+    lemmas
+    .groupby("lemma", as_index=False)
+    .agg({"total_orders": "sum"})
+    .rename(columns={"total_orders": "total_orders_with_lemma"})
+)
+
+categories_with_lemma_counts = lemmas.merge(lemma_counts, on="lemma")
+
+max_lemma_count = (
+    categories_with_lemma_counts
+    .groupby("category_name", as_index=False)
+    .agg({"total_orders_with_lemma": "max"})
+    .rename(columns={"total_orders_with_lemma": "max_lemma_count"})
+)
+
+categories_with_max = categories_with_lemma_counts.merge(
+    max_lemma_count,
+    on="category_name"
+)
+
+categories_mapping = categories_with_max[
+    categories_with_max['total_orders_with_lemma'] == categories_with_max['max_lemma_count']
+].groupby("category_name", as_index=False).max()
+categories_mapping.to_pandas()
+</code></pre></devsite-code>
+<p><strong>Expected output:</strong></p>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="scdoc" syntax-guessed><code translate="no" dir="ltr">	category_name	total_orders	word	num_words	lemma	total_orders_with_lemma	max_lemma_count
+0	100 PROOF VODKA	99124	vodka	3	vodka	7575769	7575769
+1	100% AGAVE TEQUILA	724374	tequila	3	tequila	1601092	1601092
+2	AGED DARK RUM	59433	rum	3	rum	3226633	3226633
+...	...	...	...	...	...	...	...
+100	WHITE CREME DE CACAO	7213	white	4	white	446225	446225
+101	WHITE CREME DE MENTHE	2459	white	4	white	446225	446225
+102	WHITE RUM	436553	rum	2	rum	3226633	3226633
+103 rows × 7 columns
+</code></pre></devsite-code>
+<p>Now that there is a single lemma summarizing each category, merge this to the original DataFrame.</p>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="scdoc" syntax-guessed><code translate="no" dir="ltr">df_with_lemma = df.merge(
+    categories_mapping,
+    on="category_name",
+    how="left"
+)
+df_with_lemma[df_with_lemma['category_name'].notnull()].peek()
+</code></pre></devsite-code>
+<p><strong>Expected output:</strong></p>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="scdoc" syntax-guessed><code translate="no" dir="ltr">	invoice_and_item_number	...	lemma	total_orders_with_lemma	max_lemma_count
+0	S30989000030	...	vodka	7575769	7575769
+1	S30538800106	...	vodka	7575769	7575769
+2	S30601200013	...	vodka	7575769	7575769
+3	S30527200047	...	vodka	7575769	7575769
+4	S30833600058	...	vodka	7575769	7575769
+5 rows × 30 columns
+</code></pre></devsite-code>
+<h2 is-upgraded id="comparing-counties" data-text="Comparing counties" tabindex="-1">Comparing counties</h2>
+<p>Compare sales in each county to see what differences there are.</p>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Carbon" syntax-guessed><code translate="no" dir="ltr"><span class="devsite-syntax-nx">county_lemma</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-nx">df_with_lemma</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-nx">groupby</span><span class="devsite-syntax-p">([</span><span class="devsite-syntax-s">"county"</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"lemma"</span><span class="devsite-syntax-p">])</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-nx">agg</span><span class="devsite-syntax-p">({</span><span class="devsite-syntax-s">"volume_sold_liters"</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"sum"</span><span class="devsite-syntax-p">})</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-err">#</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">Cast</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">to</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">an</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">integer</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-k">for</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">more</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">deterministic</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">equality</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">comparisons</span><span class="devsite-syntax-p">.</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-nx">assign</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-nx">volume_sold_int64</span><span class="devsite-syntax-p">=</span><span class="devsite-syntax-nx">lambda</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">_</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">_</span><span class="devsite-syntax-p">[</span><span class="devsite-syntax-err">'</span><span class="devsite-syntax-nx">volume_sold_liters</span><span class="devsite-syntax-err">'</span><span class="devsite-syntax-p">].</span><span class="devsite-syntax-nx">astype</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"Int64"</span><span class="devsite-syntax-p">))</span>
+<span class="devsite-syntax-p">)</span>
+</code></pre></devsite-code>
+<p>Find the most sold product (lemma) in each county.</p>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="scdoc" syntax-guessed><code translate="no" dir="ltr">county_max = (
+    county_lemma
+    .reset_index(drop=False)
+    .groupby("county")
+    .agg({"volume_sold_int64": "max"})
+)
+
+county_max_lemma = county_lemma[
+    county_lemma["volume_sold_int64"] == county_max["volume_sold_int64"]
+]
+
+county_max_lemma.to_pandas()
+</code></pre></devsite-code>
+<p><strong>Expected output:</strong></p>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="scdoc" syntax-guessed><code translate="no" dir="ltr">	volume_sold_liters	volume_sold_int64
+county	lemma		
+SCOTT	vodka	6044393.1	6044393
+APPANOOSE	whiskey	292490.44	292490
+HAMILTON	whiskey	329118.92	329118
+...	...	...	...
+WORTH	whiskey	100542.85	100542
+MITCHELL	vodka	158791.94	158791
+RINGGOLD	whiskey	65107.8	65107
+101 rows × 2 columns
+</code></pre></devsite-code>
+<p>How different are the counties from each other?</p>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="scdoc" syntax-guessed><code translate="no" dir="ltr">county_max_lemma.groupby("lemma").size().to_pandas()
+</code></pre></devsite-code>
+<p><strong>Expected output:</strong></p>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Carbon" syntax-guessed><code translate="no" dir="ltr"><span class="devsite-syntax-nx">lemma</span><span class="devsite-syntax-w">	</span>
+<span class="devsite-syntax-nx">american</span><span class="devsite-syntax-w">	</span><span class="devsite-syntax-mi">1</span>
+<span class="devsite-syntax-nx">liqueur</span><span class="devsite-syntax-w">	</span><span class="devsite-syntax-mi">1</span>
+<span class="devsite-syntax-nx">vodka</span><span class="devsite-syntax-w">	</span><span class="devsite-syntax-mi">15</span>
+<span class="devsite-syntax-nx">whiskey</span><span class="devsite-syntax-w">	</span><span class="devsite-syntax-mi">83</span>
+
+<span class="devsite-syntax-nx">dtype</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">Int64</span>
+</code></pre></devsite-code>
+<p>In most counties, whiskey is the most popular product by volume, with vodka most popular in 15 counties. Compare this to the most popular liquor types statewide.</p>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="scdoc" syntax-guessed><code translate="no" dir="ltr">total_liters = (
+    df_with_lemma
+    .groupby("lemma")
+    .agg({"volume_sold_liters": "sum"})
+    .sort_values("volume_sold_liters", ascending=False)
+)
+total_liters.to_pandas()
+</code></pre></devsite-code>
+<p><strong>Expected output:</strong></p>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="scdoc" syntax-guessed><code translate="no" dir="ltr">	volume_sold_liters
+lemma	
+vodka	85356422.950001
+whiskey	85112339.980001
+rum	33891011.72
+american	19994259.64
+imported	14985636.61
+tequila	12357782.37
+cocktails/rtd	7406769.87
+...
+</code></pre></devsite-code>
+<p>Whiskey and vodka have nearly the same volume, with vodka a bit higher than whiskey statewide.</p>
+<h2 is-upgraded id="comparing-proportions" data-text="Comparing proportions" tabindex="-1">Comparing proportions</h2>
+<p>What is unique about the sales in each county? What makes the county different from the rest of the state?</p>
+<p>Use the <a href="https://en.wikipedia.org/wiki/Cohen%27s_h" target="_blank">Cohen&#39;s h measure</a> to find which liquor sales volumes differ the most proportionally from what would be expected based on the proportion of sales statewide.</p>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="NumPy" syntax-guessed><code translate="no" dir="ltr"><span class="devsite-syntax-kn">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">numpy</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-k">as</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">np</span>
+
+<span class="devsite-syntax-n">total_proportions</span> <span class="devsite-syntax-o">=</span> <span class="devsite-syntax-n">total_liters</span> <span class="devsite-syntax-o">/</span> <span class="devsite-syntax-n">total_liters</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-kp">sum</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-n">total_phi</span> <span class="devsite-syntax-o">=</span> <span class="devsite-syntax-mi">2</span> <span class="devsite-syntax-o">*</span> <span class="devsite-syntax-n">np</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-kp">arcsin</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">np</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-kp">sqrt</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">total_proportions</span><span class="devsite-syntax-p">))</span>
+
+<span class="devsite-syntax-n">county_liters</span> <span class="devsite-syntax-o">=</span> <span class="devsite-syntax-n">df_with_lemma</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">groupby</span><span class="devsite-syntax-p">([</span><span class="devsite-syntax-s2">"county"</span><span class="devsite-syntax-p">,</span> <span class="devsite-syntax-s2">"lemma"</span><span class="devsite-syntax-p">])</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">agg</span><span class="devsite-syntax-p">({</span><span class="devsite-syntax-s2">"volume_sold_liters"</span><span class="devsite-syntax-p">:</span> <span class="devsite-syntax-s2">"sum"</span><span class="devsite-syntax-p">})</span>
+<span class="devsite-syntax-n">county_totals</span> <span class="devsite-syntax-o">=</span> <span class="devsite-syntax-n">df_with_lemma</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">groupby</span><span class="devsite-syntax-p">([</span><span class="devsite-syntax-s2">"county"</span><span class="devsite-syntax-p">])</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">agg</span><span class="devsite-syntax-p">({</span><span class="devsite-syntax-s2">"volume_sold_liters"</span><span class="devsite-syntax-p">:</span> <span class="devsite-syntax-s2">"sum"</span><span class="devsite-syntax-p">})</span>
+<span class="devsite-syntax-n">county_proportions</span> <span class="devsite-syntax-o">=</span> <span class="devsite-syntax-n">county_liters</span> <span class="devsite-syntax-o">/</span> <span class="devsite-syntax-n">county_totals</span>
+<span class="devsite-syntax-n">county_phi</span> <span class="devsite-syntax-o">=</span> <span class="devsite-syntax-mi">2</span> <span class="devsite-syntax-o">*</span> <span class="devsite-syntax-n">np</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-kp">arcsin</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">np</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-kp">sqrt</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">county_proportions</span><span class="devsite-syntax-p">))</span>
+
+<span class="devsite-syntax-n">cohens_h</span> <span class="devsite-syntax-o">=</span> <span class="devsite-syntax-p">(</span>
+    <span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">county_phi</span> <span class="devsite-syntax-o">-</span> <span class="devsite-syntax-n">total_phi</span><span class="devsite-syntax-p">)</span>
+    <span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">rename</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">columns</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-p">{</span><span class="devsite-syntax-s2">"volume_sold_liters"</span><span class="devsite-syntax-p">:</span> <span class="devsite-syntax-s2">"cohens_h"</span><span class="devsite-syntax-p">})</span>
+    <span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">assign</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">cohens_h_int</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-k">lambda</span> <span class="devsite-syntax-n">_</span><span class="devsite-syntax-p">:</span> <span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">_</span><span class="devsite-syntax-p">[</span><span class="devsite-syntax-s1">'cohens_h'</span><span class="devsite-syntax-p">]</span> <span class="devsite-syntax-o">*</span> <span class="devsite-syntax-mi">1_000_000</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-kp">astype</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s2">"Int64"</span><span class="devsite-syntax-p">))</span>
+<span class="devsite-syntax-p">)</span>
+</code></pre></devsite-code>
+<p>Now that the Cohen&#39;s h has been measured for each lemma, find the largest difference from the statewide proportion in each county.</p>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="scdoc" syntax-guessed><code translate="no" dir="ltr"><span class="devsite-syntax-gh">#</span> Note: one might want to use the absolute value here if interested in counties
+<span class="devsite-syntax-gh">#</span> that drink _less_ of a particular liquor than expected.
+largest_per_county = cohens_h.groupby("county").agg({"cohens_h_int": "max"})
+counties = cohens_h[cohens_h['cohens_h_int'] == largest_per_county["cohens_h_int"]]
+counties.sort_values('cohens_h', ascending=False).to_pandas()
+</code></pre></devsite-code>
+<p><strong>Expected output:</strong></p>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="scdoc" syntax-guessed><code translate="no" dir="ltr">	cohens_h	cohens_h_int
+county	lemma		
+EL PASO	liqueur	1.289667	1289667
+ADAMS	whiskey	0.373591	373590
+IDA	whiskey	0.306481	306481
+OSCEOLA	whiskey	0.295524	295523
+PALO ALTO	whiskey	0.293697	293696
+...	...	...	...
+MUSCATINE	rum	0.053757	53757
+MARION	rum	0.053427	53427
+MITCHELL	vodka	0.048212	48212
+WEBSTER	rum	0.044896	44895
+CERRO GORDO	cocktails/rtd	0.027496	27495
+100 rows × 2 columns
+</code></pre></devsite-code>
+<p>The larger the Cohen&#39;s h value, the more likely it is that there is a statistically significant difference in the amount of that type of alcohol consumed compared to the state averages. For the smaller positive values, the difference in consumption is different than the statewide average, but it may be due to random differences.</p>
+<p>An aside: EL PASO county doesn&#39;t appear to be a <a href="https://en.wikipedia.org/wiki/List_of_counties_in_Iowa" target="_blank">county in Iowa</a> this may indicate another need for data cleanup before fully depending on these results.</p>
+<h2 is-upgraded id="visualizing-counties" data-text="Visualizing counties" tabindex="-1">Visualizing counties</h2>
+<p>Join with the <a href="https://console.cloud.google.com/bigquery?ws=!1m5!1m4!4m3!1sbigquery-public-data!2sgeo_us_boundaries!3scounties" target="_blank"><code translate="no" dir="ltr">bigquery-public-data.geo_us_boundaries.counties</code> table</a> to get the geographic area for each county. County names are not unique across the United States, so filter to only include counties from Iowa. The FIPS code for Iowa is ‘19&#39;.</p>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="verilog" syntax-guessed><code translate="no" dir="ltr"><span class="devsite-syntax-n">counties_geo</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">bpd</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-n">read_gbq</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"bigquery-public-data.geo_us_boundaries.counties"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-k">assign</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">county</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-n">lambda</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nl">_:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">_</span><span class="devsite-syntax-p">['</span><span class="devsite-syntax-n">county_name</span><span class="devsite-syntax-p">'].</span><span class="devsite-syntax-n">str</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-n">upper</span><span class="devsite-syntax-p">())</span>
+<span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-n">counties_plus</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">counties</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-n">reset_index</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">drop</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-n">False</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-n">merge</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">counties_geo</span><span class="devsite-syntax-p">[</span><span class="devsite-syntax-n">counties_geo</span><span class="devsite-syntax-p">['</span><span class="devsite-syntax-n">state_fips_code</span><span class="devsite-syntax-p">']</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">==</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-m">'1</span><span class="devsite-syntax-mh">9</span><span class="devsite-syntax-p">'],</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">on</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-s">"county"</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">how</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-s">"left"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-n">dropna</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">subset</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-p">[</span><span class="devsite-syntax-s">"county_geom"</span><span class="devsite-syntax-p">])</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-n">to_pandas</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-n">counties_plus</span>
+</code></pre></devsite-code>
+<p><strong>Expected output:</strong></p>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="scdoc" syntax-guessed><code translate="no" dir="ltr">county	lemma	cohens_h	cohens_h_int	geo_id	state_fips_code	...
+0	ALLAMAKEE	american	0.087931	87930	19005	19	...
+1	BLACK HAWK	american	0.106256	106256	19013	19	...
+2	WINNESHIEK	american	0.093101	93101	19191	19	...
+...	...	...	...	...	...	...	...	...	...	...	...	...	...	...	...	...	...	...	...	...	...
+96	CLINTON	tequila	0.075708	75707	19045	19	...
+97	POLK	tequila	0.087438	87438	19153	19	...
+98	LEE	schnapps	0.064663	64663	19111	19	...
+99 rows × 23 columns
+</code></pre></devsite-code>
+<p>Use GeoPandas to visualize these differences on a map.</p>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Python" syntax-guessed><code translate="no" dir="ltr"><span class="devsite-syntax-kn">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">geopandas</span>
+
+<span class="devsite-syntax-n">counties_plus</span> <span class="devsite-syntax-o">=</span> <span class="devsite-syntax-n">geopandas</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">GeoDataFrame</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">counties_plus</span><span class="devsite-syntax-p">,</span> <span class="devsite-syntax-n">geometry</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-s2">"county_geom"</span><span class="devsite-syntax-p">)</span>
+
+<span class="devsite-syntax-c1"># https://stackoverflow.com/a/42214156/101923</span>
+<span class="devsite-syntax-n">ax</span> <span class="devsite-syntax-o">=</span> <span class="devsite-syntax-n">counties_plus</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">plot</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">figsize</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-mi">14</span><span class="devsite-syntax-p">,</span> <span class="devsite-syntax-mi">14</span><span class="devsite-syntax-p">))</span>
+<span class="devsite-syntax-n">counties_plus</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">apply</span><span class="devsite-syntax-p">(</span>
+    <span class="devsite-syntax-k">lambda</span> <span class="devsite-syntax-n">row</span><span class="devsite-syntax-p">:</span> <span class="devsite-syntax-n">ax</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">annotate</span><span class="devsite-syntax-p">(</span>
+        <span class="devsite-syntax-n">text</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-n">row</span><span class="devsite-syntax-p">[</span><span class="devsite-syntax-s1">'lemma'</span><span class="devsite-syntax-p">],</span>
+        <span class="devsite-syntax-n">xy</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-n">row</span><span class="devsite-syntax-p">[</span><span class="devsite-syntax-s1">'county_geom'</span><span class="devsite-syntax-p">]</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">centroid</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">coords</span><span class="devsite-syntax-p">[</span><span class="devsite-syntax-mi">0</span><span class="devsite-syntax-p">],</span>
+        <span class="devsite-syntax-n">ha</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-s1">'center'</span>
+    <span class="devsite-syntax-p">),</span>
+    <span class="devsite-syntax-n">axis</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-mi">1</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-p">)</span>
+</code></pre></devsite-code>
+<p class="image-container"><img alt="A map of the alcohol that is most different from statewide sales volume proportions in each county" src="/static/bigquery-dataframes-iowa-liquor-sales/img/iowa-counties-map.png" srcset="https://codelabs.developers.google.com/static/bigquery-dataframes-iowa-liquor-sales/img/iowa-counties-map_36.png 36w,https://codelabs.developers.google.com/static/bigquery-dataframes-iowa-liquor-sales/img/iowa-counties-map_48.png 48w,https://codelabs.developers.google.com/static/bigquery-dataframes-iowa-liquor-sales/img/iowa-counties-map_72.png 72w,https://codelabs.developers.google.com/static/bigquery-dataframes-iowa-liquor-sales/img/iowa-counties-map_96.png 96w,https://codelabs.developers.google.com/static/bigquery-dataframes-iowa-liquor-sales/img/iowa-counties-map_480.png 480w,https://codelabs.developers.google.com/static/bigquery-dataframes-iowa-liquor-sales/img/iowa-counties-map_720.png 720w,https://codelabs.developers.google.com/static/bigquery-dataframes-iowa-liquor-sales/img/iowa-counties-map_856.png 856w,https://codelabs.developers.google.com/static/bigquery-dataframes-iowa-liquor-sales/img/iowa-counties-map_960.png 960w,https://codelabs.developers.google.com/static/bigquery-dataframes-iowa-liquor-sales/img/iowa-counties-map_1440.png 1440w,https://codelabs.developers.google.com/static/bigquery-dataframes-iowa-liquor-sales/img/iowa-counties-map_1920.png 1920w,https://codelabs.developers.google.com/static/bigquery-dataframes-iowa-liquor-sales/img/iowa-counties-map_2880.png 2880w" sizes="(max-width: 840px) 100vw, 856px"></p>
+
+
+        </google-codelab-step>
+      
+        <google-codelab-step label="Clean up" duration="0" step="8">
+          
+          <h2 class="step-title" id="8" data-text="Clean up" tabindex="-1">
+              9. Clean up
+          </h2>
+          
+          <p>If you have created a new Google Cloud project for this tutorial, you can <a href="https://cloud.google.com/resource-manager/docs/creating-managing-projects#shutting_down_projects" target="_blank">delete it</a> to prevent additional charges for tables or other resources created.</p>
+<p>Alternatively, delete the Cloud Functions, service accounts, and datasets created for this tutorial.</p>
+
+
+        </google-codelab-step>
+      
+        <google-codelab-step label="Congratulations!" duration="0" step="9">
+          
+          <h2 class="step-title" id="9" data-text="Congratulations!" tabindex="-1">
+              10. Congratulations!
+          </h2>
+          
+          <p>You have cleaned and analyzed structured data using BigQuery DataFrames. Along the way you&#39;ve explored Google Cloud&#39;s Public Datasets, Python notebooks in BigQuery Studio, BigQuery ML, BigQuery Remote Functions, and the power of BigQuery DataFrames. Fantastic job!</p>
+<h2 is-upgraded id="next-steps" data-text="Next steps" tabindex="-1">Next steps</h2>
+<ul>
+<li>Apply these steps to other data, such as the <a href="https://github.com/tswast/code-snippets/blob/main/2024/12-bigframes-usa-names/usa_names.ipynb" target="_blank">USA names database</a>.</li>
+<li>Try <a href="https://cloud.google.com/colab/docs/use-code-completion" target="_blank">generating Python code in your notebook</a>. Python notebooks in BigQuery Studio are powered by Colab Enterprise. Hint: I find asking for help generating test data to be quite useful.</li>
+<li>Explore the <a href="https://github.com/googleapis/python-bigquery-dataframes/tree/main/notebooks" target="_blank">sample notebooks for BigQuery DataFrames</a> on GitHub.</li>
+<li>Create a <a href="https://cloud.google.com/bigquery/docs/orchestrate-notebooks" target="_blank">schedule to run a notebook in BigQuery Studio</a>.</li>
+<li>Deploy a <a href="https://cloud.google.com/bigquery/docs/samples/bigquery-dataframes-remote-function" target="_blank">Remote Function with BigQuery DataFrames</a> to integrate third-party Python packages with BigQuery.</li>
+</ul>
+
+
+        </google-codelab-step>
+      
+    </google-codelab>
+  
+  
+
+  
+</div>
+
+  
+    
+    
+    
+  
+
+  <div class="devsite-floating-action-buttons"></div></article>
+
+
+<devsite-content-footer class="nocontent" data-nosnippet>
+  <p>Except as otherwise noted, the content of this page is licensed under the <a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 License</a>, and code samples are licensed under the <a href="https://www.apache.org/licenses/LICENSE-2.0">Apache 2.0 License</a>. For details, see the <a href="https://developers.google.com/site-policies">Google Developers Site Policies</a>. Java is a registered trademark of Oracle and/or its affiliates.</p>
+  
+</devsite-content-footer>
+
+
+<devsite-notification
+>
+</devsite-notification>
+
+
+  
+<div class="devsite-content-data">
+  
+  
+    <template class="devsite-content-data-template">
+      [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Missing the information I need","missingTheInformationINeed","thumb-down"],["Too complicated / too many steps","tooComplicatedTooManySteps","thumb-down"],["Out of date","outOfDate","thumb-down"],["Samples / code issue","samplesCodeIssue","thumb-down"],["Other","otherDown","thumb-down"]],[],[],[]]
+    </template>
+  
+</div>
+            
+          </devsite-content>
+        </main>
+        <devsite-footer-promos class="devsite-footer">
+          
+            
+          
+        </devsite-footer-promos>
+        <devsite-footer-linkboxes class="devsite-footer">
+          
+            
+<nav class="devsite-footer-linkboxes nocontent"
+     aria-label="Footer links"
+     data-nosnippet>
+  
+  <ul class="devsite-footer-linkboxes-list">
+    
+    <li class="devsite-footer-linkbox ">
+    <h3 class="devsite-footer-linkbox-heading no-link">Connect</h3>
+      <ul class="devsite-footer-linkbox-list">
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//googledevelopers.blogspot.com"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 1)"
+            >
+            
+          
+            Blog
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//www.facebook.com/Google-Developers-967415219957038"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 2)"
+            >
+            
+          
+            Facebook
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//medium.com/google-developers"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 3)"
+            >
+            
+          
+            Medium
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//twitter.com/googledevs"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 4)"
+            >
+            
+          
+            Twitter
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//www.youtube.com/user/GoogleDevelopers"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 5)"
+            >
+            
+              
+              
+            
+          
+            YouTube
+          
+          </a>
+          
+          
+        </li>
+        
+      </ul>
+    </li>
+    
+    <li class="devsite-footer-linkbox ">
+    <h3 class="devsite-footer-linkbox-heading no-link">Programs</h3>
+      <ul class="devsite-footer-linkbox-list">
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//www.womentechmakers.com"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 1)"
+            >
+            
+          
+            Women Techmakers
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//developers.google.com/community/gdg"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 2)"
+            >
+            
+          
+            Google Developer Groups
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//developers.google.com/community/experts"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 3)"
+            >
+            
+          
+            Google Developer Experts
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//developers.google.com/community/accelerators"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 4)"
+            >
+            
+              
+              
+            
+          
+            Accelerators
+          
+          </a>
+          
+          
+        </li>
+        
+      </ul>
+    </li>
+    
+    <li class="devsite-footer-linkbox ">
+    <h3 class="devsite-footer-linkbox-heading no-link">Developer consoles</h3>
+      <ul class="devsite-footer-linkbox-list">
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//console.developers.google.com"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 1)"
+            >
+            
+          
+            Google API Console
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//console.cloud.google.com"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 2)"
+            >
+            
+          
+            Google Cloud Platform Console
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//play.google.com/apps/publish"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 3)"
+            >
+            
+          
+            Google Play Console
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//console.firebase.google.com"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 4)"
+            >
+            
+          
+            Firebase Console
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//console.actions.google.com"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 5)"
+            >
+            
+          
+            Actions on Google Console
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//cast.google.com/publish"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 6)"
+            >
+            
+          
+            Cast SDK Developer Console
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//chrome.google.com/webstore/developer/dashboard"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 7)"
+            >
+            
+              
+              
+            
+          
+            Chrome Web Store Dashboard
+          
+          </a>
+          
+          
+        </li>
+        
+      </ul>
+    </li>
+    
+  </ul>
+  
+</nav>
+          
+        </devsite-footer-linkboxes>
+        <devsite-footer-utility class="devsite-footer">
+          
+            
+
+<div class="devsite-footer-utility nocontent" data-nosnippet>
+  
+  
+  <nav class="devsite-footer-sites" aria-label="Other Google Developers websites">
+    <a href="https://developers.google.com/"
+       class="devsite-footer-sites-logo-link gc-analytics-event"
+       data-category="Site-Wide Custom Events"
+       data-label="Footer Google Developers Link">
+      <picture>
+        
+        <img class="devsite-footer-sites-logo"
+             src="https://www.gstatic.com/devrel-devsite/prod/vb08cbdb02acf7f66ad9727ddfba9d81df8806422eb5dd63dba194c9c8c7997f7/codelabs/images/lockup-google-for-developers.svg"
+             loading="lazy"
+             alt="Google Developers">
+      </picture>
+    </a>
+    <ul class="devsite-footer-sites-list">
+      
+      <li class="devsite-footer-sites-item">
+        <a href="//developer.android.com"
+           class="devsite-footer-sites-link
+                  gc-analytics-event"
+           data-category="Site-Wide Custom Events"
+         
+           data-label="Footer Android Link"
+         
+         >
+          Android
+        </a>
+      </li>
+      
+      <li class="devsite-footer-sites-item">
+        <a href="//developer.chrome.com/home"
+           class="devsite-footer-sites-link
+                  gc-analytics-event"
+           data-category="Site-Wide Custom Events"
+         
+           data-label="Footer Chrome Link"
+         
+         >
+          Chrome
+        </a>
+      </li>
+      
+      <li class="devsite-footer-sites-item">
+        <a href="//firebase.google.com"
+           class="devsite-footer-sites-link
+                  gc-analytics-event"
+           data-category="Site-Wide Custom Events"
+         
+           data-label="Footer Firebase Link"
+         
+         >
+          Firebase
+        </a>
+      </li>
+      
+      <li class="devsite-footer-sites-item">
+        <a href="//cloud.google.com"
+           class="devsite-footer-sites-link
+                  gc-analytics-event"
+           data-category="Site-Wide Custom Events"
+         
+           data-label="Footer Google Cloud Platform Link"
+         
+         >
+          Google Cloud Platform
+        </a>
+      </li>
+      
+      <li class="devsite-footer-sites-item">
+        <a href="//developers.google.com/products"
+           class="devsite-footer-sites-link
+                  gc-analytics-event"
+           data-category="Site-Wide Custom Events"
+         
+           data-label="Footer All products Link"
+         
+         >
+          All products
+        </a>
+      </li>
+      
+    </ul>
+  </nav>
+  
+
+  
+  <nav class="devsite-footer-utility-links" aria-label="Utility links">
+    
+    <ul class="devsite-footer-utility-list">
+      
+      <li class="devsite-footer-utility-item
+                 ">
+        
+        
+        <a class="devsite-footer-utility-link gc-analytics-event"
+           href="//developers.google.com/terms/site-terms"
+           data-category="Site-Wide Custom Events"
+           data-label="Footer Terms link"
+         >
+          Terms
+        </a>
+        
+      </li>
+      
+      <li class="devsite-footer-utility-item
+                 ">
+        
+        
+        <a class="devsite-footer-utility-link gc-analytics-event"
+           href="//policies.google.com/privacy"
+           data-category="Site-Wide Custom Events"
+           data-label="Footer Privacy link"
+         >
+          Privacy
+        </a>
+        
+      </li>
+      
+      <li class="devsite-footer-utility-item
+                 glue-cookie-notification-bar-control">
+        
+        
+        <a class="devsite-footer-utility-link gc-analytics-event"
+           href="#"
+           data-category="Site-Wide Custom Events"
+           data-label="Footer Manage cookies link"
+         
+           aria-hidden="true"
+         >
+          Manage cookies
+        </a>
+        
+      </li>
+      
+      <li class="devsite-footer-utility-item
+                 devsite-footer-utility-button">
+        
+        <span class="devsite-footer-utility-description">Sign up for the Google Developers newsletter</span>
+        
+        
+        <a class="devsite-footer-utility-link gc-analytics-event"
+           href="//services.google.com/fb/forms/googledevelopersnewsletter/?utm_medium=referral&amp;utm_source=google-products&amp;utm_team=googledevs&amp;utm_campaign=201611-newsletter-launch"
+           data-category="Site-Wide Custom Events"
+           data-label="Footer Subscribe link"
+         >
+          Subscribe
+        </a>
+        
+      </li>
+      
+    </ul>
+    
+    
+<devsite-language-selector>
+  <ul role="presentation">
+    
+    
+    <li role="presentation">
+      <a role="menuitem" lang="en"
+        >English</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="de"
+        >Deutsch</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="es"
+        >Español</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="es_419"
+        >Español – América Latina</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="fr"
+        >Français</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="id"
+        >Indonesia</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="it"
+        >Italiano</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="pl"
+        >Polski</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="pt_br"
+        >Português – Brasil</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="vi"
+        >Tiếng Việt</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="tr"
+        >Türkçe</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="ru"
+        >Русский</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="he"
+        >עברית</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="ar"
+        >العربيّة</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="fa"
+        >فارسی</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="hi"
+        >हिंदी</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="bn"
+        >বাংলা</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="th"
+        >ภาษาไทย</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="zh_cn"
+        >中文 – 简体</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="zh_tw"
+        >中文 – 繁體</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="ja"
+        >日本語</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="ko"
+        >한국어</a>
+    </li>
+    
+  </ul>
+</devsite-language-selector>
+
+  </nav>
+</div>
+          
+        </devsite-footer-utility>
+        <devsite-panel>
+          
+        </devsite-panel>
+        
+      </section>
+      </section>
+    <devsite-sitemask></devsite-sitemask>
+    <devsite-snackbar></devsite-snackbar>
+    <devsite-tooltip ></devsite-tooltip>
+    <devsite-heading-link></devsite-heading-link>
+    <devsite-analytics>
+      
+        <script type="application/json" analytics>[]</script>
+<script type="application/json" tag-management>{&#34;at&#34;: &#34;True&#34;, &#34;ga4&#34;: [], &#34;ga4p&#34;: [], &#34;gtm&#34;: [], &#34;parameters&#34;: {&#34;internalUser&#34;: &#34;False&#34;, &#34;language&#34;: {&#34;machineTranslated&#34;: &#34;False&#34;, &#34;requested&#34;: &#34;en&#34;, &#34;served&#34;: &#34;en&#34;}, &#34;pageType&#34;: &#34;codelab&#34;, &#34;projectName&#34;: null, &#34;signedIn&#34;: &#34;False&#34;, &#34;tenant&#34;: &#34;codelabs&#34;, &#34;recommendations&#34;: {&#34;sourcePage&#34;: &#34;&#34;, &#34;sourceType&#34;: 0, &#34;sourceRank&#34;: 0, &#34;sourceIdenticalDescriptions&#34;: 0, &#34;sourceTitleWords&#34;: 0, &#34;sourceDescriptionWords&#34;: 0, &#34;experiment&#34;: &#34;&#34;}, &#34;experiment&#34;: {&#34;ids&#34;: &#34;&#34;}}}</script>
+      
+    </devsite-analytics>
+    
+      <devsite-badger></devsite-badger>
+    
+    
+    
+    
+<script nonce="ELRjc2dfm+BfcTUR/wTqzSaomsUfHe">
+  
+  (function(d,e,v,s,i,t,E){d['GoogleDevelopersObject']=i;
+    t=e.createElement(v);t.async=1;t.src=s;E=e.getElementsByTagName(v)[0];
+    E.parentNode.insertBefore(t,E);})(window, document, 'script',
+    'https://www.gstatic.com/devrel-devsite/prod/vb08cbdb02acf7f66ad9727ddfba9d81df8806422eb5dd63dba194c9c8c7997f7/codelabs/js/app_loader.js', '[17,"en",null,"/js/devsite_app_module.js","https://www.gstatic.com/devrel-devsite/prod/vb08cbdb02acf7f66ad9727ddfba9d81df8806422eb5dd63dba194c9c8c7997f7","https://www.gstatic.com/devrel-devsite/prod/vb08cbdb02acf7f66ad9727ddfba9d81df8806422eb5dd63dba194c9c8c7997f7/codelabs","https://codelabs-dot-devsite-v2-prod.appspot.com",1,null,["/_pwa/codelabs/manifest.json","https://www.gstatic.com/devrel-devsite/prod/vb08cbdb02acf7f66ad9727ddfba9d81df8806422eb5dd63dba194c9c8c7997f7/images/video-placeholder.svg","https://www.gstatic.com/devrel-devsite/prod/vb08cbdb02acf7f66ad9727ddfba9d81df8806422eb5dd63dba194c9c8c7997f7/codelabs/images/favicon.png","https://www.gstatic.com/devrel-devsite/prod/vb08cbdb02acf7f66ad9727ddfba9d81df8806422eb5dd63dba194c9c8c7997f7/codelabs/images/lockup.svg","https://fonts.googleapis.com/css?family=Google+Sans:400,500|Roboto:400,400italic,500,500italic,700,700italic|Roboto+Mono:400,500,700&display=swap"],1,null,[1,6,8,12,14,17,21,25,50,52,63,70,75,76,80,87,91,92,93,97,98,100,101,102,103,104,105,107,108,109,110,112,113,116,117,118,120,122,124,125,126,127,129,130,131,132,133,134,135,136,138,140,141,147,148,149,151,152,156,157,158,159,161,163,164,168,169,170,179,180,182,183,186,191,193,196],"AIzaSyAP-jjEJBzmIyKR4F-3XITp8yM9T1gEEI8","AIzaSyB6xiKGDR5O3Ak2okS4rLkauxGUG7XP0hg","codelabs.developers.google.com","AIzaSyAQk0fBONSGUqCNznf6Krs82Ap1-NV6J4o","AIzaSyCCxcqdrZ_7QMeLCRY20bh_SXdAYqy70KY",null,null,null,["Cloud__cache_serialized_dynamic_content","MiscFeatureFlags__enable_variable_operator","Profiles__enable_purchase_prompts","Cloud__enable_free_trial_server_call","Profiles__enable_developer_profiles_callout","Profiles__enable_completecodelab_endpoint","Analytics__enable_devpro_interaction_logging","BookNav__enable_tenant_cache_key","DevPro__enable_free_benefits","Profiles__require_profile_eligibility_for_signin","Profiles__enable_dashboard_curated_recommendations","Cloud__enable_legacy_calculator_redirect","DevPro__enable_code_assist","Profiles__enable_auto_apply_credits","Profiles__enable_user_type","MiscFeatureFlags__developers_footer_image","TpcFeatures__proxy_prod_host","Profiles__enable_targeted_hero","DevPro__enable_developer_subscriptions","DevPro__enable_google_one_card","Profiles__enable_developer_profile_benefits_ui_redesign","MiscFeatureFlags__remove_cross_domain_tracking_params","DevPro__enable_g1_integration","Profiles__enable_playlist_community_acl","Profiles__enable_completequiz_endpoint","EngEduTelemetry__enable_engedu_telemetry","CloudShell__cloud_code_overflow_menu","DevPro__enable_embed_profile_creation","MiscFeatureFlags__enable_appearance_cookies","Search__enable_dynamic_content_confidential_banner","DevPro__enable_firebase_workspaces_card","Cloud__enable_cloud_dlp_service","Profiles__enable_join_program_group_endpoint","Search__enable_suggestions_from_borg","DevPro__enable_devsite_captcha","DevPro__enable_enterprise","DevPro__enable_cloud_innovators_plus","MiscFeatureFlags__enable_project_variables","Cloud__enable_cloud_shell","DevPro__enable_payments_first_batch","MiscFeatureFlags__developers_footer_dark_image","Search__enable_page_map","MiscFeatureFlags__enable_variable_operator_index_yaml","MiscFeatureFlags__enable_firebase_utm","Profiles__enable_awarding_url","Profiles__enable_page_saving","TpcFeatures__enable_unmirrored_page_left_nav","Search__enable_ai_search_summaries_for_all","Analytics__enable_clearcut_logging","Concierge__enable_pushui","Profiles__enable_callout_notifications","CloudShell__cloud_shell_button","MiscFeatureFlags__enable_view_transitions","DevPro__remove_eu_tax_intake_form","Profiles__enable_profile_collections","DevPro__enable_credits_banner","Search__enable_ai_eligibility_checks","Experiments__reqs_query_experiments","MiscFeatureFlags__enable_explicit_template_dependencies","Cloud__enable_llm_concierge_chat","Profiles__enable_public_developer_profiles","Concierge__enable_remove_info_panel_tags","DevPro__enable_google_payments_buyflow","Profiles__enable_stripe_subscription_management","Profiles__enable_developer_profile_pages_as_content","MiscFeatureFlags__enable_framebox_badge_methods","Profiles__enable_release_notes_notifications","Cloud__enable_cloudx_experiment_ids","MiscFeatureFlags__enable_explain_this_code","MiscFeatureFlags__fix_lower_breadcrumbs","Profiles__enable_recognition_badges","DevPro__enable_devpro_offers","DevPro__enable_vertex_credit_card","DevPro__enable_nvidia_credits_card","Profiles__enable_complete_playlist_endpoint","Cloud__fast_free_trial","Cloud__enable_cloud_shell_fte_user_flow","SignIn__enable_l1_signup_flow","MiscFeatureFlags__gdp_dashboard_reskin_enabled","Concierge__enable_actions_menu"],null,null,"AIzaSyBLEMok-5suZ67qRPzx0qUtbnLmyT_kCVE","https://developerscontentserving-pa.clients6.google.com","AIzaSyCM4QpTRSqP5qI4Dvjt4OAScIN8sOUlO-k","https://developerscontentsearch-pa.clients6.google.com",1,4,null,"https://developerprofiles-pa.clients6.google.com",[17,"codelabs","Google Codelabs","codelabs.developers.google.com",null,"codelabs-dot-devsite-v2-prod.appspot.com",null,null,[null,1,null,null,null,null,null,null,null,null,null,[1],null,null,null,null,null,null,[1],null,null,null,null,[1],null,null,null,null,null,null,[1]],null,[33,null,null,null,null,null,"/images/lockup.svg",null,null,null,null,1,1,null,null,null,null,null,null,null,null,1,null,null,null,null,[]],[],null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,[6,1,14,15,20,22,23,29,32,36],null,[[],[1,1]],[[null,null,null,null,null,null,null,null,null,null,null,null,1]],null,4],null,"pk_live_5170syrHvgGVmSx9sBrnWtA5luvk9BwnVcvIi7HizpwauFG96WedXsuXh790rtij9AmGllqPtMLfhe2RSwD6Pn38V00uBCydV4m",1,1,"https://developerscontentinsights-pa.clients6.google.com","AIzaSyCg-ZUslalsEbXMfIo9ZP8qufZgo3LSBDU","AIzaSyDxT0vkxnY_KeINtA4LSePJO-4MAZPMRsE","https://developers.clients6.google.com",null,null,"AIzaSyBQom12tzI-rybN7Sf-KfeL4nwm-Rf7PmI\n",null,null,"https://developers.googleapis.com"]')
+  
+</script>
+
+    <devsite-a11y-announce></devsite-a11y-announce>
+  </body>
+</html>

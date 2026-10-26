@@ -1,0 +1,1649 @@
+
+
+
+
+
+
+
+
+
+<!doctype html>
+<html 
+      lang="en"
+      dir="ltr">
+  <head>
+    <meta name="google-signin-client-id" content="721724668570-nbkv1cfusk7kk4eni4pjvepaus73b13t.apps.googleusercontent.com"><meta name="google-signin-scope"
+          content="profile email https://www.googleapis.com/auth/developerprofiles https://www.googleapis.com/auth/developerprofiles.award https://www.googleapis.com/auth/devprofiles.full_control.firstparty"><meta property="og:site_name" content="Google Codelabs">
+    <meta property="og:type" content="website"><meta name="theme-color" content="#1a73e8"><meta charset="utf-8">
+    <meta content="IE=Edge" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+
+    <link rel="manifest" href="/_pwa/codelabs/manifest.json"
+          crossorigin="use-credentials">
+    <link rel="preconnect" href="//www.gstatic.com" crossorigin>
+    <link rel="preconnect" href="//fonts.googleapis.com" crossorigin>
+    <link rel="preconnect" href="//www.google-analytics.com" crossorigin><link rel="stylesheet" href="//fonts.googleapis.com/css?family=Google+Sans:400,500|Roboto:400,400italic,500,500italic,700,700italic|Roboto+Mono:400,500,700&display=swap">
+      <link rel="stylesheet"
+            href="//fonts.googleapis.com/css2?family=Material+Icons&family=Material+Symbols+Outlined&display=block"><link rel="stylesheet" href="https://www.gstatic.com/devrel-devsite/prod/vb08cbdb02acf7f66ad9727ddfba9d81df8806422eb5dd63dba194c9c8c7997f7/codelabs/css/app.css">
+      <link rel="shortcut icon" href="https://www.gstatic.com/devrel-devsite/prod/vb08cbdb02acf7f66ad9727ddfba9d81df8806422eb5dd63dba194c9c8c7997f7/codelabs/images/favicon.png">
+    <link rel="apple-touch-icon" href="https://www.gstatic.com/devrel-devsite/prod/vb08cbdb02acf7f66ad9727ddfba9d81df8806422eb5dd63dba194c9c8c7997f7/codelabs/images/touchicon-180.png"><link rel="canonical" href="https://codelabs.developers.google.com/arcore-unity-ar-foundation"><link rel="search" type="application/opensearchdescription+xml"
+            title="Google Codelabs" href="https://codelabs.developers.google.com/s/opensearch.xml">
+      <link rel="alternate" hreflang="en"
+          href="https://codelabs.developers.google.com/arcore-unity-ar-foundation" /><link rel="alternate" hreflang="x-default" href="https://codelabs.developers.google.com/arcore-unity-ar-foundation" /><link rel="alternate" hreflang="ar"
+          href="https://codelabs.developers.google.com/arcore-unity-ar-foundation?hl=ar" /><link rel="alternate" hreflang="bn"
+          href="https://codelabs.developers.google.com/arcore-unity-ar-foundation?hl=bn" /><link rel="alternate" hreflang="zh-Hans"
+          href="https://codelabs.developers.google.com/arcore-unity-ar-foundation?hl=zh-cn" /><link rel="alternate" hreflang="zh-Hant"
+          href="https://codelabs.developers.google.com/arcore-unity-ar-foundation?hl=zh-tw" /><link rel="alternate" hreflang="fa"
+          href="https://codelabs.developers.google.com/arcore-unity-ar-foundation?hl=fa" /><link rel="alternate" hreflang="fr"
+          href="https://codelabs.developers.google.com/arcore-unity-ar-foundation?hl=fr" /><link rel="alternate" hreflang="de"
+          href="https://codelabs.developers.google.com/arcore-unity-ar-foundation?hl=de" /><link rel="alternate" hreflang="he"
+          href="https://codelabs.developers.google.com/arcore-unity-ar-foundation?hl=he" /><link rel="alternate" hreflang="hi"
+          href="https://codelabs.developers.google.com/arcore-unity-ar-foundation?hl=hi" /><link rel="alternate" hreflang="id"
+          href="https://codelabs.developers.google.com/arcore-unity-ar-foundation?hl=id" /><link rel="alternate" hreflang="it"
+          href="https://codelabs.developers.google.com/arcore-unity-ar-foundation?hl=it" /><link rel="alternate" hreflang="ja"
+          href="https://codelabs.developers.google.com/arcore-unity-ar-foundation?hl=ja" /><link rel="alternate" hreflang="ko"
+          href="https://codelabs.developers.google.com/arcore-unity-ar-foundation?hl=ko" /><link rel="alternate" hreflang="pl"
+          href="https://codelabs.developers.google.com/arcore-unity-ar-foundation?hl=pl" /><link rel="alternate" hreflang="pt-BR"
+          href="https://codelabs.developers.google.com/arcore-unity-ar-foundation?hl=pt-br" /><link rel="alternate" hreflang="ru"
+          href="https://codelabs.developers.google.com/arcore-unity-ar-foundation?hl=ru" /><link rel="alternate" hreflang="es-419"
+          href="https://codelabs.developers.google.com/arcore-unity-ar-foundation?hl=es-419" /><link rel="alternate" hreflang="th"
+          href="https://codelabs.developers.google.com/arcore-unity-ar-foundation?hl=th" /><link rel="alternate" hreflang="tr"
+          href="https://codelabs.developers.google.com/arcore-unity-ar-foundation?hl=tr" /><link rel="alternate" hreflang="vi"
+          href="https://codelabs.developers.google.com/arcore-unity-ar-foundation?hl=vi" /><title>Create an AR game using Unity&#39;s AR Foundation &nbsp;|&nbsp; Google Codelabs</title>
+
+<meta property="og:title" content="Create an AR game using Unity&#39;s AR Foundation &nbsp;|&nbsp; Google Codelabs"><meta name="description" content="In this codelab, you’ll learn how to use ARCore using Unity’s AR Foundation framework to create a simple driving game.">
+  <meta property="og:description" content="In this codelab, you’ll learn how to use ARCore using Unity’s AR Foundation framework to create a simple driving game."><meta property="og:url" content="https://codelabs.developers.google.com/arcore-unity-ar-foundation"><meta property="og:locale" content="en">
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  
+
+    </head>
+  <body class="color-scheme--light"
+        template="codelab"
+        theme="codelabs-theme"
+        type="codelab"
+        
+        
+        
+        layout="docs"
+        
+        
+        
+        
+        
+        display-toc
+        pending>
+  
+    <devsite-progress type="indeterminate" id="app-progress"></devsite-progress>
+  
+  
+    <a href="#main-content" class="skip-link button">
+      
+      Skip to main content
+    </a>
+    <section class="devsite-wrapper">
+      <devsite-cookie-notification-bar></devsite-cookie-notification-bar>
+        <devsite-header role="banner">
+  
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="devsite-header--inner" data-nosnippet>
+  <div class="devsite-top-logo-row-wrapper-wrapper">
+    <div class="devsite-top-logo-row-wrapper">
+      <div class="devsite-top-logo-row">
+        <button type="button" id="devsite-hamburger-menu"
+          class="devsite-header-icon-button button-flat material-icons gc-analytics-event"
+          data-category="Site-Wide Custom Events"
+          data-label="Navigation menu button"
+          visually-hidden
+          aria-label="Open menu">
+        </button>
+        
+<div class="devsite-product-name-wrapper">
+
+  <a href="/" class="devsite-site-logo-link gc-analytics-event"
+   data-category="Site-Wide Custom Events" data-label="Site logo" track-type="globalNav"
+   track-name="googleCodelabs" track-metadata-position="nav"
+   track-metadata-eventDetail="nav">
+  
+  <picture>
+    
+    <img src="https://www.gstatic.com/devrel-devsite/prod/vb08cbdb02acf7f66ad9727ddfba9d81df8806422eb5dd63dba194c9c8c7997f7/codelabs/images/lockup.svg" class="devsite-site-logo" alt="Google Codelabs">
+  </picture>
+  
+</a>
+
+
+
+</div>
+        <div class="devsite-top-logo-row-middle">
+          <div class="devsite-header-upper-tabs">
+            
+           </div>
+          
+<devsite-search
+    enable-signin
+    enable-search
+    enable-suggestions
+      enable-query-completion
+    
+    enable-search-summaries
+    
+    tenant-name="Google Codelabs"
+    
+    
+    
+    
+    
+    >
+  <form class="devsite-search-form" action="https://codelabs.developers.google.com/s/results" method="GET">
+    <div class="devsite-search-container">
+      <button type="button"
+              search-open
+              class="devsite-search-button devsite-header-icon-button button-flat material-icons"
+              
+              aria-label="Open search"></button>
+      <div class="devsite-searchbox">
+        <input
+          aria-activedescendant=""
+          aria-autocomplete="list"
+          
+          aria-label="Search"
+          aria-expanded="false"
+          aria-haspopup="listbox"
+          autocomplete="off"
+          class="devsite-search-field devsite-search-query"
+          name="q"
+          
+          placeholder="Search"
+          role="combobox"
+          type="text"
+          value=""
+          >
+          <div class="devsite-search-image material-icons" aria-hidden="true">
+            
+              <svg class="devsite-search-ai-image" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <g clip-path="url(#clip0_6641_386)">
+                    <path d="M19.6 21L13.3 14.7C12.8 15.1 12.225 15.4167 11.575 15.65C10.925 15.8833 10.2333 16 9.5 16C7.68333 16 6.14167 15.375 4.875 14.125C3.625 12.8583 3 11.3167 3 9.5C3 7.68333 3.625 6.15 4.875 4.9C6.14167 3.63333 7.68333 3 9.5 3C10.0167 3 10.5167 3.05833 11 3.175C11.4833 3.275 11.9417 3.43333 12.375 3.65L10.825 5.2C10.6083 5.13333 10.3917 5.08333 10.175 5.05C9.95833 5.01667 9.73333 5 9.5 5C8.25 5 7.18333 5.44167 6.3 6.325C5.43333 7.19167 5 8.25 5 9.5C5 10.75 5.43333 11.8167 6.3 12.7C7.18333 13.5667 8.25 14 9.5 14C10.6667 14 11.6667 13.625 12.5 12.875C13.35 12.1083 13.8417 11.15 13.975 10H15.975C15.925 10.6333 15.7833 11.2333 15.55 11.8C15.3333 12.3667 15.05 12.8667 14.7 13.3L21 19.6L19.6 21ZM17.5 12C17.5 10.4667 16.9667 9.16667 15.9 8.1C14.8333 7.03333 13.5333 6.5 12 6.5C13.5333 6.5 14.8333 5.96667 15.9 4.9C16.9667 3.83333 17.5 2.53333 17.5 0.999999C17.5 2.53333 18.0333 3.83333 19.1 4.9C20.1667 5.96667 21.4667 6.5 23 6.5C21.4667 6.5 20.1667 7.03333 19.1 8.1C18.0333 9.16667 17.5 10.4667 17.5 12Z" fill="#5F6368"/>
+                  </g>
+                <defs>
+                <clipPath id="clip0_6641_386">
+                <rect width="24" height="24" fill="white"/>
+                </clipPath>
+                </defs>
+              </svg>
+            
+          </div>
+          <div class="devsite-search-shortcut-icon-container" aria-hidden="true">
+            <kbd class="devsite-search-shortcut-icon">/</kbd>
+          </div>
+      </div>
+    </div>
+  </form>
+  <button type="button"
+          search-close
+          class="devsite-search-button devsite-header-icon-button button-flat material-icons"
+          
+          aria-label="Close search"></button>
+</devsite-search>
+
+        </div>
+
+        
+
+          
+
+          
+
+          
+
+          
+
+          
+<devsite-language-selector>
+  <ul role="presentation">
+    
+    
+    <li role="presentation">
+      <a role="menuitem" lang="en"
+        >English</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="de"
+        >Deutsch</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="es"
+        >Español</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="es_419"
+        >Español – América Latina</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="fr"
+        >Français</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="id"
+        >Indonesia</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="it"
+        >Italiano</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="pl"
+        >Polski</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="pt_br"
+        >Português – Brasil</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="vi"
+        >Tiếng Việt</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="tr"
+        >Türkçe</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="ru"
+        >Русский</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="he"
+        >עברית</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="ar"
+        >العربيّة</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="fa"
+        >فارسی</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="hi"
+        >हिंदी</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="bn"
+        >বাংলা</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="th"
+        >ภาษาไทย</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="zh_cn"
+        >中文 – 简体</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="zh_tw"
+        >中文 – 繁體</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="ja"
+        >日本語</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="ko"
+        >한국어</a>
+    </li>
+    
+  </ul>
+</devsite-language-selector>
+
+
+          
+
+        
+
+        
+          <devsite-user 
+                        
+                        
+                          enable-profiles
+                        
+                        
+                          fp-auth
+                        
+                        id="devsite-user">
+            
+              
+              <span class="button devsite-top-button" aria-hidden="true" visually-hidden>Sign in</span>
+            
+          </devsite-user>
+        
+        
+        
+      </div>
+    </div>
+  </div>
+
+
+
+</div>
+
+
+
+  
+</devsite-header>
+        <devsite-book-nav scrollbars hidden>
+          
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="devsite-book-nav-filter"
+     hidden>
+  <span class="filter-list-icon material-icons" aria-hidden="true"></span>
+  <input type="text"
+         placeholder="Filter"
+         
+         aria-label="Type to filter"
+         role="searchbox">
+  
+  <span class="filter-clear-button hidden"
+        data-title="Clear filter"
+        aria-label="Clear filter"
+        role="button"
+        tabindex="0"></span>
+</div>
+
+<nav class="devsite-book-nav devsite-nav nocontent" data-nosnippet
+     aria-label="Side menu">
+  <div class="devsite-mobile-header">
+    <button type="button"
+            id="devsite-close-nav"
+            class="devsite-header-icon-button button-flat material-icons gc-analytics-event"
+            data-category="Site-Wide Custom Events"
+            data-label="Close navigation"
+            aria-label="Close navigation">
+    </button>
+    <div class="devsite-product-name-wrapper">
+
+  <a href="/" class="devsite-site-logo-link gc-analytics-event"
+   data-category="Site-Wide Custom Events" data-label="Site logo" track-type="globalNav"
+   track-name="googleCodelabs" track-metadata-position="nav"
+   track-metadata-eventDetail="nav">
+  
+  <picture>
+    
+    <img src="https://www.gstatic.com/devrel-devsite/prod/vb08cbdb02acf7f66ad9727ddfba9d81df8806422eb5dd63dba194c9c8c7997f7/codelabs/images/lockup.svg" class="devsite-site-logo" alt="Google Codelabs">
+  </picture>
+  
+</a>
+
+
+</div>
+  </div>
+
+  <div class="devsite-book-nav-wrapper">
+    <div class="devsite-mobile-nav-top">
+      
+        <ul class="devsite-nav-list">
+          
+          
+          
+        </ul>
+      
+    </div>
+    
+  </div>
+</nav>
+          
+        </devsite-book-nav>
+      
+      <section id="gc-wrapper">
+        <main role="main" id="main-content" class="devsite-main-content"
+            
+              
+              has-sidebar
+            >
+          <div class="devsite-sidebar">
+            <div class="devsite-sidebar-content">
+                
+                <devsite-toc class="devsite-nav"
+                            role="navigation"
+                            aria-label="On this page"
+                            depth="1"
+                            scrollbars
+                            data-nosnippet
+                  ></devsite-toc>
+                <devsite-recommendations-sidebar class="nocontent devsite-nav" data-nosnippet>
+                </devsite-recommendations-sidebar>
+            </div>
+          </div>
+          <devsite-content>
+            
+              
+
+
+
+
+
+
+
+
+
+
+<article class="devsite-article"><style>
+      body {
+        transition: opacity ease-in 0.2s;
+      }
+
+      body[unresolved] {
+        opacity: 0;
+        display: block;
+        overflow: hidden;
+        position: relative;
+      }
+      </style>
+  
+  
+  
+  
+  
+
+  <div class="devsite-article-meta nocontent" role="navigation" data-nosnippet>
+    
+    
+    <ul class="devsite-breadcrumb-list"
+  >
+  
+</ul>
+    
+  </div>
+  
+    <h1 class="devsite-page-title" tabindex="-1">
+      Create an AR game using Unity&#39;s AR Foundation<devsite-actions hidden data-nosnippet></devsite-actions>
+  
+      
+    </h1>
+  
+
+  <devsite-toc class="devsite-nav"
+    depth="1"
+    devsite-toc-embedded
+    >
+  </devsite-toc>
+  
+    
+  <div class="devsite-article-body clearfix
+  ">
+
+  
+    
+    
+    <google-codelab-analytics gaid="UA-49880327-14" ga4id="G-JTFZSJVVVZ"></google-codelab-analytics>
+    <google-codelab codelab-gaid=""
+                    codelab-ga4id=""
+                    doc-id=""
+                    id="arcore-unity-arf-game"
+                    title="Create an AR game using Unity&#39;s AR Foundation"
+                    no-tooltip=""
+                    environment="web"
+                    category="augmentedreality,android,unity"
+                    feedback-link="https://github.com/google-ar/arcore-unity-extensions/issues"
+                    layout="paginated"
+                    >
+      
+        <google-codelab-step label="Overview" duration="0" step="0">
+          
+            <google-codelab-about codelab-title="Create an AR game using Unity&#39;s AR Foundation"
+                                  authors="Dereck Bridie"
+                                  last-updated="2026-03-16T17:00:18Z"
+                                  >
+            </google-codelab-about>
+          
+          <h2 class="step-title" id="0" data-text="Overview" tabindex="-1">
+              1. Overview
+          </h2>
+          
+          <p>ARCore is Google&#39;s framework for building augmented reality experiences on smartphones. You can use Unity&#39;s AR Foundation to build cross-platform AR applications.</p>
+<h2 is-upgraded id="what-youll-build" data-text="What you'll build" tabindex="-1">What you'll build</h2>
+<p>In this codelab, you&#39;ll build a simple game using AR Foundation. The goal of the game is to collect packages using a car that you control using your handheld device.</p>
+<p>However, this won&#39;t happen in an entirely virtual world! You&#39;ll mix physical atoms and digital bits to create a new type of player experience by creating a game that understands the environment around the player.</p>
+<p>By the end of this codelab, your game will be able to:</p>
+<ul>
+<li>Detect real-world planes and draw a playing field over it.</li>
+<li>Cast rays from the camera&#39;s view and detect intersections with planes.</li>
+<li>React to real-world lighting conditions to give your game extra realism.</li>
+</ul>
+<p class="image-container"><img style="width: 720.00px" src="/static/arcore-unity-ar-foundation/imgs/drive.webp"></p>
+<h2 class="checklist" is-upgraded id="what-youll-learn" data-text="What you'll learn" tabindex="-1">What you'll learn</h2>
+<ul class="checklist">
+<li>How to set up a project that uses Unity&#39;s AR Foundation.</li>
+<li>How to use <code translate="no" dir="ltr">ARPlaneManager</code> to subscribe to new planes.</li>
+<li>How to use <code translate="no" dir="ltr">Raycast</code> to find intersections with virtual geometry</li>
+<li>How to use <code translate="no" dir="ltr">ARLightEstimationData</code> to light your scene.</li>
+</ul>
+<h2 is-upgraded id="what-youll-need" data-text="What you'll need" tabindex="-1">What you'll need</h2>
+<ul>
+<li>A <a href="https://developers.google.com/ar/discover/#supported_devices" target="_blank">supported ARCore device</a>, connected using a USB cable to your development machine.</li>
+<li><a href="https://play.google.com/store/apps/details?id=com.google.ar.core" target="_blank">Google Play Services for AR</a> 1.23 or later.</li>
+<li>An installation of <a href="https://unity3d.com/get-unity/download" target="_blank">Unity Hub</a> or <a href="https://unity3d.com/unity/qa/lts-releases" target="_blank">Unity 2020 LTS</a>.</li>
+</ul>
+
+
+
+        </google-codelab-step>
+      
+        <google-codelab-step label="Set up your development environment" duration="0" step="1">
+          
+          <h2 class="step-title" id="1" data-text="Set up your development environment" tabindex="-1">
+              2. Set up your development environment
+          </h2>
+          
+          <p>In this step, you will get your environment ready for development with Unity&#39;s AR Foundation.</p>
+<h2 is-upgraded id="ensure-your-device-is-compatible-with-ar" data-text="Ensure your device is compatible with AR" tabindex="-1">Ensure your device is compatible with AR</h2>
+<p>AR experiences on Android devices are driven by ARCore, which is available on <a href="https://developers.google.com/ar/devices" target="_blank">ARCore supported devices</a>. Ensure that your development device is compatible with AR. Alternatively, you can use a correctly configured <a href="https://developers.google.com/ar/develop/java/emulator" target="_blank">AR-compatible Android Emulator instance</a>.</p>
+<h2 is-upgraded id="setup-usb-debugging-on-your-device" data-text="Setup USB debugging on your device" tabindex="-1">Setup USB debugging on your device</h2>
+<p>You will need to enable <strong>Developer options</strong> on your device to run debug apps. If you haven&#39;t done so yet, refer to Android documentation on <a href="https://developer.android.com/studio/debug/dev-options#enable" target="_blank">Enable developer options and USB debugging</a>.</p>
+<h2 is-upgraded id="install-unity-2020.3-lts" data-text="Install Unity (2020.3 LTS)" tabindex="-1">Install Unity (2020.3 LTS)</h2>
+<p>On your workstation, install <a href="https://unity3d.com/unity/qa/lts-releases" target="_blank">Unity 2020 LTS</a>. In this codelab, screenshots are shown of Unity&#39;s UI in the <strong>2020.3 (LTS)</strong> version. Other versions of Unity may work, but may require additional steps. It may look different than the screenshots shown here.</p>
+<h2 is-upgraded id="create-a-new-project" data-text="Create a new project" tabindex="-1">Create a new project</h2>
+<p>Create a new project using the <a href="https://docs.unity3d.com/Packages/com.unity.render-pipelines.universal@11.0/manual/index.html" target="_blank">Universal Render Pipeline</a> template. Give it a descriptive name and an appropriate location, and press <strong>CREATE</strong>.</p>
+<p class="image-container"><img style="width: 600.00px" src="/static/arcore-unity-ar-foundation/imgs/create-project.png"></p>
+<h2 is-upgraded id="install-the-required-frameworks" data-text="Install the required frameworks" tabindex="-1">Install the required frameworks</h2>
+<p>Unity&#39;s AR Foundation can be found in the Unity Package Manager.</p>
+<ol type="1">
+<li>Open it by clicking on <strong>Window &gt; Package Manager</strong>.</li>
+</ol>
+<p class="image-container"><img style="width: 600.00px" src="/static/arcore-unity-ar-foundation/imgs/package-manager.png"></p>
+<ol type="1" start="2">
+<li>In this window, install the packages you&#39;ll be using in this codelab. View the latest versions of these frameworks by expanding its entry using the <code translate="no" dir="ltr">►</code> icon. Install the latest versions for each of these frameworks: <ul>
+<li>AR Foundation</li>
+<li>ARCore XR Plugin</li>
+</ul>
+</li>
+</ol>
+<p>When you&#39;re done, your Package Manager should look something like this:</p>
+<p class="image-container"><img style="width: 600.00px" src="/static/arcore-unity-ar-foundation/imgs/package-manager-done.png"></p>
+<h2 is-upgraded id="install-the-starter-package" data-text="Install the starter package" tabindex="-1">Install the starter package</h2>
+<p>For this codelab, we&#39;ve provided a starter package that contains prefabs and scripts that will expedite some parts of the codelab so you can focus on how to use AR Foundation.</p>
+<ol type="1">
+<li><a href="https://github.com/googlecodelabs/arcore-unity-arf-game/raw/main/codelab-starter-package.unitypackage" target="_blank"><button class="button button-primary button-with-icon"><span class="material-icons" aria-hidden="true" translate="no">file_download</span>Download the starter package</button></a></li>
+<li>Install the starter package by opening <strong>Assets &gt; Import Package &gt; Custom Package...</strong> and opening <code translate="no" dir="ltr">starter-package.unitypackage</code>.</li>
+<li>In the window that pops up, ensure everything is selected.</li>
+<li>Click <strong>Import</strong>.</li>
+</ol>
+<h2 is-upgraded id="change-build-settings" data-text="Change Build Settings" tabindex="-1">Change Build Settings</h2>
+<p>Since the application will run on Android, change the build platform to Android:</p>
+<ol type="1">
+<li>Open <strong>File &gt; Build Settings</strong>.</li>
+<li>In the <strong>Platform</strong> pane, select <strong>Android</strong>.</li>
+<li>Optionally, enable <strong>Development Build</strong> and <strong>Script Debugging</strong> in order to retain debugging information while your app runs.</li>
+<li>Click <strong>Switch Platform</strong>.</li>
+</ol>
+<p class="image-container"><img style="width: 600.00px" src="/static/arcore-unity-ar-foundation/imgs/build-settings.png"></p>
+<h2 is-upgraded id="change-project-settings" data-text="Change Project Settings" tabindex="-1">Change Project Settings</h2>
+<p>AR Foundation needs to be configured to initialize XR systems on startup.</p>
+<ol type="1">
+<li>Open <strong>Edit &gt; Project Settings...</strong> and click on the <strong>XR Plug-in Management</strong> section.</li>
+<li>In the <strong>Android</strong> tab, enable <strong>ARCore</strong>.</li>
+</ol>
+<p class="image-container"><img style="width: 600.00px" src="/static/arcore-unity-ar-foundation/imgs/enable-arcore.png"></p>
+<ol type="1" start="3">
+<li>In the left-hand pane, click the <strong>Player</strong> section.</li>
+<li>In the <strong>Android</strong> tab, under <strong>Other Settings</strong>, remove <strong>Vulkan</strong> from <strong>Graphics APIs</strong>.</li>
+</ol>
+<p class="image-container"><img style="width: 600.00px" src="/static/arcore-unity-ar-foundation/imgs/disable-vulkan.png"></p>
+<ol type="1" start="5">
+<li>AR Required apps using ARCore require a minimum API level of 24. Scroll down and find <strong>Minimum API Level</strong>. Set the minimum API level to 24.</li>
+</ol>
+<p class="image-container"><img style="width: 600.00px" src="/static/arcore-unity-ar-foundation/imgs/android-min-api.png"></p>
+<h2 is-upgraded id="add-the-required-scene-elements" data-text="Add the required scene elements" tabindex="-1">Add the required scene elements</h2>
+<p>The Universal Render Pipeline template comes with some game objects you won&#39;t be using in this tutorial.</p>
+<ol type="1">
+<li>Delete all game objects in the <code translate="no" dir="ltr">SampleScene</code>.</li>
+</ol>
+<p class="image-container"><img style="width: 500.00px" src="/static/arcore-unity-ar-foundation/imgs/delete-sample-objects.png"></p>
+<ol type="1" start="2">
+<li>Add AR Foundation objects. Right-click in the <strong>Hierarchy</strong> pane. Use this menu to add:</li>
+</ol>
+<ul>
+<li><strong>XR &gt; AR Session</strong>: This object controls the lifecycle of an AR experience.</li>
+<li><strong>XR &gt; AR Session Origin</strong>: This object transforms AR coordinates into Unity world coordinates.</li>
+<li><strong>Light &gt; Directional Light</strong>: This provides a light source to illuminate game objects.</li>
+</ul>
+<p>Your hierarchy should look like this:</p>
+<p class="image-container"><img style="width: 300.00px" src="/static/arcore-unity-ar-foundation/imgs/add-arfoundation-objects.png"></p>
+<ol type="1" start="3">
+<li>Expand the <strong>AR Session Origin</strong> you created in the hierarchy, and select the <strong>AR Camera</strong> object. In the inspector, change its tag to <strong>MainCamera</strong>.</li>
+</ol>
+<p class="image-container"><img style="width: 400.00px" src="/static/arcore-unity-ar-foundation/imgs/tag-main-camera.png"></p>
+<h2 is-upgraded id="set-up-rendering" data-text="Set up rendering" tabindex="-1">Set up rendering</h2>
+<p>Unity&#39;s Universal Render Pipeline needs one change to be compatible with AR Foundation.</p>
+<ol type="1">
+<li>In the <strong>Project</strong> pane, navigate through <strong>Assets &gt; Settings</strong> to find the <strong>ForwardRenderer</strong> asset.</li>
+</ol>
+<p class="image-container"><img style="width: 400.00px" src="/static/arcore-unity-ar-foundation/imgs/configure-renderer-location.png"></p>
+<ol type="1" start="2">
+<li>Select the <strong>ForwardRenderer</strong>.</li>
+<li>In the Inspector pane, use <strong>Add Renderer Feature</strong> to add an <strong>AR Background Renderer Feature</strong>. This component will render the camera feed in your scene.</li>
+</ol>
+<p class="image-container"><img style="width: 400.00px" src="/static/arcore-unity-ar-foundation/imgs/configure-renderer.png"></p>
+<h2 is-upgraded id="verify-the-setup" data-text="Verify the setup" tabindex="-1">Verify the setup</h2>
+<ol type="1">
+<li>Ensure that your device is plugged in, and that ADB debugging is on.</li>
+<li>Click <strong>File &gt; Build And Run...</strong> This will upload the application to your device and start it when it has been installed.</li>
+<li>You should see the camera feed on your device&#39;s screen.</li>
+</ol>
+<p>In the next step, you&#39;ll start adding functionality to your app.</p>
+
+
+
+        </google-codelab-step>
+      
+        <google-codelab-step label="Detect planes in the real world" duration="0" step="2">
+          
+          <h2 class="step-title" id="2" data-text="Detect planes in the real world" tabindex="-1">
+              3. Detect planes in the real world
+          </h2>
+          
+          <p>Now that a basic scene has been set up, you can start on developing the game. In this step, you will detect planes and draw them to the scene.</p>
+<h2 is-upgraded id="add-an-arplanemanager-component" data-text="Add an ARPlaneManager component" tabindex="-1">Add an <code translate="no" dir="ltr">ARPlaneManager</code> component</h2>
+<p>An <a href="https://docs.unity3d.com/Packages/com.unity.xr.arfoundation@4.1/api/UnityEngine.XR.ARFoundation.ARPlaneManager.html" target="_blank"><code translate="no" dir="ltr">ARPlaneManager</code></a> detects <a href="https://docs.unity3d.com/Packages/com.unity.xr.arfoundation@4.1/api/UnityEngine.XR.ARFoundation.ARPlane.html" target="_blank"><code translate="no" dir="ltr">ARPlane</code></a>s and creates, updates, and removes game objects when the device&#39;s understanding of the environment changes.</p>
+<ol type="1">
+<li>Using the Hierarchy pane, create an empty <code translate="no" dir="ltr">GameObject</code>.</li>
+<li>Rename it to <code translate="no" dir="ltr">Driving Surface Manager</code>. This component will display planes until one is selected by the player.</li>
+<li>Select the new game object. Within the Inspector pane, click <strong>Add Component</strong> to add a <strong>AR Plane Manager</strong>.</li>
+</ol>
+<p class="image-container"><img style="width: 400.00px" src="/static/arcore-unity-ar-foundation/imgs/add-ar-plane-manager.png"></p>
+<ol type="1" start="4">
+<li>Configure the <code translate="no" dir="ltr">ARPlaneManager</code> by setting the <code translate="no" dir="ltr">Plane Prefab</code> field:<ol type="1">
+<li>Click the button next to <code translate="no" dir="ltr">None</code> to bring up the <strong>Select GameObject</strong> window.</li>
+<li>Select the <strong>Assets</strong> tab and search for <strong>Driving Surface Plane</strong>.</li>
+</ol>
+</li>
+</ol>
+<p class="image-container"><img style="width: 400.00px" src="/static/arcore-unity-ar-foundation/imgs/select-driving-surface-plane-prefab.png"></p>
+<p>This prefab from the starter package provides a gritty floor texture that will be used as the plane decoration.</p>
+<ol type="1" start="5">
+<li>Change the <code translate="no" dir="ltr">Detection Mode</code> to <code translate="no" dir="ltr">Horizontal</code>. This configures the <code translate="no" dir="ltr">ARPlaneManager</code> to only provide horizontal planes, ideal for driving on.</li>
+</ol>
+<h2 is-upgraded id="add-an-arraycastmanager-component" data-text="Add an ARRaycastManager component" tabindex="-1">Add an <code translate="no" dir="ltr">ARRaycastManager</code> component</h2>
+<p>An <code translate="no" dir="ltr">ARRaycastManager</code> exposes raycast functionality. In the next step, we&#39;ll use this object to provide the controls for the user.</p>
+<ol type="1">
+<li>Ensure the object called <code translate="no" dir="ltr">Driving Surface Manager</code> is selected in the Hierarchy pane.</li>
+<li>In the Inspector, click <strong>Add Component</strong> to add an <code translate="no" dir="ltr">ARRaycastManager</code> component to your game object.</li>
+</ol>
+<p>No further configuration is needed for this component.</p>
+<h2 is-upgraded id="add-a-drivingsurfacemanager-component" data-text="Add a DrivingSurfaceManager component" tabindex="-1">Add a <code translate="no" dir="ltr">DrivingSurfaceManager</code> component</h2>
+<p>A <code translate="no" dir="ltr">DrivingSurfaceManager</code> is a helper script from the Starter Package that allows for an <code translate="no" dir="ltr">ARPlane</code> to be selected. Once a <code translate="no" dir="ltr">ARPlane</code> is selected, all other planes will be hidden, and new planes will be disabled.</p>
+<ol type="1">
+<li>Ensure the object called <code translate="no" dir="ltr">Driving Surface Manager</code> is selected in the Hierarchy pane.</li>
+<li>In the Inspector, click <strong>Add Component</strong> to add a <code translate="no" dir="ltr">DrivingSurfaceManager</code> component to your game object.</li>
+</ol>
+<p>No further configuration is needed for this component.</p>
+<h2 is-upgraded id="run-the-app" data-text="Run the app" tabindex="-1">Run the app</h2>
+<ol type="1">
+<li>Click <strong>File &gt; Build And Run...</strong> to test your changes.</li>
+<li>Point your device at a horizontal real-world surface and move your device around to improve ARCore&#39;s understanding of the world.</li>
+</ol>
+<p class="image-container"><img style="width: 720.00px" src="/static/arcore-unity-ar-foundation/imgs/planes.webp"></p>
+<ol type="1" start="3">
+<li>When ARCore has detected a plane, you should see a dirt texture cover real-world surfaces. The <code translate="no" dir="ltr">ARPlaneManager</code> instantiates the given <code translate="no" dir="ltr">Plane Prefab</code> for each detected plane. The <code translate="no" dir="ltr">Driving Surface Plane</code> prefab has a <code translate="no" dir="ltr">ARPlaneMeshVisualizer</code> component which creates a mesh for a given <code translate="no" dir="ltr">ARPlane</code>.</li>
+</ol>
+<p>In the next step, you will use a detected plane as a playing field.</p>
+
+
+
+        </google-codelab-step>
+      
+        <google-codelab-step label="Perform a hit test against detected planes" duration="0" step="3">
+          
+          <h2 class="step-title" id="3" data-text="Perform a hit test against detected planes" tabindex="-1">
+              4. Perform a hit test against detected planes
+          </h2>
+          
+          <p>In the previous step, you programmed an application that can detect planes. These planes are reflected in your game&#39;s scene. Now, you&#39;ll add interactivity with these planes by creating an aiming reticle and a car that will drive on the detected plane&#39;s surface.</p>
+<h2 is-upgraded id="create-an-aiming-reticle" data-text="Create an aiming reticle" tabindex="-1">Create an aiming reticle</h2>
+<p>The control scheme for this app involves the player pointing their phone at a surface. In order to give clear visual feedback for the designated location, you&#39;ll use an aiming reticle.</p>
+<p class="image-container"><img style="width: 300.00px" src="/static/arcore-unity-ar-foundation/imgs/reticle-overview.png"></p>
+<p>In order to &#34;stick&#34; this reticle to an AR plane, use a hit test. A hit test is a technique that calculates intersections when casting a ray in a given direction. You will use a hit test to detect an intersection in the direction of the camera&#39;s view.</p>
+<p class="image-container"><img style="width: 600.00px" src="/static/arcore-unity-ar-foundation/imgs/hit-test-explanation.png"></p>
+<h3 is-upgraded id="add-the-reticle" data-text="Add the reticle" tabindex="-1">Add the reticle</h3>
+<ol type="1">
+<li>In the <strong>Project</strong> pane near the bottom of the screen, navigate to <strong>Assets &gt; Starter Package</strong>.</li>
+<li>Place the <strong>Reticle Prefab</strong> into the scene by dragging it into the project&#39;s <strong>Hierarchy pane</strong>.</li>
+<li>Select the reticle in the hierarchy.</li>
+<li>In the inspector, click <strong>Add Component</strong>. Add the <code translate="no" dir="ltr">ReticleBehaviour</code> script from the Starter Package. This script contains some boilerplate for controlling the reticle.</li>
+<li>The <code translate="no" dir="ltr">ReticleBehaviour</code> script is dependent on the <code translate="no" dir="ltr">Driving Surface Manager</code> you created before, so add the dependency by clicking on the <code translate="no" dir="ltr">Driving Surface Manager</code> chooser. Select the <strong>Scene</strong> tab and pick the <code translate="no" dir="ltr">Driving Surface Manager</code>.</li>
+</ol>
+<p class="image-container"><img style="width: 400.00px" src="/static/arcore-unity-ar-foundation/imgs/reticle-add-dependency.png"></p>
+<h3 is-upgraded id="edit-the-reticlebehaviour" data-text="Edit the ReticleBehaviour" tabindex="-1">Edit the <code translate="no" dir="ltr">ReticleBehaviour</code></h3>
+<p>The <code translate="no" dir="ltr">ReticleBehavior</code> script will position the reticle on the plane that&#39;s in the center of the device&#39;s viewport.</p>
+<ol type="1">
+<li>Open the <code translate="no" dir="ltr">ReticleBehaviour.cs</code> script by double-clicking the <code translate="no" dir="ltr">Script</code> field.</li>
+<li>Determine the center of the screen using <a href="https://docs.unity3d.com/ScriptReference/Camera.ViewportToScreenPoint.html" target="_blank">Camera&#39;s <code translate="no" dir="ltr">ViewToScreenPoint</code></a>. Edit the <code translate="no" dir="ltr">Update()</code> method to add the following:</li>
+</ol>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="C#"><code language="language-csharp" class="language-csharp" translate="no" dir="ltr"><span class="devsite-syntax-kt">var</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">screenCenter</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Camera</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-n">main</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-n">ViewportToScreenPoint</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-k">new</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Vector3</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-mf">0.5f</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-mf">0.5f</span><span class="devsite-syntax-p">));</span>
+</code></pre></devsite-code>
+<ol type="1" start="3">
+<li>Use this point to conduct a raycast. Add the following:</li>
+</ol>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="C#"><code translate="no" dir="ltr"><span class="devsite-syntax-kt">var</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">hits</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-k">new</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">List&lt;ARRaycastHit&gt;</span><span class="devsite-syntax-p">();</span>
+<span class="devsite-syntax-n">DrivingSurfaceManager</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-n">RaycastManager</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-n">Raycast</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">screenCenter</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">hits</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">TrackableType</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-n">PlaneWithinBounds</span><span class="devsite-syntax-p">);</span>
+</code></pre></devsite-code>
+<aside class="special"><p>If you encounter a <code translate="no" dir="ltr">NullReferenceException</code> when using <code translate="no" dir="ltr">Camera.main</code>, ensure that your scene&#39;s <code translate="no" dir="ltr">AR Camera</code> in <strong>Hierarchy &gt; AR Session Origin</strong> is tagged <strong>MainCamera</strong>.</p>
+</aside>
+<p>The variable <code translate="no" dir="ltr">hits</code> will contain <a href="https://docs.unity3d.com/Packages/com.unity.xr.arfoundation@4.2/api/UnityEngine.XR.ARFoundation.ARRaycastHit.html#properties" target="_blank"><code translate="no" dir="ltr">ARRaycastHit</code></a>s which describe points on trackables which are intersected by <code translate="no" dir="ltr">ray</code>.</p>
+<aside class="special"><p><code translate="no" dir="ltr">TrackableType.PlaneWithinBounds</code> is a value in <code translate="no" dir="ltr">TrackableType</code>. This specifies which kinds of <code translate="no" dir="ltr">Trackable</code>s can be detected with this ray cast. Check out Unity&#39;s documentation on <a href="https://docs.unity3d.com/Packages/com.unity.xr.arsubsystems@4.2/api/UnityEngine.XR.ARSubsystems.TrackableType.html" target="_blank"><code translate="no" dir="ltr">TrackableType</code></a> for more information.</p>
+</aside>
+<ol type="1" start="4">
+<li>Determine the intersection point of interest by querying the <code translate="no" dir="ltr">hits</code> list. Prioritize the locked plane contained in <code translate="no" dir="ltr">DrivingSurfaceManager</code>, and if it does not exist, use the first plane hit. Add the following to the end of <code translate="no" dir="ltr">Update()</code>:</li>
+</ol>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="C#"><code language="language-csharp" class="language-csharp" translate="no" dir="ltr"><span class="devsite-syntax-n">CurrentPlane</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-k">null</span><span class="devsite-syntax-p">;</span>
+<span class="devsite-syntax-n">ARRaycastHit</span><span class="devsite-syntax-o">?</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">hit</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-k">null</span><span class="devsite-syntax-p">;</span>
+<span class="devsite-syntax-k">if</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">hits</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-n">Length</span><span class="devsite-syntax-w"> &gt; </span><span class="devsite-syntax-mi">0</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-c1">// If you don't have a locked plane already...</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kt">var</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">lockedPlane</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">DrivingSurfaceManager</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-n">LockedPlane</span><span class="devsite-syntax-p">;</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">hit</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">lockedPlane</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">==</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-k">null</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-c1">// ... use the first hit in `hits`.</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-o">?</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">hits</span><span class="devsite-syntax-p">[</span><span class="devsite-syntax-mi">0</span><span class="devsite-syntax-p">]</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-c1">// Otherwise use the locked plane, if it's there.</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">hits</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-n">SingleOrDefault</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">x</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span>&gt;<span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">x</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-n">trackableId</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">==</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">lockedPlane</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-n">trackableId</span><span class="devsite-syntax-p">);</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre></devsite-code>
+<ol type="1" start="5">
+<li>If <code translate="no" dir="ltr">hit</code> contains a result, move this <code translate="no" dir="ltr">GameObject</code>&#39;s transform to the hit position.</li>
+</ol>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="C#"><code translate="no" dir="ltr"><span class="devsite-syntax-k">if</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">hit</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-n">HasValue</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">CurrentPlane</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">DrivingSurfaceManager</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-n">PlaneManager</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-n">GetPlane</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">hit</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-n">Value</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-n">trackableId</span><span class="devsite-syntax-p">);</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-c1">// Move this reticle to the location of the hit.</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">transform</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-n">position</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">hit</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-n">Value</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-n">pose</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-n">position</span><span class="devsite-syntax-p">;</span>
+<span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-n">Child</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-n">SetActive</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">CurrentPlane</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">!=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-k">null</span><span class="devsite-syntax-p">);</span>
+</code></pre></devsite-code>
+<h3 is-upgraded id="test-the-reticle" data-text="Test the reticle" tabindex="-1">Test the reticle</h3>
+<ol type="1">
+<li>Click <strong>File &gt; Build And Run...</strong> to test your changes.</li>
+<li>When you point your device at a plane, you should see the reticle follow your camera&#39;s movements.</li>
+</ol>
+<p class="image-container"><img style="width: 720.00px" src="/static/arcore-unity-ar-foundation/imgs/reticle.webp"></p>
+<h2 is-upgraded id="create-a-car" data-text="Create a car" tabindex="-1">Create a car</h2>
+<p>The player will control a toy car that will drive towards the location of the reticle. A model and behavior for this car is provided in the Starter Package.</p>
+<h3 is-upgraded id="add-a-carmanager-to-your-scene" data-text="Add a CarManager to your scene" tabindex="-1">Add a <code translate="no" dir="ltr">CarManager</code> to your scene</h3>
+<ol type="1">
+<li>In the <strong>Hierarchy</strong>, create a new empty <code translate="no" dir="ltr">GameObject</code>.</li>
+<li>Rename it to <code translate="no" dir="ltr">Car Spawner</code>.</li>
+<li>Select the object you created. In the <strong>Hierarchy</strong> pane, click <strong>Add Component</strong> to add the <code translate="no" dir="ltr">CarManager</code> component.</li>
+<li>Set up <code translate="no" dir="ltr">CarManager</code>&#39;s dependencies by clicking on the chooser for each field: <ul>
+<li><strong>Car Prefab</strong>: In <strong>Assets</strong>, select <strong>Car Prefab</strong>.</li>
+<li><strong>Reticle</strong>: In <strong>Scene</strong>, select <strong>Reticle Prefab</strong>.</li>
+<li><strong>Driving Surface Manager</strong>: In <strong>Scene</strong>, select <strong>Driving Surface Manager</strong>.</li>
+</ul>
+</li>
+</ol>
+<p>This <code translate="no" dir="ltr">CarManager</code> behavior spawns a toy car on the plane that the reticle is on. If you&#39;d like, check out the <code translate="no" dir="ltr">CarBehaviour</code> script to learn how the car is programmed.</p>
+<h3 is-upgraded id="test-driving" data-text="Test driving" tabindex="-1">Test driving</h3>
+<ol type="1">
+<li>Click <strong>File &gt; Build And Run</strong> to test your changes.</li>
+<li>When you tap on a plane, you should see a small car appear at that location. This car will follow the reticle.</li>
+</ol>
+<h2 is-upgraded id="add-the-game-element" data-text="Add the game element" tabindex="-1">Add the game element</h2>
+<p>Now that the player can control an entity in the scene, give the player a destination to drive towards.</p>
+<ol type="1">
+<li>Create a new empty <code translate="no" dir="ltr">GameObject</code> in the Hierarchy.</li>
+<li>Rename it to <code translate="no" dir="ltr">Package Spawner</code>.</li>
+<li>Select the object you created. In the <strong>Hierarchy</strong> pane, click <strong>Add Component</strong> to add the <code translate="no" dir="ltr">PackageSpawner</code> component to it.</li>
+<li>Set up <code translate="no" dir="ltr">PackageSpawner</code>&#39;s dependencies by clicking on the chooser for each field: <ul>
+<li><strong>Package Prefab</strong>: In <strong>Assets</strong>, select <strong>Package Prefab</strong>.</li>
+<li><strong>Driving Surface Manager</strong> In <strong>Scene</strong>, select <strong>Driving Surface Manager</strong>.</li>
+</ul>
+</li>
+</ol>
+<p>This <code translate="no" dir="ltr">PackageSpawner</code> behavior spawns a new package at a random location on a locked <code translate="no" dir="ltr">ARPlane</code> if there isn&#39;t a package already.</p>
+<h2 is-upgraded id="test-the-game" data-text="Test the game" tabindex="-1">Test the game</h2>
+<ol type="1">
+<li>Click <strong>File &gt; Build And Run</strong> to test your changes. 2, After you create a car, a package should spawn.</li>
+<li>Drive your car to the package.</li>
+<li>A new one will appear at a random location.</li>
+</ol>
+<p class="image-container"><img style="width: 720.00px" src="/static/arcore-unity-ar-foundation/imgs/drive.webp"></p>
+
+
+
+        </google-codelab-step>
+      
+        <google-codelab-step label="Set up Lighting Estimation" duration="0" step="4">
+          
+          <h2 class="step-title" id="4" data-text="Set up Lighting Estimation" tabindex="-1">
+              5. Set up Lighting Estimation
+          </h2>
+          
+          <p>Now that the basic game has been completed, add a touch of realism to your AR scene. In this step, you will use ARCore&#39;s Lighting Estimation API to detect the lighting present in the real world based on incoming camera frames. This information will be used to adapt your scene&#39;s lighting to match the real-world lighting.</p>
+<h2 is-upgraded id="enable-lighting-estimation" data-text="Enable Lighting Estimation" tabindex="-1">Enable Lighting Estimation</h2>
+<ol type="1">
+<li>In <strong>Hierarchy</strong>, expand the <strong>AR Session Origin</strong> and select the <strong>AR Camera</strong> object.</li>
+<li>In the <strong>Inspector</strong>, expand the <strong>AR Camera Manager</strong> script.</li>
+<li>Change the <strong>Lighting Estimation</strong> field to <strong>Everything</strong>.</li>
+</ol>
+<p class="image-container"><img style="width: 400.00px" src="/static/arcore-unity-ar-foundation/imgs/enable-lighting-estimation.png"></p>
+<h2 is-upgraded id="modify-the-directional-light" data-text="Modify the directional light" tabindex="-1">Modify the directional light</h2>
+<ol type="1">
+<li>In <strong>Hierarchy</strong>, select the <strong>Directional Light</strong> object.</li>
+<li>Add the <code translate="no" dir="ltr">LightEstimation</code> component to it. This component from the Starter Package provides some boilerplate for subscribing to lighting changes.</li>
+<li>In the <code translate="no" dir="ltr">FrameReceived()</code> function, add:</li>
+</ol>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="C#"><code translate="no" dir="ltr"><span class="devsite-syntax-n">ARLightEstimationData</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">lightEstimation</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">args</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-n">lightEstimation</span><span class="devsite-syntax-p">;</span>
+
+<span class="devsite-syntax-k">if</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">lightEstimation</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-n">averageBrightness</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-n">HasValue</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">Light</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-n">intensity</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">lightEstimation</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-n">averageBrightness</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-n">Value</span><span class="devsite-syntax-p">;</span>
+
+<span class="devsite-syntax-k">if</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">lightEstimation</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-n">averageColorTemperature</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-n">HasValue</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">Light</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-n">colorTemperature</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">lightEstimation</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-n">averageColorTemperature</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-n">Value</span><span class="devsite-syntax-p">;</span>
+
+<span class="devsite-syntax-k">if</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">lightEstimation</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-n">colorCorrection</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-n">HasValue</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">Light</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-n">color</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">lightEstimation</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-n">colorCorrection</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-n">Value</span><span class="devsite-syntax-p">;</span>
+
+<span class="devsite-syntax-k">if</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">lightEstimation</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-n">mainLightDirection</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-n">HasValue</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">Light</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-n">transform</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-n">rotation</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Quaternion</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-n">LookRotation</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">lightEstimation</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-n">mainLightDirection</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-n">Value</span><span class="devsite-syntax-p">);</span>
+
+<span class="devsite-syntax-k">if</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">lightEstimation</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-n">mainLightColor</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-n">HasValue</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">Light</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-n">color</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">lightEstimation</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-n">mainLightColor</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-n">Value</span><span class="devsite-syntax-p">;</span>
+
+<span class="devsite-syntax-k">if</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">lightEstimation</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-n">mainLightIntensityLumens</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-n">HasValue</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">Light</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-n">intensity</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">lightEstimation</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-n">averageMainLightBrightness</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-n">Value</span><span class="devsite-syntax-p">;</span>
+
+<span class="devsite-syntax-k">if</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">lightEstimation</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-n">ambientSphericalHarmonics</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-n">HasValue</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">RenderSettings</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-n">ambientMode</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">AmbientMode</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-n">Skybox</span><span class="devsite-syntax-p">;</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-n">RenderSettings</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-n">ambientProbe</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">lightEstimation</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-n">ambientSphericalHarmonics</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-n">Value</span><span class="devsite-syntax-p">;</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre></devsite-code>
+<aside class="special"><p>Check out <a href="https://docs.unity3d.com/Packages/com.unity.xr.arfoundation@4.1/api/UnityEngine.XR.ARFoundation.ARLightEstimationData.html" target="_blank">the AR Foundation documentation on <code translate="no" dir="ltr">ARLightEstimationData</code></a> for more details on each parameter.</p>
+</aside>
+<h2 is-upgraded id="test-your-changes" data-text="Test your changes" tabindex="-1">Test your changes</h2>
+<ol type="1">
+<li>Click <strong>File &gt; Build And Run</strong> to test your changes.</li>
+<li>When looking at the objects in the scene, you may notice that they are colored depending on the environment&#39;s lighting.</li>
+<li>If possible, try modifying your lighting. For example, try turning off the lights in the room you&#39;re in. You should see the lighting on the objects adapt to the change in the real-world lighting.</li>
+</ol>
+<p class="image-container"><img style="width: 720.00px" src="/static/arcore-unity-ar-foundation/imgs/lighting-estimation.webp"></p>
+
+
+
+        </google-codelab-step>
+      
+        <google-codelab-step label="Wrap up" duration="0" step="5">
+          
+          <h2 class="step-title" id="5" data-text="Wrap up" tabindex="-1">
+              6. Wrap up
+          </h2>
+          
+          <p><strong>Congratulations!</strong> You&#39;ve made it to the end of this codelab on Unity AR Foundation.</p>
+<h2 is-upgraded id="what-youve-covered" data-text="What you've covered" tabindex="-1">What you've covered</h2>
+<ul>
+<li>How to set up a basic project using Unity&#39;s AR Foundation and the Universal Rendering Pipeline.</li>
+<li>How to use <code translate="no" dir="ltr">ARPlaneManager</code> to subscribe to new planes.</li>
+<li>How to use <code translate="no" dir="ltr">Raycast</code> to find intersections with virtual geometry.</li>
+<li>How to use <code translate="no" dir="ltr">ARLightEstimationData</code> to light your scene.</li>
+</ul>
+<h2 is-upgraded id="next-steps" data-text="Next steps" tabindex="-1">Next steps</h2>
+<ul>
+<li>Check out <a href="https://github.com/Unity-Technologies/arfoundation-samples" target="_blank">Unity&#39;s AR Foundation samples</a>.</li>
+<li>Browse <a href="https://docs.unity3d.com/Packages/com.unity.xr.arfoundation@4.1/manual/index.html" target="_blank">AR Foundation documentation</a>.</li>
+<li>Check out <a href="https://developers.google.com/ar/develop/unity-arf" target="_blank">Google&#39;s documentation on ARCore Extensions for Unity&#39;s AR Foundation</a>.</li>
+</ul>
+<h2 is-upgraded id="bonus-assignments" data-text="Bonus assignments" tabindex="-1">Bonus assignments</h2>
+<p>If you want to expand on the game you&#39;ve created here, here are some ideas you could pursue:</p>
+<ul>
+<li>Add a score counter to the your game by modifying a <a href="https://docs.unity3d.com/Manual/com.unity.textmeshpro.html" target="_blank"><code translate="no" dir="ltr">TextMeshPro</code></a> when a <code translate="no" dir="ltr">PackageManager</code> spawns a new package.</li>
+<li>Check out performance information when your game is running by enabling the <a href="https://developers.google.com/ar/develop/unity-arf/debugging-tools/performance-overlay" target="_blank">Performance Overlay</a>.</li>
+<li>Use <a href="https://developers.google.com/ar/develop/unity-arf/instant-placement/developer-guide" target="_blank">Persistent Raycasts</a> to place new objects in your scene first. When a plane is detected in that area, that object will update to snap to that plane.</li>
+</ul>
+
+
+
+        </google-codelab-step>
+      
+    </google-codelab>
+  
+  
+
+  
+</div>
+
+  
+    
+    
+    
+  
+
+  <div class="devsite-floating-action-buttons"></div></article>
+
+
+<devsite-content-footer class="nocontent" data-nosnippet>
+  <p>Except as otherwise noted, the content of this page is licensed under the <a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 License</a>, and code samples are licensed under the <a href="https://www.apache.org/licenses/LICENSE-2.0">Apache 2.0 License</a>. For details, see the <a href="https://developers.google.com/site-policies">Google Developers Site Policies</a>. Java is a registered trademark of Oracle and/or its affiliates.</p>
+  
+</devsite-content-footer>
+
+
+<devsite-notification
+>
+</devsite-notification>
+
+
+  
+<div class="devsite-content-data">
+  
+  
+    <template class="devsite-content-data-template">
+      [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Missing the information I need","missingTheInformationINeed","thumb-down"],["Too complicated / too many steps","tooComplicatedTooManySteps","thumb-down"],["Out of date","outOfDate","thumb-down"],["Samples / code issue","samplesCodeIssue","thumb-down"],["Other","otherDown","thumb-down"]],[],[],[]]
+    </template>
+  
+</div>
+            
+          </devsite-content>
+        </main>
+        <devsite-footer-promos class="devsite-footer">
+          
+            
+          
+        </devsite-footer-promos>
+        <devsite-footer-linkboxes class="devsite-footer">
+          
+            
+<nav class="devsite-footer-linkboxes nocontent"
+     aria-label="Footer links"
+     data-nosnippet>
+  
+  <ul class="devsite-footer-linkboxes-list">
+    
+    <li class="devsite-footer-linkbox ">
+    <h3 class="devsite-footer-linkbox-heading no-link">Connect</h3>
+      <ul class="devsite-footer-linkbox-list">
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//googledevelopers.blogspot.com"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 1)"
+            >
+            
+          
+            Blog
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//www.facebook.com/Google-Developers-967415219957038"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 2)"
+            >
+            
+          
+            Facebook
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//medium.com/google-developers"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 3)"
+            >
+            
+          
+            Medium
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//twitter.com/googledevs"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 4)"
+            >
+            
+          
+            Twitter
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//www.youtube.com/user/GoogleDevelopers"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 5)"
+            >
+            
+              
+              
+            
+          
+            YouTube
+          
+          </a>
+          
+          
+        </li>
+        
+      </ul>
+    </li>
+    
+    <li class="devsite-footer-linkbox ">
+    <h3 class="devsite-footer-linkbox-heading no-link">Programs</h3>
+      <ul class="devsite-footer-linkbox-list">
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//www.womentechmakers.com"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 1)"
+            >
+            
+          
+            Women Techmakers
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//developers.google.com/community/gdg"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 2)"
+            >
+            
+          
+            Google Developer Groups
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//developers.google.com/community/experts"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 3)"
+            >
+            
+          
+            Google Developer Experts
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//developers.google.com/community/accelerators"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 4)"
+            >
+            
+              
+              
+            
+          
+            Accelerators
+          
+          </a>
+          
+          
+        </li>
+        
+      </ul>
+    </li>
+    
+    <li class="devsite-footer-linkbox ">
+    <h3 class="devsite-footer-linkbox-heading no-link">Developer consoles</h3>
+      <ul class="devsite-footer-linkbox-list">
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//console.developers.google.com"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 1)"
+            >
+            
+          
+            Google API Console
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//console.cloud.google.com"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 2)"
+            >
+            
+          
+            Google Cloud Platform Console
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//play.google.com/apps/publish"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 3)"
+            >
+            
+          
+            Google Play Console
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//console.firebase.google.com"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 4)"
+            >
+            
+          
+            Firebase Console
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//console.actions.google.com"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 5)"
+            >
+            
+          
+            Actions on Google Console
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//cast.google.com/publish"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 6)"
+            >
+            
+          
+            Cast SDK Developer Console
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//chrome.google.com/webstore/developer/dashboard"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 7)"
+            >
+            
+              
+              
+            
+          
+            Chrome Web Store Dashboard
+          
+          </a>
+          
+          
+        </li>
+        
+      </ul>
+    </li>
+    
+  </ul>
+  
+</nav>
+          
+        </devsite-footer-linkboxes>
+        <devsite-footer-utility class="devsite-footer">
+          
+            
+
+<div class="devsite-footer-utility nocontent" data-nosnippet>
+  
+  
+  <nav class="devsite-footer-sites" aria-label="Other Google Developers websites">
+    <a href="https://developers.google.com/"
+       class="devsite-footer-sites-logo-link gc-analytics-event"
+       data-category="Site-Wide Custom Events"
+       data-label="Footer Google Developers Link">
+      <picture>
+        
+        <img class="devsite-footer-sites-logo"
+             src="https://www.gstatic.com/devrel-devsite/prod/vb08cbdb02acf7f66ad9727ddfba9d81df8806422eb5dd63dba194c9c8c7997f7/codelabs/images/lockup-google-for-developers.svg"
+             loading="lazy"
+             alt="Google Developers">
+      </picture>
+    </a>
+    <ul class="devsite-footer-sites-list">
+      
+      <li class="devsite-footer-sites-item">
+        <a href="//developer.android.com"
+           class="devsite-footer-sites-link
+                  gc-analytics-event"
+           data-category="Site-Wide Custom Events"
+         
+           data-label="Footer Android Link"
+         
+         >
+          Android
+        </a>
+      </li>
+      
+      <li class="devsite-footer-sites-item">
+        <a href="//developer.chrome.com/home"
+           class="devsite-footer-sites-link
+                  gc-analytics-event"
+           data-category="Site-Wide Custom Events"
+         
+           data-label="Footer Chrome Link"
+         
+         >
+          Chrome
+        </a>
+      </li>
+      
+      <li class="devsite-footer-sites-item">
+        <a href="//firebase.google.com"
+           class="devsite-footer-sites-link
+                  gc-analytics-event"
+           data-category="Site-Wide Custom Events"
+         
+           data-label="Footer Firebase Link"
+         
+         >
+          Firebase
+        </a>
+      </li>
+      
+      <li class="devsite-footer-sites-item">
+        <a href="//cloud.google.com"
+           class="devsite-footer-sites-link
+                  gc-analytics-event"
+           data-category="Site-Wide Custom Events"
+         
+           data-label="Footer Google Cloud Platform Link"
+         
+         >
+          Google Cloud Platform
+        </a>
+      </li>
+      
+      <li class="devsite-footer-sites-item">
+        <a href="//developers.google.com/products"
+           class="devsite-footer-sites-link
+                  gc-analytics-event"
+           data-category="Site-Wide Custom Events"
+         
+           data-label="Footer All products Link"
+         
+         >
+          All products
+        </a>
+      </li>
+      
+    </ul>
+  </nav>
+  
+
+  
+  <nav class="devsite-footer-utility-links" aria-label="Utility links">
+    
+    <ul class="devsite-footer-utility-list">
+      
+      <li class="devsite-footer-utility-item
+                 ">
+        
+        
+        <a class="devsite-footer-utility-link gc-analytics-event"
+           href="//developers.google.com/terms/site-terms"
+           data-category="Site-Wide Custom Events"
+           data-label="Footer Terms link"
+         >
+          Terms
+        </a>
+        
+      </li>
+      
+      <li class="devsite-footer-utility-item
+                 ">
+        
+        
+        <a class="devsite-footer-utility-link gc-analytics-event"
+           href="//policies.google.com/privacy"
+           data-category="Site-Wide Custom Events"
+           data-label="Footer Privacy link"
+         >
+          Privacy
+        </a>
+        
+      </li>
+      
+      <li class="devsite-footer-utility-item
+                 glue-cookie-notification-bar-control">
+        
+        
+        <a class="devsite-footer-utility-link gc-analytics-event"
+           href="#"
+           data-category="Site-Wide Custom Events"
+           data-label="Footer Manage cookies link"
+         
+           aria-hidden="true"
+         >
+          Manage cookies
+        </a>
+        
+      </li>
+      
+      <li class="devsite-footer-utility-item
+                 devsite-footer-utility-button">
+        
+        <span class="devsite-footer-utility-description">Sign up for the Google Developers newsletter</span>
+        
+        
+        <a class="devsite-footer-utility-link gc-analytics-event"
+           href="//services.google.com/fb/forms/googledevelopersnewsletter/?utm_medium=referral&amp;utm_source=google-products&amp;utm_team=googledevs&amp;utm_campaign=201611-newsletter-launch"
+           data-category="Site-Wide Custom Events"
+           data-label="Footer Subscribe link"
+         >
+          Subscribe
+        </a>
+        
+      </li>
+      
+    </ul>
+    
+    
+<devsite-language-selector>
+  <ul role="presentation">
+    
+    
+    <li role="presentation">
+      <a role="menuitem" lang="en"
+        >English</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="de"
+        >Deutsch</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="es"
+        >Español</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="es_419"
+        >Español – América Latina</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="fr"
+        >Français</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="id"
+        >Indonesia</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="it"
+        >Italiano</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="pl"
+        >Polski</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="pt_br"
+        >Português – Brasil</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="vi"
+        >Tiếng Việt</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="tr"
+        >Türkçe</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="ru"
+        >Русский</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="he"
+        >עברית</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="ar"
+        >العربيّة</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="fa"
+        >فارسی</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="hi"
+        >हिंदी</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="bn"
+        >বাংলা</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="th"
+        >ภาษาไทย</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="zh_cn"
+        >中文 – 简体</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="zh_tw"
+        >中文 – 繁體</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="ja"
+        >日本語</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="ko"
+        >한국어</a>
+    </li>
+    
+  </ul>
+</devsite-language-selector>
+
+  </nav>
+</div>
+          
+        </devsite-footer-utility>
+        <devsite-panel>
+          
+        </devsite-panel>
+        
+      </section>
+      </section>
+    <devsite-sitemask></devsite-sitemask>
+    <devsite-snackbar></devsite-snackbar>
+    <devsite-tooltip ></devsite-tooltip>
+    <devsite-heading-link></devsite-heading-link>
+    <devsite-analytics>
+      
+        <script type="application/json" analytics>[]</script>
+<script type="application/json" tag-management>{&#34;at&#34;: &#34;True&#34;, &#34;ga4&#34;: [], &#34;ga4p&#34;: [], &#34;gtm&#34;: [], &#34;parameters&#34;: {&#34;internalUser&#34;: &#34;False&#34;, &#34;language&#34;: {&#34;machineTranslated&#34;: &#34;False&#34;, &#34;requested&#34;: &#34;en&#34;, &#34;served&#34;: &#34;en&#34;}, &#34;pageType&#34;: &#34;codelab&#34;, &#34;projectName&#34;: null, &#34;signedIn&#34;: &#34;False&#34;, &#34;tenant&#34;: &#34;codelabs&#34;, &#34;recommendations&#34;: {&#34;sourcePage&#34;: &#34;&#34;, &#34;sourceType&#34;: 0, &#34;sourceRank&#34;: 0, &#34;sourceIdenticalDescriptions&#34;: 0, &#34;sourceTitleWords&#34;: 0, &#34;sourceDescriptionWords&#34;: 0, &#34;experiment&#34;: &#34;&#34;}, &#34;experiment&#34;: {&#34;ids&#34;: &#34;&#34;}}}</script>
+      
+    </devsite-analytics>
+    
+      <devsite-badger></devsite-badger>
+    
+    
+    
+    
+<script nonce="cruisEFjbbTjAkll3P6xiKtcK6Erdp">
+  
+  (function(d,e,v,s,i,t,E){d['GoogleDevelopersObject']=i;
+    t=e.createElement(v);t.async=1;t.src=s;E=e.getElementsByTagName(v)[0];
+    E.parentNode.insertBefore(t,E);})(window, document, 'script',
+    'https://www.gstatic.com/devrel-devsite/prod/vb08cbdb02acf7f66ad9727ddfba9d81df8806422eb5dd63dba194c9c8c7997f7/codelabs/js/app_loader.js', '[17,"en",null,"/js/devsite_app_module.js","https://www.gstatic.com/devrel-devsite/prod/vb08cbdb02acf7f66ad9727ddfba9d81df8806422eb5dd63dba194c9c8c7997f7","https://www.gstatic.com/devrel-devsite/prod/vb08cbdb02acf7f66ad9727ddfba9d81df8806422eb5dd63dba194c9c8c7997f7/codelabs","https://codelabs-dot-devsite-v2-prod.appspot.com",1,null,["/_pwa/codelabs/manifest.json","https://www.gstatic.com/devrel-devsite/prod/vb08cbdb02acf7f66ad9727ddfba9d81df8806422eb5dd63dba194c9c8c7997f7/images/video-placeholder.svg","https://www.gstatic.com/devrel-devsite/prod/vb08cbdb02acf7f66ad9727ddfba9d81df8806422eb5dd63dba194c9c8c7997f7/codelabs/images/favicon.png","https://www.gstatic.com/devrel-devsite/prod/vb08cbdb02acf7f66ad9727ddfba9d81df8806422eb5dd63dba194c9c8c7997f7/codelabs/images/lockup.svg","https://fonts.googleapis.com/css?family=Google+Sans:400,500|Roboto:400,400italic,500,500italic,700,700italic|Roboto+Mono:400,500,700&display=swap"],1,null,[1,6,8,12,14,17,21,25,50,52,63,70,75,76,80,87,91,92,93,97,98,100,101,102,103,104,105,107,108,109,110,112,113,117,118,120,122,124,125,126,127,129,130,131,132,133,134,135,136,138,140,141,147,148,149,151,152,156,157,158,159,161,163,164,168,169,170,179,180,182,183,186,191,193,196],"AIzaSyAP-jjEJBzmIyKR4F-3XITp8yM9T1gEEI8","AIzaSyB6xiKGDR5O3Ak2okS4rLkauxGUG7XP0hg","codelabs.developers.google.com","AIzaSyAQk0fBONSGUqCNznf6Krs82Ap1-NV6J4o","AIzaSyCCxcqdrZ_7QMeLCRY20bh_SXdAYqy70KY",null,null,null,["MiscFeatureFlags__developers_footer_dark_image","Profiles__enable_user_type","DevPro__enable_g1_integration","MiscFeatureFlags__enable_variable_operator_index_yaml","MiscFeatureFlags__enable_explain_this_code","Search__enable_page_map","Analytics__enable_devpro_interaction_logging","Profiles__enable_callout_notifications","Concierge__enable_pushui","Profiles__enable_recognition_badges","DevPro__enable_code_assist","CloudShell__cloud_shell_button","EngEduTelemetry__enable_engedu_telemetry","DevPro__remove_eu_tax_intake_form","Profiles__enable_playlist_community_acl","DevPro__enable_firebase_workspaces_card","Profiles__enable_developer_profile_benefits_ui_redesign","MiscFeatureFlags__fix_lower_breadcrumbs","DevPro__enable_payments_first_batch","Profiles__enable_developer_profiles_callout","Profiles__enable_stripe_subscription_management","DevPro__enable_cloud_innovators_plus","CloudShell__cloud_code_overflow_menu","Cloud__enable_cloud_dlp_service","Profiles__enable_completequiz_endpoint","Experiments__reqs_query_experiments","Concierge__enable_remove_info_panel_tags","DevPro__enable_vertex_credit_card","TpcFeatures__enable_unmirrored_page_left_nav","Cloud__cache_serialized_dynamic_content","SignIn__enable_l1_signup_flow","DevPro__enable_free_benefits","Profiles__enable_developer_profile_pages_as_content","DevPro__enable_developer_subscriptions","DevPro__enable_credits_banner","Concierge__enable_actions_menu","Cloud__enable_cloud_shell","Search__enable_suggestions_from_borg","Profiles__enable_completecodelab_endpoint","Profiles__enable_public_developer_profiles","Profiles__enable_dashboard_curated_recommendations","Profiles__enable_targeted_hero","Analytics__enable_clearcut_logging","MiscFeatureFlags__developers_footer_image","Profiles__enable_purchase_prompts","BookNav__enable_tenant_cache_key","Cloud__fast_free_trial","Profiles__enable_page_saving","Profiles__enable_join_program_group_endpoint","DevPro__enable_enterprise","Cloud__enable_llm_concierge_chat","Profiles__enable_awarding_url","Cloud__enable_free_trial_server_call","Profiles__enable_complete_playlist_endpoint","Search__enable_ai_eligibility_checks","Profiles__enable_profile_collections","MiscFeatureFlags__enable_view_transitions","Search__enable_dynamic_content_confidential_banner","Profiles__enable_auto_apply_credits","Search__enable_ai_search_summaries_for_all","DevPro__enable_embed_profile_creation","Profiles__require_profile_eligibility_for_signin","MiscFeatureFlags__gdp_dashboard_reskin_enabled","MiscFeatureFlags__enable_framebox_badge_methods","MiscFeatureFlags__enable_explicit_template_dependencies","DevPro__enable_devsite_captcha","Cloud__enable_cloud_shell_fte_user_flow","DevPro__enable_google_payments_buyflow","MiscFeatureFlags__remove_cross_domain_tracking_params","DevPro__enable_devpro_offers","MiscFeatureFlags__enable_firebase_utm","Cloud__enable_legacy_calculator_redirect","MiscFeatureFlags__enable_variable_operator","TpcFeatures__proxy_prod_host","MiscFeatureFlags__enable_appearance_cookies","Cloud__enable_cloudx_experiment_ids","Profiles__enable_release_notes_notifications","MiscFeatureFlags__enable_project_variables","DevPro__enable_nvidia_credits_card","DevPro__enable_google_one_card"],null,null,"AIzaSyBLEMok-5suZ67qRPzx0qUtbnLmyT_kCVE","https://developerscontentserving-pa.clients6.google.com","AIzaSyCM4QpTRSqP5qI4Dvjt4OAScIN8sOUlO-k","https://developerscontentsearch-pa.clients6.google.com",1,4,null,"https://developerprofiles-pa.clients6.google.com",[17,"codelabs","Google Codelabs","codelabs.developers.google.com",null,"codelabs-dot-devsite-v2-prod.appspot.com",null,null,[null,1,null,null,null,null,null,null,null,null,null,[1],null,null,null,null,null,null,[1],null,null,null,null,[1],null,null,null,null,null,null,[1]],null,[33,null,null,null,null,null,"/images/lockup.svg",null,null,null,null,1,1,null,null,null,null,null,null,null,null,1,null,null,null,null,[]],[],null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,[6,1,14,15,20,22,23,29,32,36],null,[[],[1,1]],[[null,null,null,null,null,null,null,null,null,null,null,null,1]],null,4],null,"pk_live_5170syrHvgGVmSx9sBrnWtA5luvk9BwnVcvIi7HizpwauFG96WedXsuXh790rtij9AmGllqPtMLfhe2RSwD6Pn38V00uBCydV4m",1,1,"https://developerscontentinsights-pa.clients6.google.com","AIzaSyCg-ZUslalsEbXMfIo9ZP8qufZgo3LSBDU","AIzaSyDxT0vkxnY_KeINtA4LSePJO-4MAZPMRsE","https://developers.clients6.google.com",null,null,"AIzaSyBQom12tzI-rybN7Sf-KfeL4nwm-Rf7PmI\n",null,null,"https://developers.googleapis.com"]')
+  
+</script>
+
+    <devsite-a11y-announce></devsite-a11y-announce>
+  </body>
+</html>

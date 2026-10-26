@@ -1,0 +1,1978 @@
+
+
+
+
+
+
+
+
+
+<!doctype html>
+<html 
+      lang="en"
+      dir="ltr">
+  <head>
+    <meta name="google-signin-client-id" content="721724668570-nbkv1cfusk7kk4eni4pjvepaus73b13t.apps.googleusercontent.com"><meta name="google-signin-scope"
+          content="profile email https://www.googleapis.com/auth/developerprofiles https://www.googleapis.com/auth/developerprofiles.award https://www.googleapis.com/auth/devprofiles.full_control.firstparty"><meta property="og:site_name" content="Google Codelabs">
+    <meta property="og:type" content="website"><meta name="theme-color" content="#1a73e8"><meta charset="utf-8">
+    <meta content="IE=Edge" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+
+    <link rel="manifest" href="/_pwa/codelabs/manifest.json"
+          crossorigin="use-credentials">
+    <link rel="preconnect" href="//www.gstatic.com" crossorigin>
+    <link rel="preconnect" href="//fonts.googleapis.com" crossorigin>
+    <link rel="preconnect" href="//www.google-analytics.com" crossorigin><link rel="stylesheet" href="//fonts.googleapis.com/css?family=Google+Sans:400,500|Roboto:400,400italic,500,500italic,700,700italic|Roboto+Mono:400,500,700&display=swap">
+      <link rel="stylesheet"
+            href="//fonts.googleapis.com/css2?family=Material+Icons&family=Material+Symbols+Outlined&display=block"><link rel="stylesheet" href="https://www.gstatic.com/devrel-devsite/prod/vb08cbdb02acf7f66ad9727ddfba9d81df8806422eb5dd63dba194c9c8c7997f7/codelabs/css/app.css">
+      <link rel="shortcut icon" href="https://www.gstatic.com/devrel-devsite/prod/vb08cbdb02acf7f66ad9727ddfba9d81df8806422eb5dd63dba194c9c8c7997f7/codelabs/images/favicon.png">
+    <link rel="apple-touch-icon" href="https://www.gstatic.com/devrel-devsite/prod/vb08cbdb02acf7f66ad9727ddfba9d81df8806422eb5dd63dba194c9c8c7997f7/codelabs/images/touchicon-180.png"><link rel="canonical" href="https://codelabs.developers.google.com/adk-java-getting-started"><link rel="search" type="application/opensearchdescription+xml"
+            title="Google Codelabs" href="https://codelabs.developers.google.com/s/opensearch.xml">
+      <link rel="alternate" hreflang="en"
+          href="https://codelabs.developers.google.com/adk-java-getting-started" /><link rel="alternate" hreflang="x-default" href="https://codelabs.developers.google.com/adk-java-getting-started" /><link rel="alternate" hreflang="ar"
+          href="https://codelabs.developers.google.com/adk-java-getting-started?hl=ar" /><link rel="alternate" hreflang="bn"
+          href="https://codelabs.developers.google.com/adk-java-getting-started?hl=bn" /><link rel="alternate" hreflang="zh-Hans"
+          href="https://codelabs.developers.google.com/adk-java-getting-started?hl=zh-cn" /><link rel="alternate" hreflang="zh-Hant"
+          href="https://codelabs.developers.google.com/adk-java-getting-started?hl=zh-tw" /><link rel="alternate" hreflang="fa"
+          href="https://codelabs.developers.google.com/adk-java-getting-started?hl=fa" /><link rel="alternate" hreflang="fr"
+          href="https://codelabs.developers.google.com/adk-java-getting-started?hl=fr" /><link rel="alternate" hreflang="de"
+          href="https://codelabs.developers.google.com/adk-java-getting-started?hl=de" /><link rel="alternate" hreflang="he"
+          href="https://codelabs.developers.google.com/adk-java-getting-started?hl=he" /><link rel="alternate" hreflang="hi"
+          href="https://codelabs.developers.google.com/adk-java-getting-started?hl=hi" /><link rel="alternate" hreflang="id"
+          href="https://codelabs.developers.google.com/adk-java-getting-started?hl=id" /><link rel="alternate" hreflang="it"
+          href="https://codelabs.developers.google.com/adk-java-getting-started?hl=it" /><link rel="alternate" hreflang="ja"
+          href="https://codelabs.developers.google.com/adk-java-getting-started?hl=ja" /><link rel="alternate" hreflang="ko"
+          href="https://codelabs.developers.google.com/adk-java-getting-started?hl=ko" /><link rel="alternate" hreflang="pl"
+          href="https://codelabs.developers.google.com/adk-java-getting-started?hl=pl" /><link rel="alternate" hreflang="pt-BR"
+          href="https://codelabs.developers.google.com/adk-java-getting-started?hl=pt-br" /><link rel="alternate" hreflang="ru"
+          href="https://codelabs.developers.google.com/adk-java-getting-started?hl=ru" /><link rel="alternate" hreflang="es-419"
+          href="https://codelabs.developers.google.com/adk-java-getting-started?hl=es-419" /><link rel="alternate" hreflang="th"
+          href="https://codelabs.developers.google.com/adk-java-getting-started?hl=th" /><link rel="alternate" hreflang="tr"
+          href="https://codelabs.developers.google.com/adk-java-getting-started?hl=tr" /><link rel="alternate" hreflang="vi"
+          href="https://codelabs.developers.google.com/adk-java-getting-started?hl=vi" /><title>Build AI Agents with the Agent Development Kit (ADK) for Java &nbsp;|&nbsp; Google Codelabs</title>
+
+<meta property="og:title" content="Build AI Agents with the Agent Development Kit (ADK) for Java &nbsp;|&nbsp; Google Codelabs"><meta name="description" content="In this codelab, you’ll learn how to build AI applications using the Agents Development Kit (ADK) for Java. We’ll move beyond simple LLM API calls to create autonomous AI agents that can reason, plan, use tools, and work together to solve complex problems.">
+  <meta property="og:description" content="In this codelab, you’ll learn how to build AI applications using the Agents Development Kit (ADK) for Java. We’ll move beyond simple LLM API calls to create autonomous AI agents that can reason, plan, use tools, and work together to solve complex problems."><meta property="og:url" content="https://codelabs.developers.google.com/adk-java-getting-started"><meta property="og:locale" content="en">
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  
+
+    </head>
+  <body class="color-scheme--light"
+        template="codelab"
+        theme="codelabs-theme"
+        type="codelab"
+        
+        
+        
+        layout="docs"
+        
+        
+        
+        
+        
+        display-toc
+        pending>
+  
+    <devsite-progress type="indeterminate" id="app-progress"></devsite-progress>
+  
+  
+    <a href="#main-content" class="skip-link button">
+      
+      Skip to main content
+    </a>
+    <section class="devsite-wrapper">
+      <devsite-cookie-notification-bar></devsite-cookie-notification-bar>
+        <devsite-header role="banner">
+  
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="devsite-header--inner" data-nosnippet>
+  <div class="devsite-top-logo-row-wrapper-wrapper">
+    <div class="devsite-top-logo-row-wrapper">
+      <div class="devsite-top-logo-row">
+        <button type="button" id="devsite-hamburger-menu"
+          class="devsite-header-icon-button button-flat material-icons gc-analytics-event"
+          data-category="Site-Wide Custom Events"
+          data-label="Navigation menu button"
+          visually-hidden
+          aria-label="Open menu">
+        </button>
+        
+<div class="devsite-product-name-wrapper">
+
+  <a href="/" class="devsite-site-logo-link gc-analytics-event"
+   data-category="Site-Wide Custom Events" data-label="Site logo" track-type="globalNav"
+   track-name="googleCodelabs" track-metadata-position="nav"
+   track-metadata-eventDetail="nav">
+  
+  <picture>
+    
+    <img src="https://www.gstatic.com/devrel-devsite/prod/vb08cbdb02acf7f66ad9727ddfba9d81df8806422eb5dd63dba194c9c8c7997f7/codelabs/images/lockup.svg" class="devsite-site-logo" alt="Google Codelabs">
+  </picture>
+  
+</a>
+
+
+
+</div>
+        <div class="devsite-top-logo-row-middle">
+          <div class="devsite-header-upper-tabs">
+            
+           </div>
+          
+<devsite-search
+    enable-signin
+    enable-search
+    enable-suggestions
+      enable-query-completion
+    
+    enable-search-summaries
+    
+    tenant-name="Google Codelabs"
+    
+    
+    
+    
+    
+    >
+  <form class="devsite-search-form" action="https://codelabs.developers.google.com/s/results" method="GET">
+    <div class="devsite-search-container">
+      <button type="button"
+              search-open
+              class="devsite-search-button devsite-header-icon-button button-flat material-icons"
+              
+              aria-label="Open search"></button>
+      <div class="devsite-searchbox">
+        <input
+          aria-activedescendant=""
+          aria-autocomplete="list"
+          
+          aria-label="Search"
+          aria-expanded="false"
+          aria-haspopup="listbox"
+          autocomplete="off"
+          class="devsite-search-field devsite-search-query"
+          name="q"
+          
+          placeholder="Search"
+          role="combobox"
+          type="text"
+          value=""
+          >
+          <div class="devsite-search-image material-icons" aria-hidden="true">
+            
+              <svg class="devsite-search-ai-image" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <g clip-path="url(#clip0_6641_386)">
+                    <path d="M19.6 21L13.3 14.7C12.8 15.1 12.225 15.4167 11.575 15.65C10.925 15.8833 10.2333 16 9.5 16C7.68333 16 6.14167 15.375 4.875 14.125C3.625 12.8583 3 11.3167 3 9.5C3 7.68333 3.625 6.15 4.875 4.9C6.14167 3.63333 7.68333 3 9.5 3C10.0167 3 10.5167 3.05833 11 3.175C11.4833 3.275 11.9417 3.43333 12.375 3.65L10.825 5.2C10.6083 5.13333 10.3917 5.08333 10.175 5.05C9.95833 5.01667 9.73333 5 9.5 5C8.25 5 7.18333 5.44167 6.3 6.325C5.43333 7.19167 5 8.25 5 9.5C5 10.75 5.43333 11.8167 6.3 12.7C7.18333 13.5667 8.25 14 9.5 14C10.6667 14 11.6667 13.625 12.5 12.875C13.35 12.1083 13.8417 11.15 13.975 10H15.975C15.925 10.6333 15.7833 11.2333 15.55 11.8C15.3333 12.3667 15.05 12.8667 14.7 13.3L21 19.6L19.6 21ZM17.5 12C17.5 10.4667 16.9667 9.16667 15.9 8.1C14.8333 7.03333 13.5333 6.5 12 6.5C13.5333 6.5 14.8333 5.96667 15.9 4.9C16.9667 3.83333 17.5 2.53333 17.5 0.999999C17.5 2.53333 18.0333 3.83333 19.1 4.9C20.1667 5.96667 21.4667 6.5 23 6.5C21.4667 6.5 20.1667 7.03333 19.1 8.1C18.0333 9.16667 17.5 10.4667 17.5 12Z" fill="#5F6368"/>
+                  </g>
+                <defs>
+                <clipPath id="clip0_6641_386">
+                <rect width="24" height="24" fill="white"/>
+                </clipPath>
+                </defs>
+              </svg>
+            
+          </div>
+          <div class="devsite-search-shortcut-icon-container" aria-hidden="true">
+            <kbd class="devsite-search-shortcut-icon">/</kbd>
+          </div>
+      </div>
+    </div>
+  </form>
+  <button type="button"
+          search-close
+          class="devsite-search-button devsite-header-icon-button button-flat material-icons"
+          
+          aria-label="Close search"></button>
+</devsite-search>
+
+        </div>
+
+        
+
+          
+
+          
+
+          
+
+          
+
+          
+<devsite-language-selector>
+  <ul role="presentation">
+    
+    
+    <li role="presentation">
+      <a role="menuitem" lang="en"
+        >English</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="de"
+        >Deutsch</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="es"
+        >Español</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="es_419"
+        >Español – América Latina</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="fr"
+        >Français</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="id"
+        >Indonesia</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="it"
+        >Italiano</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="pl"
+        >Polski</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="pt_br"
+        >Português – Brasil</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="vi"
+        >Tiếng Việt</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="tr"
+        >Türkçe</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="ru"
+        >Русский</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="he"
+        >עברית</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="ar"
+        >العربيّة</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="fa"
+        >فارسی</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="hi"
+        >हिंदी</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="bn"
+        >বাংলা</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="th"
+        >ภาษาไทย</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="zh_cn"
+        >中文 – 简体</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="zh_tw"
+        >中文 – 繁體</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="ja"
+        >日本語</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="ko"
+        >한국어</a>
+    </li>
+    
+  </ul>
+</devsite-language-selector>
+
+
+          
+
+        
+
+        
+          <devsite-user 
+                        
+                        
+                          enable-profiles
+                        
+                        
+                          fp-auth
+                        
+                        id="devsite-user">
+            
+              
+              <span class="button devsite-top-button" aria-hidden="true" visually-hidden>Sign in</span>
+            
+          </devsite-user>
+        
+        
+        
+      </div>
+    </div>
+  </div>
+
+
+
+</div>
+
+
+
+  
+</devsite-header>
+        <devsite-book-nav scrollbars hidden>
+          
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="devsite-book-nav-filter"
+     hidden>
+  <span class="filter-list-icon material-icons" aria-hidden="true"></span>
+  <input type="text"
+         placeholder="Filter"
+         
+         aria-label="Type to filter"
+         role="searchbox">
+  
+  <span class="filter-clear-button hidden"
+        data-title="Clear filter"
+        aria-label="Clear filter"
+        role="button"
+        tabindex="0"></span>
+</div>
+
+<nav class="devsite-book-nav devsite-nav nocontent" data-nosnippet
+     aria-label="Side menu">
+  <div class="devsite-mobile-header">
+    <button type="button"
+            id="devsite-close-nav"
+            class="devsite-header-icon-button button-flat material-icons gc-analytics-event"
+            data-category="Site-Wide Custom Events"
+            data-label="Close navigation"
+            aria-label="Close navigation">
+    </button>
+    <div class="devsite-product-name-wrapper">
+
+  <a href="/" class="devsite-site-logo-link gc-analytics-event"
+   data-category="Site-Wide Custom Events" data-label="Site logo" track-type="globalNav"
+   track-name="googleCodelabs" track-metadata-position="nav"
+   track-metadata-eventDetail="nav">
+  
+  <picture>
+    
+    <img src="https://www.gstatic.com/devrel-devsite/prod/vb08cbdb02acf7f66ad9727ddfba9d81df8806422eb5dd63dba194c9c8c7997f7/codelabs/images/lockup.svg" class="devsite-site-logo" alt="Google Codelabs">
+  </picture>
+  
+</a>
+
+
+</div>
+  </div>
+
+  <div class="devsite-book-nav-wrapper">
+    <div class="devsite-mobile-nav-top">
+      
+        <ul class="devsite-nav-list">
+          
+          
+          
+        </ul>
+      
+    </div>
+    
+  </div>
+</nav>
+          
+        </devsite-book-nav>
+      
+      <section id="gc-wrapper">
+        <main role="main" id="main-content" class="devsite-main-content"
+            
+              
+              has-sidebar
+            >
+          <div class="devsite-sidebar">
+            <div class="devsite-sidebar-content">
+                
+                <devsite-toc class="devsite-nav"
+                            role="navigation"
+                            aria-label="On this page"
+                            depth="1"
+                            scrollbars
+                            data-nosnippet
+                  ></devsite-toc>
+                <devsite-recommendations-sidebar class="nocontent devsite-nav" data-nosnippet>
+                </devsite-recommendations-sidebar>
+            </div>
+          </div>
+          <devsite-content>
+            
+              
+
+
+
+
+
+
+
+
+
+
+<article class="devsite-article"><style>
+      body {
+        transition: opacity ease-in 0.2s;
+      }
+
+      body[unresolved] {
+        opacity: 0;
+        display: block;
+        overflow: hidden;
+        position: relative;
+      }
+      </style>
+  
+  
+  
+  
+  
+
+  <div class="devsite-article-meta nocontent" role="navigation" data-nosnippet>
+    
+    
+    <ul class="devsite-breadcrumb-list"
+  >
+  
+</ul>
+    
+  </div>
+  
+    <h1 class="devsite-page-title" tabindex="-1">
+      Build AI Agents with the Agent Development Kit (ADK) for Java<devsite-actions hidden data-nosnippet></devsite-actions>
+  
+      
+    </h1>
+  
+
+  <devsite-toc class="devsite-nav"
+    depth="1"
+    devsite-toc-embedded
+    >
+  </devsite-toc>
+  
+    
+  <div class="devsite-article-body clearfix
+  ">
+
+  
+    
+    
+    <google-codelab-analytics gaid="UA-49880327-14" ga4id="G-JTFZSJVVVZ"></google-codelab-analytics>
+    <google-codelab codelab-gaid="UA-66226300-1"
+                    codelab-ga4id=""
+                    doc-id="1-YSbYn1qPor8RaIqGLSKsNIfQNLGn3WeRTwRPBwBB6w"
+                    id="adk-java-getting-started"
+                    title="Build AI Agents with the Agent Development Kit (ADK) for Java"
+                    no-tooltip=""
+                    environment="web"
+                    category="cloud,machinelearning,adk,java"
+                    feedback-link="https://github.com/googlecodelabs/feedback/issues/new?title=[adk-java-getting-started]&amp;labels=cloud,java,ml&amp;assignees=glaforge"
+                    layout="paginated"
+                    >
+      
+        <google-codelab-step label="Welcome, AI agent developers!" duration="0" step="0">
+          
+            <google-codelab-about codelab-title="Build AI Agents with the Agent Development Kit (ADK) for Java"
+                                  authors="Guillaume Laforge"
+                                  last-updated="2026-03-30T13:47:14Z"
+                                  duration="90">
+            </google-codelab-about>
+          
+          <h2 class="step-title" id="0" data-text="Welcome, AI agent developers!" tabindex="-1">
+              1. Welcome, AI agent developers!
+          </h2>
+          
+          <p>In this codelab, you&#39;ll learn how to <strong>build AI agents in Java</strong>, using the  <a href="https://github.com/google/adk-java" target="_blank">Agents Development Kit (ADK) for Java</a>. We&#39;ll move beyond simple Large Language Model (LLM) API calls to create autonomous AI agents that can reason, plan, use tools, and work together to solve complex problems.</p>
+<p>You will start by redeeming the Google Cloud credits, setting up your Google Cloud environment, then building your first simple agent, and progressively adding more advanced capabilities like custom tools, web search, and multi-agent orchestration.</p>
+<p class="image-container"><img alt="629b7f6b771833f4.png" style="width: 587.50px" src="/static/adk-java-getting-started/img/629b7f6b771833f4.png" srcset="https://codelabs.developers.google.com/static/adk-java-getting-started/img/629b7f6b771833f4_36.png 36w,https://codelabs.developers.google.com/static/adk-java-getting-started/img/629b7f6b771833f4_48.png 48w,https://codelabs.developers.google.com/static/adk-java-getting-started/img/629b7f6b771833f4_72.png 72w,https://codelabs.developers.google.com/static/adk-java-getting-started/img/629b7f6b771833f4_96.png 96w,https://codelabs.developers.google.com/static/adk-java-getting-started/img/629b7f6b771833f4_480.png 480w,https://codelabs.developers.google.com/static/adk-java-getting-started/img/629b7f6b771833f4_720.png 720w,https://codelabs.developers.google.com/static/adk-java-getting-started/img/629b7f6b771833f4_856.png 856w,https://codelabs.developers.google.com/static/adk-java-getting-started/img/629b7f6b771833f4_960.png 960w,https://codelabs.developers.google.com/static/adk-java-getting-started/img/629b7f6b771833f4_1440.png 1440w,https://codelabs.developers.google.com/static/adk-java-getting-started/img/629b7f6b771833f4_1920.png 1920w,https://codelabs.developers.google.com/static/adk-java-getting-started/img/629b7f6b771833f4_2880.png 2880w" sizes="(max-width: 840px) 100vw, 856px"></p>
+<h2 class="checklist" is-upgraded id="what-youll-learn" data-text="What you'll learn" tabindex="-1">What you'll learn</h2>
+<ul class="checklist">
+<li>How to create a basic, persona-driven AI agent.</li>
+<li>How to empower agents with custom and built-in tools (like Google Search).</li>
+<li>How to add your own tools implemented in Java.</li>
+<li>How to orchestrate multiple agents into powerful sequential, parallel, and looping workflows.</li>
+</ul>
+<h2 is-upgraded id="what-youll-need" data-text="What you'll need" tabindex="-1">What you'll need</h2>
+<ul>
+<li>A web browser that we&#39;ll use in Incognito mode.</li>
+<li>A personal Gmail account.</li>
+<li>A new Google Cloud project associated with your personal Gmail account.</li>
+<li>A billing account created with the redeemed Google Cloud credits.</li>
+<li>The git command-line tool to check out the source code.</li>
+<li>Java 17+ and Apache Maven.</li>
+<li>A text editor or IDE, such as IntelliJ IDEA or VS Code.</li>
+</ul>
+<p>You can use the built-in Code Editor in Cloud Shel, in the Google Cloud console.</p>
+<aside class="special"><p>Learn more about how to  <a href="https://cloud.google.com/shell/docs/launching-cloud-shell-editor" target="_blank">launch the Cloud Shell editor</a>.</p>
+</aside>
+
+
+        </google-codelab-step>
+      
+        <google-codelab-step label="Setup: Your Environment" duration="15" step="1">
+          
+          <h2 class="step-title" id="1" data-text="Setup: Your Environment" tabindex="-1">
+              2. Setup: Your Environment
+          </h2>
+          
+          <h2 is-upgraded id="claiming-google-cloud-credits-for-the-workshop" data-text="Claiming Google Cloud credits for the workshop" tabindex="-1">Claiming Google Cloud credits for the workshop</h2>
+<p class="image-container"><img alt="492905b93ced4f9d.png" style="width: 582.50px" src="/static/adk-java-getting-started/img/492905b93ced4f9d.png" srcset="https://codelabs.developers.google.com/static/adk-java-getting-started/img/492905b93ced4f9d_36.png 36w,https://codelabs.developers.google.com/static/adk-java-getting-started/img/492905b93ced4f9d_48.png 48w,https://codelabs.developers.google.com/static/adk-java-getting-started/img/492905b93ced4f9d_72.png 72w,https://codelabs.developers.google.com/static/adk-java-getting-started/img/492905b93ced4f9d_96.png 96w,https://codelabs.developers.google.com/static/adk-java-getting-started/img/492905b93ced4f9d_480.png 480w,https://codelabs.developers.google.com/static/adk-java-getting-started/img/492905b93ced4f9d_720.png 720w,https://codelabs.developers.google.com/static/adk-java-getting-started/img/492905b93ced4f9d_856.png 856w,https://codelabs.developers.google.com/static/adk-java-getting-started/img/492905b93ced4f9d_960.png 960w,https://codelabs.developers.google.com/static/adk-java-getting-started/img/492905b93ced4f9d_1440.png 1440w,https://codelabs.developers.google.com/static/adk-java-getting-started/img/492905b93ced4f9d_1920.png 1920w,https://codelabs.developers.google.com/static/adk-java-getting-started/img/492905b93ced4f9d_2880.png 2880w" sizes="(max-width: 840px) 100vw, 856px"></p>
+<p>For an instructor-led workshop, you will have received a link to the website where you can claim Google cloud credits to use for the workshop.</p>
+<ul>
+<li><strong>Use a personal Google account</strong>: It is important to use a personal Google account (like a gmail.com address) as <strong>corporate or school email addresses will not work</strong>.</li>
+<li><strong>Use Google Chrome in incognito mode</strong>: This is recommended to create a clean session and prevent conflicts with other Google accounts.</li>
+<li><strong>Use the special event link</strong>: A special link for the event, which looks something like  <a href="https://trygcp.dev/event/xxx" target="_blank">https://trygcp.dev/event/xxx</a> followed by an event code (here &#34;xxx&#34; in this example), should be used.</li>
+<li><strong>Accept the terms of service</strong>: After signing in, you will be presented with the Google Cloud Platform terms of service, which you need to accept to continue.</li>
+<li><strong>Create a new project</strong>: A new empty project must be created from the  <a href="https://console.cloud.google.com/apis/dashboard" target="_blank">Google Cloud Console</a>.</li>
+<li><strong>Link a billing account</strong>: Link the newly created project to a billing account.</li>
+<li><strong>Confirm the credit</strong>: The following video shows how to confirm that the credit is applied to the project by checking the &#34;credits&#34; section in the billing page.</li>
+</ul>
+<p>Feel free to  <a href="https://www.youtube.com/watch?v=dR-NrgMTADs" target="_blank">check out this video</a> which explains how to redeem and apply the credits.</p>
+<h2 is-upgraded id="enable-vertex-ai-api" data-text="Enable Vertex AI API" tabindex="-1">Enable Vertex AI API</h2>
+<p>First, enable the Vertex AI API. You can do this either by searching for <strong>Vertex AI API</strong> in Google Cloud Console and enabling the API there. You can also do this from Cloud Shell by running the following:</p>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Java"><code translate="no" dir="ltr"><span class="devsite-syntax-n">gcloud</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">services</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">enable</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">aiplatform</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">googleapis</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">com</span>
+</code></pre></devsite-code>
+<h2 is-upgraded id="configure-adk-with-vertex-ai" data-text="Configure ADK with Vertex AI" tabindex="-1">Configure ADK with Vertex AI</h2>
+<p>To authenticate your ADK AI agents with the Gemini on Vertex AI for this codelab, set the following environment variables. Make sure you use your unique project id.</p>
+<p><strong>macOS / Linux:</strong> Open your terminal and run the following command. To make this permanent, add this line to your shell&#39;s startup file (e.g., <code translate="no" dir="ltr">~/.bash_profile</code>, <code translate="no" dir="ltr">~/.zshrc</code>).</p>
+<div></div><devsite-code><pre translate="no" dir="ltr" is-upgraded>export GOOGLE_GENAI_USE_VERTEXAI=true
+export GOOGLE_CLOUD_PROJECT=your-project-id
+</pre></devsite-code>
+<p><strong>Windows (Command Prompt):</strong> Open a new command prompt and run:</p>
+<div></div><devsite-code><pre translate="no" dir="ltr" is-upgraded>set GOOGLE_GENAI_USE_VERTEXAI=true
+set GOOGLE_CLOUD_PROJECT=your-project-id
+</pre></devsite-code>
+<p>You will need to restart your command prompt for this change to take effect.</p>
+<p><strong>Windows (PowerShell):</strong> Open a PowerShell terminal and run:</p>
+<div></div><devsite-code><pre translate="no" dir="ltr" is-upgraded>$env:GOOGLE_GENAI_USE_VERTEXAI = &#34;true&#34;
+$env:GOOGLE_CLOUD_PROJECT = &#34;your-project-id&#34;
+</pre></devsite-code>
+<p>To make this change permanent in PowerShell, you&#39;ll need to add it to your profile script.</p>
+
+
+        </google-codelab-step>
+      
+        <google-codelab-step label="Getting Started: Your First Agent" duration="10" step="2">
+          
+          <h2 class="step-title" id="2" data-text="Getting Started: Your First Agent" tabindex="-1">
+              3. Getting Started: Your First Agent
+          </h2>
+          
+          <p>The best way to start a new project is by using the  <a href="https://github.com/glaforge/adk-java-maven-template" target="_blank">ADK for Java GitHub template</a>. It provides the project structure and all the necessary dependencies.</p>
+<p>If you have a Github account, you can do the following: <code translate="no" dir="ltr">Use this template</code> &gt; <code translate="no" dir="ltr">Create a new repository</code>, then checkout the code locally with the <code translate="no" dir="ltr">git clone</code> command.</p>
+<p>Here is a screenshot showing the top-right menu for using the template.</p>
+<p class="image-container"><img alt="59e72cf609c13c7c.png" style="width: 563.50px" src="/static/adk-java-getting-started/img/59e72cf609c13c7c.png" srcset="https://codelabs.developers.google.com/static/adk-java-getting-started/img/59e72cf609c13c7c_36.png 36w,https://codelabs.developers.google.com/static/adk-java-getting-started/img/59e72cf609c13c7c_48.png 48w,https://codelabs.developers.google.com/static/adk-java-getting-started/img/59e72cf609c13c7c_72.png 72w,https://codelabs.developers.google.com/static/adk-java-getting-started/img/59e72cf609c13c7c_96.png 96w,https://codelabs.developers.google.com/static/adk-java-getting-started/img/59e72cf609c13c7c_480.png 480w,https://codelabs.developers.google.com/static/adk-java-getting-started/img/59e72cf609c13c7c_720.png 720w,https://codelabs.developers.google.com/static/adk-java-getting-started/img/59e72cf609c13c7c_856.png 856w,https://codelabs.developers.google.com/static/adk-java-getting-started/img/59e72cf609c13c7c_960.png 960w,https://codelabs.developers.google.com/static/adk-java-getting-started/img/59e72cf609c13c7c_1440.png 1440w,https://codelabs.developers.google.com/static/adk-java-getting-started/img/59e72cf609c13c7c_1920.png 1920w,https://codelabs.developers.google.com/static/adk-java-getting-started/img/59e72cf609c13c7c_2880.png 2880w" sizes="(max-width: 840px) 100vw, 856px"></p>
+<p>The other approach is to simply clone that repository directly:</p>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Java"><code translate="no" dir="ltr"><span class="devsite-syntax-n">git</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">clone</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">https</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-c1">//github.com/glaforge/adk-java-maven-template.git</span>
+</code></pre></devsite-code>
+<p>To check that you are ready to get started with coding your first AI agent in Java, ensure you can compile the code in this project with:</p>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Java"><code translate="no" dir="ltr"><span class="devsite-syntax-n">cd</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">adk</span><span class="devsite-syntax-o">-</span><span class="devsite-syntax-n">java</span><span class="devsite-syntax-o">-</span><span class="devsite-syntax-n">maven</span><span class="devsite-syntax-o">-</span><span class="devsite-syntax-n">template</span>
+<span class="devsite-syntax-n">mvn</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">compile</span>
+</code></pre></devsite-code>
+<h2 is-upgraded id="code-step:-a-friendly-science-teacher-agent" data-text="Code Step: A Friendly Science Teacher Agent" tabindex="-1">Code Step: A Friendly Science Teacher Agent</h2>
+<p>The fundamental building block in ADK is the <strong><code translate="no" dir="ltr">LlmAgent</code></strong> class. Think of it as an AI with a specific personality and goal, powered by a Large Language Model. We&#39;ll later add more capabilities via tools, and make it more powerful by collaborating hand-in-hand with other similar agents.</p>
+<p>Let&#39;s create a new Java class, in the <code translate="no" dir="ltr">com.example.agent</code> package, and call it <code translate="no" dir="ltr">ScienceTeacher</code>.</p>
+<p>This is the &#34;Hello, World!&#34; of agent creation. We&#39;re defining a simple agent with the persona of a science teacher.</p>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Java"><code translate="no" dir="ltr"><span class="devsite-syntax-c1">// src/main/java/com/example/agent/ScienceTeacher.java</span>
+<span class="devsite-syntax-kn">package</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">com.example.agent</span><span class="devsite-syntax-p">;</span>
+
+<span class="devsite-syntax-kn">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">com.google.adk.agents.LlmAgent</span><span class="devsite-syntax-p">;</span>
+<span class="devsite-syntax-kn">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">com.google.adk.web.AdkWebServer</span><span class="devsite-syntax-p">;</span>
+
+<span class="devsite-syntax-kd">public</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">class</span> <span class="devsite-syntax-nc">ScienceTeacher</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">public</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">static</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">void</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">main</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">String</span><span class="devsite-syntax-o">[]</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">args</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">AdkWebServer</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">start</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-n">LlmAgent</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">builder</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-w">                </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">name</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"science-teacher"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">                </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">description</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"A friendly science teacher"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">                </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">instruction</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"""</span>
+<span class="devsite-syntax-s">                    You are a science teacher for teenagers.</span>
+<span class="devsite-syntax-s">                    You explain science concepts in a simple, concise and direct way.</span>
+<span class="devsite-syntax-s">                    """</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">                </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">model</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"gemini-2.5-flash"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">                </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">build</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-p">);</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre></devsite-code>
+<p>The AI agent is configured via the <code translate="no" dir="ltr">LlmAgent.builder()</code> method. The <code translate="no" dir="ltr">name()</code>, <code translate="no" dir="ltr">description()</code>, and <code translate="no" dir="ltr">model()</code> parameters are mandatory, and to give a specific personality and proper behavior to your agent, you should always give detailed guidance via the <code translate="no" dir="ltr">instruction()</code> method.</p>
+<p>Here we chose to use the Gemini 2.5 Flash model, but feel free to try Gemini 2.5 Pro as well, for more complicated tasks.</p>
+<p>This agent is wrapped within the <code translate="no" dir="ltr">AdkWebServer.start()</code> method. This is the so-called <strong>ADK Dev UI</strong> chat interface. It allows you to converse with the agent via a typical chat interface. Furthermore, it&#39;s of great help if you want to understand what&#39;s going on under the hood, like all the events that are flowing through the system, the requests and responses sent to the LLM.</p>
+<p>To compile and run this agent locally, run the following command:</p>
+<div></div><devsite-code><pre translate="no" dir="ltr" is-upgraded>mvn compile exec:java -Dexec.mainClass=com.example.agent.ScienceTeacher
+</pre></devsite-code>
+<p>Then head over to your browser at  <a href="http://localhost:8080" target="_blank">http://localhost:8080</a>. If you&#39;re in Cloud Shell, you can go to <strong>Web Preview</strong> and select <strong>Preview on port 8080</strong>.</p>
+<p>You should see the UI as shown in the screenshot below. Go ahead and ask science related questions to your agent.</p>
+<p class="image-container"><img alt="6ff1cc994bf640bd.png" style="width: 591.50px" src="/static/adk-java-getting-started/img/6ff1cc994bf640bd.png" srcset="https://codelabs.developers.google.com/static/adk-java-getting-started/img/6ff1cc994bf640bd_36.png 36w,https://codelabs.developers.google.com/static/adk-java-getting-started/img/6ff1cc994bf640bd_48.png 48w,https://codelabs.developers.google.com/static/adk-java-getting-started/img/6ff1cc994bf640bd_72.png 72w,https://codelabs.developers.google.com/static/adk-java-getting-started/img/6ff1cc994bf640bd_96.png 96w,https://codelabs.developers.google.com/static/adk-java-getting-started/img/6ff1cc994bf640bd_480.png 480w,https://codelabs.developers.google.com/static/adk-java-getting-started/img/6ff1cc994bf640bd_720.png 720w,https://codelabs.developers.google.com/static/adk-java-getting-started/img/6ff1cc994bf640bd_856.png 856w,https://codelabs.developers.google.com/static/adk-java-getting-started/img/6ff1cc994bf640bd_960.png 960w,https://codelabs.developers.google.com/static/adk-java-getting-started/img/6ff1cc994bf640bd_1440.png 1440w,https://codelabs.developers.google.com/static/adk-java-getting-started/img/6ff1cc994bf640bd_1920.png 1920w,https://codelabs.developers.google.com/static/adk-java-getting-started/img/6ff1cc994bf640bd_2880.png 2880w" sizes="(max-width: 840px) 100vw, 856px"></p>
+<aside class="special"><p><strong>Key Concepts Explained:</strong></p>
+<ul>
+<li><strong><code translate="no" dir="ltr">instruction()</code></strong>: This is the core of your agent. It&#39;s the system prompt that defines the agent&#39;s persona, its goal, and its constraints. A well-crafted instruction is critical for getting the desired behavior.</li>
+<li><strong><code translate="no" dir="ltr">model()</code></strong>: We specify <code translate="no" dir="ltr">"gemini-2.5-flash"</code>, a powerful and efficient model from the Gemini family, to power the agent&#39;s reasoning.</li>
+<li><strong><code translate="no" dir="ltr">AdkWebServer.start()</code></strong>: This utility launches a local web server with a chat interface, allowing you to interactively test your agent immediately.</li>
+</ul>
+</aside>
+
+
+        </google-codelab-step>
+      
+        <google-codelab-step label="Empowering Agents with Tools" duration="10" step="3">
+          
+          <h2 class="step-title" id="3" data-text="Empowering Agents with Tools" tabindex="-1">
+              4. Empowering Agents with Tools
+          </h2>
+          
+          <p class="image-container"><img alt="94fc3dfedbfa313c.png" style="width: 572.50px" src="/static/adk-java-getting-started/img/94fc3dfedbfa313c.png" srcset="https://codelabs.developers.google.com/static/adk-java-getting-started/img/94fc3dfedbfa313c_36.png 36w,https://codelabs.developers.google.com/static/adk-java-getting-started/img/94fc3dfedbfa313c_48.png 48w,https://codelabs.developers.google.com/static/adk-java-getting-started/img/94fc3dfedbfa313c_72.png 72w,https://codelabs.developers.google.com/static/adk-java-getting-started/img/94fc3dfedbfa313c_96.png 96w,https://codelabs.developers.google.com/static/adk-java-getting-started/img/94fc3dfedbfa313c_480.png 480w,https://codelabs.developers.google.com/static/adk-java-getting-started/img/94fc3dfedbfa313c_720.png 720w,https://codelabs.developers.google.com/static/adk-java-getting-started/img/94fc3dfedbfa313c_856.png 856w,https://codelabs.developers.google.com/static/adk-java-getting-started/img/94fc3dfedbfa313c_960.png 960w,https://codelabs.developers.google.com/static/adk-java-getting-started/img/94fc3dfedbfa313c_1440.png 1440w,https://codelabs.developers.google.com/static/adk-java-getting-started/img/94fc3dfedbfa313c_1920.png 1920w,https://codelabs.developers.google.com/static/adk-java-getting-started/img/94fc3dfedbfa313c_2880.png 2880w" sizes="(max-width: 840px) 100vw, 856px"></p>
+<p><strong>Why do agents need tools?</strong> LLMs are powerful, but their knowledge is frozen in time and they can&#39;t interact with the outside world. Tools are the bridge. They allow an agent to access real-time information (like stock prices or news), query private APIs, or perform any action you can code in Java.</p>
+<h2 is-upgraded id="code-step:-creating-a-custom-tool-stockticker" data-text="Code Step: Creating a Custom Tool (StockTicker)" tabindex="-1">Code Step: Creating a Custom Tool (<code translate="no" dir="ltr">StockTicker</code>)</h2>
+<p>Here, we give our agent a tool to look up stock prices. The agent reasons that when a user asks for a price, it should call our Java method.</p>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Java"><code translate="no" dir="ltr"><span class="devsite-syntax-c1">// src/main/java/com/example/agent/StockTicker.java</span>
+<span class="devsite-syntax-kn">package</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">com.example.agent</span><span class="devsite-syntax-p">;</span>
+
+<span class="devsite-syntax-kn">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">com.google.adk.agents.LlmAgent</span><span class="devsite-syntax-p">;</span>
+<span class="devsite-syntax-kn">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">com.google.adk.tools.Annotations.Schema</span><span class="devsite-syntax-p">;</span>
+<span class="devsite-syntax-kn">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">com.google.adk.tools.FunctionTool</span><span class="devsite-syntax-p">;</span>
+<span class="devsite-syntax-kn">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">com.google.adk.web.AdkWebServer</span><span class="devsite-syntax-p">;</span>
+<span class="devsite-syntax-kn">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">java.util.Map</span><span class="devsite-syntax-p">;</span>
+
+<span class="devsite-syntax-kd">public</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">class</span> <span class="devsite-syntax-nc">StockTicker</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">public</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">static</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">void</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">main</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">String</span><span class="devsite-syntax-o">[]</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">args</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">AdkWebServer</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">start</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-n">LlmAgent</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">builder</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-w">                </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">name</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"stock_agent"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">                </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">instruction</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"""</span>
+<span class="devsite-syntax-s">                    You are a stock exchange ticker expert.</span>
+<span class="devsite-syntax-s">                    When asked about the stock price of a company,</span>
+<span class="devsite-syntax-s">                    use the `lookup_stock_ticker` tool to find the information.</span>
+<span class="devsite-syntax-s">                    """</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">                </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">model</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"gemini-2.5-flash"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">                </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">tools</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">FunctionTool</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">create</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">StockTicker</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">class</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"lookupStockTicker"</span><span class="devsite-syntax-p">))</span>
+<span class="devsite-syntax-w">                </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">build</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-p">);</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">}</span>
+
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-nd">@Schema</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">name</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"lookup_stock_ticker"</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">description</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"Lookup stock price for a given company or ticker"</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">public</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">static</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">Map&lt;String</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">String</span>&gt;<span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">lookupStockTicker</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-nd">@Schema</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">name</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"company_name_or_stock_ticker"</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">description</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"The company name or stock ticker"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">String</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">ticker</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-c1">// ... (logic to return a stock price)</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre></devsite-code>
+<p>To make agents smarter and give them the ability to interact with the world (or with your own code, APIs, services, etc.) you can configure the agent to use tools, and in particular custom code tools, via the <code translate="no" dir="ltr">tools()</code> method, passing it a <code translate="no" dir="ltr">FunctionTool.create(...)</code>.</p>
+<p>The <code translate="no" dir="ltr">FunctionTool</code> needs a class and a method name pointing at your own static method — it&#39;s also possible to pass an instance of a class and the name of an instance method of that object.</p>
+<p>It is important to specify the <code translate="no" dir="ltr">name</code> and <code translate="no" dir="ltr">description</code> of both the method, and its parameters, via the <code translate="no" dir="ltr">@Schema</code> annotation, as this information will be used by the underlying LLM to figure out when and how it should call a given method.</p>
+<p>Equally important, it&#39;s better to help the LLM with clear instructions about how and when to use the tool. The model may be able to figure it out on its own, but if you give explicit explanations in the <code translate="no" dir="ltr">instruction()</code> method, your function has higher chances to be called appropriately.</p>
+<aside class="warning"><p><strong>👷Now it&#39;s up to you to implement the logic of this method! 👷</strong></p>
+</aside>
+<p>This method should return a <code translate="no" dir="ltr">Map</code>. Usually, the idea is to return a map with a key representing the result, like <code translate="no" dir="ltr">stock_price</code>, and associate the value of the stock price to it. Eventually, you can add an extra success / true key pair to signal the success of the operation. And in case of error, you should return a map with a key called, for example, <code translate="no" dir="ltr">error</code>, and associate the error message in the associated value. This helps the LLM understand if the call succeeded or failed for some reason.</p>
+<ul>
+<li>On success, return: <code translate="no" dir="ltr">{"stock_price": 123}</code></li>
+<li>On error, return: <code translate="no" dir="ltr">{"error": "Impossible to retrieve stock price for XYZ"}</code></li>
+</ul>
+<aside class="special"><p><strong>Help:</strong> If you&#39;re stuck feel free to use this  <a href="https://github.com/glaforge/ai-agent-protocols/blob/main/adk/src/main/java/agents/adk/_20_StockTicker.java" target="_blank">example</a> for how to implement the stock ticker method.</p>
+</aside>
+<p>Then run this class with the following command:</p>
+<div></div><devsite-code><pre translate="no" dir="ltr" is-upgraded>mvn compile exec:java -Dexec.mainClass=com.example.agent.StockTicker
+</pre></devsite-code>
+<p>You can now ask the agent stock prices such as <code translate="no" dir="ltr">What's the stock price for GOOG?</code> You should get back responses and see that the <code translate="no" dir="ltr">lookup_stock_ticker</code> tool is being used.</p>
+<aside class="special"><p><strong>Rationale &amp; Key Concepts:</strong></p>
+<ul>
+<li><strong><code translate="no" dir="ltr">@Schema</code></strong>: This annotation is the magic link. Its <code translate="no" dir="ltr">name</code> and <code translate="no" dir="ltr">description</code> create a contract that the LLM uses to decide <em>when</em> to use the tool and <em>what arguments</em> to provide.</li>
+<li><strong><code translate="no" dir="ltr">tools(FunctionTool.create(...))</code></strong>: This registers our annotated Java method, making it available to the agent.</li>
+</ul>
+</aside>
+
+
+        </google-codelab-step>
+      
+        <google-codelab-step label="The power of Google Search for up-to-date information" duration="10" step="4">
+          
+          <h2 class="step-title" id="4" data-text="The power of Google Search for up-to-date information" tabindex="-1">
+              5. The power of Google Search for up-to-date information
+          </h2>
+          
+          <p class="image-container"><img alt="551964bb78b5a987.png" style="width: 567.50px" src="/static/adk-java-getting-started/img/551964bb78b5a987.png" srcset="https://codelabs.developers.google.com/static/adk-java-getting-started/img/551964bb78b5a987_36.png 36w,https://codelabs.developers.google.com/static/adk-java-getting-started/img/551964bb78b5a987_48.png 48w,https://codelabs.developers.google.com/static/adk-java-getting-started/img/551964bb78b5a987_72.png 72w,https://codelabs.developers.google.com/static/adk-java-getting-started/img/551964bb78b5a987_96.png 96w,https://codelabs.developers.google.com/static/adk-java-getting-started/img/551964bb78b5a987_480.png 480w,https://codelabs.developers.google.com/static/adk-java-getting-started/img/551964bb78b5a987_720.png 720w,https://codelabs.developers.google.com/static/adk-java-getting-started/img/551964bb78b5a987_856.png 856w,https://codelabs.developers.google.com/static/adk-java-getting-started/img/551964bb78b5a987_960.png 960w,https://codelabs.developers.google.com/static/adk-java-getting-started/img/551964bb78b5a987_1440.png 1440w,https://codelabs.developers.google.com/static/adk-java-getting-started/img/551964bb78b5a987_1920.png 1920w,https://codelabs.developers.google.com/static/adk-java-getting-started/img/551964bb78b5a987_2880.png 2880w" sizes="(max-width: 840px) 100vw, 856px"></p>
+<p>ADK for Java comes with a handful of powerful tools, among which is the <code translate="no" dir="ltr">GoogleSearchTool</code>. With this tool, your agent can request the use of Google Search to find relevant information to reach its goal.</p>
+<p>Indeed, the knowledge of an LLM is frozen in time: it has been trained until a certain date (the &#34;cut-off date&#34;) with data that is also as up-to-date as when the information was collected. This means that LLMs may not necessarily know about recent events, or their knowledge may be limited and shallow, and the help of a search engine might refresh their memory or teach them more about the topic.</p>
+<p>Let&#39;s have a look at this simple news search agent:</p>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Java"><code translate="no" dir="ltr"><span class="devsite-syntax-c1">// src/main/java/com/example/agent/LatestNews.java</span>
+<span class="devsite-syntax-kn">package</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">com.example.agent</span><span class="devsite-syntax-p">;</span>
+
+<span class="devsite-syntax-kn">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">java.time.LocalDate</span><span class="devsite-syntax-p">;</span>
+<span class="devsite-syntax-kn">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">com.google.adk.agents.LlmAgent</span><span class="devsite-syntax-p">;</span>
+<span class="devsite-syntax-kn">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">com.google.adk.tools.GoogleSearchTool</span><span class="devsite-syntax-p">;</span>
+<span class="devsite-syntax-kn">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">com.google.adk.web.AdkWebServer</span><span class="devsite-syntax-p">;</span>
+
+<span class="devsite-syntax-kd">public</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">class</span> <span class="devsite-syntax-nc">LatestNews</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">public</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">static</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">void</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">main</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">String</span><span class="devsite-syntax-o">[]</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">args</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">AdkWebServer</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">start</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">LlmAgent</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">builder</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">name</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"news-search-agent"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">description</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"A news search agent"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">instruction</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"""</span>
+<span class="devsite-syntax-s">                You are a news search agent.</span>
+<span class="devsite-syntax-s">                Use the `google_search` tool</span>
+<span class="devsite-syntax-s">                when asked to search for recent events and information.</span>
+<span class="devsite-syntax-s">                Today is \</span>
+<span class="devsite-syntax-s">                """</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">+</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">LocalDate</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">now</span><span class="devsite-syntax-p">())</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">model</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"gemini-2.5-flash"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">tools</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-k">new</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">GoogleSearchTool</span><span class="devsite-syntax-p">())</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">build</span><span class="devsite-syntax-p">());</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre></devsite-code>
+<p>Notice how we passed an instance of the search tool with: <code translate="no" dir="ltr">tools(new GoogleSearchTool())</code>. This is what gives our agent the ability to get up to speed with the latest information that can be found on the web. Also, the prompt specified the date of the day, as it might help the LLM understand when questions are about past information and the lookup of more recent information is required.</p>
+<p>Then run this class with the following command:</p>
+<div></div><devsite-code><pre translate="no" dir="ltr" is-upgraded>mvn compile exec:java -Dexec.mainClass=com.example.agent.LatestNews
+</pre></devsite-code>
+<p>Feel free to play with the prompt, for example, you can ask: <code translate="no" dir="ltr">What's the latest news in the world?</code></p>
+<h2 is-upgraded id="code-step:-the-search-agent-as-a-tool" data-text="Code Step: The Search Agent as a Tool" tabindex="-1">Code Step: The Search Agent as a Tool</h2>
+<p>Instead of passing the <code translate="no" dir="ltr">GoogleSearchTool</code> to an agent directly as a tool, you can create a dedicated search agent that encapsulates the search functionality and expose <em>that agent</em> as a tool to a higher-level agent.</p>
+<p>This is an advanced concept that allows you to delegate complex behaviors (like searching <em>and</em> summarizing the results) to a specialized sub-agent. This approach is often useful for more complex workflows.</p>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Java"><code translate="no" dir="ltr"><span class="devsite-syntax-c1">// src/main/java/com/example/agent/SearchAgentAsTool.java</span>
+<span class="devsite-syntax-kn">package</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">com.example.agent</span><span class="devsite-syntax-p">;</span>
+
+<span class="devsite-syntax-kn">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">java.time.LocalDate</span><span class="devsite-syntax-p">;</span>
+
+<span class="devsite-syntax-kn">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">com.google.adk.agents.LlmAgent</span><span class="devsite-syntax-p">;</span>
+<span class="devsite-syntax-kn">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">com.google.adk.tools.AgentTool</span><span class="devsite-syntax-p">;</span>
+<span class="devsite-syntax-kn">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">com.google.adk.tools.GoogleSearchTool</span><span class="devsite-syntax-p">;</span>
+<span class="devsite-syntax-kn">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">com.google.adk.web.AdkWebServer</span><span class="devsite-syntax-p">;</span>
+
+<span class="devsite-syntax-kd">public</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">class</span> <span class="devsite-syntax-nc">SearchAgentAsTool</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">public</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">static</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">void</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">main</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">String</span><span class="devsite-syntax-o">[]</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">args</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-c1">// 1. Define the specialized Search Agent</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">LlmAgent</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">searchAgent</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">LlmAgent</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">builder</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">name</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"news-search-agent-tool"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">description</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"Searches for recent events and provides a concise summary."</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">instruction</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"""</span>
+<span class="devsite-syntax-s">                You are a concise information retrieval specialist.</span>
+<span class="devsite-syntax-s">                Use the `google_search` tool to find information.</span>
+<span class="devsite-syntax-s">                Always provide the answer as a short,</span>
+<span class="devsite-syntax-s">                direct summary, without commentary.</span>
+<span class="devsite-syntax-s">                Today is \</span>
+<span class="devsite-syntax-s">                """</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">+</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">LocalDate</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">now</span><span class="devsite-syntax-p">())</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">model</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"gemini-2.5-flash"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">tools</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-k">new</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">GoogleSearchTool</span><span class="devsite-syntax-p">())</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-c1">// This agent uses the Google Search Tool</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">build</span><span class="devsite-syntax-p">();</span>
+
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-c1">// 2. Wrap the Search Agent as a Tool</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">AgentTool</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">searchTool</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">AgentTool</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">create</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">searchAgent</span><span class="devsite-syntax-p">);</span>
+
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-c1">// 3. Define the Main Agent that uses the Search Agent Tool</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">AdkWebServer</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">start</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">LlmAgent</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">builder</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">name</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"main-researcher"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">description</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"Main agent for answering complex, up-to-date questions."</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">instruction</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"""</span>
+<span class="devsite-syntax-s">                You are a sophisticated research assistant.</span>
+<span class="devsite-syntax-s">                When the user asks a question that requires up-to-date or external information,</span>
+<span class="devsite-syntax-s">                you MUST use the `news-search-agent-tool` to get the facts before answering.</span>
+<span class="devsite-syntax-s">                After the tool returns the result, synthesize the final answer for the user.</span>
+<span class="devsite-syntax-s">                """</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">model</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"gemini-2.5-flash"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">tools</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">searchTool</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-c1">// This agent uses the Search Agent as a tool</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">build</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-w">       </span><span class="devsite-syntax-p">);</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre></devsite-code>
+<p>The <code translate="no" dir="ltr">AgentTool.create(searchAgent)</code> line is the key concept here. It registers the entire <code translate="no" dir="ltr">searchAgent</code> (with its own internal logic, prompt, and tools) as a single callable tool for the <code translate="no" dir="ltr">mainAgent</code>. This promotes modularity and reusability.</p>
+<p>Run this class with the following command:</p>
+<div></div><devsite-code><pre translate="no" dir="ltr" is-upgraded>mvn compile exec:java -Dexec.mainClass=com.example.agent.SearchAgentAsTool
+</pre></devsite-code>
+<p>For mundane questions, the agent will reply from his own knowledge base, but when asked about recent events, it will delegate the search to the specialized search agent using the Google Search tool.</p>
+
+
+        </google-codelab-step>
+      
+        <google-codelab-step label="Mastering Agentic Workflows" duration="5" step="5">
+          
+          <h2 class="step-title" id="5" data-text="Mastering Agentic Workflows" tabindex="-1">
+              6. Mastering Agentic Workflows
+          </h2>
+          
+          <p>For complex problems, a single agent is not enough. When given a goal that consists of too many sub-tasks, with a huge prompt explaining with too much detail, or with access to a huge number of functions, LLMs struggle, and their performance and accuracy degrade.</p>
+<p>The key is to <strong>divide and conquer</strong> by orchestrating multiple specialized agents. Fortunately, ADK comes with different built-in specialized agents:</p>
+<ul>
+<li>Normal agent with <code translate="no" dir="ltr">subAgent()</code> to delegate tasks to,</li>
+<li><code translate="no" dir="ltr">SequentialAgent</code>, to do tasks in a sequence,</li>
+<li><code translate="no" dir="ltr">ParallelAgent</code>, to execute agents in parallel,</li>
+<li><code translate="no" dir="ltr">LoopAgent</code>, typically for going through a refinement process as many times as needed.</li>
+</ul>
+<p>What are the key use cases, and the pros and cons of each workflow, please have a look at the table below. But know that the real power will actually come from the combination of several of them!</p>
+<table class="vertical-rules">
+<tr><td colspan="1" rowspan="1"><p><strong>Workflow</strong></p>
+</td><td colspan="1" rowspan="1"><p><strong>ADK Class</strong></p>
+</td><td colspan="1" rowspan="1"><p><strong>Use Case</strong></p>
+</td><td colspan="1" rowspan="1"><p><strong>Pros</strong></p>
+</td><td colspan="1" rowspan="1"><p><strong>Cons</strong></p>
+</td></tr>
+<tr><td colspan="1" rowspan="1"><p>Sub-Agents</p>
+</td><td colspan="1" rowspan="1"><p><code translate="no" dir="ltr">LlmAgent</code></p>
+</td><td colspan="1" rowspan="1"><p>User-driven, flexible tasks where the next step is not always known.</p>
+</td><td colspan="1" rowspan="1"><p>High flexibility, conversational, great for user-facing bots.</p>
+</td><td colspan="1" rowspan="1"><p>Less predictable, relies on LLM reasoning for flow control.</p>
+</td></tr>
+<tr><td colspan="1" rowspan="1"><p>Sequential</p>
+</td><td colspan="1" rowspan="1"><p><code translate="no" dir="ltr">SequentialAgent</code></p>
+</td><td colspan="1" rowspan="1"><p>Fixed, multi-step processes where order is critical.</p>
+</td><td colspan="1" rowspan="1"><p>Predictable, reliable, easy to debug, guarantees order.</p>
+</td><td colspan="1" rowspan="1"><p>Inflexible, can be slower if tasks could be parallelized.</p>
+</td></tr>
+<tr><td colspan="1" rowspan="1"><p>Parallel</p>
+</td><td colspan="1" rowspan="1"><p><code translate="no" dir="ltr">ParallelAgent</code></p>
+</td><td colspan="1" rowspan="1"><p>Gathering data from multiple sources or running independent tasks.</p>
+</td><td colspan="1" rowspan="1"><p>Highly efficient, significantly reduces latency for I/O-bound tasks.</p>
+</td><td colspan="1" rowspan="1"><p>All tasks run; no short-circuiting. Less suitable for tasks with dependencies.</p>
+</td></tr>
+<tr><td colspan="1" rowspan="1"><p>Loop</p>
+</td><td colspan="1" rowspan="1"><p><code translate="no" dir="ltr">LoopAgent</code></p>
+</td><td colspan="1" rowspan="1"><p>Iterative refinement, self-correction, or processes that repeat until a condition is met.</p>
+</td><td colspan="1" rowspan="1"><p>Powerful for complex problem-solving, enables agents to improve their own work.</p>
+</td><td colspan="1" rowspan="1"><p>Can lead to infinite loops if not designed carefully (always use maxIterations!).</p>
+</td></tr>
+</table>
+
+
+        </google-codelab-step>
+      
+        <google-codelab-step label="Agentic Workflows — Delegation with Sub-Agents" duration="10" step="6">
+          
+          <h2 class="step-title" id="6" data-text="Agentic Workflows — Delegation with Sub-Agents" tabindex="-1">
+              7. Agentic Workflows — Delegation with Sub-Agents
+          </h2>
+          
+          <p class="image-container"><img alt="90497ab15401bfc8.png" style="width: 589.02px" src="/static/adk-java-getting-started/img/90497ab15401bfc8.png" srcset="https://codelabs.developers.google.com/static/adk-java-getting-started/img/90497ab15401bfc8_36.png 36w,https://codelabs.developers.google.com/static/adk-java-getting-started/img/90497ab15401bfc8_48.png 48w,https://codelabs.developers.google.com/static/adk-java-getting-started/img/90497ab15401bfc8_72.png 72w,https://codelabs.developers.google.com/static/adk-java-getting-started/img/90497ab15401bfc8_96.png 96w,https://codelabs.developers.google.com/static/adk-java-getting-started/img/90497ab15401bfc8_480.png 480w,https://codelabs.developers.google.com/static/adk-java-getting-started/img/90497ab15401bfc8_720.png 720w,https://codelabs.developers.google.com/static/adk-java-getting-started/img/90497ab15401bfc8_856.png 856w,https://codelabs.developers.google.com/static/adk-java-getting-started/img/90497ab15401bfc8_960.png 960w,https://codelabs.developers.google.com/static/adk-java-getting-started/img/90497ab15401bfc8_1440.png 1440w,https://codelabs.developers.google.com/static/adk-java-getting-started/img/90497ab15401bfc8_1920.png 1920w,https://codelabs.developers.google.com/static/adk-java-getting-started/img/90497ab15401bfc8_2880.png 2880w" sizes="(max-width: 840px) 100vw, 856px"></p>
+<p>A supervisor agent can delegate particular tasks to sub-agents. For example, imagine the agent for an e-commerce website that would delegate order related questions to one agent (&#34;what&#39;s the status of my order?&#34;) and the after sale service questions to another agent (&#34;I don&#39;t know how to turn it on!&#34;). This is the use case we are going to discuss.</p>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Java"><code translate="no" dir="ltr"><span class="devsite-syntax-c1">// src/main/java/com/example/agent/SupportAgent.java</span>
+<span class="devsite-syntax-kn">package</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">com.example.agent</span><span class="devsite-syntax-p">;</span>
+
+<span class="devsite-syntax-kn">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">com.google.adk.agents.LlmAgent</span><span class="devsite-syntax-p">;</span>
+<span class="devsite-syntax-kn">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">com.google.adk.web.AdkWebServer</span><span class="devsite-syntax-p">;</span>
+
+<span class="devsite-syntax-kd">public</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">class</span> <span class="devsite-syntax-nc">SupportAgent</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">public</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">static</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">void</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">main</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">String</span><span class="devsite-syntax-o">[]</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">args</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">LlmAgent</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">orderAgent</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">LlmAgent</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">builder</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">name</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"order-agent"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">description</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"Order agent"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">instruction</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"""</span>
+<span class="devsite-syntax-s">                Your role is to help our customers</span>
+<span class="devsite-syntax-s">                with all the questions they may have about their orders.</span>
+<span class="devsite-syntax-s">                Always respond that the order has been received, prepared,</span>
+<span class="devsite-syntax-s">                and is now out for delivery.</span>
+<span class="devsite-syntax-s">                """</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">model</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"gemini-2.5-flash"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">build</span><span class="devsite-syntax-p">();</span>
+
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">LlmAgent</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">afterSaleAgent</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">LlmAgent</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">builder</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">name</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"after-sale-agent"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">description</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"After sale agent"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">instruction</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"""</span>
+<span class="devsite-syntax-s">                You are an after sale agent,</span>
+<span class="devsite-syntax-s">                helping customers with the product they received.</span>
+<span class="devsite-syntax-s">                When a customer has a problem,</span>
+<span class="devsite-syntax-s">                suggest the person to switch the product off and on again.</span>
+<span class="devsite-syntax-s">                """</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">model</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"gemini-2.5-flash"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">build</span><span class="devsite-syntax-p">();</span>
+
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">AdkWebServer</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">start</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">LlmAgent</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">builder</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">name</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"support-agent"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">description</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"Customer support agent"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">instruction</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"""</span>
+<span class="devsite-syntax-s">                Your role is to help our customers.</span>
+<span class="devsite-syntax-s">                Call the `order-agent` for all questions related to order status.</span>
+<span class="devsite-syntax-s">                Call the `after-sale-agent` for inquiries about the received product.</span>
+<span class="devsite-syntax-s">                """</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">model</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"gemini-2.5-flash"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">subAgents</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">afterSaleAgent</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">orderAgent</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">build</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-p">);</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre></devsite-code>
+<p>The key line here is where the <code translate="no" dir="ltr">subAgents()</code> method is called, passing in the two sub-agents whose specific role will be handled separately by each other.</p>
+<p>Run the example above with the following command:</p>
+<div></div><devsite-code><pre translate="no" dir="ltr" is-upgraded>mvn compile exec:java -Dexec.mainClass=com.example.agent.SupportAgent
+</pre></devsite-code>
+<p>You can ask questions like <code translate="no" dir="ltr">I have a question about my order</code> or <code translate="no" dir="ltr">I have a question about my received order</code>. You should see the main agent delegates to the right agent,  depending on the question asked.</p>
+<p>This concept of delegating tasks to sub-agents mirrors effective human management, where a good manager (the supervisor agent) relies on specialized employees (the sub-agents) to handle specific tasks for which they have greater expertise. The supervisor doesn&#39;t need to know the minutiae of every process; instead, it intelligently routes a customer&#39;s request (like an order inquiry or a technical problem) to the most qualified ‘team member,&#39; ensuring a higher quality and more efficient response than one generalist could provide alone. Furthermore, these sub-agents can fully concentrate on their individual assignments without needing to understand the entirety of the complex overarching process.</p>
+<aside class="special"><p><strong>Key Concepts:</strong></p>
+<ul>
+<li><strong>Sub-agents</strong>: The key line here is where the <code translate="no" dir="ltr">subAgents()</code> method is called, passing in the two sub-agents whose specific role will be handled separately by each other.</li>
+</ul>
+</aside>
+
+
+        </google-codelab-step>
+      
+        <google-codelab-step label="Agentic Workflows — The Assembly Line" duration="10" step="7">
+          
+          <h2 class="step-title" id="7" data-text="Agentic Workflows — The Assembly Line" tabindex="-1">
+              8. Agentic Workflows — The Assembly Line
+          </h2>
+          
+          <p class="image-container"><img alt="9075ee47f70e0d51.png" style="width: 578.50px" src="/static/adk-java-getting-started/img/9075ee47f70e0d51.png" srcset="https://codelabs.developers.google.com/static/adk-java-getting-started/img/9075ee47f70e0d51_36.png 36w,https://codelabs.developers.google.com/static/adk-java-getting-started/img/9075ee47f70e0d51_48.png 48w,https://codelabs.developers.google.com/static/adk-java-getting-started/img/9075ee47f70e0d51_72.png 72w,https://codelabs.developers.google.com/static/adk-java-getting-started/img/9075ee47f70e0d51_96.png 96w,https://codelabs.developers.google.com/static/adk-java-getting-started/img/9075ee47f70e0d51_480.png 480w,https://codelabs.developers.google.com/static/adk-java-getting-started/img/9075ee47f70e0d51_720.png 720w,https://codelabs.developers.google.com/static/adk-java-getting-started/img/9075ee47f70e0d51_856.png 856w,https://codelabs.developers.google.com/static/adk-java-getting-started/img/9075ee47f70e0d51_960.png 960w,https://codelabs.developers.google.com/static/adk-java-getting-started/img/9075ee47f70e0d51_1440.png 1440w,https://codelabs.developers.google.com/static/adk-java-getting-started/img/9075ee47f70e0d51_1920.png 1920w,https://codelabs.developers.google.com/static/adk-java-getting-started/img/9075ee47f70e0d51_2880.png 2880w" sizes="(max-width: 840px) 100vw, 856px"></p>
+<p>When the order of operations matters, use a <strong><code translate="no" dir="ltr">SequentialAgent</code></strong>. It&#39;s like an assembly line, executing sub-agents in a fixed order where each step can depend on the previous one.</p>
+<p>Let&#39;s imagine an English poet collaborates with an English-French translator to create poems first in English and then translate them into French:</p>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Java"><code translate="no" dir="ltr"><span class="devsite-syntax-c1">// src/main/java/com/example/agent/PoetAndTranslator.java</span>
+<span class="devsite-syntax-kn">package</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">com.example.agent</span><span class="devsite-syntax-p">;</span>
+
+<span class="devsite-syntax-kn">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">com.google.adk.agents.LlmAgent</span><span class="devsite-syntax-p">;</span>
+<span class="devsite-syntax-kn">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">com.google.adk.agents.SequentialAgent</span><span class="devsite-syntax-p">;</span>
+<span class="devsite-syntax-kn">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">com.google.adk.web.AdkWebServer</span><span class="devsite-syntax-p">;</span>
+
+<span class="devsite-syntax-kd">public</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">class</span> <span class="devsite-syntax-nc">PoetAndTranslator</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">public</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">static</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">void</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">main</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">String</span><span class="devsite-syntax-o">[]</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">args</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">LlmAgent</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">poet</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">LlmAgent</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">builder</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">name</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"poet-agent"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">description</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"Poet writing poems"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">model</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"gemini-2.5-flash"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">instruction</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"""</span>
+<span class="devsite-syntax-s">                You are a talented poet,</span>
+<span class="devsite-syntax-s">                who writes short and beautiful poems.</span>
+<span class="devsite-syntax-s">                """</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">outputKey</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"poem"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">build</span><span class="devsite-syntax-p">();</span>
+
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">LlmAgent</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">translator</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">LlmAgent</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">builder</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">name</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"translator-agent"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">description</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"English to French translator"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">model</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"gemini-2.5-flash"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">instruction</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"""</span>
+<span class="devsite-syntax-s">                As an expert English-French translator,</span>
+<span class="devsite-syntax-s">                your role is to translate the following poem into French,</span>
+<span class="devsite-syntax-s">                ensuring the poem still rhymes even after translation:</span>
+
+<span class="devsite-syntax-s">                {poem}</span>
+<span class="devsite-syntax-s">                """</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">outputKey</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"translated-poem"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">build</span><span class="devsite-syntax-p">();</span>
+
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">AdkWebServer</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">start</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">SequentialAgent</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">builder</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">name</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"poet-and-translator"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">subAgents</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">poet</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">translator</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">build</span><span class="devsite-syntax-p">());</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre></devsite-code>
+<p>Run the example:</p>
+<div></div><devsite-code><pre translate="no" dir="ltr" is-upgraded>mvn compile exec:java -Dexec.mainClass=com.example.agent.PoetAndTranslator
+</pre></devsite-code>
+<p>Now, you can ask the agent something like <code translate="no" dir="ltr">Write me a poem about a lonely software developer</code>. You should get a poem in English and then translated into French.</p>
+<p>This systematic decomposition of complex tasks into smaller, ordered sub-tasks ensures a more deterministic and dependable process, significantly enhancing the likelihood of a successful outcome compared to relying on a single, broadly purposed agent.</p>
+<p>Effectively decomposing a task into a sequence of sub-tasks (when possible and when it makes sense) is crucial for achieving more deterministic and successful outcomes, as it allows for structured progression and dependency management between steps.</p>
+<aside class="special"><p><strong>Key Concepts:</strong></p>
+<ul>
+<li><strong>Shared State</strong>: The <code translate="no" dir="ltr">outputKey("key")</code> saves an agent&#39;s result to a shared state, which can be injected into the next agent&#39;s instructions using the <code translate="no" dir="ltr">{key}</code> placeholder.</li>
+</ul>
+</aside>
+
+
+        </google-codelab-step>
+      
+        <google-codelab-step label="Agentic Workflows — Working in Parallel" duration="10" step="8">
+          
+          <h2 class="step-title" id="8" data-text="Agentic Workflows — Working in Parallel" tabindex="-1">
+              9. Agentic Workflows — Working in Parallel
+          </h2>
+          
+          <p class="image-container"><img alt="8971b81128aee9fc.png" style="width: 586.32px" src="/static/adk-java-getting-started/img/8971b81128aee9fc.png" srcset="https://codelabs.developers.google.com/static/adk-java-getting-started/img/8971b81128aee9fc_36.png 36w,https://codelabs.developers.google.com/static/adk-java-getting-started/img/8971b81128aee9fc_48.png 48w,https://codelabs.developers.google.com/static/adk-java-getting-started/img/8971b81128aee9fc_72.png 72w,https://codelabs.developers.google.com/static/adk-java-getting-started/img/8971b81128aee9fc_96.png 96w,https://codelabs.developers.google.com/static/adk-java-getting-started/img/8971b81128aee9fc_480.png 480w,https://codelabs.developers.google.com/static/adk-java-getting-started/img/8971b81128aee9fc_720.png 720w,https://codelabs.developers.google.com/static/adk-java-getting-started/img/8971b81128aee9fc_856.png 856w,https://codelabs.developers.google.com/static/adk-java-getting-started/img/8971b81128aee9fc_960.png 960w,https://codelabs.developers.google.com/static/adk-java-getting-started/img/8971b81128aee9fc_1440.png 1440w,https://codelabs.developers.google.com/static/adk-java-getting-started/img/8971b81128aee9fc_1920.png 1920w,https://codelabs.developers.google.com/static/adk-java-getting-started/img/8971b81128aee9fc_2880.png 2880w" sizes="(max-width: 840px) 100vw, 856px"></p>
+<p>When tasks are independent, a <code translate="no" dir="ltr">ParallelAgent</code> provides a huge efficiency boost by running them simultaneously. In the following example, we&#39;ll even be combining a <code translate="no" dir="ltr">SequentialAgent</code> with a <code translate="no" dir="ltr">ParallelAgent</code>: the parallel tasks run first, and then a final agent summarizes the outcome of the parallel tasks.</p>
+<p>Let&#39;s build a company detective whose job will be to search for information about:</p>
+<ul>
+<li>The profile of the company (CEO, headquarters, motto, etc.)</li>
+<li>The latest news about the company.</li>
+<li>Details about the financials of the company.</li>
+</ul>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Java"><code translate="no" dir="ltr"><span class="devsite-syntax-c1">// src/main/java/com/example/agent/CompanyDetective.java </span>
+<span class="devsite-syntax-kn">package</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">com.example.agent</span><span class="devsite-syntax-p">;</span>
+
+<span class="devsite-syntax-kn">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">com.google.adk.agents.LlmAgent</span><span class="devsite-syntax-p">;</span>
+<span class="devsite-syntax-kn">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">com.google.adk.agents.ParallelAgent</span><span class="devsite-syntax-p">;</span>
+<span class="devsite-syntax-kn">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">com.google.adk.agents.SequentialAgent</span><span class="devsite-syntax-p">;</span>
+<span class="devsite-syntax-kn">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">com.google.adk.tools.GoogleSearchTool</span><span class="devsite-syntax-p">;</span>
+<span class="devsite-syntax-kn">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">com.google.adk.web.AdkWebServer</span><span class="devsite-syntax-p">;</span>
+
+<span class="devsite-syntax-kd">public</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">class</span> <span class="devsite-syntax-nc">CompanyDetective</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">public</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">static</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">void</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">main</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">String</span><span class="devsite-syntax-o">[]</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">args</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-kd">var</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">companyProfiler</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">LlmAgent</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">builder</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">name</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"company-profiler"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">description</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"Provides a general overview of a company."</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">instruction</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"""</span>
+<span class="devsite-syntax-s">                Your role is to provide a brief overview of the given company.</span>
+<span class="devsite-syntax-s">                Include its mission, headquarters, and current CEO.</span>
+<span class="devsite-syntax-s">                Use the Google Search Tool to find this information.</span>
+<span class="devsite-syntax-s">                """</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">model</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"gemini-2.5-flash"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">tools</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-k">new</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">GoogleSearchTool</span><span class="devsite-syntax-p">())</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">outputKey</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"profile"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">build</span><span class="devsite-syntax-p">();</span>
+
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-kd">var</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">newsFinder</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">LlmAgent</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">builder</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">name</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"news-finder"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">description</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"Finds the latest news about a company."</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">instruction</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"""</span>
+<span class="devsite-syntax-s">                Your role is to find the top 3-4 recent news headlines for the given company.</span>
+<span class="devsite-syntax-s">                Use the Google Search Tool.</span>
+<span class="devsite-syntax-s">                Present the results as a simple bulleted list.</span>
+<span class="devsite-syntax-s">                """</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">model</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"gemini-2.5-flash"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">tools</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-k">new</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">GoogleSearchTool</span><span class="devsite-syntax-p">())</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">outputKey</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"news"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">build</span><span class="devsite-syntax-p">();</span>
+
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-kd">var</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">financialAnalyst</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">LlmAgent</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">builder</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">name</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"financial-analyst"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">description</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"Analyzes the financial performance of a company."</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">instruction</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"""</span>
+<span class="devsite-syntax-s">                Your role is to provide a snapshot of the given company's recent financial performance.</span>
+<span class="devsite-syntax-s">                Focus on stock trends or recent earnings reports.</span>
+<span class="devsite-syntax-s">                Use the Google Search Tool.</span>
+<span class="devsite-syntax-s">                """</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">model</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"gemini-2.5-flash"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">tools</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-k">new</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">GoogleSearchTool</span><span class="devsite-syntax-p">())</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">outputKey</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"financials"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">build</span><span class="devsite-syntax-p">();</span>
+
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-kd">var</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">marketResearcher</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">ParallelAgent</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">builder</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">name</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"market-researcher"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">description</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"Performs comprehensive market research on a company."</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">subAgents</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">                </span><span class="devsite-syntax-n">companyProfiler</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">                </span><span class="devsite-syntax-n">newsFinder</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">                </span><span class="devsite-syntax-n">financialAnalyst</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">build</span><span class="devsite-syntax-p">();</span>
+
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-kd">var</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">reportCompiler</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">LlmAgent</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">builder</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">name</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"report-compiler"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">description</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"Compiles a final market research report."</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">instruction</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"""</span>
+<span class="devsite-syntax-s">                Your role is to synthesize the provided information into a coherent market research report.</span>
+<span class="devsite-syntax-s">                Combine the company profile, latest news, and financial analysis into a single, well-formatted report.</span>
+
+<span class="devsite-syntax-s">                ## Company Profile</span>
+<span class="devsite-syntax-s">                {profile}</span>
+
+<span class="devsite-syntax-s">                ## Latest News</span>
+<span class="devsite-syntax-s">                {news}</span>
+
+<span class="devsite-syntax-s">                ## Financial Snapshot</span>
+<span class="devsite-syntax-s">                {financials}</span>
+<span class="devsite-syntax-s">                """</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">model</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"gemini-2.5-flash"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">build</span><span class="devsite-syntax-p">();</span>
+
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">AdkWebServer</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">start</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">SequentialAgent</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">builder</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">name</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"company-detective"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">description</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"Collects various information about a company."</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">subAgents</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">                </span><span class="devsite-syntax-n">marketResearcher</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">                </span><span class="devsite-syntax-n">reportCompiler</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-p">).</span><span class="devsite-syntax-na">build</span><span class="devsite-syntax-p">());</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre></devsite-code>
+<p>As usual, you can run the agent with the following command:</p>
+<div></div><devsite-code><pre translate="no" dir="ltr" is-upgraded>mvn compile exec:java -Dexec.mainClass=com.example.agent.CompanyDetective
+</pre></devsite-code>
+<p>Ask it about different companies such as Google or Apple and see what you get back.</p>
+<p>This agent demonstrates a powerful combination of workflows, with both parallel and sequential agents put to good use, in an efficient way thanks to parallelization of information research and synthesis.</p>
+
+
+        </google-codelab-step>
+      
+        <google-codelab-step label="Agentic Workflows — Iterative Refinement" duration="10" step="9">
+          
+          <h2 class="step-title" id="9" data-text="Agentic Workflows — Iterative Refinement" tabindex="-1">
+              10. Agentic Workflows — Iterative Refinement
+          </h2>
+          
+          <p class="image-container"><img alt="1e5b5df3fd45f698.png" style="width: 585.50px" src="/static/adk-java-getting-started/img/1e5b5df3fd45f698.png" srcset="https://codelabs.developers.google.com/static/adk-java-getting-started/img/1e5b5df3fd45f698_36.png 36w,https://codelabs.developers.google.com/static/adk-java-getting-started/img/1e5b5df3fd45f698_48.png 48w,https://codelabs.developers.google.com/static/adk-java-getting-started/img/1e5b5df3fd45f698_72.png 72w,https://codelabs.developers.google.com/static/adk-java-getting-started/img/1e5b5df3fd45f698_96.png 96w,https://codelabs.developers.google.com/static/adk-java-getting-started/img/1e5b5df3fd45f698_480.png 480w,https://codelabs.developers.google.com/static/adk-java-getting-started/img/1e5b5df3fd45f698_720.png 720w,https://codelabs.developers.google.com/static/adk-java-getting-started/img/1e5b5df3fd45f698_856.png 856w,https://codelabs.developers.google.com/static/adk-java-getting-started/img/1e5b5df3fd45f698_960.png 960w,https://codelabs.developers.google.com/static/adk-java-getting-started/img/1e5b5df3fd45f698_1440.png 1440w,https://codelabs.developers.google.com/static/adk-java-getting-started/img/1e5b5df3fd45f698_1920.png 1920w,https://codelabs.developers.google.com/static/adk-java-getting-started/img/1e5b5df3fd45f698_2880.png 2880w" sizes="(max-width: 840px) 100vw, 856px"></p>
+<p>For tasks requiring a &#34;generate → review → refine&#34; cycle, use a <strong><code translate="no" dir="ltr">LoopAgent</code></strong>. It automates iterative improvement until a goal is met. Similarly to the <code translate="no" dir="ltr">SequentialAgent</code>, the <code translate="no" dir="ltr">LoopAgent</code> will call sub-agent serially, but it will loop back at the beginning. It is the LLM used internally by the agent that will decide whether or not to request the call to a special tool, the <code translate="no" dir="ltr">exit_loop</code> built-in tool, to stop the execution of the loop.</p>
+<p>The code refiner example below, using a <code translate="no" dir="ltr">LoopAgent</code>, automates code refinement: generate, review, correct. This mimics human development. A code generator first generates the requested code, saves it in the agent state under the <code translate="no" dir="ltr">generated_code</code> key. A code reviewer then reviews the generated code, and either provides feedback (under the <code translate="no" dir="ltr">feedback</code> key), or calls an exit loop tool to end the iteration early.</p>
+<p>Let&#39;s have a look at the code:</p>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Java"><code translate="no" dir="ltr"><span class="devsite-syntax-c1">// src/main/java/com/example/agent/CodeRefiner.java</span>
+<span class="devsite-syntax-kn">package</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">com.example.agent</span><span class="devsite-syntax-p">;</span>
+
+<span class="devsite-syntax-kn">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">com.google.adk.agents.LlmAgent</span><span class="devsite-syntax-p">;</span>
+<span class="devsite-syntax-kn">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">com.google.adk.agents.LoopAgent</span><span class="devsite-syntax-p">;</span>
+<span class="devsite-syntax-kn">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">com.google.adk.agents.SequentialAgent</span><span class="devsite-syntax-p">;</span>
+<span class="devsite-syntax-kn">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">com.google.adk.tools.ExitLoopTool</span><span class="devsite-syntax-p">;</span>
+<span class="devsite-syntax-kn">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">com.google.adk.web.AdkWebServer</span><span class="devsite-syntax-p">;</span>
+
+<span class="devsite-syntax-kd">public</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">class</span> <span class="devsite-syntax-nc">CodeRefiner</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">public</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">static</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kt">void</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">main</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">String</span><span class="devsite-syntax-o">[]</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">args</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-kd">var</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">codeGenerator</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">LlmAgent</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">builder</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">name</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"code-generator"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">description</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"Writes and refines code based on a request and feedback."</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">instruction</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"""</span>
+<span class="devsite-syntax-s">                Your role is to write a Python function based on the user's request.</span>
+<span class="devsite-syntax-s">                In the first turn, write the initial version of the code.</span>
+<span class="devsite-syntax-s">                In subsequent turns, you will receive feedback on your code.</span>
+<span class="devsite-syntax-s">                Your task is to refine the code based on this feedback.</span>
+
+<span class="devsite-syntax-s">                Previous feedback (if any):</span>
+<span class="devsite-syntax-s">                {feedback?}</span>
+<span class="devsite-syntax-s">                """</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">model</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"gemini-2.5-flash"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">outputKey</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"generated_code"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">build</span><span class="devsite-syntax-p">();</span>
+
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-kd">var</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">codeReviewer</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">LlmAgent</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">builder</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">name</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"code-reviewer"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">description</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"Reviews code and decides if it's complete or needs more work."</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">instruction</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"""</span>
+<span class="devsite-syntax-s">                Your role is to act as a senior code reviewer.</span>
+<span class="devsite-syntax-s">                Analyze the provided Python code for correctness, style, and potential bugs.</span>
+
+<span class="devsite-syntax-s">                Code to review:</span>
+<span class="devsite-syntax-s">                {generated_code}</span>
+
+<span class="devsite-syntax-s">                If the code is perfect and meets the user's request,</span>
+<span class="devsite-syntax-s">                you MUST call the `exit_loop` tool.</span>
+
+<span class="devsite-syntax-s">                Otherwise, provide constructive feedback for the `code-generator to improve the code.</span>
+<span class="devsite-syntax-s">                """</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">model</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"gemini-2.5-flash"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">outputKey</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"feedback"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">tools</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">ExitLoopTool</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">INSTANCE</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">build</span><span class="devsite-syntax-p">();</span>
+
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-kd">var</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">codeRefinerLoop</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">LoopAgent</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">builder</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">name</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"code-refiner-loop"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">description</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"Iteratively generates and reviews code until it is correct."</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">subAgents</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">                </span><span class="devsite-syntax-n">codeGenerator</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">                </span><span class="devsite-syntax-n">codeReviewer</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">maxIterations</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-mi">3</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-c1">// Safety net to prevent infinite loops</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">build</span><span class="devsite-syntax-p">();</span>
+
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-kd">var</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">finalPresenter</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">LlmAgent</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">builder</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">name</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"final-presenter"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">description</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"Presents the final, accepted code to the user."</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">instruction</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"""</span>
+<span class="devsite-syntax-s">                The code has been successfully generated and reviewed.</span>
+<span class="devsite-syntax-s">                Present the final version of the code to the user in a clear format.</span>
+
+<span class="devsite-syntax-s">                Final Code:</span>
+<span class="devsite-syntax-s">                {generated_code}</span>
+<span class="devsite-syntax-s">                """</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">model</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"gemini-2.5-flash"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">build</span><span class="devsite-syntax-p">();</span>
+
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-n">AdkWebServer</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">start</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">SequentialAgent</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">builder</span><span class="devsite-syntax-p">()</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">name</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"code-refiner-assistant"</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">description</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s">"Manages the full code generation and refinement process."</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">subAgents</span><span class="devsite-syntax-p">(</span>
+<span class="devsite-syntax-w">                </span><span class="devsite-syntax-n">codeRefinerLoop</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">                </span><span class="devsite-syntax-n">finalPresenter</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-w">            </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-na">build</span><span class="devsite-syntax-p">());</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre></devsite-code>
+<p>Run this agent with the following command:</p>
+<div></div><devsite-code><pre translate="no" dir="ltr" is-upgraded>mvn compile exec:java -Dexec.mainClass=com.example.agent.CodeRefiner
+</pre></devsite-code>
+<p>You can ask it to implement something complex like <code translate="no" dir="ltr">Tower of Hanoi</code> or <code translate="no" dir="ltr">Quicksort Algorithm</code>.</p>
+<p>Feedback/refine loops, implemented using the <code translate="no" dir="ltr">LoopAgent</code>, are indispensable for solving problems that require iterative improvement and self-correction, closely mimicking human cognitive processes. This design pattern is particularly useful for tasks where the initial output is rarely perfect, such as code generation, creative writing, design iteration, or complex data analysis. By cycling the output through a specialized reviewer agent that provides structured feedback, the generating agent can continuously refine its work until a predefined completion criterion is met, leading to demonstrably higher quality and more reliable final results than a single-pass approach.</p>
+<aside class="special"><p><strong>Key Concepts:</strong></p>
+<ul>
+<li><strong>{key} vs. {key?}</strong>: The standard <code translate="no" dir="ltr">{key}</code> syntax injects content from the shared state (saved via <code translate="no" dir="ltr">outputKey</code>). The <code translate="no" dir="ltr">{key?}</code> syntax, used here as <code translate="no" dir="ltr">{feedback?}</code>, is a critical safety mechanism for loops. It attempts to inject the value of <code translate="no" dir="ltr">feedback</code>; however, if the key has not yet been set (as is the case during the first iteration, before the reviewer runs), the question mark prevents an error and injects an empty string instead.</li>
+<li><strong>The maxIterations() safety net:</strong> Setting <code translate="no" dir="ltr">maxIterations(n)</code> on <code translate="no" dir="ltr">LoopAgent.builder()</code> is a crucial safety net to prevent infinite loops. In a <code translate="no" dir="ltr">LoopAgent</code> workflow, the cycle continues until the reviewer calls <code translate="no" dir="ltr">exit_loop</code>. If the reviewer fails to detect task completion, the loop could run indefinitely. The <code translate="no" dir="ltr">maxIterations(n)</code> method ensures the loop terminates after a set number of cycles.</li>
+</ul>
+</aside>
+
+
+        </google-codelab-step>
+      
+        <google-codelab-step label="Congratulations!" duration="0" step="10">
+          
+          <h2 class="step-title" id="10" data-text="Congratulations!" tabindex="-1">
+              11. Congratulations!
+          </h2>
+          
+          <p class="image-container"><img alt="8797fc7eb90c750d.png" style="width: 576.50px" src="/static/adk-java-getting-started/img/8797fc7eb90c750d.png" srcset="https://codelabs.developers.google.com/static/adk-java-getting-started/img/8797fc7eb90c750d_36.png 36w,https://codelabs.developers.google.com/static/adk-java-getting-started/img/8797fc7eb90c750d_48.png 48w,https://codelabs.developers.google.com/static/adk-java-getting-started/img/8797fc7eb90c750d_72.png 72w,https://codelabs.developers.google.com/static/adk-java-getting-started/img/8797fc7eb90c750d_96.png 96w,https://codelabs.developers.google.com/static/adk-java-getting-started/img/8797fc7eb90c750d_480.png 480w,https://codelabs.developers.google.com/static/adk-java-getting-started/img/8797fc7eb90c750d_720.png 720w,https://codelabs.developers.google.com/static/adk-java-getting-started/img/8797fc7eb90c750d_856.png 856w,https://codelabs.developers.google.com/static/adk-java-getting-started/img/8797fc7eb90c750d_960.png 960w,https://codelabs.developers.google.com/static/adk-java-getting-started/img/8797fc7eb90c750d_1440.png 1440w,https://codelabs.developers.google.com/static/adk-java-getting-started/img/8797fc7eb90c750d_1920.png 1920w,https://codelabs.developers.google.com/static/adk-java-getting-started/img/8797fc7eb90c750d_2880.png 2880w" sizes="(max-width: 840px) 100vw, 856px"></p>
+<p>You&#39;ve successfully built and explored a variety of AI agents, from simple conversationalists to complex, multi-agent systems. You&#39;ve learned the core concepts of the ADK for Java: defining agents with instructions, empowering them with tools, and orchestrating them into powerful workflows.</p>
+<h2 is-upgraded id="whats-next" data-text="What's next?" tabindex="-1">What's next?</h2>
+<ul>
+<li>Explore the official <a href="https://github.com/google/adk-java" target="_blank">ADK for Java GitHub repository</a>.</li>
+<li>Learn more about the framework in its  <a href="https://google.github.io/adk-docs/" target="_blank">documentation</a>.</li>
+<li>Read about the various agentic workflows in this  <a href="https://glaforge.dev/posts/2025/07/29/mastering-agentic-workflows-with-adk-the-recap/" target="_blank">blog series</a> and about the  <a href="https://glaforge.dev/posts/2025/06/15/expanding-ai-agent-capabilities-with-tools/" target="_blank">various tools</a> available.</li>
+<li>Dive deeper into the other built-in tools and advanced callbacks.</li>
+<li>Handle context, state, and artifacts, for richer and multimodal interactions.</li>
+<li>Implement and apply plugins that plug into the lifecycle of your agents.</li>
+<li>Try building your own agent that solves a real-world problem!</li>
+</ul>
+
+
+        </google-codelab-step>
+      
+    </google-codelab>
+  
+  
+
+  
+</div>
+
+  
+    
+    
+    
+  
+
+  <div class="devsite-floating-action-buttons"></div></article>
+
+
+<devsite-content-footer class="nocontent" data-nosnippet>
+  <p>Except as otherwise noted, the content of this page is licensed under the <a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 License</a>, and code samples are licensed under the <a href="https://www.apache.org/licenses/LICENSE-2.0">Apache 2.0 License</a>. For details, see the <a href="https://developers.google.com/site-policies">Google Developers Site Policies</a>. Java is a registered trademark of Oracle and/or its affiliates.</p>
+  
+</devsite-content-footer>
+
+
+<devsite-notification
+>
+</devsite-notification>
+
+
+  
+<div class="devsite-content-data">
+  
+  
+    <template class="devsite-content-data-template">
+      [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Missing the information I need","missingTheInformationINeed","thumb-down"],["Too complicated / too many steps","tooComplicatedTooManySteps","thumb-down"],["Out of date","outOfDate","thumb-down"],["Samples / code issue","samplesCodeIssue","thumb-down"],["Other","otherDown","thumb-down"]],[],[],[]]
+    </template>
+  
+</div>
+            
+          </devsite-content>
+        </main>
+        <devsite-footer-promos class="devsite-footer">
+          
+            
+          
+        </devsite-footer-promos>
+        <devsite-footer-linkboxes class="devsite-footer">
+          
+            
+<nav class="devsite-footer-linkboxes nocontent"
+     aria-label="Footer links"
+     data-nosnippet>
+  
+  <ul class="devsite-footer-linkboxes-list">
+    
+    <li class="devsite-footer-linkbox ">
+    <h3 class="devsite-footer-linkbox-heading no-link">Connect</h3>
+      <ul class="devsite-footer-linkbox-list">
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//googledevelopers.blogspot.com"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 1)"
+            >
+            
+          
+            Blog
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//www.facebook.com/Google-Developers-967415219957038"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 2)"
+            >
+            
+          
+            Facebook
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//medium.com/google-developers"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 3)"
+            >
+            
+          
+            Medium
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//twitter.com/googledevs"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 4)"
+            >
+            
+          
+            Twitter
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//www.youtube.com/user/GoogleDevelopers"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 5)"
+            >
+            
+              
+              
+            
+          
+            YouTube
+          
+          </a>
+          
+          
+        </li>
+        
+      </ul>
+    </li>
+    
+    <li class="devsite-footer-linkbox ">
+    <h3 class="devsite-footer-linkbox-heading no-link">Programs</h3>
+      <ul class="devsite-footer-linkbox-list">
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//www.womentechmakers.com"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 1)"
+            >
+            
+          
+            Women Techmakers
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//developers.google.com/community/gdg"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 2)"
+            >
+            
+          
+            Google Developer Groups
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//developers.google.com/community/experts"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 3)"
+            >
+            
+          
+            Google Developer Experts
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//developers.google.com/community/accelerators"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 4)"
+            >
+            
+              
+              
+            
+          
+            Accelerators
+          
+          </a>
+          
+          
+        </li>
+        
+      </ul>
+    </li>
+    
+    <li class="devsite-footer-linkbox ">
+    <h3 class="devsite-footer-linkbox-heading no-link">Developer consoles</h3>
+      <ul class="devsite-footer-linkbox-list">
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//console.developers.google.com"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 1)"
+            >
+            
+          
+            Google API Console
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//console.cloud.google.com"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 2)"
+            >
+            
+          
+            Google Cloud Platform Console
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//play.google.com/apps/publish"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 3)"
+            >
+            
+          
+            Google Play Console
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//console.firebase.google.com"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 4)"
+            >
+            
+          
+            Firebase Console
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//console.actions.google.com"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 5)"
+            >
+            
+          
+            Actions on Google Console
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//cast.google.com/publish"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 6)"
+            >
+            
+          
+            Cast SDK Developer Console
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//chrome.google.com/webstore/developer/dashboard"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 7)"
+            >
+            
+              
+              
+            
+          
+            Chrome Web Store Dashboard
+          
+          </a>
+          
+          
+        </li>
+        
+      </ul>
+    </li>
+    
+  </ul>
+  
+</nav>
+          
+        </devsite-footer-linkboxes>
+        <devsite-footer-utility class="devsite-footer">
+          
+            
+
+<div class="devsite-footer-utility nocontent" data-nosnippet>
+  
+  
+  <nav class="devsite-footer-sites" aria-label="Other Google Developers websites">
+    <a href="https://developers.google.com/"
+       class="devsite-footer-sites-logo-link gc-analytics-event"
+       data-category="Site-Wide Custom Events"
+       data-label="Footer Google Developers Link">
+      <picture>
+        
+        <img class="devsite-footer-sites-logo"
+             src="https://www.gstatic.com/devrel-devsite/prod/vb08cbdb02acf7f66ad9727ddfba9d81df8806422eb5dd63dba194c9c8c7997f7/codelabs/images/lockup-google-for-developers.svg"
+             loading="lazy"
+             alt="Google Developers">
+      </picture>
+    </a>
+    <ul class="devsite-footer-sites-list">
+      
+      <li class="devsite-footer-sites-item">
+        <a href="//developer.android.com"
+           class="devsite-footer-sites-link
+                  gc-analytics-event"
+           data-category="Site-Wide Custom Events"
+         
+           data-label="Footer Android Link"
+         
+         >
+          Android
+        </a>
+      </li>
+      
+      <li class="devsite-footer-sites-item">
+        <a href="//developer.chrome.com/home"
+           class="devsite-footer-sites-link
+                  gc-analytics-event"
+           data-category="Site-Wide Custom Events"
+         
+           data-label="Footer Chrome Link"
+         
+         >
+          Chrome
+        </a>
+      </li>
+      
+      <li class="devsite-footer-sites-item">
+        <a href="//firebase.google.com"
+           class="devsite-footer-sites-link
+                  gc-analytics-event"
+           data-category="Site-Wide Custom Events"
+         
+           data-label="Footer Firebase Link"
+         
+         >
+          Firebase
+        </a>
+      </li>
+      
+      <li class="devsite-footer-sites-item">
+        <a href="//cloud.google.com"
+           class="devsite-footer-sites-link
+                  gc-analytics-event"
+           data-category="Site-Wide Custom Events"
+         
+           data-label="Footer Google Cloud Platform Link"
+         
+         >
+          Google Cloud Platform
+        </a>
+      </li>
+      
+      <li class="devsite-footer-sites-item">
+        <a href="//developers.google.com/products"
+           class="devsite-footer-sites-link
+                  gc-analytics-event"
+           data-category="Site-Wide Custom Events"
+         
+           data-label="Footer All products Link"
+         
+         >
+          All products
+        </a>
+      </li>
+      
+    </ul>
+  </nav>
+  
+
+  
+  <nav class="devsite-footer-utility-links" aria-label="Utility links">
+    
+    <ul class="devsite-footer-utility-list">
+      
+      <li class="devsite-footer-utility-item
+                 ">
+        
+        
+        <a class="devsite-footer-utility-link gc-analytics-event"
+           href="//developers.google.com/terms/site-terms"
+           data-category="Site-Wide Custom Events"
+           data-label="Footer Terms link"
+         >
+          Terms
+        </a>
+        
+      </li>
+      
+      <li class="devsite-footer-utility-item
+                 ">
+        
+        
+        <a class="devsite-footer-utility-link gc-analytics-event"
+           href="//policies.google.com/privacy"
+           data-category="Site-Wide Custom Events"
+           data-label="Footer Privacy link"
+         >
+          Privacy
+        </a>
+        
+      </li>
+      
+      <li class="devsite-footer-utility-item
+                 glue-cookie-notification-bar-control">
+        
+        
+        <a class="devsite-footer-utility-link gc-analytics-event"
+           href="#"
+           data-category="Site-Wide Custom Events"
+           data-label="Footer Manage cookies link"
+         
+           aria-hidden="true"
+         >
+          Manage cookies
+        </a>
+        
+      </li>
+      
+      <li class="devsite-footer-utility-item
+                 devsite-footer-utility-button">
+        
+        <span class="devsite-footer-utility-description">Sign up for the Google Developers newsletter</span>
+        
+        
+        <a class="devsite-footer-utility-link gc-analytics-event"
+           href="//services.google.com/fb/forms/googledevelopersnewsletter/?utm_medium=referral&amp;utm_source=google-products&amp;utm_team=googledevs&amp;utm_campaign=201611-newsletter-launch"
+           data-category="Site-Wide Custom Events"
+           data-label="Footer Subscribe link"
+         >
+          Subscribe
+        </a>
+        
+      </li>
+      
+    </ul>
+    
+    
+<devsite-language-selector>
+  <ul role="presentation">
+    
+    
+    <li role="presentation">
+      <a role="menuitem" lang="en"
+        >English</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="de"
+        >Deutsch</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="es"
+        >Español</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="es_419"
+        >Español – América Latina</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="fr"
+        >Français</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="id"
+        >Indonesia</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="it"
+        >Italiano</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="pl"
+        >Polski</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="pt_br"
+        >Português – Brasil</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="vi"
+        >Tiếng Việt</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="tr"
+        >Türkçe</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="ru"
+        >Русский</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="he"
+        >עברית</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="ar"
+        >العربيّة</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="fa"
+        >فارسی</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="hi"
+        >हिंदी</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="bn"
+        >বাংলা</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="th"
+        >ภาษาไทย</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="zh_cn"
+        >中文 – 简体</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="zh_tw"
+        >中文 – 繁體</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="ja"
+        >日本語</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="ko"
+        >한국어</a>
+    </li>
+    
+  </ul>
+</devsite-language-selector>
+
+  </nav>
+</div>
+          
+        </devsite-footer-utility>
+        <devsite-panel>
+          
+        </devsite-panel>
+        
+      </section>
+      </section>
+    <devsite-sitemask></devsite-sitemask>
+    <devsite-snackbar></devsite-snackbar>
+    <devsite-tooltip ></devsite-tooltip>
+    <devsite-heading-link></devsite-heading-link>
+    <devsite-analytics>
+      
+        <script type="application/json" analytics>[]</script>
+<script type="application/json" tag-management>{&#34;at&#34;: &#34;True&#34;, &#34;ga4&#34;: [], &#34;ga4p&#34;: [], &#34;gtm&#34;: [], &#34;parameters&#34;: {&#34;internalUser&#34;: &#34;False&#34;, &#34;language&#34;: {&#34;machineTranslated&#34;: &#34;False&#34;, &#34;requested&#34;: &#34;en&#34;, &#34;served&#34;: &#34;en&#34;}, &#34;pageType&#34;: &#34;codelab&#34;, &#34;projectName&#34;: null, &#34;signedIn&#34;: &#34;False&#34;, &#34;tenant&#34;: &#34;codelabs&#34;, &#34;recommendations&#34;: {&#34;sourcePage&#34;: &#34;&#34;, &#34;sourceType&#34;: 0, &#34;sourceRank&#34;: 0, &#34;sourceIdenticalDescriptions&#34;: 0, &#34;sourceTitleWords&#34;: 0, &#34;sourceDescriptionWords&#34;: 0, &#34;experiment&#34;: &#34;&#34;}, &#34;experiment&#34;: {&#34;ids&#34;: &#34;&#34;}}}</script>
+      
+    </devsite-analytics>
+    
+      <devsite-badger></devsite-badger>
+    
+    
+    
+    
+<script nonce="sABkZHM13B1fzdDTijpwPAHsQD/h5U">
+  
+  (function(d,e,v,s,i,t,E){d['GoogleDevelopersObject']=i;
+    t=e.createElement(v);t.async=1;t.src=s;E=e.getElementsByTagName(v)[0];
+    E.parentNode.insertBefore(t,E);})(window, document, 'script',
+    'https://www.gstatic.com/devrel-devsite/prod/vb08cbdb02acf7f66ad9727ddfba9d81df8806422eb5dd63dba194c9c8c7997f7/codelabs/js/app_loader.js', '[17,"en",null,"/js/devsite_app_module.js","https://www.gstatic.com/devrel-devsite/prod/vb08cbdb02acf7f66ad9727ddfba9d81df8806422eb5dd63dba194c9c8c7997f7","https://www.gstatic.com/devrel-devsite/prod/vb08cbdb02acf7f66ad9727ddfba9d81df8806422eb5dd63dba194c9c8c7997f7/codelabs","https://codelabs-dot-devsite-v2-prod.appspot.com",1,null,["/_pwa/codelabs/manifest.json","https://www.gstatic.com/devrel-devsite/prod/vb08cbdb02acf7f66ad9727ddfba9d81df8806422eb5dd63dba194c9c8c7997f7/images/video-placeholder.svg","https://www.gstatic.com/devrel-devsite/prod/vb08cbdb02acf7f66ad9727ddfba9d81df8806422eb5dd63dba194c9c8c7997f7/codelabs/images/favicon.png","https://www.gstatic.com/devrel-devsite/prod/vb08cbdb02acf7f66ad9727ddfba9d81df8806422eb5dd63dba194c9c8c7997f7/codelabs/images/lockup.svg","https://fonts.googleapis.com/css?family=Google+Sans:400,500|Roboto:400,400italic,500,500italic,700,700italic|Roboto+Mono:400,500,700&display=swap"],1,null,[1,6,8,12,14,17,21,25,50,52,63,70,75,76,80,87,91,92,93,97,98,100,101,102,103,104,105,107,108,109,110,112,113,116,117,118,120,122,124,125,126,127,129,130,131,132,133,134,135,136,138,140,141,147,148,149,151,152,156,157,158,159,161,163,164,168,169,170,179,180,182,183,186,191,193,196],"AIzaSyAP-jjEJBzmIyKR4F-3XITp8yM9T1gEEI8","AIzaSyB6xiKGDR5O3Ak2okS4rLkauxGUG7XP0hg","codelabs.developers.google.com","AIzaSyAQk0fBONSGUqCNznf6Krs82Ap1-NV6J4o","AIzaSyCCxcqdrZ_7QMeLCRY20bh_SXdAYqy70KY",null,null,null,["Profiles__enable_public_developer_profiles","MiscFeatureFlags__enable_firebase_utm","MiscFeatureFlags__remove_cross_domain_tracking_params","Profiles__enable_dashboard_curated_recommendations","Cloud__enable_cloudx_experiment_ids","DevPro__enable_devpro_offers","Analytics__enable_devpro_interaction_logging","MiscFeatureFlags__enable_explain_this_code","Profiles__require_profile_eligibility_for_signin","Cloud__enable_cloud_dlp_service","TpcFeatures__enable_unmirrored_page_left_nav","DevPro__enable_embed_profile_creation","Search__enable_page_map","MiscFeatureFlags__enable_variable_operator_index_yaml","DevPro__enable_g1_integration","DevPro__enable_google_payments_buyflow","MiscFeatureFlags__developers_footer_image","DevPro__enable_developer_subscriptions","Profiles__enable_developer_profile_pages_as_content","Profiles__enable_playlist_community_acl","DevPro__enable_firebase_workspaces_card","EngEduTelemetry__enable_engedu_telemetry","TpcFeatures__proxy_prod_host","Search__enable_suggestions_from_borg","Profiles__enable_stripe_subscription_management","DevPro__enable_devsite_captcha","Profiles__enable_completequiz_endpoint","Experiments__reqs_query_experiments","Concierge__enable_actions_menu","CloudShell__cloud_shell_button","Cloud__cache_serialized_dynamic_content","Profiles__enable_callout_notifications","Profiles__enable_recognition_badges","Profiles__enable_targeted_hero","MiscFeatureFlags__enable_framebox_badge_methods","Profiles__enable_user_type","DevPro__enable_credits_banner","Profiles__enable_awarding_url","Profiles__enable_profile_collections","MiscFeatureFlags__enable_variable_operator","Profiles__enable_auto_apply_credits","Search__enable_ai_eligibility_checks","Profiles__enable_release_notes_notifications","Profiles__enable_page_saving","MiscFeatureFlags__enable_view_transitions","DevPro__enable_enterprise","BookNav__enable_tenant_cache_key","DevPro__enable_cloud_innovators_plus","Profiles__enable_developer_profiles_callout","MiscFeatureFlags__enable_explicit_template_dependencies","MiscFeatureFlags__fix_lower_breadcrumbs","Profiles__enable_completecodelab_endpoint","Cloud__enable_cloud_shell_fte_user_flow","Profiles__enable_purchase_prompts","Search__enable_dynamic_content_confidential_banner","DevPro__remove_eu_tax_intake_form","Cloud__enable_cloud_shell","DevPro__enable_code_assist","CloudShell__cloud_code_overflow_menu","Profiles__enable_complete_playlist_endpoint","Concierge__enable_remove_info_panel_tags","Cloud__enable_free_trial_server_call","Cloud__fast_free_trial","MiscFeatureFlags__developers_footer_dark_image","Cloud__enable_llm_concierge_chat","Cloud__enable_legacy_calculator_redirect","DevPro__enable_free_benefits","DevPro__enable_google_one_card","Concierge__enable_pushui","DevPro__enable_payments_first_batch","SignIn__enable_l1_signup_flow","DevPro__enable_nvidia_credits_card","DevPro__enable_vertex_credit_card","Profiles__enable_join_program_group_endpoint","Search__enable_ai_search_summaries_for_all","MiscFeatureFlags__gdp_dashboard_reskin_enabled","MiscFeatureFlags__enable_project_variables","Analytics__enable_clearcut_logging","MiscFeatureFlags__enable_appearance_cookies","Profiles__enable_developer_profile_benefits_ui_redesign"],null,null,"AIzaSyBLEMok-5suZ67qRPzx0qUtbnLmyT_kCVE","https://developerscontentserving-pa.clients6.google.com","AIzaSyCM4QpTRSqP5qI4Dvjt4OAScIN8sOUlO-k","https://developerscontentsearch-pa.clients6.google.com",1,4,null,"https://developerprofiles-pa.clients6.google.com",[17,"codelabs","Google Codelabs","codelabs.developers.google.com",null,"codelabs-dot-devsite-v2-prod.appspot.com",null,null,[null,1,null,null,null,null,null,null,null,null,null,[1],null,null,null,null,null,null,[1],null,null,null,null,[1],null,null,null,null,null,null,[1]],null,[33,null,null,null,null,null,"/images/lockup.svg",null,null,null,null,1,1,null,null,null,null,null,null,null,null,1,null,null,null,null,[]],[],null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,[6,1,14,15,20,22,23,29,32,36],null,[[],[1,1]],[[null,null,null,null,null,null,null,null,null,null,null,null,1]],null,4],null,"pk_live_5170syrHvgGVmSx9sBrnWtA5luvk9BwnVcvIi7HizpwauFG96WedXsuXh790rtij9AmGllqPtMLfhe2RSwD6Pn38V00uBCydV4m",1,1,"https://developerscontentinsights-pa.clients6.google.com","AIzaSyCg-ZUslalsEbXMfIo9ZP8qufZgo3LSBDU","AIzaSyDxT0vkxnY_KeINtA4LSePJO-4MAZPMRsE","https://developers.clients6.google.com",null,null,"AIzaSyBQom12tzI-rybN7Sf-KfeL4nwm-Rf7PmI\n",null,null,"https://developers.googleapis.com"]')
+  
+</script>
+
+    <devsite-a11y-announce></devsite-a11y-announce>
+  </body>
+</html>

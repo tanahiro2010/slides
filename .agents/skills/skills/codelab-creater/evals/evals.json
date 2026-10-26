@@ -1,0 +1,71 @@
+{
+  "skill_name": "codelab-creater",
+  "evals": [
+    {
+      "id": 0,
+      "name": "tailwind-beginner-ja",
+      "prompt": "次の GDG 合同勉強会向けに、Tailwind CSS の基礎を学ぶ 60 分のハンズオン codelab を作ってください。対象は HTML/CSS は触ったことがあるけどフレームワーク未経験の大学生。ファイル名は `tailwind-css-basics-workshop/claat.md` です。",
+      "expected_output": "Complete claat.md, Japanese, ~60 min Duration sum, ≥6 steps with intro/setup/recap, frontmatter present, no `## Step N:` prefix, callouts and code blocks with language tags.",
+      "assertions": [
+        "Frontmatter has all 6 required fields",
+        "Frontmatter uses bare key:value (no `---` fence)",
+        "Exactly one `# Title` document heading",
+        "Every `##` step has `Duration: H:MM:SS`",
+        "No `## Step N:` prefix in step headers",
+        "Last step matches recap convention",
+        "≥6 steps total",
+        "Step 1 covers ≥2 of build/learn/need",
+        "All fenced code blocks have language tags",
+        "≥1 callout box",
+        "Total Duration ~60 min (±30%)",
+        "Output is in Japanese",
+        "Mentions Tailwind"
+      ],
+      "files": []
+    },
+    {
+      "id": 1,
+      "name": "gemini-chrome-extension-en",
+      "prompt": "Draft a 90-minute codelab for our GDG workshop titled 'Build a Chrome Extension with Gemini API'. The extension summarizes the current web page when the user clicks the toolbar icon. Audience already knows JavaScript but hasn't built a Chrome extension before. Cover manifest v3, content scripts, calling the Gemini API from the extension, and packaging. Save the markdown as `gemini-chrome-extension-workshop/claat.md`.",
+      "expected_output": "Complete claat.md, English, ~90 min Duration sum, ≥6 steps with intro/setup/manifest/content-script/API/packaging/recap, code blocks with language tags and filename headers, callouts present.",
+      "assertions": [
+        "Frontmatter has all 6 required fields",
+        "Frontmatter uses bare key:value (no `---` fence)",
+        "Exactly one `# Title` document heading",
+        "Every `##` step has `Duration: H:MM:SS`",
+        "No `## Step N:` prefix in step headers",
+        "Last step matches recap convention",
+        "≥6 steps total",
+        "Step 1 covers ≥2 of build/learn/need",
+        "All fenced code blocks have language tags",
+        "≥1 callout box",
+        "Total Duration ~90 min (±30%)",
+        "Output is in English",
+        "Mentions manifest, content script, Gemini"
+      ],
+      "files": []
+    },
+    {
+      "id": 2,
+      "name": "adk-python-agent-ja",
+      "prompt": "ADK for Python を使って自作 AI エージェントを構築する 90 分のハンズオン codelab を作って。Python の基礎はわかっている人向け。`adk-python-agent-workshop/claat.md` として書いて。",
+      "expected_output": "Complete claat.md, Japanese, ~90 min Duration sum, ≥6 steps. Draws on examples/adk-java-getting-started.html patterns adapted for Python (LlmAgent, tools, etc.).",
+      "assertions": [
+        "Frontmatter has all 6 required fields",
+        "Frontmatter uses bare key:value (no `---` fence)",
+        "Exactly one `# Title` document heading",
+        "Every `##` step has `Duration: H:MM:SS`",
+        "No `## Step N:` prefix in step headers",
+        "Last step matches recap convention",
+        "≥6 steps total",
+        "Step 1 covers ≥2 of build/learn/need",
+        "All fenced code blocks have language tags",
+        "≥1 callout box",
+        "Total Duration ~90 min (±30%)",
+        "Output is in Japanese",
+        "Mentions ADK and a Python install/run step"
+      ],
+      "files": []
+    }
+  ]
+}

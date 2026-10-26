@@ -1,0 +1,1576 @@
+
+
+
+
+
+
+
+
+
+<!doctype html>
+<html 
+      lang="en"
+      dir="ltr">
+  <head>
+    <meta name="google-signin-client-id" content="721724668570-nbkv1cfusk7kk4eni4pjvepaus73b13t.apps.googleusercontent.com"><meta name="google-signin-scope"
+          content="profile email https://www.googleapis.com/auth/developerprofiles https://www.googleapis.com/auth/developerprofiles.award https://www.googleapis.com/auth/devprofiles.full_control.firstparty"><meta property="og:site_name" content="Google Codelabs">
+    <meta property="og:type" content="website"><meta name="theme-color" content="#1a73e8"><meta charset="utf-8">
+    <meta content="IE=Edge" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+
+    <link rel="manifest" href="/_pwa/codelabs/manifest.json"
+          crossorigin="use-credentials">
+    <link rel="preconnect" href="//www.gstatic.com" crossorigin>
+    <link rel="preconnect" href="//fonts.googleapis.com" crossorigin>
+    <link rel="preconnect" href="//www.google-analytics.com" crossorigin><link rel="stylesheet" href="//fonts.googleapis.com/css?family=Google+Sans:400,500|Roboto:400,400italic,500,500italic,700,700italic|Roboto+Mono:400,500,700&display=swap">
+      <link rel="stylesheet"
+            href="//fonts.googleapis.com/css2?family=Material+Icons&family=Material+Symbols+Outlined&display=block"><link rel="stylesheet" href="https://www.gstatic.com/devrel-devsite/prod/vb08cbdb02acf7f66ad9727ddfba9d81df8806422eb5dd63dba194c9c8c7997f7/codelabs/css/app.css">
+      <link rel="shortcut icon" href="https://www.gstatic.com/devrel-devsite/prod/vb08cbdb02acf7f66ad9727ddfba9d81df8806422eb5dd63dba194c9c8c7997f7/codelabs/images/favicon.png">
+    <link rel="apple-touch-icon" href="https://www.gstatic.com/devrel-devsite/prod/vb08cbdb02acf7f66ad9727ddfba9d81df8806422eb5dd63dba194c9c8c7997f7/codelabs/images/touchicon-180.png"><link rel="canonical" href="https://codelabs.developers.google.com/build-google-quality-rag"><link rel="search" type="application/opensearchdescription+xml"
+            title="Google Codelabs" href="https://codelabs.developers.google.com/s/opensearch.xml">
+      <link rel="alternate" hreflang="en"
+          href="https://codelabs.developers.google.com/build-google-quality-rag" /><link rel="alternate" hreflang="x-default" href="https://codelabs.developers.google.com/build-google-quality-rag" /><link rel="alternate" hreflang="ar"
+          href="https://codelabs.developers.google.com/build-google-quality-rag?hl=ar" /><link rel="alternate" hreflang="bn"
+          href="https://codelabs.developers.google.com/build-google-quality-rag?hl=bn" /><link rel="alternate" hreflang="zh-Hans"
+          href="https://codelabs.developers.google.com/build-google-quality-rag?hl=zh-cn" /><link rel="alternate" hreflang="zh-Hant"
+          href="https://codelabs.developers.google.com/build-google-quality-rag?hl=zh-tw" /><link rel="alternate" hreflang="fa"
+          href="https://codelabs.developers.google.com/build-google-quality-rag?hl=fa" /><link rel="alternate" hreflang="fr"
+          href="https://codelabs.developers.google.com/build-google-quality-rag?hl=fr" /><link rel="alternate" hreflang="de"
+          href="https://codelabs.developers.google.com/build-google-quality-rag?hl=de" /><link rel="alternate" hreflang="he"
+          href="https://codelabs.developers.google.com/build-google-quality-rag?hl=he" /><link rel="alternate" hreflang="hi"
+          href="https://codelabs.developers.google.com/build-google-quality-rag?hl=hi" /><link rel="alternate" hreflang="id"
+          href="https://codelabs.developers.google.com/build-google-quality-rag?hl=id" /><link rel="alternate" hreflang="it"
+          href="https://codelabs.developers.google.com/build-google-quality-rag?hl=it" /><link rel="alternate" hreflang="ja"
+          href="https://codelabs.developers.google.com/build-google-quality-rag?hl=ja" /><link rel="alternate" hreflang="ko"
+          href="https://codelabs.developers.google.com/build-google-quality-rag?hl=ko" /><link rel="alternate" hreflang="pl"
+          href="https://codelabs.developers.google.com/build-google-quality-rag?hl=pl" /><link rel="alternate" hreflang="pt-BR"
+          href="https://codelabs.developers.google.com/build-google-quality-rag?hl=pt-br" /><link rel="alternate" hreflang="ru"
+          href="https://codelabs.developers.google.com/build-google-quality-rag?hl=ru" /><link rel="alternate" hreflang="es-419"
+          href="https://codelabs.developers.google.com/build-google-quality-rag?hl=es-419" /><link rel="alternate" hreflang="th"
+          href="https://codelabs.developers.google.com/build-google-quality-rag?hl=th" /><link rel="alternate" hreflang="tr"
+          href="https://codelabs.developers.google.com/build-google-quality-rag?hl=tr" /><link rel="alternate" hreflang="vi"
+          href="https://codelabs.developers.google.com/build-google-quality-rag?hl=vi" /><title>Building a Google-quality Search System with Vertex AI &nbsp;|&nbsp; Google Codelabs</title>
+
+<meta property="og:title" content="Building a Google-quality Search System with Vertex AI &nbsp;|&nbsp; Google Codelabs"><meta name="description" content="In this codelab, you will build a Google quality search engine that can help answer queries from your documents and text files using Vertex AI Search/Agent Builder.">
+  <meta property="og:description" content="In this codelab, you will build a Google quality search engine that can help answer queries from your documents and text files using Vertex AI Search/Agent Builder."><meta property="og:url" content="https://codelabs.developers.google.com/build-google-quality-rag"><meta property="og:locale" content="en">
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  
+
+    </head>
+  <body class="color-scheme--light"
+        template="codelab"
+        theme="codelabs-theme"
+        type="codelab"
+        
+        
+        
+        layout="docs"
+        
+        
+        
+        
+        
+        display-toc
+        pending>
+  
+    <devsite-progress type="indeterminate" id="app-progress"></devsite-progress>
+  
+  
+    <a href="#main-content" class="skip-link button">
+      
+      Skip to main content
+    </a>
+    <section class="devsite-wrapper">
+      <devsite-cookie-notification-bar></devsite-cookie-notification-bar>
+        <devsite-header role="banner">
+  
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="devsite-header--inner" data-nosnippet>
+  <div class="devsite-top-logo-row-wrapper-wrapper">
+    <div class="devsite-top-logo-row-wrapper">
+      <div class="devsite-top-logo-row">
+        <button type="button" id="devsite-hamburger-menu"
+          class="devsite-header-icon-button button-flat material-icons gc-analytics-event"
+          data-category="Site-Wide Custom Events"
+          data-label="Navigation menu button"
+          visually-hidden
+          aria-label="Open menu">
+        </button>
+        
+<div class="devsite-product-name-wrapper">
+
+  <a href="/" class="devsite-site-logo-link gc-analytics-event"
+   data-category="Site-Wide Custom Events" data-label="Site logo" track-type="globalNav"
+   track-name="googleCodelabs" track-metadata-position="nav"
+   track-metadata-eventDetail="nav">
+  
+  <picture>
+    
+    <img src="https://www.gstatic.com/devrel-devsite/prod/vb08cbdb02acf7f66ad9727ddfba9d81df8806422eb5dd63dba194c9c8c7997f7/codelabs/images/lockup.svg" class="devsite-site-logo" alt="Google Codelabs">
+  </picture>
+  
+</a>
+
+
+
+</div>
+        <div class="devsite-top-logo-row-middle">
+          <div class="devsite-header-upper-tabs">
+            
+           </div>
+          
+<devsite-search
+    enable-signin
+    enable-search
+    enable-suggestions
+      enable-query-completion
+    
+    enable-search-summaries
+    
+    tenant-name="Google Codelabs"
+    
+    
+    
+    
+    
+    >
+  <form class="devsite-search-form" action="https://codelabs.developers.google.com/s/results" method="GET">
+    <div class="devsite-search-container">
+      <button type="button"
+              search-open
+              class="devsite-search-button devsite-header-icon-button button-flat material-icons"
+              
+              aria-label="Open search"></button>
+      <div class="devsite-searchbox">
+        <input
+          aria-activedescendant=""
+          aria-autocomplete="list"
+          
+          aria-label="Search"
+          aria-expanded="false"
+          aria-haspopup="listbox"
+          autocomplete="off"
+          class="devsite-search-field devsite-search-query"
+          name="q"
+          
+          placeholder="Search"
+          role="combobox"
+          type="text"
+          value=""
+          >
+          <div class="devsite-search-image material-icons" aria-hidden="true">
+            
+              <svg class="devsite-search-ai-image" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <g clip-path="url(#clip0_6641_386)">
+                    <path d="M19.6 21L13.3 14.7C12.8 15.1 12.225 15.4167 11.575 15.65C10.925 15.8833 10.2333 16 9.5 16C7.68333 16 6.14167 15.375 4.875 14.125C3.625 12.8583 3 11.3167 3 9.5C3 7.68333 3.625 6.15 4.875 4.9C6.14167 3.63333 7.68333 3 9.5 3C10.0167 3 10.5167 3.05833 11 3.175C11.4833 3.275 11.9417 3.43333 12.375 3.65L10.825 5.2C10.6083 5.13333 10.3917 5.08333 10.175 5.05C9.95833 5.01667 9.73333 5 9.5 5C8.25 5 7.18333 5.44167 6.3 6.325C5.43333 7.19167 5 8.25 5 9.5C5 10.75 5.43333 11.8167 6.3 12.7C7.18333 13.5667 8.25 14 9.5 14C10.6667 14 11.6667 13.625 12.5 12.875C13.35 12.1083 13.8417 11.15 13.975 10H15.975C15.925 10.6333 15.7833 11.2333 15.55 11.8C15.3333 12.3667 15.05 12.8667 14.7 13.3L21 19.6L19.6 21ZM17.5 12C17.5 10.4667 16.9667 9.16667 15.9 8.1C14.8333 7.03333 13.5333 6.5 12 6.5C13.5333 6.5 14.8333 5.96667 15.9 4.9C16.9667 3.83333 17.5 2.53333 17.5 0.999999C17.5 2.53333 18.0333 3.83333 19.1 4.9C20.1667 5.96667 21.4667 6.5 23 6.5C21.4667 6.5 20.1667 7.03333 19.1 8.1C18.0333 9.16667 17.5 10.4667 17.5 12Z" fill="#5F6368"/>
+                  </g>
+                <defs>
+                <clipPath id="clip0_6641_386">
+                <rect width="24" height="24" fill="white"/>
+                </clipPath>
+                </defs>
+              </svg>
+            
+          </div>
+          <div class="devsite-search-shortcut-icon-container" aria-hidden="true">
+            <kbd class="devsite-search-shortcut-icon">/</kbd>
+          </div>
+      </div>
+    </div>
+  </form>
+  <button type="button"
+          search-close
+          class="devsite-search-button devsite-header-icon-button button-flat material-icons"
+          
+          aria-label="Close search"></button>
+</devsite-search>
+
+        </div>
+
+        
+
+          
+
+          
+
+          
+
+          
+
+          
+<devsite-language-selector>
+  <ul role="presentation">
+    
+    
+    <li role="presentation">
+      <a role="menuitem" lang="en"
+        >English</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="de"
+        >Deutsch</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="es"
+        >Español</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="es_419"
+        >Español – América Latina</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="fr"
+        >Français</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="id"
+        >Indonesia</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="it"
+        >Italiano</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="pl"
+        >Polski</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="pt_br"
+        >Português – Brasil</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="vi"
+        >Tiếng Việt</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="tr"
+        >Türkçe</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="ru"
+        >Русский</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="he"
+        >עברית</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="ar"
+        >العربيّة</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="fa"
+        >فارسی</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="hi"
+        >हिंदी</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="bn"
+        >বাংলা</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="th"
+        >ภาษาไทย</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="zh_cn"
+        >中文 – 简体</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="zh_tw"
+        >中文 – 繁體</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="ja"
+        >日本語</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="ko"
+        >한국어</a>
+    </li>
+    
+  </ul>
+</devsite-language-selector>
+
+
+          
+
+        
+
+        
+          <devsite-user 
+                        
+                        
+                          enable-profiles
+                        
+                        
+                          fp-auth
+                        
+                        id="devsite-user">
+            
+              
+              <span class="button devsite-top-button" aria-hidden="true" visually-hidden>Sign in</span>
+            
+          </devsite-user>
+        
+        
+        
+      </div>
+    </div>
+  </div>
+
+
+
+</div>
+
+
+
+  
+</devsite-header>
+        <devsite-book-nav scrollbars hidden>
+          
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="devsite-book-nav-filter"
+     hidden>
+  <span class="filter-list-icon material-icons" aria-hidden="true"></span>
+  <input type="text"
+         placeholder="Filter"
+         
+         aria-label="Type to filter"
+         role="searchbox">
+  
+  <span class="filter-clear-button hidden"
+        data-title="Clear filter"
+        aria-label="Clear filter"
+        role="button"
+        tabindex="0"></span>
+</div>
+
+<nav class="devsite-book-nav devsite-nav nocontent" data-nosnippet
+     aria-label="Side menu">
+  <div class="devsite-mobile-header">
+    <button type="button"
+            id="devsite-close-nav"
+            class="devsite-header-icon-button button-flat material-icons gc-analytics-event"
+            data-category="Site-Wide Custom Events"
+            data-label="Close navigation"
+            aria-label="Close navigation">
+    </button>
+    <div class="devsite-product-name-wrapper">
+
+  <a href="/" class="devsite-site-logo-link gc-analytics-event"
+   data-category="Site-Wide Custom Events" data-label="Site logo" track-type="globalNav"
+   track-name="googleCodelabs" track-metadata-position="nav"
+   track-metadata-eventDetail="nav">
+  
+  <picture>
+    
+    <img src="https://www.gstatic.com/devrel-devsite/prod/vb08cbdb02acf7f66ad9727ddfba9d81df8806422eb5dd63dba194c9c8c7997f7/codelabs/images/lockup.svg" class="devsite-site-logo" alt="Google Codelabs">
+  </picture>
+  
+</a>
+
+
+</div>
+  </div>
+
+  <div class="devsite-book-nav-wrapper">
+    <div class="devsite-mobile-nav-top">
+      
+        <ul class="devsite-nav-list">
+          
+          
+          
+        </ul>
+      
+    </div>
+    
+  </div>
+</nav>
+          
+        </devsite-book-nav>
+      
+      <section id="gc-wrapper">
+        <main role="main" id="main-content" class="devsite-main-content"
+            
+              
+              has-sidebar
+            >
+          <div class="devsite-sidebar">
+            <div class="devsite-sidebar-content">
+                
+                <devsite-toc class="devsite-nav"
+                            role="navigation"
+                            aria-label="On this page"
+                            depth="1"
+                            scrollbars
+                            data-nosnippet
+                  ></devsite-toc>
+                <devsite-recommendations-sidebar class="nocontent devsite-nav" data-nosnippet>
+                </devsite-recommendations-sidebar>
+            </div>
+          </div>
+          <devsite-content>
+            
+              
+
+
+
+
+
+
+
+
+
+
+<article class="devsite-article"><style>
+      body {
+        transition: opacity ease-in 0.2s;
+      }
+
+      body[unresolved] {
+        opacity: 0;
+        display: block;
+        overflow: hidden;
+        position: relative;
+      }
+      </style>
+  
+  
+  
+  
+  
+
+  <div class="devsite-article-meta nocontent" role="navigation" data-nosnippet>
+    
+    
+    <ul class="devsite-breadcrumb-list"
+  >
+  
+</ul>
+    
+  </div>
+  
+    <h1 class="devsite-page-title" tabindex="-1">
+      Building a Google-quality Search System with Vertex AI<devsite-actions hidden data-nosnippet></devsite-actions>
+  
+      
+    </h1>
+  
+
+  <devsite-toc class="devsite-nav"
+    depth="1"
+    devsite-toc-embedded
+    >
+  </devsite-toc>
+  
+    
+  <div class="devsite-article-body clearfix
+  ">
+
+  
+    
+    
+    <google-codelab-analytics gaid="UA-49880327-14" ga4id="G-JTFZSJVVVZ"></google-codelab-analytics>
+    <google-codelab codelab-gaid=""
+                    codelab-ga4id=""
+                    doc-id="18pfowmfeO5i5xl41oSAm1aQ3Kb59Ndc9J3yA4lpmABQ"
+                    id="build-google-quality-rag"
+                    title="Building a Google-quality Search System with Vertex AI"
+                    no-tooltip=""
+                    environment="web"
+                    category=""
+                    feedback-link=""
+                    layout="paginated"
+                    >
+      
+        <google-codelab-step label="Before you begin" duration="0" step="0">
+          
+            <google-codelab-about codelab-title="Building a Google-quality Search System with Vertex AI"
+                                  authors="Krishnan Kumar, Thu Ya Kyaw, Weizhong Toh"
+                                  last-updated="2026-03-16T17:00:18Z"
+                                  >
+            </google-codelab-about>
+          
+          <h2 class="step-title" id="0" data-text="Before you begin" tabindex="-1">
+              1. Before you begin
+          </h2>
+          
+          <p>Here are a few things to note before continuing this codelab.</p>
+<h2 is-upgraded id="prerequisites" data-text="Prerequisites" tabindex="-1"><strong>Prerequisites</strong></h2>
+<ul>
+<li>Basic understanding of LLMs</li>
+<li>Basic understanding of RAG systems</li>
+</ul>
+<h2 class="checklist" is-upgraded id="what-youll-learn" data-text="What you'll learn" tabindex="-1"><strong>What you'll learn</strong></h2>
+<ul class="checklist">
+<li>How to build a google quality search engine that can answer your questions from the data you upload</li>
+<li>How to create Vertex AI Datastore</li>
+<li>How to create Vertex AI Agents</li>
+<li>How to leverage CloudRun to deploy the application</li>
+</ul>
+<h2 is-upgraded id="what-youll-need" data-text="What you'll need" tabindex="-1"><strong>What you'll need</strong></h2>
+<ul>
+<li>A Google Cloud account</li>
+<li>A Google Cloud project</li>
+<li>An IDE with terminal</li>
+</ul>
+<h2 is-upgraded id="introduction" data-text="Introduction" tabindex="-1">Introduction</h2>
+<p>Google Search is a powerful tool that uses a massive index of web pages and other content to provide relevant results to user queries. This is made possible by a technique called Retrieval Augmented Generation (RAG), which is a key technique in modern AI.</p>
+<p>RAG works by first retrieving relevant passages from a document corpus. This is done using a variety of methods, such as keyword matching, semantic similarity, and machine learning. Once the relevant passages have been retrieved, they are used to generate a summary or answer to the user&#39;s query.</p>
+<p>The main benefit of RAG is that it allows language models to avoid hallucination. Hallucination is a term used to describe the generation of text that is not supported by the evidence in the document corpus. This can happen when language models are not able to distinguish between relevant and irrelevant information.</p>
+<p>RAG helps to avoid hallucination by ensuring that the generated text is always based on evidence from the document corpus. This makes it a more reliable and trustworthy source of information.</p>
+<p>RAG is a powerful technique that is being used in a variety of applications, including search engines, chatbots, and question answering systems. It is likely to play an increasingly important role in AI in the years to come.</p>
+<p>Here are some examples of how RAG is being used in practice:</p>
+<ul>
+<li>Many search systems use RAG to generate search results that are relevant to the user&#39;s query.</li>
+<li>Chatbots use RAG to generate responses to user questions that are informative and engaging.</li>
+<li>Question answering systems use RAG to generate answers to user questions that are accurate and comprehensive.</li>
+</ul>
+<p>RAG is a versatile technique that can be used to generate text in a variety of domains and applications. It is a powerful tool that is helping to make AI more intelligent and informative.</p>
+<p>In this codelab, we will build a RAG system that can help answer your questions with the provided corpus as uploaded by you. The out of the box RAG platform called Vertex AI Search/Agent Builder helps you accelerate building RAG systems thus avoiding you with the manual effort of collecting the documents, parsing, chunking, generating embeddings, query expansion, candidate retrieval &amp; ranking. While the out of the box RAG system helps you to get started quickly, Google Cloud also provides discrete APIs for every process to build your own DIY RAG systems which helps in fine tuning your RAG systems to suit your business requirements.</p>
+<h2 is-upgraded id="what-youll-build" data-text="What you'll build" tabindex="-1"><strong>What you'll build</strong></h2>
+<p>By the end of this codelab, you will have a working RAG system deployed that can help answer your questions with factual information, grounded and cited with right references.</p>
+<p>You will also have a better understanding of how to use Vertex AI Search APIs to build this RAG architecture on Google Cloud. In addition to this, you will also learn how to deploy this RAG architecture application (with frontend and backend) on CloudRun which is a serverless platform of deploying applications as containers on Google Cloud.</p>
+<p class="image-container"><img alt="2d055ded874603a6.png" style="width: 624.00px" src="/static/build-google-quality-rag/img/2d055ded874603a6.png" srcset="https://codelabs.developers.google.com/static/build-google-quality-rag/img/2d055ded874603a6_36.png 36w,https://codelabs.developers.google.com/static/build-google-quality-rag/img/2d055ded874603a6_48.png 48w,https://codelabs.developers.google.com/static/build-google-quality-rag/img/2d055ded874603a6_72.png 72w,https://codelabs.developers.google.com/static/build-google-quality-rag/img/2d055ded874603a6_96.png 96w,https://codelabs.developers.google.com/static/build-google-quality-rag/img/2d055ded874603a6_480.png 480w,https://codelabs.developers.google.com/static/build-google-quality-rag/img/2d055ded874603a6_720.png 720w,https://codelabs.developers.google.com/static/build-google-quality-rag/img/2d055ded874603a6_856.png 856w,https://codelabs.developers.google.com/static/build-google-quality-rag/img/2d055ded874603a6_960.png 960w,https://codelabs.developers.google.com/static/build-google-quality-rag/img/2d055ded874603a6_1440.png 1440w,https://codelabs.developers.google.com/static/build-google-quality-rag/img/2d055ded874603a6_1920.png 1920w,https://codelabs.developers.google.com/static/build-google-quality-rag/img/2d055ded874603a6_2880.png 2880w" sizes="(max-width: 840px) 100vw, 856px"></p>
+<h2 is-upgraded id="how-the-application-works" data-text="How the application works" tabindex="-1"><strong>How the application works</strong></h2>
+<ul>
+<li><strong>Upload your data</strong>: Users can upload their own corpus of data i.e PDF file as input.</li>
+<li><strong>Ask queries in the search bar</strong>: Users can ask questions on the search bar based on the corpus of data uploaded.</li>
+<li><strong>Retrieve answers</strong>: Users can retrieve the search results/candidates and check the factuality/groundedness of the answer that is retrieved based on the relevance of the query.</li>
+</ul>
+
+
+        </google-codelab-step>
+      
+        <google-codelab-step label="Environment Setup" duration="0" step="1">
+          
+          <h2 class="step-title" id="1" data-text="Environment Setup" tabindex="-1">
+              2. Environment Setup
+          </h2>
+          
+          <ol type="1">
+<li>In the  <a href="https://console.cloud.google.com/" target="_blank">Google Cloud Console</a>, on the project selector page, select or create a Google Cloud  <a href="https://cloud.google.com/resource-manager/docs/creating-managing-projects" target="_blank">project</a>.</li>
+<li>Ensure that billing is enabled for your Google Cloud project. Learn how to  <a href="https://cloud.google.com/billing/docs/how-to/verify-billing-enabled" target="_blank">check if billing is enabled on a project</a>.</li>
+<li>You&#39;ll use  <a href="https://cloud.google.com/cloud-shell/" target="_blank">Cloud Shell</a>, a command-line environment running in Google Cloud. To access it, click Activate Cloud Shell at the top of the Google Cloud console.</li>
+</ol>
+<p class="image-container"><img alt="1829c3759227c19b.png" style="width: 624.00px" src="/static/build-google-quality-rag/img/1829c3759227c19b.png" srcset="https://codelabs.developers.google.com/static/build-google-quality-rag/img/1829c3759227c19b_36.png 36w,https://codelabs.developers.google.com/static/build-google-quality-rag/img/1829c3759227c19b_48.png 48w,https://codelabs.developers.google.com/static/build-google-quality-rag/img/1829c3759227c19b_72.png 72w,https://codelabs.developers.google.com/static/build-google-quality-rag/img/1829c3759227c19b_96.png 96w,https://codelabs.developers.google.com/static/build-google-quality-rag/img/1829c3759227c19b_480.png 480w,https://codelabs.developers.google.com/static/build-google-quality-rag/img/1829c3759227c19b_720.png 720w,https://codelabs.developers.google.com/static/build-google-quality-rag/img/1829c3759227c19b_856.png 856w,https://codelabs.developers.google.com/static/build-google-quality-rag/img/1829c3759227c19b_960.png 960w,https://codelabs.developers.google.com/static/build-google-quality-rag/img/1829c3759227c19b_1440.png 1440w,https://codelabs.developers.google.com/static/build-google-quality-rag/img/1829c3759227c19b_1920.png 1920w,https://codelabs.developers.google.com/static/build-google-quality-rag/img/1829c3759227c19b_2880.png 2880w" sizes="(max-width: 840px) 100vw, 856px"></p>
+<ol type="1" start="4">
+<li>Once connected to Cloud Shell, you check that you&#39;re already authenticated and that the project is set to your project ID using the following command:</li>
+</ol>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Text only" syntax-guessed><code translate="no" dir="ltr">gcloud auth list
+</code></pre></devsite-code>
+<ol type="1" start="5">
+<li>Run the following command in Cloud Shell to confirm that the gcloud command knows about your project.</li>
+</ol>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Text only" syntax-guessed><code translate="no" dir="ltr">gcloud config list project
+</code></pre></devsite-code>
+<ol type="1" start="6">
+<li>If your project is not set, use the following command to set it:</li>
+</ol>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="scdoc" syntax-guessed><code translate="no" dir="ltr">gcloud config set project &lt;YOUR_PROJECT_ID&gt;
+</code></pre></devsite-code>
+<ol type="1" start="7">
+<li>Make sure that the following APIs are enabled:</li>
+</ol>
+<ul>
+<li>Cloud Run</li>
+<li>Vertex AI</li>
+<li>Cloud Storage</li>
+</ul>
+<p>The alternative to using the gcloud command is going through the console using this  <a href="https://console.cloud.google.com/apis/enableflow?apiid=aiplatform.googleapis.com,run.googleapis.com,cloudbuild.googleapis.com" target="_blank">link</a>. Refer to  <a href="https://cloud.google.com/sdk/gcloud/reference/config/list" target="_blank">documentation</a> for gcloud commands and usage.</p>
+
+
+        </google-codelab-step>
+      
+        <google-codelab-step label="Step 1: Create GCP Bucket" duration="0" step="2">
+          
+          <h2 class="step-title" id="2" data-text="Step 1: Create GCP Bucket" tabindex="-1">
+              3. Step 1: Create GCP Bucket
+          </h2>
+          
+          <ul>
+<li>Go to the console and on the search bar type Cloud Storage.</li>
+<li>Select the Cloud Storage from the suggested results.  <img alt="21d2bc910e71f7ec.png" style="width: 624.00px" src="/static/build-google-quality-rag/img/21d2bc910e71f7ec.png" srcset="https://codelabs.developers.google.com/static/build-google-quality-rag/img/21d2bc910e71f7ec_36.png 36w,https://codelabs.developers.google.com/static/build-google-quality-rag/img/21d2bc910e71f7ec_48.png 48w,https://codelabs.developers.google.com/static/build-google-quality-rag/img/21d2bc910e71f7ec_72.png 72w,https://codelabs.developers.google.com/static/build-google-quality-rag/img/21d2bc910e71f7ec_96.png 96w,https://codelabs.developers.google.com/static/build-google-quality-rag/img/21d2bc910e71f7ec_480.png 480w,https://codelabs.developers.google.com/static/build-google-quality-rag/img/21d2bc910e71f7ec_720.png 720w,https://codelabs.developers.google.com/static/build-google-quality-rag/img/21d2bc910e71f7ec_856.png 856w,https://codelabs.developers.google.com/static/build-google-quality-rag/img/21d2bc910e71f7ec_960.png 960w,https://codelabs.developers.google.com/static/build-google-quality-rag/img/21d2bc910e71f7ec_1440.png 1440w,https://codelabs.developers.google.com/static/build-google-quality-rag/img/21d2bc910e71f7ec_1920.png 1920w,https://codelabs.developers.google.com/static/build-google-quality-rag/img/21d2bc910e71f7ec_2880.png 2880w" sizes="(max-width: 840px) 100vw, 856px"></li>
+<li>Click on Create Bucket</li>
+</ul>
+<p class="image-container"><img alt="adf5c0382f6c3540.png" style="width: 368.00px" src="/static/build-google-quality-rag/img/adf5c0382f6c3540.png" srcset="https://codelabs.developers.google.com/static/build-google-quality-rag/img/adf5c0382f6c3540_36.png 36w,https://codelabs.developers.google.com/static/build-google-quality-rag/img/adf5c0382f6c3540_48.png 48w,https://codelabs.developers.google.com/static/build-google-quality-rag/img/adf5c0382f6c3540_72.png 72w,https://codelabs.developers.google.com/static/build-google-quality-rag/img/adf5c0382f6c3540_96.png 96w,https://codelabs.developers.google.com/static/build-google-quality-rag/img/adf5c0382f6c3540_480.png 480w,https://codelabs.developers.google.com/static/build-google-quality-rag/img/adf5c0382f6c3540_720.png 720w,https://codelabs.developers.google.com/static/build-google-quality-rag/img/adf5c0382f6c3540_856.png 856w,https://codelabs.developers.google.com/static/build-google-quality-rag/img/adf5c0382f6c3540_960.png 960w,https://codelabs.developers.google.com/static/build-google-quality-rag/img/adf5c0382f6c3540_1440.png 1440w,https://codelabs.developers.google.com/static/build-google-quality-rag/img/adf5c0382f6c3540_1920.png 1920w,https://codelabs.developers.google.com/static/build-google-quality-rag/img/adf5c0382f6c3540_2880.png 2880w" sizes="(max-width: 840px) 100vw, 856px"></p>
+<ul>
+<li>Provide a globally unique name for the bucket</li>
+<li>Click on Continue</li>
+<li>In the Location Type, select Multi-Region</li>
+<li>In the drop down, make sure to select the option <code translate="no" dir="ltr">us (multiple regions in United States)</code></li>
+</ul>
+<p class="image-container"><img alt="731aead7d8497725.png" style="width: 347.00px" src="/static/build-google-quality-rag/img/731aead7d8497725.png" srcset="https://codelabs.developers.google.com/static/build-google-quality-rag/img/731aead7d8497725_36.png 36w,https://codelabs.developers.google.com/static/build-google-quality-rag/img/731aead7d8497725_48.png 48w,https://codelabs.developers.google.com/static/build-google-quality-rag/img/731aead7d8497725_72.png 72w,https://codelabs.developers.google.com/static/build-google-quality-rag/img/731aead7d8497725_96.png 96w,https://codelabs.developers.google.com/static/build-google-quality-rag/img/731aead7d8497725_480.png 480w,https://codelabs.developers.google.com/static/build-google-quality-rag/img/731aead7d8497725_720.png 720w,https://codelabs.developers.google.com/static/build-google-quality-rag/img/731aead7d8497725_856.png 856w,https://codelabs.developers.google.com/static/build-google-quality-rag/img/731aead7d8497725_960.png 960w,https://codelabs.developers.google.com/static/build-google-quality-rag/img/731aead7d8497725_1440.png 1440w,https://codelabs.developers.google.com/static/build-google-quality-rag/img/731aead7d8497725_1920.png 1920w,https://codelabs.developers.google.com/static/build-google-quality-rag/img/731aead7d8497725_2880.png 2880w" sizes="(max-width: 840px) 100vw, 856px"></p>
+<ul>
+<li>Click on Create Bucket</li>
+</ul>
+<p class="image-container"><img alt="f7ac409ed9c4af21.png" style="width: 308.00px" src="/static/build-google-quality-rag/img/f7ac409ed9c4af21.png" srcset="https://codelabs.developers.google.com/static/build-google-quality-rag/img/f7ac409ed9c4af21_36.png 36w,https://codelabs.developers.google.com/static/build-google-quality-rag/img/f7ac409ed9c4af21_48.png 48w,https://codelabs.developers.google.com/static/build-google-quality-rag/img/f7ac409ed9c4af21_72.png 72w,https://codelabs.developers.google.com/static/build-google-quality-rag/img/f7ac409ed9c4af21_96.png 96w,https://codelabs.developers.google.com/static/build-google-quality-rag/img/f7ac409ed9c4af21_480.png 480w,https://codelabs.developers.google.com/static/build-google-quality-rag/img/f7ac409ed9c4af21_720.png 720w,https://codelabs.developers.google.com/static/build-google-quality-rag/img/f7ac409ed9c4af21_856.png 856w,https://codelabs.developers.google.com/static/build-google-quality-rag/img/f7ac409ed9c4af21_960.png 960w,https://codelabs.developers.google.com/static/build-google-quality-rag/img/f7ac409ed9c4af21_1440.png 1440w,https://codelabs.developers.google.com/static/build-google-quality-rag/img/f7ac409ed9c4af21_1920.png 1920w,https://codelabs.developers.google.com/static/build-google-quality-rag/img/f7ac409ed9c4af21_2880.png 2880w" sizes="(max-width: 840px) 100vw, 856px"></p>
+<ul>
+<li>Once the bucket is created then upload the  <a href="https://github.com/kkrishnan90/vertex-ai-search-agent-builder-demo/blob/main/alphabet-metadata.json" target="_blank"><code translate="no" dir="ltr">alphabet-metadata.json</code></a> from the repository</li>
+</ul>
+
+
+        </google-codelab-step>
+      
+        <google-codelab-step label="Step 2: Create a Vertex AI Datastore" duration="0" step="3">
+          
+          <h2 class="step-title" id="3" data-text="Step 2: Create a Vertex AI Datastore" tabindex="-1">
+              4. Step 2: Create a Vertex AI Datastore
+          </h2>
+          
+          <ul>
+<li>On the search bar of the console page, type &#34;Vertex AI Agent Builder&#34;</li>
+<li>Select the first product, &#34;Agent Builder&#34;</li>
+</ul>
+<p class="image-container"><img alt="c4a67b92bb7900e3.png" style="width: 624.00px" src="/static/build-google-quality-rag/img/c4a67b92bb7900e3.png" srcset="https://codelabs.developers.google.com/static/build-google-quality-rag/img/c4a67b92bb7900e3_36.png 36w,https://codelabs.developers.google.com/static/build-google-quality-rag/img/c4a67b92bb7900e3_48.png 48w,https://codelabs.developers.google.com/static/build-google-quality-rag/img/c4a67b92bb7900e3_72.png 72w,https://codelabs.developers.google.com/static/build-google-quality-rag/img/c4a67b92bb7900e3_96.png 96w,https://codelabs.developers.google.com/static/build-google-quality-rag/img/c4a67b92bb7900e3_480.png 480w,https://codelabs.developers.google.com/static/build-google-quality-rag/img/c4a67b92bb7900e3_720.png 720w,https://codelabs.developers.google.com/static/build-google-quality-rag/img/c4a67b92bb7900e3_856.png 856w,https://codelabs.developers.google.com/static/build-google-quality-rag/img/c4a67b92bb7900e3_960.png 960w,https://codelabs.developers.google.com/static/build-google-quality-rag/img/c4a67b92bb7900e3_1440.png 1440w,https://codelabs.developers.google.com/static/build-google-quality-rag/img/c4a67b92bb7900e3_1920.png 1920w,https://codelabs.developers.google.com/static/build-google-quality-rag/img/c4a67b92bb7900e3_2880.png 2880w" sizes="(max-width: 840px) 100vw, 856px"></p>
+<ul>
+<li>On the Agent Builder page, click on the &#34;Data Stores&#34; as shown in the left side navigation bar</li>
+</ul>
+<p class="image-container"><img alt="f86f67d344d398fb.png" style="width: 286.50px" src="/static/build-google-quality-rag/img/f86f67d344d398fb.png" srcset="https://codelabs.developers.google.com/static/build-google-quality-rag/img/f86f67d344d398fb_36.png 36w,https://codelabs.developers.google.com/static/build-google-quality-rag/img/f86f67d344d398fb_48.png 48w,https://codelabs.developers.google.com/static/build-google-quality-rag/img/f86f67d344d398fb_72.png 72w,https://codelabs.developers.google.com/static/build-google-quality-rag/img/f86f67d344d398fb_96.png 96w,https://codelabs.developers.google.com/static/build-google-quality-rag/img/f86f67d344d398fb_480.png 480w,https://codelabs.developers.google.com/static/build-google-quality-rag/img/f86f67d344d398fb_720.png 720w,https://codelabs.developers.google.com/static/build-google-quality-rag/img/f86f67d344d398fb_856.png 856w,https://codelabs.developers.google.com/static/build-google-quality-rag/img/f86f67d344d398fb_960.png 960w,https://codelabs.developers.google.com/static/build-google-quality-rag/img/f86f67d344d398fb_1440.png 1440w,https://codelabs.developers.google.com/static/build-google-quality-rag/img/f86f67d344d398fb_1920.png 1920w,https://codelabs.developers.google.com/static/build-google-quality-rag/img/f86f67d344d398fb_2880.png 2880w" sizes="(max-width: 840px) 100vw, 856px"></p>
+<ul>
+<li>Click on &#34;Create Data Store&#34;</li>
+</ul>
+<p class="image-container"><img alt="e64e771f33543f46.png" style="width: 366.60px" src="/static/build-google-quality-rag/img/e64e771f33543f46.png" srcset="https://codelabs.developers.google.com/static/build-google-quality-rag/img/e64e771f33543f46_36.png 36w,https://codelabs.developers.google.com/static/build-google-quality-rag/img/e64e771f33543f46_48.png 48w,https://codelabs.developers.google.com/static/build-google-quality-rag/img/e64e771f33543f46_72.png 72w,https://codelabs.developers.google.com/static/build-google-quality-rag/img/e64e771f33543f46_96.png 96w,https://codelabs.developers.google.com/static/build-google-quality-rag/img/e64e771f33543f46_480.png 480w,https://codelabs.developers.google.com/static/build-google-quality-rag/img/e64e771f33543f46_720.png 720w,https://codelabs.developers.google.com/static/build-google-quality-rag/img/e64e771f33543f46_856.png 856w,https://codelabs.developers.google.com/static/build-google-quality-rag/img/e64e771f33543f46_960.png 960w,https://codelabs.developers.google.com/static/build-google-quality-rag/img/e64e771f33543f46_1440.png 1440w,https://codelabs.developers.google.com/static/build-google-quality-rag/img/e64e771f33543f46_1920.png 1920w,https://codelabs.developers.google.com/static/build-google-quality-rag/img/e64e771f33543f46_2880.png 2880w" sizes="(max-width: 840px) 100vw, 856px"></p>
+<ul>
+<li>Select the Cloud Storage as your data store</li>
+<li>Click on &#34;Select&#34; below Cloud Storage icon</li>
+</ul>
+<p class="image-container"><img alt="3a8d22888e7eedc2.png" style="width: 369.50px" src="/static/build-google-quality-rag/img/3a8d22888e7eedc2.png" srcset="https://codelabs.developers.google.com/static/build-google-quality-rag/img/3a8d22888e7eedc2_36.png 36w,https://codelabs.developers.google.com/static/build-google-quality-rag/img/3a8d22888e7eedc2_48.png 48w,https://codelabs.developers.google.com/static/build-google-quality-rag/img/3a8d22888e7eedc2_72.png 72w,https://codelabs.developers.google.com/static/build-google-quality-rag/img/3a8d22888e7eedc2_96.png 96w,https://codelabs.developers.google.com/static/build-google-quality-rag/img/3a8d22888e7eedc2_480.png 480w,https://codelabs.developers.google.com/static/build-google-quality-rag/img/3a8d22888e7eedc2_720.png 720w,https://codelabs.developers.google.com/static/build-google-quality-rag/img/3a8d22888e7eedc2_856.png 856w,https://codelabs.developers.google.com/static/build-google-quality-rag/img/3a8d22888e7eedc2_960.png 960w,https://codelabs.developers.google.com/static/build-google-quality-rag/img/3a8d22888e7eedc2_1440.png 1440w,https://codelabs.developers.google.com/static/build-google-quality-rag/img/3a8d22888e7eedc2_1920.png 1920w,https://codelabs.developers.google.com/static/build-google-quality-rag/img/3a8d22888e7eedc2_2880.png 2880w" sizes="(max-width: 840px) 100vw, 856px"></p>
+<ul>
+<li>On the tab below &#34;Folder&#34; option, click on the &#34;Browse&#34; button</li>
+<li>Select the bucket  you created in Step 1</li>
+<li>On the options below, make sure to select &#34;Linked unstructured documents (JSONL with metadata)&#34;</li>
+<li>Click Continue</li>
+</ul>
+<p class="image-container"><img alt="13876b5d12dbe1fb.png" style="width: 624.00px" src="/static/build-google-quality-rag/img/13876b5d12dbe1fb.png" srcset="https://codelabs.developers.google.com/static/build-google-quality-rag/img/13876b5d12dbe1fb_36.png 36w,https://codelabs.developers.google.com/static/build-google-quality-rag/img/13876b5d12dbe1fb_48.png 48w,https://codelabs.developers.google.com/static/build-google-quality-rag/img/13876b5d12dbe1fb_72.png 72w,https://codelabs.developers.google.com/static/build-google-quality-rag/img/13876b5d12dbe1fb_96.png 96w,https://codelabs.developers.google.com/static/build-google-quality-rag/img/13876b5d12dbe1fb_480.png 480w,https://codelabs.developers.google.com/static/build-google-quality-rag/img/13876b5d12dbe1fb_720.png 720w,https://codelabs.developers.google.com/static/build-google-quality-rag/img/13876b5d12dbe1fb_856.png 856w,https://codelabs.developers.google.com/static/build-google-quality-rag/img/13876b5d12dbe1fb_960.png 960w,https://codelabs.developers.google.com/static/build-google-quality-rag/img/13876b5d12dbe1fb_1440.png 1440w,https://codelabs.developers.google.com/static/build-google-quality-rag/img/13876b5d12dbe1fb_1920.png 1920w,https://codelabs.developers.google.com/static/build-google-quality-rag/img/13876b5d12dbe1fb_2880.png 2880w" sizes="(max-width: 840px) 100vw, 856px"></p>
+<ul>
+<li>On the Configuration page, select &#34;global&#34; as the location of your data store</li>
+<li>Provide an identifiable name to your data store</li>
+<li>Click on Create</li>
+</ul>
+<p class="image-container"><img alt="618b7a456fbffad4.png" style="width: 426.50px" src="/static/build-google-quality-rag/img/618b7a456fbffad4.png" srcset="https://codelabs.developers.google.com/static/build-google-quality-rag/img/618b7a456fbffad4_36.png 36w,https://codelabs.developers.google.com/static/build-google-quality-rag/img/618b7a456fbffad4_48.png 48w,https://codelabs.developers.google.com/static/build-google-quality-rag/img/618b7a456fbffad4_72.png 72w,https://codelabs.developers.google.com/static/build-google-quality-rag/img/618b7a456fbffad4_96.png 96w,https://codelabs.developers.google.com/static/build-google-quality-rag/img/618b7a456fbffad4_480.png 480w,https://codelabs.developers.google.com/static/build-google-quality-rag/img/618b7a456fbffad4_720.png 720w,https://codelabs.developers.google.com/static/build-google-quality-rag/img/618b7a456fbffad4_856.png 856w,https://codelabs.developers.google.com/static/build-google-quality-rag/img/618b7a456fbffad4_960.png 960w,https://codelabs.developers.google.com/static/build-google-quality-rag/img/618b7a456fbffad4_1440.png 1440w,https://codelabs.developers.google.com/static/build-google-quality-rag/img/618b7a456fbffad4_1920.png 1920w,https://codelabs.developers.google.com/static/build-google-quality-rag/img/618b7a456fbffad4_2880.png 2880w" sizes="(max-width: 840px) 100vw, 856px"></p>
+<p><strong>Brownie:</strong></p>
+<ul>
+<li>Just above the &#34;Create&#34; button, you can see the document processing option.</li>
+<li>You can play around with different parsers like digital, OCR or layout parser</li>
+<li>You can also enable advanced chunking and provide your own custom chunk size limits</li>
+</ul>
+<p class="image-container"><img alt="38471c1d3411610d.png" style="width: 384.50px" src="/static/build-google-quality-rag/img/38471c1d3411610d.png" srcset="https://codelabs.developers.google.com/static/build-google-quality-rag/img/38471c1d3411610d_36.png 36w,https://codelabs.developers.google.com/static/build-google-quality-rag/img/38471c1d3411610d_48.png 48w,https://codelabs.developers.google.com/static/build-google-quality-rag/img/38471c1d3411610d_72.png 72w,https://codelabs.developers.google.com/static/build-google-quality-rag/img/38471c1d3411610d_96.png 96w,https://codelabs.developers.google.com/static/build-google-quality-rag/img/38471c1d3411610d_480.png 480w,https://codelabs.developers.google.com/static/build-google-quality-rag/img/38471c1d3411610d_720.png 720w,https://codelabs.developers.google.com/static/build-google-quality-rag/img/38471c1d3411610d_856.png 856w,https://codelabs.developers.google.com/static/build-google-quality-rag/img/38471c1d3411610d_960.png 960w,https://codelabs.developers.google.com/static/build-google-quality-rag/img/38471c1d3411610d_1440.png 1440w,https://codelabs.developers.google.com/static/build-google-quality-rag/img/38471c1d3411610d_1920.png 1920w,https://codelabs.developers.google.com/static/build-google-quality-rag/img/38471c1d3411610d_2880.png 2880w" sizes="(max-width: 840px) 100vw, 856px"></p>
+
+
+        </google-codelab-step>
+      
+        <google-codelab-step label="Step 3: Create an Agent" duration="0" step="4">
+          
+          <h2 class="step-title" id="4" data-text="Step 3: Create an Agent" tabindex="-1">
+              5. Step 3: Create an Agent
+          </h2>
+          
+          <ul>
+<li>Once your data store is created, click on the app in the navigation bar to the left and choose &#34;Apps&#34;</li>
+<li>Click on &#34;Create App&#34; button</li>
+<li>Select the app type to be &#34;Search&#34; (you can also create agents, conversational bots, recommendations etc.)</li>
+</ul>
+<p class="image-container"><img alt="ae5294e33f63567c.png" style="width: 338.50px" src="/static/build-google-quality-rag/img/ae5294e33f63567c.png" srcset="https://codelabs.developers.google.com/static/build-google-quality-rag/img/ae5294e33f63567c_36.png 36w,https://codelabs.developers.google.com/static/build-google-quality-rag/img/ae5294e33f63567c_48.png 48w,https://codelabs.developers.google.com/static/build-google-quality-rag/img/ae5294e33f63567c_72.png 72w,https://codelabs.developers.google.com/static/build-google-quality-rag/img/ae5294e33f63567c_96.png 96w,https://codelabs.developers.google.com/static/build-google-quality-rag/img/ae5294e33f63567c_480.png 480w,https://codelabs.developers.google.com/static/build-google-quality-rag/img/ae5294e33f63567c_720.png 720w,https://codelabs.developers.google.com/static/build-google-quality-rag/img/ae5294e33f63567c_856.png 856w,https://codelabs.developers.google.com/static/build-google-quality-rag/img/ae5294e33f63567c_960.png 960w,https://codelabs.developers.google.com/static/build-google-quality-rag/img/ae5294e33f63567c_1440.png 1440w,https://codelabs.developers.google.com/static/build-google-quality-rag/img/ae5294e33f63567c_1920.png 1920w,https://codelabs.developers.google.com/static/build-google-quality-rag/img/ae5294e33f63567c_2880.png 2880w" sizes="(max-width: 840px) 100vw, 856px"></p>
+<ul>
+<li>Make sure you select &#34;Generic&#34;  under Content. You can also select Media or Recommendations based on the data store and type of data and systems you want to build.</li>
+<li>Ensure to toggle ON both Enterprise Edition and Advanced LLM features</li>
+<li>Provide your application name</li>
+<li>Provide your company name</li>
+</ul>
+<p class="image-container"><img alt="f8a41c9751f7a8d3.png" style="width: 362.50px" src="/static/build-google-quality-rag/img/f8a41c9751f7a8d3.png" srcset="https://codelabs.developers.google.com/static/build-google-quality-rag/img/f8a41c9751f7a8d3_36.png 36w,https://codelabs.developers.google.com/static/build-google-quality-rag/img/f8a41c9751f7a8d3_48.png 48w,https://codelabs.developers.google.com/static/build-google-quality-rag/img/f8a41c9751f7a8d3_72.png 72w,https://codelabs.developers.google.com/static/build-google-quality-rag/img/f8a41c9751f7a8d3_96.png 96w,https://codelabs.developers.google.com/static/build-google-quality-rag/img/f8a41c9751f7a8d3_480.png 480w,https://codelabs.developers.google.com/static/build-google-quality-rag/img/f8a41c9751f7a8d3_720.png 720w,https://codelabs.developers.google.com/static/build-google-quality-rag/img/f8a41c9751f7a8d3_856.png 856w,https://codelabs.developers.google.com/static/build-google-quality-rag/img/f8a41c9751f7a8d3_960.png 960w,https://codelabs.developers.google.com/static/build-google-quality-rag/img/f8a41c9751f7a8d3_1440.png 1440w,https://codelabs.developers.google.com/static/build-google-quality-rag/img/f8a41c9751f7a8d3_1920.png 1920w,https://codelabs.developers.google.com/static/build-google-quality-rag/img/f8a41c9751f7a8d3_2880.png 2880w" sizes="(max-width: 840px) 100vw, 856px"></p>
+<ul>
+<li>Ensure to select the region to be &#34;global&#34;</li>
+<li>Click on &#34;Continue&#34; <img alt="ed17b18e094ba59a.png" style="width: 624.00px" src="/static/build-google-quality-rag/img/ed17b18e094ba59a.png" srcset="https://codelabs.developers.google.com/static/build-google-quality-rag/img/ed17b18e094ba59a_36.png 36w,https://codelabs.developers.google.com/static/build-google-quality-rag/img/ed17b18e094ba59a_48.png 48w,https://codelabs.developers.google.com/static/build-google-quality-rag/img/ed17b18e094ba59a_72.png 72w,https://codelabs.developers.google.com/static/build-google-quality-rag/img/ed17b18e094ba59a_96.png 96w,https://codelabs.developers.google.com/static/build-google-quality-rag/img/ed17b18e094ba59a_480.png 480w,https://codelabs.developers.google.com/static/build-google-quality-rag/img/ed17b18e094ba59a_720.png 720w,https://codelabs.developers.google.com/static/build-google-quality-rag/img/ed17b18e094ba59a_856.png 856w,https://codelabs.developers.google.com/static/build-google-quality-rag/img/ed17b18e094ba59a_960.png 960w,https://codelabs.developers.google.com/static/build-google-quality-rag/img/ed17b18e094ba59a_1440.png 1440w,https://codelabs.developers.google.com/static/build-google-quality-rag/img/ed17b18e094ba59a_1920.png 1920w,https://codelabs.developers.google.com/static/build-google-quality-rag/img/ed17b18e094ba59a_2880.png 2880w" sizes="(max-width: 840px) 100vw, 856px"></li>
+<li>In the next screen, select the data store you created in Step 2</li>
+<li>Click on &#34;Create&#34;</li>
+</ul>
+<p class="image-container"><img alt="bc77006e0025ae9e.png" style="width: 624.00px" src="/static/build-google-quality-rag/img/bc77006e0025ae9e.png" srcset="https://codelabs.developers.google.com/static/build-google-quality-rag/img/bc77006e0025ae9e_36.png 36w,https://codelabs.developers.google.com/static/build-google-quality-rag/img/bc77006e0025ae9e_48.png 48w,https://codelabs.developers.google.com/static/build-google-quality-rag/img/bc77006e0025ae9e_72.png 72w,https://codelabs.developers.google.com/static/build-google-quality-rag/img/bc77006e0025ae9e_96.png 96w,https://codelabs.developers.google.com/static/build-google-quality-rag/img/bc77006e0025ae9e_480.png 480w,https://codelabs.developers.google.com/static/build-google-quality-rag/img/bc77006e0025ae9e_720.png 720w,https://codelabs.developers.google.com/static/build-google-quality-rag/img/bc77006e0025ae9e_856.png 856w,https://codelabs.developers.google.com/static/build-google-quality-rag/img/bc77006e0025ae9e_960.png 960w,https://codelabs.developers.google.com/static/build-google-quality-rag/img/bc77006e0025ae9e_1440.png 1440w,https://codelabs.developers.google.com/static/build-google-quality-rag/img/bc77006e0025ae9e_1920.png 1920w,https://codelabs.developers.google.com/static/build-google-quality-rag/img/bc77006e0025ae9e_2880.png 2880w" sizes="(max-width: 840px) 100vw, 856px"></p>
+
+
+        </google-codelab-step>
+      
+        <google-codelab-step label="Step 4: Dockerize your application" duration="0" step="5">
+          
+          <h2 class="step-title" id="5" data-text="Step 4: Dockerize your application" tabindex="-1">
+              6. Step 4: Dockerize your application
+          </h2>
+          
+          <ul>
+<li>Open your terminal in Google Cloud console</li>
+<li>Clone the repository &lt;sample_repository_link&gt; using the following command</li>
+</ul>
+<p><code translate="no" dir="ltr">git clone https://github.com/kkrishnan90/vertex-ai-search-agent-builder-demo</code></p>
+<ul>
+<li>Change the directory and navigate to the cloned repository using the following command</li>
+</ul>
+<p><code translate="no" dir="ltr">cd vertex-ai-search-agent-builder-demo</code></p>
+<ul>
+<li>Folder structure</li>
+<li>Backend - This will hold a python based API implementation that will help create restful endpoints for your frontend to interact with.</li>
+<li>Frontend - This will hold a react based application and will serve the UI. This will also contain the necessary application level calls to the backend via rest endpoints</li>
+<li>Dockerfile - This file will contain all the relevant commands to create a docker container</li>
+<li>In the root of the repository directory, run the following command which will help build a docker image (note: ensure to use <code translate="no" dir="ltr">- - platform</code> flag when building docker containers in Macbooks that uses Apple Silicon chips like M1, M2 etc. This flag is not necessary if you are building using Windows machine or if your CPU architecture is Intel based)</li>
+</ul>
+<p><code translate="no" dir="ltr">docker build --platform linux/amd64 -t your-image-name .</code></p>
+<ul>
+<li>Once the docker container build is successful, run the following command to tag the container with right tags to ensure you provide a version of your image. Remember, there could be multiple versions of the application and hence multiple versions as tags in docker containers. Ensuring that the latest stable version is always used is a good recommended approach from devops perspective.</li>
+</ul>
+<p><code translate="no" dir="ltr">docker tag your-image-name REGION-docker.pkg.dev/PROJECT-ID/REPOSITORY-NAME/IMAGE-NAME:TAG</code></p>
+<ul>
+<li>Once the tagging of the docker container image is successful, let us now push the image to Google Artifact Registry (GAR). GAR is a completely managed platform from Google to help manage and version control your docker containers. Run the following command that will push the above tagged container to GAR. For more information, refer the following link [ <a href="https://cloud.google.com/artifact-registry/docs/docker/pushing-and-pulling" target="_blank">https://cloud.google.com/artifact-registry/docs/docker/pushing-and-pulling</a>]</li>
+</ul>
+<p><code translate="no" dir="ltr">docker push REGION-docker.pkg.dev/PROJECT-ID/REPOSITORY-NAME/IMAGE-NAME:TAG</code></p>
+
+
+        </google-codelab-step>
+      
+        <google-codelab-step label="Step 5: Deploy your application on Cloud Run" duration="0" step="6">
+          
+          <h2 class="step-title" id="6" data-text="Step 5: Deploy your application on Cloud Run" tabindex="-1">
+              7. Step 5: Deploy your application on Cloud Run
+          </h2>
+          
+          <ul>
+<li>Minimize your terminal. On the Google Cloud console search bar, search for Cloud Run</li>
+<li>Click on the suggested Cloud Run product</li>
+</ul>
+<p class="image-container"><img alt="592103eb61c16738.png" style="width: 624.00px" src="/static/build-google-quality-rag/img/592103eb61c16738.png" srcset="https://codelabs.developers.google.com/static/build-google-quality-rag/img/592103eb61c16738_36.png 36w,https://codelabs.developers.google.com/static/build-google-quality-rag/img/592103eb61c16738_48.png 48w,https://codelabs.developers.google.com/static/build-google-quality-rag/img/592103eb61c16738_72.png 72w,https://codelabs.developers.google.com/static/build-google-quality-rag/img/592103eb61c16738_96.png 96w,https://codelabs.developers.google.com/static/build-google-quality-rag/img/592103eb61c16738_480.png 480w,https://codelabs.developers.google.com/static/build-google-quality-rag/img/592103eb61c16738_720.png 720w,https://codelabs.developers.google.com/static/build-google-quality-rag/img/592103eb61c16738_856.png 856w,https://codelabs.developers.google.com/static/build-google-quality-rag/img/592103eb61c16738_960.png 960w,https://codelabs.developers.google.com/static/build-google-quality-rag/img/592103eb61c16738_1440.png 1440w,https://codelabs.developers.google.com/static/build-google-quality-rag/img/592103eb61c16738_1920.png 1920w,https://codelabs.developers.google.com/static/build-google-quality-rag/img/592103eb61c16738_2880.png 2880w" sizes="(max-width: 840px) 100vw, 856px"></p>
+<ul>
+<li>Click on &#34;Create Service&#34;</li>
+<li>In the next page, make sure &#34;Deploy one revision from an existing container image&#34; is selected</li>
+<li>Below, click on &#34;Select&#34;</li>
+<li>You will now be prompted with a navigation bar on the right.</li>
+<li>Ensure to check if Artifact Registry is selected as the tab</li>
+<li>Ensure to check if the project is selected correctly</li>
+<li>Click on the arrow to expand the accordion on your deployed container image link</li>
+<li>Select the container tag and expand (always select the latest ones deployed - with the right latest tags i.e. v1, v2, etc.)</li>
+<li>Click on the container image shown below the container tag name</li>
+</ul>
+<p class="image-container"><img alt="aac35d55d7dd874e.png" style="width: 624.00px" src="/static/build-google-quality-rag/img/aac35d55d7dd874e.png" srcset="https://codelabs.developers.google.com/static/build-google-quality-rag/img/aac35d55d7dd874e_36.png 36w,https://codelabs.developers.google.com/static/build-google-quality-rag/img/aac35d55d7dd874e_48.png 48w,https://codelabs.developers.google.com/static/build-google-quality-rag/img/aac35d55d7dd874e_72.png 72w,https://codelabs.developers.google.com/static/build-google-quality-rag/img/aac35d55d7dd874e_96.png 96w,https://codelabs.developers.google.com/static/build-google-quality-rag/img/aac35d55d7dd874e_480.png 480w,https://codelabs.developers.google.com/static/build-google-quality-rag/img/aac35d55d7dd874e_720.png 720w,https://codelabs.developers.google.com/static/build-google-quality-rag/img/aac35d55d7dd874e_856.png 856w,https://codelabs.developers.google.com/static/build-google-quality-rag/img/aac35d55d7dd874e_960.png 960w,https://codelabs.developers.google.com/static/build-google-quality-rag/img/aac35d55d7dd874e_1440.png 1440w,https://codelabs.developers.google.com/static/build-google-quality-rag/img/aac35d55d7dd874e_1920.png 1920w,https://codelabs.developers.google.com/static/build-google-quality-rag/img/aac35d55d7dd874e_2880.png 2880w" sizes="(max-width: 840px) 100vw, 856px"></p>
+<ul>
+<li>In the Configure area</li>
+<li>Provide a service name for your Cloud Run application (this will be a part of the url when you deploy the application on Cloud Run)</li>
+<li>Select the appropriate region (in this case us-central1 or anything of your choice)</li>
+<li>Under the Authentication</li>
+<li>Ensure &#34;Allow unauthenticated invocations&#34; is selected</li>
+<li>Under CPU allocation and Pricing</li>
+<li>Select &#34;CPU is only allocated during request processing&#34;</li>
+<li>Modify the Service Auto Scaling to 1 (for production purposes, it is recommended to have minimum instances running to handle your daily traffic, you can even leave it 0 i.e. Zero)</li>
+<li>Set the &#34;Ingress Control&#34; to &#34;All&#34; to allow traffic from the internet to access your application</li>
+<li>Click on &#34;Create&#34;</li>
+<li>This will deploy a Cloud Run instance and the provisioning of the same make take a few minutes</li>
+</ul>
+<p class="image-container"><img alt="b8b147265b8d457b.png" style="width: 346.50px" src="/static/build-google-quality-rag/img/b8b147265b8d457b.png" srcset="https://codelabs.developers.google.com/static/build-google-quality-rag/img/b8b147265b8d457b_36.png 36w,https://codelabs.developers.google.com/static/build-google-quality-rag/img/b8b147265b8d457b_48.png 48w,https://codelabs.developers.google.com/static/build-google-quality-rag/img/b8b147265b8d457b_72.png 72w,https://codelabs.developers.google.com/static/build-google-quality-rag/img/b8b147265b8d457b_96.png 96w,https://codelabs.developers.google.com/static/build-google-quality-rag/img/b8b147265b8d457b_480.png 480w,https://codelabs.developers.google.com/static/build-google-quality-rag/img/b8b147265b8d457b_720.png 720w,https://codelabs.developers.google.com/static/build-google-quality-rag/img/b8b147265b8d457b_856.png 856w,https://codelabs.developers.google.com/static/build-google-quality-rag/img/b8b147265b8d457b_960.png 960w,https://codelabs.developers.google.com/static/build-google-quality-rag/img/b8b147265b8d457b_1440.png 1440w,https://codelabs.developers.google.com/static/build-google-quality-rag/img/b8b147265b8d457b_1920.png 1920w,https://codelabs.developers.google.com/static/build-google-quality-rag/img/b8b147265b8d457b_2880.png 2880w" sizes="(max-width: 840px) 100vw, 856px"></p>
+<ul>
+<li>Once deployed, you will be able to see the publicly available URL that you can access your web application from</li>
+</ul>
+<p class="image-container"><img alt="1dfdb007c52581a1.png" style="width: 624.00px" src="/static/build-google-quality-rag/img/1dfdb007c52581a1.png" srcset="https://codelabs.developers.google.com/static/build-google-quality-rag/img/1dfdb007c52581a1_36.png 36w,https://codelabs.developers.google.com/static/build-google-quality-rag/img/1dfdb007c52581a1_48.png 48w,https://codelabs.developers.google.com/static/build-google-quality-rag/img/1dfdb007c52581a1_72.png 72w,https://codelabs.developers.google.com/static/build-google-quality-rag/img/1dfdb007c52581a1_96.png 96w,https://codelabs.developers.google.com/static/build-google-quality-rag/img/1dfdb007c52581a1_480.png 480w,https://codelabs.developers.google.com/static/build-google-quality-rag/img/1dfdb007c52581a1_720.png 720w,https://codelabs.developers.google.com/static/build-google-quality-rag/img/1dfdb007c52581a1_856.png 856w,https://codelabs.developers.google.com/static/build-google-quality-rag/img/1dfdb007c52581a1_960.png 960w,https://codelabs.developers.google.com/static/build-google-quality-rag/img/1dfdb007c52581a1_1440.png 1440w,https://codelabs.developers.google.com/static/build-google-quality-rag/img/1dfdb007c52581a1_1920.png 1920w,https://codelabs.developers.google.com/static/build-google-quality-rag/img/1dfdb007c52581a1_2880.png 2880w" sizes="(max-width: 840px) 100vw, 856px"></p>
+
+
+        </google-codelab-step>
+      
+        <google-codelab-step label="How does it all work" duration="0" step="7">
+          
+          <h2 class="step-title" id="7" data-text="How does it all work" tabindex="-1">
+              8. How does it all work
+          </h2>
+          
+          <ul>
+<li>Once in the home page of the application, click on the &#34;Upload Document&#34; button</li>
+<li>Upload your PDF file</li>
+<li>Once the upload is complete</li>
+<li>Click on the Search Bar on the top of the web page</li>
+<li>Start searching for queries related to your uploaded document</li>
+<li>Once you type your query and click on Search, it should show all relevant answers from the document you just uploaded</li>
+<li>You can play around by looking into the backend code and add more configurations like the following</li>
+<li>Adding snippets</li>
+<li>Adding extractive segments</li>
+<li>Adding answers</li>
+<li>Tuning the top-k results to help the LLM summarize the answer (something like AI Overview on Google Search)</li>
+<li>As an addon, you can also add metadata tags while uploading the document. This will help generate facets and filterable categories</li>
+</ul>
+
+
+        </google-codelab-step>
+      
+        <google-codelab-step label="Clean up" duration="0" step="8">
+          
+          <h2 class="step-title" id="8" data-text="Clean up" tabindex="-1">
+              9. Clean up
+          </h2>
+          
+          <p>To avoid incurring charges to your Google Cloud account for the resources used in this codelab, follow these steps:</p>
+<ol type="1">
+<li>In the Google Cloud console, go to the  <a href="https://console.cloud.google.com/iam-admin/projects?_ga=2.137741431.690084714.1674832835-1977883585.1670853686" target="_blank">Manage resources</a> page.</li>
+<li>In the project list, select the project that you want to delete, and then click <strong>Delete</strong>.</li>
+<li>In the dialog, type the project ID, and then click <strong>Shut down</strong> to delete the project.</li>
+<li>Alternatively you can go to  <a href="https://console.cloud.google.com/run" target="_blank">Cloud Run</a> on the console, select the service you just deployed and delete.</li>
+</ol>
+
+
+        </google-codelab-step>
+      
+        <google-codelab-step label="Congratulations" duration="0" step="9">
+          
+          <h2 class="step-title" id="9" data-text="Congratulations" tabindex="-1">
+              10. Congratulations
+          </h2>
+          
+          <p>Congratulations! You have successfully built a quick out of the box RAG system using the state of art models powered by Google and to provide Google quality results to your search queries. This codelab is for demonstration purposes only, more security and guardrails have to be set up for production use cases. The link to the complete repository is here. By leveraging Google Cloud and with just 5 steps, we can generate an end-to-end RAG system that can serve you with Google quality results out of the box in a few minutes. As generative AI and large language models evolve, building such RAG systems also helps us from avoiding the pitfalls of hallucination and non cited information being surfaced.</p>
+<p>While this is just a starting point, we can do wonders with the completely customizable DIY RAG APIs which provides you with even more transparency, power and efficiency to handle every part of the pipeline process effectively.</p>
+
+
+        </google-codelab-step>
+      
+    </google-codelab>
+  
+  
+
+  
+</div>
+
+  
+    
+    
+    
+  
+
+  <div class="devsite-floating-action-buttons"></div></article>
+
+
+<devsite-content-footer class="nocontent" data-nosnippet>
+  <p>Except as otherwise noted, the content of this page is licensed under the <a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 License</a>, and code samples are licensed under the <a href="https://www.apache.org/licenses/LICENSE-2.0">Apache 2.0 License</a>. For details, see the <a href="https://developers.google.com/site-policies">Google Developers Site Policies</a>. Java is a registered trademark of Oracle and/or its affiliates.</p>
+  
+</devsite-content-footer>
+
+
+<devsite-notification
+>
+</devsite-notification>
+
+
+  
+<div class="devsite-content-data">
+  
+  
+    <template class="devsite-content-data-template">
+      [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Missing the information I need","missingTheInformationINeed","thumb-down"],["Too complicated / too many steps","tooComplicatedTooManySteps","thumb-down"],["Out of date","outOfDate","thumb-down"],["Samples / code issue","samplesCodeIssue","thumb-down"],["Other","otherDown","thumb-down"]],[],[],[]]
+    </template>
+  
+</div>
+            
+          </devsite-content>
+        </main>
+        <devsite-footer-promos class="devsite-footer">
+          
+            
+          
+        </devsite-footer-promos>
+        <devsite-footer-linkboxes class="devsite-footer">
+          
+            
+<nav class="devsite-footer-linkboxes nocontent"
+     aria-label="Footer links"
+     data-nosnippet>
+  
+  <ul class="devsite-footer-linkboxes-list">
+    
+    <li class="devsite-footer-linkbox ">
+    <h3 class="devsite-footer-linkbox-heading no-link">Connect</h3>
+      <ul class="devsite-footer-linkbox-list">
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//googledevelopers.blogspot.com"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 1)"
+            >
+            
+          
+            Blog
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//www.facebook.com/Google-Developers-967415219957038"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 2)"
+            >
+            
+          
+            Facebook
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//medium.com/google-developers"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 3)"
+            >
+            
+          
+            Medium
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//twitter.com/googledevs"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 4)"
+            >
+            
+          
+            Twitter
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//www.youtube.com/user/GoogleDevelopers"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 5)"
+            >
+            
+              
+              
+            
+          
+            YouTube
+          
+          </a>
+          
+          
+        </li>
+        
+      </ul>
+    </li>
+    
+    <li class="devsite-footer-linkbox ">
+    <h3 class="devsite-footer-linkbox-heading no-link">Programs</h3>
+      <ul class="devsite-footer-linkbox-list">
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//www.womentechmakers.com"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 1)"
+            >
+            
+          
+            Women Techmakers
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//developers.google.com/community/gdg"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 2)"
+            >
+            
+          
+            Google Developer Groups
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//developers.google.com/community/experts"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 3)"
+            >
+            
+          
+            Google Developer Experts
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//developers.google.com/community/accelerators"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 4)"
+            >
+            
+              
+              
+            
+          
+            Accelerators
+          
+          </a>
+          
+          
+        </li>
+        
+      </ul>
+    </li>
+    
+    <li class="devsite-footer-linkbox ">
+    <h3 class="devsite-footer-linkbox-heading no-link">Developer consoles</h3>
+      <ul class="devsite-footer-linkbox-list">
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//console.developers.google.com"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 1)"
+            >
+            
+          
+            Google API Console
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//console.cloud.google.com"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 2)"
+            >
+            
+          
+            Google Cloud Platform Console
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//play.google.com/apps/publish"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 3)"
+            >
+            
+          
+            Google Play Console
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//console.firebase.google.com"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 4)"
+            >
+            
+          
+            Firebase Console
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//console.actions.google.com"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 5)"
+            >
+            
+          
+            Actions on Google Console
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//cast.google.com/publish"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 6)"
+            >
+            
+          
+            Cast SDK Developer Console
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//chrome.google.com/webstore/developer/dashboard"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 7)"
+            >
+            
+              
+              
+            
+          
+            Chrome Web Store Dashboard
+          
+          </a>
+          
+          
+        </li>
+        
+      </ul>
+    </li>
+    
+  </ul>
+  
+</nav>
+          
+        </devsite-footer-linkboxes>
+        <devsite-footer-utility class="devsite-footer">
+          
+            
+
+<div class="devsite-footer-utility nocontent" data-nosnippet>
+  
+  
+  <nav class="devsite-footer-sites" aria-label="Other Google Developers websites">
+    <a href="https://developers.google.com/"
+       class="devsite-footer-sites-logo-link gc-analytics-event"
+       data-category="Site-Wide Custom Events"
+       data-label="Footer Google Developers Link">
+      <picture>
+        
+        <img class="devsite-footer-sites-logo"
+             src="https://www.gstatic.com/devrel-devsite/prod/vb08cbdb02acf7f66ad9727ddfba9d81df8806422eb5dd63dba194c9c8c7997f7/codelabs/images/lockup-google-for-developers.svg"
+             loading="lazy"
+             alt="Google Developers">
+      </picture>
+    </a>
+    <ul class="devsite-footer-sites-list">
+      
+      <li class="devsite-footer-sites-item">
+        <a href="//developer.android.com"
+           class="devsite-footer-sites-link
+                  gc-analytics-event"
+           data-category="Site-Wide Custom Events"
+         
+           data-label="Footer Android Link"
+         
+         >
+          Android
+        </a>
+      </li>
+      
+      <li class="devsite-footer-sites-item">
+        <a href="//developer.chrome.com/home"
+           class="devsite-footer-sites-link
+                  gc-analytics-event"
+           data-category="Site-Wide Custom Events"
+         
+           data-label="Footer Chrome Link"
+         
+         >
+          Chrome
+        </a>
+      </li>
+      
+      <li class="devsite-footer-sites-item">
+        <a href="//firebase.google.com"
+           class="devsite-footer-sites-link
+                  gc-analytics-event"
+           data-category="Site-Wide Custom Events"
+         
+           data-label="Footer Firebase Link"
+         
+         >
+          Firebase
+        </a>
+      </li>
+      
+      <li class="devsite-footer-sites-item">
+        <a href="//cloud.google.com"
+           class="devsite-footer-sites-link
+                  gc-analytics-event"
+           data-category="Site-Wide Custom Events"
+         
+           data-label="Footer Google Cloud Platform Link"
+         
+         >
+          Google Cloud Platform
+        </a>
+      </li>
+      
+      <li class="devsite-footer-sites-item">
+        <a href="//developers.google.com/products"
+           class="devsite-footer-sites-link
+                  gc-analytics-event"
+           data-category="Site-Wide Custom Events"
+         
+           data-label="Footer All products Link"
+         
+         >
+          All products
+        </a>
+      </li>
+      
+    </ul>
+  </nav>
+  
+
+  
+  <nav class="devsite-footer-utility-links" aria-label="Utility links">
+    
+    <ul class="devsite-footer-utility-list">
+      
+      <li class="devsite-footer-utility-item
+                 ">
+        
+        
+        <a class="devsite-footer-utility-link gc-analytics-event"
+           href="//developers.google.com/terms/site-terms"
+           data-category="Site-Wide Custom Events"
+           data-label="Footer Terms link"
+         >
+          Terms
+        </a>
+        
+      </li>
+      
+      <li class="devsite-footer-utility-item
+                 ">
+        
+        
+        <a class="devsite-footer-utility-link gc-analytics-event"
+           href="//policies.google.com/privacy"
+           data-category="Site-Wide Custom Events"
+           data-label="Footer Privacy link"
+         >
+          Privacy
+        </a>
+        
+      </li>
+      
+      <li class="devsite-footer-utility-item
+                 glue-cookie-notification-bar-control">
+        
+        
+        <a class="devsite-footer-utility-link gc-analytics-event"
+           href="#"
+           data-category="Site-Wide Custom Events"
+           data-label="Footer Manage cookies link"
+         
+           aria-hidden="true"
+         >
+          Manage cookies
+        </a>
+        
+      </li>
+      
+      <li class="devsite-footer-utility-item
+                 devsite-footer-utility-button">
+        
+        <span class="devsite-footer-utility-description">Sign up for the Google Developers newsletter</span>
+        
+        
+        <a class="devsite-footer-utility-link gc-analytics-event"
+           href="//services.google.com/fb/forms/googledevelopersnewsletter/?utm_medium=referral&amp;utm_source=google-products&amp;utm_team=googledevs&amp;utm_campaign=201611-newsletter-launch"
+           data-category="Site-Wide Custom Events"
+           data-label="Footer Subscribe link"
+         >
+          Subscribe
+        </a>
+        
+      </li>
+      
+    </ul>
+    
+    
+<devsite-language-selector>
+  <ul role="presentation">
+    
+    
+    <li role="presentation">
+      <a role="menuitem" lang="en"
+        >English</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="de"
+        >Deutsch</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="es"
+        >Español</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="es_419"
+        >Español – América Latina</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="fr"
+        >Français</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="id"
+        >Indonesia</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="it"
+        >Italiano</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="pl"
+        >Polski</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="pt_br"
+        >Português – Brasil</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="vi"
+        >Tiếng Việt</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="tr"
+        >Türkçe</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="ru"
+        >Русский</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="he"
+        >עברית</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="ar"
+        >العربيّة</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="fa"
+        >فارسی</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="hi"
+        >हिंदी</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="bn"
+        >বাংলা</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="th"
+        >ภาษาไทย</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="zh_cn"
+        >中文 – 简体</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="zh_tw"
+        >中文 – 繁體</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="ja"
+        >日本語</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="ko"
+        >한국어</a>
+    </li>
+    
+  </ul>
+</devsite-language-selector>
+
+  </nav>
+</div>
+          
+        </devsite-footer-utility>
+        <devsite-panel>
+          
+        </devsite-panel>
+        
+      </section>
+      </section>
+    <devsite-sitemask></devsite-sitemask>
+    <devsite-snackbar></devsite-snackbar>
+    <devsite-tooltip ></devsite-tooltip>
+    <devsite-heading-link></devsite-heading-link>
+    <devsite-analytics>
+      
+        <script type="application/json" analytics>[]</script>
+<script type="application/json" tag-management>{&#34;at&#34;: &#34;True&#34;, &#34;ga4&#34;: [], &#34;ga4p&#34;: [], &#34;gtm&#34;: [], &#34;parameters&#34;: {&#34;internalUser&#34;: &#34;False&#34;, &#34;language&#34;: {&#34;machineTranslated&#34;: &#34;False&#34;, &#34;requested&#34;: &#34;en&#34;, &#34;served&#34;: &#34;en&#34;}, &#34;pageType&#34;: &#34;codelab&#34;, &#34;projectName&#34;: null, &#34;signedIn&#34;: &#34;False&#34;, &#34;tenant&#34;: &#34;codelabs&#34;, &#34;recommendations&#34;: {&#34;sourcePage&#34;: &#34;&#34;, &#34;sourceType&#34;: 0, &#34;sourceRank&#34;: 0, &#34;sourceIdenticalDescriptions&#34;: 0, &#34;sourceTitleWords&#34;: 0, &#34;sourceDescriptionWords&#34;: 0, &#34;experiment&#34;: &#34;&#34;}, &#34;experiment&#34;: {&#34;ids&#34;: &#34;&#34;}}}</script>
+      
+    </devsite-analytics>
+    
+      <devsite-badger></devsite-badger>
+    
+    
+    
+    
+<script nonce="Eg6i3F/IHxUcb4XXOP7FrymvWMi4JK">
+  
+  (function(d,e,v,s,i,t,E){d['GoogleDevelopersObject']=i;
+    t=e.createElement(v);t.async=1;t.src=s;E=e.getElementsByTagName(v)[0];
+    E.parentNode.insertBefore(t,E);})(window, document, 'script',
+    'https://www.gstatic.com/devrel-devsite/prod/vb08cbdb02acf7f66ad9727ddfba9d81df8806422eb5dd63dba194c9c8c7997f7/codelabs/js/app_loader.js', '[17,"en",null,"/js/devsite_app_module.js","https://www.gstatic.com/devrel-devsite/prod/vb08cbdb02acf7f66ad9727ddfba9d81df8806422eb5dd63dba194c9c8c7997f7","https://www.gstatic.com/devrel-devsite/prod/vb08cbdb02acf7f66ad9727ddfba9d81df8806422eb5dd63dba194c9c8c7997f7/codelabs","https://codelabs-dot-devsite-v2-prod.appspot.com",1,null,["/_pwa/codelabs/manifest.json","https://www.gstatic.com/devrel-devsite/prod/vb08cbdb02acf7f66ad9727ddfba9d81df8806422eb5dd63dba194c9c8c7997f7/images/video-placeholder.svg","https://www.gstatic.com/devrel-devsite/prod/vb08cbdb02acf7f66ad9727ddfba9d81df8806422eb5dd63dba194c9c8c7997f7/codelabs/images/favicon.png","https://www.gstatic.com/devrel-devsite/prod/vb08cbdb02acf7f66ad9727ddfba9d81df8806422eb5dd63dba194c9c8c7997f7/codelabs/images/lockup.svg","https://fonts.googleapis.com/css?family=Google+Sans:400,500|Roboto:400,400italic,500,500italic,700,700italic|Roboto+Mono:400,500,700&display=swap"],1,null,[1,6,8,12,14,17,21,25,50,52,63,70,75,76,80,87,91,92,93,97,98,100,101,102,103,104,105,107,108,109,110,112,113,117,118,120,122,124,125,126,127,129,130,131,132,133,134,135,136,138,140,141,147,148,149,151,152,156,157,158,159,161,163,164,168,169,170,179,180,182,183,186,191,193,196],"AIzaSyAP-jjEJBzmIyKR4F-3XITp8yM9T1gEEI8","AIzaSyB6xiKGDR5O3Ak2okS4rLkauxGUG7XP0hg","codelabs.developers.google.com","AIzaSyAQk0fBONSGUqCNznf6Krs82Ap1-NV6J4o","AIzaSyCCxcqdrZ_7QMeLCRY20bh_SXdAYqy70KY",null,null,null,["Cloud__enable_cloudx_experiment_ids","CloudShell__cloud_code_overflow_menu","Profiles__enable_complete_playlist_endpoint","Cloud__enable_legacy_calculator_redirect","DevPro__enable_firebase_workspaces_card","MiscFeatureFlags__enable_appearance_cookies","Search__enable_ai_eligibility_checks","MiscFeatureFlags__enable_framebox_badge_methods","DevPro__enable_enterprise","MiscFeatureFlags__gdp_dashboard_reskin_enabled","Profiles__enable_targeted_hero","DevPro__enable_nvidia_credits_card","Experiments__reqs_query_experiments","DevPro__enable_developer_subscriptions","DevPro__enable_code_assist","Profiles__enable_release_notes_notifications","Profiles__enable_recognition_badges","CloudShell__cloud_shell_button","Profiles__enable_awarding_url","EngEduTelemetry__enable_engedu_telemetry","DevPro__enable_payments_first_batch","Cloud__enable_llm_concierge_chat","Profiles__enable_public_developer_profiles","MiscFeatureFlags__enable_variable_operator","Cloud__enable_cloud_shell_fte_user_flow","Profiles__enable_completecodelab_endpoint","MiscFeatureFlags__enable_firebase_utm","Profiles__enable_developer_profile_pages_as_content","DevPro__enable_free_benefits","TpcFeatures__enable_unmirrored_page_left_nav","Profiles__enable_stripe_subscription_management","Profiles__enable_auto_apply_credits","MiscFeatureFlags__developers_footer_dark_image","DevPro__enable_embed_profile_creation","MiscFeatureFlags__enable_view_transitions","SignIn__enable_l1_signup_flow","Profiles__require_profile_eligibility_for_signin","Profiles__enable_completequiz_endpoint","MiscFeatureFlags__fix_lower_breadcrumbs","DevPro__remove_eu_tax_intake_form","Profiles__enable_dashboard_curated_recommendations","Analytics__enable_clearcut_logging","DevPro__enable_google_payments_buyflow","DevPro__enable_credits_banner","MiscFeatureFlags__enable_variable_operator_index_yaml","Cloud__cache_serialized_dynamic_content","Profiles__enable_developer_profiles_callout","DevPro__enable_cloud_innovators_plus","Search__enable_ai_search_summaries_for_all","DevPro__enable_devsite_captcha","Search__enable_dynamic_content_confidential_banner","MiscFeatureFlags__enable_project_variables","Profiles__enable_purchase_prompts","MiscFeatureFlags__remove_cross_domain_tracking_params","BookNav__enable_tenant_cache_key","DevPro__enable_google_one_card","Profiles__enable_callout_notifications","DevPro__enable_devpro_offers","Search__enable_suggestions_from_borg","Cloud__enable_free_trial_server_call","DevPro__enable_vertex_credit_card","Profiles__enable_user_type","Analytics__enable_devpro_interaction_logging","Cloud__enable_cloud_shell","Search__enable_page_map","DevPro__enable_g1_integration","Profiles__enable_developer_profile_benefits_ui_redesign","MiscFeatureFlags__enable_explicit_template_dependencies","MiscFeatureFlags__developers_footer_image","Profiles__enable_page_saving","Cloud__enable_cloud_dlp_service","Profiles__enable_profile_collections","TpcFeatures__proxy_prod_host","Concierge__enable_pushui","MiscFeatureFlags__enable_explain_this_code","Profiles__enable_join_program_group_endpoint","Concierge__enable_remove_info_panel_tags","Cloud__fast_free_trial","Profiles__enable_playlist_community_acl","Concierge__enable_actions_menu"],null,null,"AIzaSyBLEMok-5suZ67qRPzx0qUtbnLmyT_kCVE","https://developerscontentserving-pa.clients6.google.com","AIzaSyCM4QpTRSqP5qI4Dvjt4OAScIN8sOUlO-k","https://developerscontentsearch-pa.clients6.google.com",1,4,null,"https://developerprofiles-pa.clients6.google.com",[17,"codelabs","Google Codelabs","codelabs.developers.google.com",null,"codelabs-dot-devsite-v2-prod.appspot.com",null,null,[null,1,null,null,null,null,null,null,null,null,null,[1],null,null,null,null,null,null,[1],null,null,null,null,[1],null,null,null,null,null,null,[1]],null,[33,null,null,null,null,null,"/images/lockup.svg",null,null,null,null,1,1,null,null,null,null,null,null,null,null,1,null,null,null,null,[]],[],null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,[6,1,14,15,20,22,23,29,32,36],null,[[],[1,1]],[[null,null,null,null,null,null,null,null,null,null,null,null,1]],null,4],null,"pk_live_5170syrHvgGVmSx9sBrnWtA5luvk9BwnVcvIi7HizpwauFG96WedXsuXh790rtij9AmGllqPtMLfhe2RSwD6Pn38V00uBCydV4m",1,1,"https://developerscontentinsights-pa.clients6.google.com","AIzaSyCg-ZUslalsEbXMfIo9ZP8qufZgo3LSBDU","AIzaSyDxT0vkxnY_KeINtA4LSePJO-4MAZPMRsE","https://developers.clients6.google.com",null,null,"AIzaSyBQom12tzI-rybN7Sf-KfeL4nwm-Rf7PmI\n",null,null,"https://developers.googleapis.com"]')
+  
+</script>
+
+    <devsite-a11y-announce></devsite-a11y-announce>
+  </body>
+</html>

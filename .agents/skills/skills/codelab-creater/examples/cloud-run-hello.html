@@ -1,0 +1,1506 @@
+
+
+
+
+
+
+
+
+
+<!doctype html>
+<html 
+      lang="en"
+      dir="ltr">
+  <head>
+    <meta name="google-signin-client-id" content="721724668570-nbkv1cfusk7kk4eni4pjvepaus73b13t.apps.googleusercontent.com"><meta name="google-signin-scope"
+          content="profile email https://www.googleapis.com/auth/developerprofiles https://www.googleapis.com/auth/developerprofiles.award https://www.googleapis.com/auth/devprofiles.full_control.firstparty"><meta property="og:site_name" content="Google Codelabs">
+    <meta property="og:type" content="website"><meta name="theme-color" content="#1a73e8"><meta charset="utf-8">
+    <meta content="IE=Edge" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+
+    <link rel="manifest" href="/_pwa/codelabs/manifest.json"
+          crossorigin="use-credentials">
+    <link rel="preconnect" href="//www.gstatic.com" crossorigin>
+    <link rel="preconnect" href="//fonts.googleapis.com" crossorigin>
+    <link rel="preconnect" href="//www.google-analytics.com" crossorigin><link rel="stylesheet" href="//fonts.googleapis.com/css?family=Google+Sans:400,500|Roboto:400,400italic,500,500italic,700,700italic|Roboto+Mono:400,500,700&display=swap">
+      <link rel="stylesheet"
+            href="//fonts.googleapis.com/css2?family=Material+Icons&family=Material+Symbols+Outlined&display=block"><link rel="stylesheet" href="https://www.gstatic.com/devrel-devsite/prod/vb08cbdb02acf7f66ad9727ddfba9d81df8806422eb5dd63dba194c9c8c7997f7/codelabs/css/app.css">
+      <link rel="shortcut icon" href="https://www.gstatic.com/devrel-devsite/prod/vb08cbdb02acf7f66ad9727ddfba9d81df8806422eb5dd63dba194c9c8c7997f7/codelabs/images/favicon.png">
+    <link rel="apple-touch-icon" href="https://www.gstatic.com/devrel-devsite/prod/vb08cbdb02acf7f66ad9727ddfba9d81df8806422eb5dd63dba194c9c8c7997f7/codelabs/images/touchicon-180.png"><link rel="canonical" href="https://codelabs.developers.google.com/codelabs/cloud-run-hello"><link rel="search" type="application/opensearchdescription+xml"
+            title="Google Codelabs" href="https://codelabs.developers.google.com/s/opensearch.xml">
+      <link rel="alternate" hreflang="en"
+          href="https://codelabs.developers.google.com/codelabs/cloud-run-hello" /><link rel="alternate" hreflang="x-default" href="https://codelabs.developers.google.com/codelabs/cloud-run-hello" /><link rel="alternate" hreflang="ar"
+          href="https://codelabs.developers.google.com/codelabs/cloud-run-hello?hl=ar" /><link rel="alternate" hreflang="bn"
+          href="https://codelabs.developers.google.com/codelabs/cloud-run-hello?hl=bn" /><link rel="alternate" hreflang="zh-Hans"
+          href="https://codelabs.developers.google.com/codelabs/cloud-run-hello?hl=zh-cn" /><link rel="alternate" hreflang="zh-Hant"
+          href="https://codelabs.developers.google.com/codelabs/cloud-run-hello?hl=zh-tw" /><link rel="alternate" hreflang="fa"
+          href="https://codelabs.developers.google.com/codelabs/cloud-run-hello?hl=fa" /><link rel="alternate" hreflang="fr"
+          href="https://codelabs.developers.google.com/codelabs/cloud-run-hello?hl=fr" /><link rel="alternate" hreflang="de"
+          href="https://codelabs.developers.google.com/codelabs/cloud-run-hello?hl=de" /><link rel="alternate" hreflang="he"
+          href="https://codelabs.developers.google.com/codelabs/cloud-run-hello?hl=he" /><link rel="alternate" hreflang="hi"
+          href="https://codelabs.developers.google.com/codelabs/cloud-run-hello?hl=hi" /><link rel="alternate" hreflang="id"
+          href="https://codelabs.developers.google.com/codelabs/cloud-run-hello?hl=id" /><link rel="alternate" hreflang="it"
+          href="https://codelabs.developers.google.com/codelabs/cloud-run-hello?hl=it" /><link rel="alternate" hreflang="ja"
+          href="https://codelabs.developers.google.com/codelabs/cloud-run-hello?hl=ja" /><link rel="alternate" hreflang="ko"
+          href="https://codelabs.developers.google.com/codelabs/cloud-run-hello?hl=ko" /><link rel="alternate" hreflang="pl"
+          href="https://codelabs.developers.google.com/codelabs/cloud-run-hello?hl=pl" /><link rel="alternate" hreflang="pt-BR"
+          href="https://codelabs.developers.google.com/codelabs/cloud-run-hello?hl=pt-br" /><link rel="alternate" hreflang="ru"
+          href="https://codelabs.developers.google.com/codelabs/cloud-run-hello?hl=ru" /><link rel="alternate" hreflang="es-419"
+          href="https://codelabs.developers.google.com/codelabs/cloud-run-hello?hl=es-419" /><link rel="alternate" hreflang="th"
+          href="https://codelabs.developers.google.com/codelabs/cloud-run-hello?hl=th" /><link rel="alternate" hreflang="tr"
+          href="https://codelabs.developers.google.com/codelabs/cloud-run-hello?hl=tr" /><link rel="alternate" hreflang="vi"
+          href="https://codelabs.developers.google.com/codelabs/cloud-run-hello?hl=vi" /><title>Deploy and run a container with Cloud Run on Node.js &nbsp;|&nbsp; Google Codelabs</title>
+
+<meta property="og:title" content="Deploy and run a container with Cloud Run on Node.js &nbsp;|&nbsp; Google Codelabs"><meta name="description" content="Learn to deploy and run a container with Cloud Run on Node.js.">
+  <meta property="og:description" content="Learn to deploy and run a container with Cloud Run on Node.js."><meta property="og:url" content="https://codelabs.developers.google.com/codelabs/cloud-run-hello"><meta property="og:locale" content="en">
+  
+    
+    
+    
+    
+    
+    
+    
+    
+  
+
+    </head>
+  <body class="color-scheme--light"
+        template="codelab"
+        theme="codelabs-theme"
+        type="codelab"
+        
+        
+        
+        layout="docs"
+        
+        
+        
+        
+        
+        display-toc
+        pending>
+  
+    <devsite-progress type="indeterminate" id="app-progress"></devsite-progress>
+  
+  
+    <a href="#main-content" class="skip-link button">
+      
+      Skip to main content
+    </a>
+    <section class="devsite-wrapper">
+      <devsite-cookie-notification-bar></devsite-cookie-notification-bar>
+        <devsite-header role="banner">
+  
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="devsite-header--inner" data-nosnippet>
+  <div class="devsite-top-logo-row-wrapper-wrapper">
+    <div class="devsite-top-logo-row-wrapper">
+      <div class="devsite-top-logo-row">
+        <button type="button" id="devsite-hamburger-menu"
+          class="devsite-header-icon-button button-flat material-icons gc-analytics-event"
+          data-category="Site-Wide Custom Events"
+          data-label="Navigation menu button"
+          visually-hidden
+          aria-label="Open menu">
+        </button>
+        
+<div class="devsite-product-name-wrapper">
+
+  <a href="/" class="devsite-site-logo-link gc-analytics-event"
+   data-category="Site-Wide Custom Events" data-label="Site logo" track-type="globalNav"
+   track-name="googleCodelabs" track-metadata-position="nav"
+   track-metadata-eventDetail="nav">
+  
+  <picture>
+    
+    <img src="https://www.gstatic.com/devrel-devsite/prod/vb08cbdb02acf7f66ad9727ddfba9d81df8806422eb5dd63dba194c9c8c7997f7/codelabs/images/lockup.svg" class="devsite-site-logo" alt="Google Codelabs">
+  </picture>
+  
+</a>
+
+
+
+</div>
+        <div class="devsite-top-logo-row-middle">
+          <div class="devsite-header-upper-tabs">
+            
+           </div>
+          
+<devsite-search
+    enable-signin
+    enable-search
+    enable-suggestions
+      enable-query-completion
+    
+    enable-search-summaries
+    
+    tenant-name="Google Codelabs"
+    
+    
+    
+    
+    
+    >
+  <form class="devsite-search-form" action="https://codelabs.developers.google.com/s/results" method="GET">
+    <div class="devsite-search-container">
+      <button type="button"
+              search-open
+              class="devsite-search-button devsite-header-icon-button button-flat material-icons"
+              
+              aria-label="Open search"></button>
+      <div class="devsite-searchbox">
+        <input
+          aria-activedescendant=""
+          aria-autocomplete="list"
+          
+          aria-label="Search"
+          aria-expanded="false"
+          aria-haspopup="listbox"
+          autocomplete="off"
+          class="devsite-search-field devsite-search-query"
+          name="q"
+          
+          placeholder="Search"
+          role="combobox"
+          type="text"
+          value=""
+          >
+          <div class="devsite-search-image material-icons" aria-hidden="true">
+            
+              <svg class="devsite-search-ai-image" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <g clip-path="url(#clip0_6641_386)">
+                    <path d="M19.6 21L13.3 14.7C12.8 15.1 12.225 15.4167 11.575 15.65C10.925 15.8833 10.2333 16 9.5 16C7.68333 16 6.14167 15.375 4.875 14.125C3.625 12.8583 3 11.3167 3 9.5C3 7.68333 3.625 6.15 4.875 4.9C6.14167 3.63333 7.68333 3 9.5 3C10.0167 3 10.5167 3.05833 11 3.175C11.4833 3.275 11.9417 3.43333 12.375 3.65L10.825 5.2C10.6083 5.13333 10.3917 5.08333 10.175 5.05C9.95833 5.01667 9.73333 5 9.5 5C8.25 5 7.18333 5.44167 6.3 6.325C5.43333 7.19167 5 8.25 5 9.5C5 10.75 5.43333 11.8167 6.3 12.7C7.18333 13.5667 8.25 14 9.5 14C10.6667 14 11.6667 13.625 12.5 12.875C13.35 12.1083 13.8417 11.15 13.975 10H15.975C15.925 10.6333 15.7833 11.2333 15.55 11.8C15.3333 12.3667 15.05 12.8667 14.7 13.3L21 19.6L19.6 21ZM17.5 12C17.5 10.4667 16.9667 9.16667 15.9 8.1C14.8333 7.03333 13.5333 6.5 12 6.5C13.5333 6.5 14.8333 5.96667 15.9 4.9C16.9667 3.83333 17.5 2.53333 17.5 0.999999C17.5 2.53333 18.0333 3.83333 19.1 4.9C20.1667 5.96667 21.4667 6.5 23 6.5C21.4667 6.5 20.1667 7.03333 19.1 8.1C18.0333 9.16667 17.5 10.4667 17.5 12Z" fill="#5F6368"/>
+                  </g>
+                <defs>
+                <clipPath id="clip0_6641_386">
+                <rect width="24" height="24" fill="white"/>
+                </clipPath>
+                </defs>
+              </svg>
+            
+          </div>
+          <div class="devsite-search-shortcut-icon-container" aria-hidden="true">
+            <kbd class="devsite-search-shortcut-icon">/</kbd>
+          </div>
+      </div>
+    </div>
+  </form>
+  <button type="button"
+          search-close
+          class="devsite-search-button devsite-header-icon-button button-flat material-icons"
+          
+          aria-label="Close search"></button>
+</devsite-search>
+
+        </div>
+
+        
+
+          
+
+          
+
+          
+
+          
+
+          
+<devsite-language-selector>
+  <ul role="presentation">
+    
+    
+    <li role="presentation">
+      <a role="menuitem" lang="en"
+        >English</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="de"
+        >Deutsch</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="es"
+        >Español</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="es_419"
+        >Español – América Latina</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="fr"
+        >Français</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="id"
+        >Indonesia</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="it"
+        >Italiano</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="pl"
+        >Polski</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="pt_br"
+        >Português – Brasil</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="vi"
+        >Tiếng Việt</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="tr"
+        >Türkçe</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="ru"
+        >Русский</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="he"
+        >עברית</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="ar"
+        >العربيّة</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="fa"
+        >فارسی</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="hi"
+        >हिंदी</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="bn"
+        >বাংলা</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="th"
+        >ภาษาไทย</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="zh_cn"
+        >中文 – 简体</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="zh_tw"
+        >中文 – 繁體</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="ja"
+        >日本語</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="ko"
+        >한국어</a>
+    </li>
+    
+  </ul>
+</devsite-language-selector>
+
+
+          
+
+        
+
+        
+          <devsite-user 
+                        
+                        
+                          enable-profiles
+                        
+                        
+                          fp-auth
+                        
+                        id="devsite-user">
+            
+              
+              <span class="button devsite-top-button" aria-hidden="true" visually-hidden>Sign in</span>
+            
+          </devsite-user>
+        
+        
+        
+      </div>
+    </div>
+  </div>
+
+
+
+</div>
+
+
+
+  
+</devsite-header>
+        <devsite-book-nav scrollbars hidden>
+          
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="devsite-book-nav-filter"
+     hidden>
+  <span class="filter-list-icon material-icons" aria-hidden="true"></span>
+  <input type="text"
+         placeholder="Filter"
+         
+         aria-label="Type to filter"
+         role="searchbox">
+  
+  <span class="filter-clear-button hidden"
+        data-title="Clear filter"
+        aria-label="Clear filter"
+        role="button"
+        tabindex="0"></span>
+</div>
+
+<nav class="devsite-book-nav devsite-nav nocontent" data-nosnippet
+     aria-label="Side menu">
+  <div class="devsite-mobile-header">
+    <button type="button"
+            id="devsite-close-nav"
+            class="devsite-header-icon-button button-flat material-icons gc-analytics-event"
+            data-category="Site-Wide Custom Events"
+            data-label="Close navigation"
+            aria-label="Close navigation">
+    </button>
+    <div class="devsite-product-name-wrapper">
+
+  <a href="/" class="devsite-site-logo-link gc-analytics-event"
+   data-category="Site-Wide Custom Events" data-label="Site logo" track-type="globalNav"
+   track-name="googleCodelabs" track-metadata-position="nav"
+   track-metadata-eventDetail="nav">
+  
+  <picture>
+    
+    <img src="https://www.gstatic.com/devrel-devsite/prod/vb08cbdb02acf7f66ad9727ddfba9d81df8806422eb5dd63dba194c9c8c7997f7/codelabs/images/lockup.svg" class="devsite-site-logo" alt="Google Codelabs">
+  </picture>
+  
+</a>
+
+
+</div>
+  </div>
+
+  <div class="devsite-book-nav-wrapper">
+    <div class="devsite-mobile-nav-top">
+      
+        <ul class="devsite-nav-list">
+          
+          
+          
+        </ul>
+      
+    </div>
+    
+  </div>
+</nav>
+          
+        </devsite-book-nav>
+      
+      <section id="gc-wrapper">
+        <main role="main" id="main-content" class="devsite-main-content"
+            
+              
+              has-sidebar
+            >
+          <div class="devsite-sidebar">
+            <div class="devsite-sidebar-content">
+                
+                <devsite-toc class="devsite-nav"
+                            role="navigation"
+                            aria-label="On this page"
+                            depth="1"
+                            scrollbars
+                            data-nosnippet
+                  ></devsite-toc>
+                <devsite-recommendations-sidebar class="nocontent devsite-nav" data-nosnippet>
+                </devsite-recommendations-sidebar>
+            </div>
+          </div>
+          <devsite-content>
+            
+              
+
+
+
+
+
+
+
+
+
+
+<article class="devsite-article"><style>
+      body {
+        transition: opacity ease-in 0.2s;
+      }
+
+      body[unresolved] {
+        opacity: 0;
+        display: block;
+        overflow: hidden;
+        position: relative;
+      }
+      </style>
+  
+  
+  
+  
+  
+
+  <div class="devsite-article-meta nocontent" role="navigation" data-nosnippet>
+    
+    
+    <ul class="devsite-breadcrumb-list"
+  >
+  
+</ul>
+    
+  </div>
+  
+    <h1 class="devsite-page-title" tabindex="-1">
+      Deploy and run a container with Cloud Run on Node.js<devsite-actions hidden data-nosnippet></devsite-actions>
+  
+      
+    </h1>
+  
+
+  <devsite-toc class="devsite-nav"
+    depth="1"
+    devsite-toc-embedded
+    >
+  </devsite-toc>
+  
+    
+  <div class="devsite-article-body clearfix
+  ">
+
+  
+    
+    
+    <google-codelab-analytics gaid="UA-49880327-14" ga4id="G-JTFZSJVVVZ"></google-codelab-analytics>
+    <google-codelab codelab-gaid="UA-66226300-1"
+                    codelab-ga4id=""
+                    doc-id=""
+                    id="cloud-run-hello"
+                    title="Deploy and run a container with Cloud Run on Node.js"
+                    no-tooltip=""
+                    environment="web"
+                    category="cloud,run,serverless"
+                    feedback-link=""
+                    layout="paginated"
+                    >
+      
+        <google-codelab-step label="Before you begin" duration="2" step="0">
+          
+            <google-codelab-about codelab-title="Deploy and run a container with Cloud Run on Node.js"
+                                  
+                                  last-updated="2026-03-20T17:30:16Z"
+                                  duration="18">
+            </google-codelab-about>
+          
+          <h2 class="step-title" id="0" data-text="Before you begin" tabindex="-1">
+              1. Before you begin
+          </h2>
+          
+          <p class="image-container"><img alt="6a5cf23c8e20491f.png" style="width: 60.10px" src="/static/codelabs/cloud-run-hello/img/6a5cf23c8e20491f.png" srcset="https://codelabs.developers.google.com/static/codelabs/cloud-run-hello/img/6a5cf23c8e20491f_36.png 36w,https://codelabs.developers.google.com/static/codelabs/cloud-run-hello/img/6a5cf23c8e20491f_48.png 48w,https://codelabs.developers.google.com/static/codelabs/cloud-run-hello/img/6a5cf23c8e20491f_72.png 72w,https://codelabs.developers.google.com/static/codelabs/cloud-run-hello/img/6a5cf23c8e20491f_96.png 96w,https://codelabs.developers.google.com/static/codelabs/cloud-run-hello/img/6a5cf23c8e20491f_480.png 480w,https://codelabs.developers.google.com/static/codelabs/cloud-run-hello/img/6a5cf23c8e20491f_720.png 720w,https://codelabs.developers.google.com/static/codelabs/cloud-run-hello/img/6a5cf23c8e20491f_856.png 856w,https://codelabs.developers.google.com/static/codelabs/cloud-run-hello/img/6a5cf23c8e20491f_960.png 960w,https://codelabs.developers.google.com/static/codelabs/cloud-run-hello/img/6a5cf23c8e20491f_1440.png 1440w,https://codelabs.developers.google.com/static/codelabs/cloud-run-hello/img/6a5cf23c8e20491f_1920.png 1920w,https://codelabs.developers.google.com/static/codelabs/cloud-run-hello/img/6a5cf23c8e20491f_2880.png 2880w" sizes="(max-width: 840px) 100vw, 856px"></p>
+<p><a href="https://cloud.google.com/run" target="_blank">Cloud Run</a> is a managed compute platform that enables you to run stateless containers that are invocable via HTTP requests. Cloud Run is serverless; it removes the need for infrastructure management, so you can focus on what matters most—building great apps. It&#39;s built from  <a href="https://cloud.google.com/knative/" target="_blank">Knative</a>, letting you choose to run your containers with either Cloud Run (fully managed) or Cloud Run for Anthos. The goal of this codelab is for you to build a container image and deploy it to Cloud Run.</p>
+<h2 is-upgraded id="prerequisites" data-text="Prerequisites" tabindex="-1"><strong>Prerequisites</strong></h2>
+<p>N/A</p>
+
+
+        </google-codelab-step>
+      
+        <google-codelab-step label="Setup and requirements" duration="5" step="1">
+          
+          <h2 class="step-title" id="1" data-text="Setup and requirements" tabindex="-1">
+              2. Setup and requirements
+          </h2>
+          
+          <h2 is-upgraded id="self-paced-environment-setup" data-text="Self-paced environment setup" tabindex="-1"><strong>Self-paced environment setup</strong></h2>
+<ol type="1">
+<li>Sign in to  <a href="http://console.cloud.google.com" target="_blank">Cloud Console</a> and create a new project or reuse an existing one. (If you don&#39;t already have a Gmail or G Suite account, you must  <a href="https://accounts.google.com/SignUp" target="_blank">create one</a>.)</li>
+</ol>
+<aside class="special"><p><strong>Note:</strong> You can easily access Cloud Console by memorizing its URL, which is console.cloud.google.com.</p>
+</aside>
+<p class="image-container"><img alt="dMbN6g9RawQj_VXCSYpdYncY-DbaRzr2GbnwoV7jFf1u3avxJtmGPmKpMYgiaMH-qu80a_NJ9p2IIXFppYk8x3wyymZXavjglNLJJhuXieCem56H30hwXtd8PvXGpXJO9gEUDu3cZw" style="width: 452.50px" src="https://lh4.googleusercontent.com/dMbN6g9RawQj_VXCSYpdYncY-DbaRzr2GbnwoV7jFf1u3avxJtmGPmKpMYgiaMH-qu80a_NJ9p2IIXFppYk8x3wyymZXavjglNLJJhuXieCem56H30hwXtd8PvXGpXJO9gEUDu3cZw"></p>
+<p class="image-container"><img alt="ci9Oe6PgnbNuSYlMyvbXF1JdQyiHoEgnhl4PlV_MFagm2ppzhueRkqX4eLjJllZco_2zCp0V0bpTupUSKji9KkQyWqj11pqit1K1faS1V6aFxLGQdkuzGp4rsQTan7F01iePL5DtqQ" style="width: 401.24px" src="https://lh5.googleusercontent.com/ci9Oe6PgnbNuSYlMyvbXF1JdQyiHoEgnhl4PlV_MFagm2ppzhueRkqX4eLjJllZco_2zCp0V0bpTupUSKji9KkQyWqj11pqit1K1faS1V6aFxLGQdkuzGp4rsQTan7F01iePL5DtqQ"></p>
+<p class="image-container"><img alt="8-tA_Lheyo8SscAVKrGii2coplQp2_D1Iosb2ViABY0UUO1A8cimXUu6Wf1R9zJIRExL5OB2j946aIiFtyKTzxDcNnuznmR45vZ2HMoK3o67jxuoUJCAnqvEX6NgPGFjCVNgASc-lg" style="width: 392.00px" src="https://lh6.googleusercontent.com/8-tA_Lheyo8SscAVKrGii2coplQp2_D1Iosb2ViABY0UUO1A8cimXUu6Wf1R9zJIRExL5OB2j946aIiFtyKTzxDcNnuznmR45vZ2HMoK3o67jxuoUJCAnqvEX6NgPGFjCVNgASc-lg"></p>
+<p>Remember the project ID, a unique name across all Google Cloud projects (the name above has already been taken and will not work for you, sorry!). It will be referred to later in this codelab as <code translate="no" dir="ltr">PROJECT_ID</code>.</p>
+<aside class="special"><p><strong>Note:</strong> If you&#39;re using a Gmail account, you can leave the default location set to <strong>No organization</strong>. If you&#39;re using a G Suite account, then choose a location that makes sense for your organization.</p>
+</aside>
+<ol type="1" start="2">
+<li>Next, you&#39;ll need to  <a href="https://console.cloud.google.com/billing" target="_blank">enable billing</a> in Cloud Console in order to use Google Cloud resources.</li>
+</ol>
+<p>Running through this codelab shouldn&#39;t cost much, if anything at all. Be sure to to follow any instructions in the &#34;Cleaning up&#34; section which advises you how to shut down resources so you don&#39;t incur billing beyond this tutorial. New users of Google Cloud are eligible for the  <a href="http://cloud.google.com/free" target="_blank">$300USD Free Trial</a> program.</p>
+<h2 is-upgraded id="cloud-shell" data-text="Cloud Shell" tabindex="-1"><strong>Cloud Shell</strong></h2>
+<p>While Google Cloud can be operated remotely from your laptop, you&#39;ll use  <a href="https://cloud.google.com/cloud-shell/" target="_blank">Cloud Shell</a>, a command-line environment running in Google Cloud.</p>
+<p>This Debian-based virtual machine is loaded with all the development tools you&#39;ll need. It offers a persistent 5GB home directory and runs in Google Cloud, greatly enhancing network performance and authentication. This means that all you will need for this codelab is a browser (yes, it works on a Chromebook).</p>
+<ol type="1">
+<li>To activate Cloud Shell from the Cloud Console, simply click <strong>Activate Cloud Shell  </strong><img alt="fEbHefbRynwXpq1vj2wJw6Dr17O0np8l-WOekxAZYlZQIORsWQE_xJl-cNhogjATLn-YxLVz8CgLvIW1Ncc0yXKJsfzJGMYgUeLsVB7zSwz7p6ItNgx4tXqQjag7BfWPcZN5kP-X3Q" style="width: 20.56px" src="https://lh6.googleusercontent.com/fEbHefbRynwXpq1vj2wJw6Dr17O0np8l-WOekxAZYlZQIORsWQE_xJl-cNhogjATLn-YxLVz8CgLvIW1Ncc0yXKJsfzJGMYgUeLsVB7zSwz7p6ItNgx4tXqQjag7BfWPcZN5kP-X3Q"> (it should only take a few moments to provision and connect to the environment).</li>
+</ol>
+<p class="image-container"><img alt="I5aEsuNurCxHoDFjZRZrKBdarPPKPoKuExYpdagmdaOLKe7eig3DAKJitIKyuOpuwmrMAyZhp5AXpmD_k66cBuc1aUnWlJeSfo_aTKPY9aNMurhfegg1CYaE11jdpSTYNNIYARe01A" style="width: 408.50px" src="https://lh3.googleusercontent.com/I5aEsuNurCxHoDFjZRZrKBdarPPKPoKuExYpdagmdaOLKe7eig3DAKJitIKyuOpuwmrMAyZhp5AXpmD_k66cBuc1aUnWlJeSfo_aTKPY9aNMurhfegg1CYaE11jdpSTYNNIYARe01A"></p>
+<p class="image-container"><img alt="Screen Shot 2017-06-14 at 10.13.43 PM.png" style="width: 624.00px" src="https://lh5.googleusercontent.com/1kYx37PJA45YuqsASdI7N3itPay27ityMIFAnm0AW0rG7E6w3G5Lwzo3P-sBD6hky_4wybiDVUe3xohy4-hIfwvfbEJEAkydiD2SirfIL23mAyzPHzMrrfEk3Fh1Hxc9z_ZA9Nmqgw"></p>
+<p>Once connected to Cloud Shell, you should see that you are already authenticated and that the project is already set to your <code translate="no" dir="ltr">PROJECT_ID</code>.</p>
+<div></div><devsite-code><pre translate="no" dir="ltr" is-upgraded>gcloud auth list
+</pre></devsite-code>
+<h3 is-upgraded id="command-output" data-text="Command output" tabindex="-1"><strong>Command output</strong></h3>
+<div></div><devsite-code><pre translate="no" dir="ltr" is-upgraded>Credentialed accounts:
+ - &lt;myaccount&gt;@&lt;mydomain&gt;.com (active)
+</pre></devsite-code>
+<aside class="special"><p><strong>Note:</strong> The <code translate="no" dir="ltr">gcloud</code> command-line tool comes preinstalled in Cloud Shell and you&#39;ll surely enjoy its support for tab completion. For more information, see  <a href="https://cloud.google.com/sdk/gcloud/" target="_blank">gcloud command-line tool overview</a>.</p>
+</aside>
+<div></div><devsite-code><pre translate="no" dir="ltr" is-upgraded>gcloud config list project
+</pre></devsite-code>
+<h3 is-upgraded id="command-output_1" data-text="Command output" tabindex="-1"><strong>Command output</strong></h3>
+<div></div><devsite-code><pre translate="no" dir="ltr" is-upgraded>[core]
+project = &lt;PROJECT_ID&gt;
+</pre></devsite-code>
+<p>If, for some reason, the project is not set, simply issue the following command:</p>
+<div></div><devsite-code><pre translate="no" dir="ltr" is-upgraded>gcloud config set project &lt;PROJECT_ID&gt;
+</pre></devsite-code>
+<p>Looking for your <code translate="no" dir="ltr">PROJECT_ID</code>? Check out what ID you used in the setup steps or look it up in the Cloud Console dashboard:</p>
+<p class="image-container"><img alt="R7chO4PKQfLC3bvFBNZJALLTUiCgyLEq_67ECX7ohs_0ZnSjC7GxDNxWrJJUaoM53LnqABYamrBJhCuXF-J9XBzuUgaz7VvaxNrkP2TAn93Drxccyj2-5zz4AxL-G3hzxZ4PsM5HHQ" style="width: 471.50px" src="https://lh5.googleusercontent.com/R7chO4PKQfLC3bvFBNZJALLTUiCgyLEq_67ECX7ohs_0ZnSjC7GxDNxWrJJUaoM53LnqABYamrBJhCuXF-J9XBzuUgaz7VvaxNrkP2TAn93Drxccyj2-5zz4AxL-G3hzxZ4PsM5HHQ"></p>
+<p>Cloud Shell also sets some environment variables by default, which may be useful as you run future commands.</p>
+<div></div><devsite-code><pre translate="no" dir="ltr" is-upgraded>echo $GOOGLE_CLOUD_PROJECT
+</pre></devsite-code>
+<h3 is-upgraded id="command-output_2" data-text="Command output" tabindex="-1"><strong>Command output</strong></h3>
+<div></div><devsite-code><pre translate="no" dir="ltr" is-upgraded>&lt;PROJECT_ID&gt;
+</pre></devsite-code>
+<ol type="1" start="2">
+<li>Finally, set the default zone and project configuration.</li>
+</ol>
+<div></div><devsite-code><pre translate="no" dir="ltr" is-upgraded>gcloud config set compute/zone us-central1-f
+</pre></devsite-code>
+<p>You can choose a variety of different zones. For more information, see  <a href="https://cloud.google.com/compute/docs/regions-zones/regions-zones" target="_blank">Regions &amp; Zones</a>.</p>
+<aside class="special"><p><strong>Note:</strong> When you run <code translate="no" dir="ltr">gcloud</code> on your own machine, the config settings would&#39;ve been persisted across sessions. But in Cloud Shell, you will need to set this for every new session or reconnection.</p>
+</aside>
+<h2 is-upgraded id="enable-the-cloud-run-api" data-text="Enable the Cloud Run API" tabindex="-1"><strong>Enable the Cloud Run API</strong></h2>
+<p>From Cloud Shell, enable the Cloud Run API.</p>
+<div></div><devsite-code><pre translate="no" dir="ltr" is-upgraded>gcloud services enable run.googleapis.com
+</pre></devsite-code>
+<p>That should produce a successful message similar to this one:</p>
+<div></div><devsite-code><pre translate="no" dir="ltr" is-upgraded>Operation &#34;operations/acf.cc11852d-40af-47ad-9d59-477a12847c9e&#34; finished successfully.
+</pre></devsite-code>
+
+
+        </google-codelab-step>
+      
+        <google-codelab-step label="Write the sample app" duration="3" step="2">
+          
+          <h2 class="step-title" id="2" data-text="Write the sample app" tabindex="-1">
+              3. Write the sample app
+          </h2>
+          
+          <p>You&#39;ll build a simple, express-based Node.js app responding to HTTP requests.</p>
+<aside class="special"><p><strong>Note:</strong> If you&#39;re short on time and would like to deploy a prebuilt sample container, then skip ahead to <strong>Deploying to Cloud Run</strong> and use <code translate="no" dir="ltr">gcr.io/cloudrun/hello</code> as the container image.</p>
+<p>You are also encouraged to try Cloud Run with the image of your choice that conforms to the  <a href="https://cloud.google.com/run/docs/reference/container-contract" target="_blank">Container runtime contract</a>. Your image needs to have been pushed to Container Registry first, though.</p>
+</aside>
+<p>To build your app, use Cloud Shell to create a new directory named <code translate="no" dir="ltr">helloworld-nodejs</code> and change directory into it.</p>
+<div></div><devsite-code><pre translate="no" dir="ltr" is-upgraded>mkdir helloworld-nodejs
+cd helloworld-nodejs
+</pre></devsite-code>
+<p>Create a <code translate="no" dir="ltr">package.json</code> file with the following content:</p>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Carbon" syntax-guessed><code translate="no" dir="ltr"><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">  </span><span class="devsite-syntax-s">"name"</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"cloudrun-helloworld"</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">  </span><span class="devsite-syntax-s">"version"</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"1.0.0"</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">  </span><span class="devsite-syntax-s">"description"</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"Simple hello world sample in Node"</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">  </span><span class="devsite-syntax-s">"main"</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"index.js"</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">  </span><span class="devsite-syntax-s">"scripts"</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-s">"start"</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"node index.js"</span>
+<span class="devsite-syntax-w">  </span><span class="devsite-syntax-p">},</span>
+<span class="devsite-syntax-w">  </span><span class="devsite-syntax-s">"author"</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">""</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">  </span><span class="devsite-syntax-s">"license"</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"Apache-2.0"</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">  </span><span class="devsite-syntax-s">"dependencies"</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-s">"express"</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"^4.17.1"</span>
+<span class="devsite-syntax-w">  </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre></devsite-code>
+<p>Most importantly, the file above contains a start script command and a dependency on the Express web app framework.</p>
+<aside class="special"><p><strong>Note:</strong> To edit files, use vi, Emacs, nano, or the Cloud Shell code editor by simply clicking <strong>Launch code editor  </strong><img alt="b6415aa1682f82c5.png" style="width: 23.85px" src="/static/codelabs/cloud-run-hello/img/b6415aa1682f82c5.png" srcset="https://codelabs.developers.google.com/static/codelabs/cloud-run-hello/img/b6415aa1682f82c5_36.png 36w,https://codelabs.developers.google.com/static/codelabs/cloud-run-hello/img/b6415aa1682f82c5_48.png 48w,https://codelabs.developers.google.com/static/codelabs/cloud-run-hello/img/b6415aa1682f82c5_72.png 72w,https://codelabs.developers.google.com/static/codelabs/cloud-run-hello/img/b6415aa1682f82c5_96.png 96w,https://codelabs.developers.google.com/static/codelabs/cloud-run-hello/img/b6415aa1682f82c5_480.png 480w,https://codelabs.developers.google.com/static/codelabs/cloud-run-hello/img/b6415aa1682f82c5_720.png 720w,https://codelabs.developers.google.com/static/codelabs/cloud-run-hello/img/b6415aa1682f82c5_856.png 856w,https://codelabs.developers.google.com/static/codelabs/cloud-run-hello/img/b6415aa1682f82c5_960.png 960w,https://codelabs.developers.google.com/static/codelabs/cloud-run-hello/img/b6415aa1682f82c5_1440.png 1440w,https://codelabs.developers.google.com/static/codelabs/cloud-run-hello/img/b6415aa1682f82c5_1920.png 1920w,https://codelabs.developers.google.com/static/codelabs/cloud-run-hello/img/b6415aa1682f82c5_2880.png 2880w" sizes="(max-width: 840px) 100vw, 856px">.</p>
+</aside>
+<p>Next, in the same directory, create an <code translate="no" dir="ltr">index.js</code> file and copy the following content into it:</p>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="GDScript" syntax-guessed><code translate="no" dir="ltr"><span class="devsite-syntax-k">const</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">express</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">require</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s1">'express'</span><span class="devsite-syntax-p">);</span>
+<span class="devsite-syntax-k">const</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">app</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">express</span><span class="devsite-syntax-p">();</span>
+
+<span class="devsite-syntax-n">app</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">get</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s1">'/'</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">req</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">res</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span>&gt;<span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">  </span><span class="devsite-syntax-n">console</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">log</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s1">'Hello world received a request.'</span><span class="devsite-syntax-p">);</span>
+
+<span class="devsite-syntax-w">  </span><span class="devsite-syntax-k">const</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">target</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">process</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">env</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">TARGET</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">||</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s1">'World'</span><span class="devsite-syntax-p">;</span>
+<span class="devsite-syntax-w">  </span><span class="devsite-syntax-n">res</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">send</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-err">`</span><span class="devsite-syntax-n">Hello</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">$</span><span class="devsite-syntax-p">{</span><span class="devsite-syntax-n">target</span><span class="devsite-syntax-p">}</span><span class="devsite-syntax-o">!</span><span class="devsite-syntax-err">`</span><span class="devsite-syntax-p">);</span>
+<span class="devsite-syntax-p">});</span>
+
+<span class="devsite-syntax-k">const</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">port</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">process</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">env</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">PORT</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">||</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-mi">8080</span><span class="devsite-syntax-p">;</span>
+<span class="devsite-syntax-n">app</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">listen</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">port</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span>&gt;<span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">  </span><span class="devsite-syntax-n">console</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">log</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s1">'Hello world listening on port'</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-n">port</span><span class="devsite-syntax-p">);</span>
+<span class="devsite-syntax-p">});</span>
+</code></pre></devsite-code>
+<p>That code creates a basic web server that listens on the port defined by the <code translate="no" dir="ltr">PORT</code> environment variable.  Your app is now ready to be containerized, tested, and uploaded to Container Registry.</p>
+<aside class="special"><p><strong>Note:</strong> Many other languages are documented to get started with Cloud Run.To find instructions for Go, Python, Java, PHP, Ruby, Shell scripts, and others, see  <a href="https://cloud.google.com/run/docs/quickstarts/build-and-deploy" target="_blank">Quickstart: Build and Deploy.</a></p>
+</aside>
+
+
+        </google-codelab-step>
+      
+        <google-codelab-step label="Containerize your app and upload it to Container Registry" duration="3" step="3">
+          
+          <h2 class="step-title" id="3" data-text="Containerize your app and upload it to Container Registry" tabindex="-1">
+              4. Containerize your app and upload it to Container Registry
+          </h2>
+          
+          <p>To containerize the sample app, create a new file named <code translate="no" dir="ltr">Dockerfile</code> in the same directory as the source files and copy the following content into it:</p>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Carbon" syntax-guessed><code translate="no" dir="ltr"><span class="devsite-syntax-err">#</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">Use</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">the</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">official</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">lightweight</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">Node</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-nx">js</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-mi">12</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">image</span><span class="devsite-syntax-p">.</span>
+<span class="devsite-syntax-err">#</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">https</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-c1">//hub.docker.com/_/node</span>
+<span class="devsite-syntax-nx">FROM</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">node</span><span class="devsite-syntax-p">:</span><span class="devsite-syntax-mi">12</span><span class="devsite-syntax-o">-</span><span class="devsite-syntax-nx">slim</span>
+
+<span class="devsite-syntax-err">#</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">Create</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-k">and</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">change</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">to</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">the</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">app</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">directory</span><span class="devsite-syntax-p">.</span>
+<span class="devsite-syntax-nx">WORKDIR</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">/</span><span class="devsite-syntax-nx">usr</span><span class="devsite-syntax-o">/</span><span class="devsite-syntax-nx">src</span><span class="devsite-syntax-o">/</span><span class="devsite-syntax-nx">app</span>
+
+<span class="devsite-syntax-err">#</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">Copy</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">application</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">dependency</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">manifests</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">to</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">the</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">container</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">image</span><span class="devsite-syntax-p">.</span>
+<span class="devsite-syntax-err">#</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">A</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">wildcard</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-k">is</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">used</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">to</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">ensure</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">both</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kn">package</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-nx">json</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">AND</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kn">package</span><span class="devsite-syntax-o">-</span><span class="devsite-syntax-nx">lock</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-nx">json</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">are</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">copied</span><span class="devsite-syntax-p">.</span>
+<span class="devsite-syntax-err">#</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">Copying</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">this</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">separately</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">prevents</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">re</span><span class="devsite-syntax-o">-</span><span class="devsite-syntax-nx">running</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">npm</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">install</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">on</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">every</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">code</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">change</span><span class="devsite-syntax-p">.</span>
+<span class="devsite-syntax-nx">COPY</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kn">package</span><span class="devsite-syntax-o">*</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-nx">json</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-o">/</span>
+
+<span class="devsite-syntax-err">#</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">Install</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">production</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">dependencies</span><span class="devsite-syntax-p">.</span>
+<span class="devsite-syntax-nx">RUN</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">npm</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">install</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">--</span><span class="devsite-syntax-nx">only</span><span class="devsite-syntax-p">=</span><span class="devsite-syntax-nx">production</span>
+
+<span class="devsite-syntax-err">#</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">Copy</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">local</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">code</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">to</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">the</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">container</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">image</span><span class="devsite-syntax-p">.</span>
+<span class="devsite-syntax-nx">COPY</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-o">/</span>
+
+<span class="devsite-syntax-err">#</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">Run</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">the</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">web</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">service</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">on</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">container</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">startup</span><span class="devsite-syntax-p">.</span>
+<span class="devsite-syntax-nx">CMD</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">[</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"npm"</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s">"start"</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">]</span>
+</code></pre></devsite-code>
+<p>Now, build your container image using Cloud Build by running the following command from the directory containing the Dockerfile:</p>
+<div></div><devsite-code><pre translate="no" dir="ltr" is-upgraded>gcloud builds submit --tag gcr.io/$GOOGLE_CLOUD_PROJECT/helloworld
+</pre></devsite-code>
+<p><code translate="no" dir="ltr">$GOOGLE_CLOUD_PROJECT</code> is an environment variable containing your Google Cloud project ID when running in Cloud Shell. You can also get it by running <code translate="no" dir="ltr">gcloud config get-value project</code>.</p>
+<aside class="special"><p><strong>Note:</strong> Cloud Build is a service that executes your builds on Google Cloud. It executes a series of build steps, where each build step is run in a Docker container to produce your app container (or other artifacts) and pushed to Cloud Registry, all in one command.</p>
+<p>You may be asked to enable the Cloud Build API in the process before retrying the build. Simply enter <code translate="no" dir="ltr">y</code>, and the build process will enable the API and proceed.</p>
+</aside>
+<p>Once pushed to the registry, you&#39;ll see a <code translate="no" dir="ltr">SUCCESS</code> message containing the image name (<code translate="no" dir="ltr">gcr.io/$GOOGLE_CLOUD_PROJECT/helloworld</code>). The image is stored in Container Registry and can be reused if desired.</p>
+<p>You can list all the container images associated with your current project using this command:</p>
+<div></div><devsite-code><pre translate="no" dir="ltr" is-upgraded>gcloud container images list
+</pre></devsite-code>
+<p>If you would like to run and test the app locally from Cloud Shell, you can start it using this standard <code translate="no" dir="ltr">docker</code> command:</p>
+<div></div><devsite-code><pre translate="no" dir="ltr" is-upgraded>docker run -d -p 8080:8080 gcr.io/$GOOGLE_CLOUD_PROJECT/helloworld
+</pre></devsite-code>
+<p>In Cloud Shell, click <strong>Web Preview  </strong><img alt="170b7a95be8c6296.png" style="width: 24.00px" src="/static/codelabs/cloud-run-hello/img/170b7a95be8c6296.png" srcset="https://codelabs.developers.google.com/static/codelabs/cloud-run-hello/img/170b7a95be8c6296_36.png 36w,https://codelabs.developers.google.com/static/codelabs/cloud-run-hello/img/170b7a95be8c6296_48.png 48w,https://codelabs.developers.google.com/static/codelabs/cloud-run-hello/img/170b7a95be8c6296_72.png 72w,https://codelabs.developers.google.com/static/codelabs/cloud-run-hello/img/170b7a95be8c6296_96.png 96w,https://codelabs.developers.google.com/static/codelabs/cloud-run-hello/img/170b7a95be8c6296_480.png 480w,https://codelabs.developers.google.com/static/codelabs/cloud-run-hello/img/170b7a95be8c6296_720.png 720w,https://codelabs.developers.google.com/static/codelabs/cloud-run-hello/img/170b7a95be8c6296_856.png 856w,https://codelabs.developers.google.com/static/codelabs/cloud-run-hello/img/170b7a95be8c6296_960.png 960w,https://codelabs.developers.google.com/static/codelabs/cloud-run-hello/img/170b7a95be8c6296_1440.png 1440w,https://codelabs.developers.google.com/static/codelabs/cloud-run-hello/img/170b7a95be8c6296_1920.png 1920w,https://codelabs.developers.google.com/static/codelabs/cloud-run-hello/img/170b7a95be8c6296_2880.png 2880w" sizes="(max-width: 840px) 100vw, 856px"> and select <strong>Preview on port 8080</strong>.</p>
+<p class="image-container"><img alt="3618ca3a4a135570.png" style="width: 255.91px" src="/static/codelabs/cloud-run-hello/img/3618ca3a4a135570.png" srcset="https://codelabs.developers.google.com/static/codelabs/cloud-run-hello/img/3618ca3a4a135570_36.png 36w,https://codelabs.developers.google.com/static/codelabs/cloud-run-hello/img/3618ca3a4a135570_48.png 48w,https://codelabs.developers.google.com/static/codelabs/cloud-run-hello/img/3618ca3a4a135570_72.png 72w,https://codelabs.developers.google.com/static/codelabs/cloud-run-hello/img/3618ca3a4a135570_96.png 96w,https://codelabs.developers.google.com/static/codelabs/cloud-run-hello/img/3618ca3a4a135570_480.png 480w,https://codelabs.developers.google.com/static/codelabs/cloud-run-hello/img/3618ca3a4a135570_720.png 720w,https://codelabs.developers.google.com/static/codelabs/cloud-run-hello/img/3618ca3a4a135570_856.png 856w,https://codelabs.developers.google.com/static/codelabs/cloud-run-hello/img/3618ca3a4a135570_960.png 960w,https://codelabs.developers.google.com/static/codelabs/cloud-run-hello/img/3618ca3a4a135570_1440.png 1440w,https://codelabs.developers.google.com/static/codelabs/cloud-run-hello/img/3618ca3a4a135570_1920.png 1920w,https://codelabs.developers.google.com/static/codelabs/cloud-run-hello/img/3618ca3a4a135570_2880.png 2880w" sizes="(max-width: 840px) 100vw, 856px"></p>
+<p>That opens a browser window that says <strong>Hello World!</strong></p>
+<p class="image-container"><img alt="a0307f34cacf9e6a.png" style="width: 486.00px" src="/static/codelabs/cloud-run-hello/img/a0307f34cacf9e6a.png" srcset="https://codelabs.developers.google.com/static/codelabs/cloud-run-hello/img/a0307f34cacf9e6a_36.png 36w,https://codelabs.developers.google.com/static/codelabs/cloud-run-hello/img/a0307f34cacf9e6a_48.png 48w,https://codelabs.developers.google.com/static/codelabs/cloud-run-hello/img/a0307f34cacf9e6a_72.png 72w,https://codelabs.developers.google.com/static/codelabs/cloud-run-hello/img/a0307f34cacf9e6a_96.png 96w,https://codelabs.developers.google.com/static/codelabs/cloud-run-hello/img/a0307f34cacf9e6a_480.png 480w,https://codelabs.developers.google.com/static/codelabs/cloud-run-hello/img/a0307f34cacf9e6a_720.png 720w,https://codelabs.developers.google.com/static/codelabs/cloud-run-hello/img/a0307f34cacf9e6a_856.png 856w,https://codelabs.developers.google.com/static/codelabs/cloud-run-hello/img/a0307f34cacf9e6a_960.png 960w,https://codelabs.developers.google.com/static/codelabs/cloud-run-hello/img/a0307f34cacf9e6a_1440.png 1440w,https://codelabs.developers.google.com/static/codelabs/cloud-run-hello/img/a0307f34cacf9e6a_1920.png 1920w,https://codelabs.developers.google.com/static/codelabs/cloud-run-hello/img/a0307f34cacf9e6a_2880.png 2880w" sizes="(max-width: 840px) 100vw, 856px"></p>
+<p>You could also simply use <code translate="no" dir="ltr">curl localhost:8080</code>.</p>
+<aside class="special"><p><strong>Note:</strong> If the <code translate="no" dir="ltr">docker</code> command cannot pull the remote container image, then try running</p>
+<p><code translate="no" dir="ltr">gcloud auth configure-docker</code>.</p>
+</aside>
+
+
+        </google-codelab-step>
+      
+        <google-codelab-step label="Deploy to Cloud Run" duration="3" step="4">
+          
+          <h2 class="step-title" id="4" data-text="Deploy to Cloud Run" tabindex="-1">
+              5. Deploy to Cloud Run
+          </h2>
+          
+          <p>Deploying your containerized app to Cloud Run is done using the following command (make sure to adjust it to the correct image name for the app that you built or use the <code translate="no" dir="ltr">gcr.io/cloudrun/hello</code> prebuilt image):</p>
+<div></div><devsite-code><pre translate="no" dir="ltr" is-upgraded>gcloud run deploy helloworld \
+  --image gcr.io/$GOOGLE_CLOUD_PROJECT/helloworld \
+  --platform managed \
+  --region us-central1 \
+  --allow-unauthenticated
+</pre></devsite-code>
+<p>The <code translate="no" dir="ltr">--allow-unauthenticated</code> deploy option enables you to reach the app without authentication. The <code translate="no" dir="ltr">--platform managed \</code> deploy option means that you&#39;re requesting the fully managed environment (not the Kubernetes infrastructure via Anthos).</p>
+<p>Wait a few moments until the deployment is complete. When it&#39;s done, the command line displays the service URL.</p>
+<div></div><devsite-code><pre translate="no" dir="ltr" is-upgraded>Service [helloworld] revision [helloworld-00001] has been deployed
+and is serving traffic at https://helloworld-wdl7fdwaaa-uc.a.run.app
+</pre></devsite-code>
+<p>You can now visit your deployed container by opening the service URL in a web browser:</p>
+<p class="image-container"><img alt="63260b4d3aee42b8.png" style="width: 500.00px" src="/static/codelabs/cloud-run-hello/img/63260b4d3aee42b8.png" srcset="https://codelabs.developers.google.com/static/codelabs/cloud-run-hello/img/63260b4d3aee42b8_36.png 36w,https://codelabs.developers.google.com/static/codelabs/cloud-run-hello/img/63260b4d3aee42b8_48.png 48w,https://codelabs.developers.google.com/static/codelabs/cloud-run-hello/img/63260b4d3aee42b8_72.png 72w,https://codelabs.developers.google.com/static/codelabs/cloud-run-hello/img/63260b4d3aee42b8_96.png 96w,https://codelabs.developers.google.com/static/codelabs/cloud-run-hello/img/63260b4d3aee42b8_480.png 480w,https://codelabs.developers.google.com/static/codelabs/cloud-run-hello/img/63260b4d3aee42b8_720.png 720w,https://codelabs.developers.google.com/static/codelabs/cloud-run-hello/img/63260b4d3aee42b8_856.png 856w,https://codelabs.developers.google.com/static/codelabs/cloud-run-hello/img/63260b4d3aee42b8_960.png 960w,https://codelabs.developers.google.com/static/codelabs/cloud-run-hello/img/63260b4d3aee42b8_1440.png 1440w,https://codelabs.developers.google.com/static/codelabs/cloud-run-hello/img/63260b4d3aee42b8_1920.png 1920w,https://codelabs.developers.google.com/static/codelabs/cloud-run-hello/img/63260b4d3aee42b8_2880.png 2880w" sizes="(max-width: 840px) 100vw, 856px"></p>
+<p>Cloud Run automatically and horizontally scales up your container image to handle the received requests, then scales down when demand decreases. You only pay for the CPU, memory, and networking consumed during request handling.</p>
+<aside class="special"><p><strong>Note:</strong> While this short lab was done using the gcloud command-line tool, Cloud Run is available via Google Cloud Console. Simply navigate to <strong>Compute</strong> &gt; <strong>Cloud Run</strong> and you should see your <strong>helloworld</strong> service listed.</p>
+<p class="image-container"><img alt="6771016cc6c35578.png" style="width: 610.00px" src="/static/codelabs/cloud-run-hello/img/6771016cc6c35578.png" srcset="https://codelabs.developers.google.com/static/codelabs/cloud-run-hello/img/6771016cc6c35578_36.png 36w,https://codelabs.developers.google.com/static/codelabs/cloud-run-hello/img/6771016cc6c35578_48.png 48w,https://codelabs.developers.google.com/static/codelabs/cloud-run-hello/img/6771016cc6c35578_72.png 72w,https://codelabs.developers.google.com/static/codelabs/cloud-run-hello/img/6771016cc6c35578_96.png 96w,https://codelabs.developers.google.com/static/codelabs/cloud-run-hello/img/6771016cc6c35578_480.png 480w,https://codelabs.developers.google.com/static/codelabs/cloud-run-hello/img/6771016cc6c35578_720.png 720w,https://codelabs.developers.google.com/static/codelabs/cloud-run-hello/img/6771016cc6c35578_856.png 856w,https://codelabs.developers.google.com/static/codelabs/cloud-run-hello/img/6771016cc6c35578_960.png 960w,https://codelabs.developers.google.com/static/codelabs/cloud-run-hello/img/6771016cc6c35578_1440.png 1440w,https://codelabs.developers.google.com/static/codelabs/cloud-run-hello/img/6771016cc6c35578_1920.png 1920w,https://codelabs.developers.google.com/static/codelabs/cloud-run-hello/img/6771016cc6c35578_2880.png 2880w" sizes="(max-width: 840px) 100vw, 856px"></p>
+<p>You can also use Cloud Console to deploy to Cloud Run.</p>
+</aside>
+
+
+        </google-codelab-step>
+      
+        <google-codelab-step label="Clean up" duration="1" step="5">
+          
+          <h2 class="step-title" id="5" data-text="Clean up" tabindex="-1">
+              6. Clean up
+          </h2>
+          
+          <p>While Cloud Run doesn&#39;t charge when the service isn&#39;t in use, you might still be charged for storing the built container image.</p>
+<p>You can either delete your Google Cloud project to avoid incurring charges, which will stop billing for all the resources used for that project, or simply delete your helloworld image using this command:</p>
+<div></div><devsite-code><pre translate="no" dir="ltr" is-upgraded>gcloud container images delete gcr.io/$GOOGLE_CLOUD_PROJECT/helloworld
+</pre></devsite-code>
+<p>To delete the Cloud Run service, use this command:</p>
+<div></div><devsite-code><pre translate="no" dir="ltr" is-upgraded>gcloud run services delete helloworld \
+  --platform managed \
+  --region us-central1
+</pre></devsite-code>
+
+
+        </google-codelab-step>
+      
+        <google-codelab-step label="Congratulations" duration="1" step="6">
+          
+          <h2 class="step-title" id="6" data-text="Congratulations" tabindex="-1">
+              7. Congratulations
+          </h2>
+          
+          <p>Congratulations! You deployed an app packaged in a container image to Cloud Run.</p>
+<h2 is-upgraded id="learn-more" data-text="Learn more" tabindex="-1"><strong>Learn more</strong></h2>
+<p>A good next step would be to check out  <a href="https://cloud.google.com/run/docs/quickstarts/prebuilt-deploy-gke" target="_blank">Quickstart: Deploy to Cloud Run for Anthos on Google Cloud</a>.</p>
+<p>For more information about building a stateless HTTP container suitable for Cloud Run from code source and pushing it to Container Registry, see the following resources:</p>
+<ul>
+<li><a href="https://cloud.google.com/run/docs/developing" target="_blank">Developing your service</a></li>
+<li><a href="https://cloud.google.com/run/docs/building/containers" target="_blank">Building Containers</a></li>
+</ul>
+<p>To learn more about Knative, the underlying open source project, see  <a href="https://cloud.google.com/knative/" target="_blank">Knative</a>.</p>
+
+
+        </google-codelab-step>
+      
+    </google-codelab>
+  
+  
+
+  
+</div>
+
+  
+    
+    
+    
+  
+
+  <div class="devsite-floating-action-buttons"></div></article>
+
+
+<devsite-content-footer class="nocontent" data-nosnippet>
+  <p>Except as otherwise noted, the content of this page is licensed under the <a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 License</a>, and code samples are licensed under the <a href="https://www.apache.org/licenses/LICENSE-2.0">Apache 2.0 License</a>. For details, see the <a href="https://developers.google.com/site-policies">Google Developers Site Policies</a>. Java is a registered trademark of Oracle and/or its affiliates.</p>
+  
+</devsite-content-footer>
+
+
+<devsite-notification
+>
+</devsite-notification>
+
+
+  
+<div class="devsite-content-data">
+  
+  
+    <template class="devsite-content-data-template">
+      [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Missing the information I need","missingTheInformationINeed","thumb-down"],["Too complicated / too many steps","tooComplicatedTooManySteps","thumb-down"],["Out of date","outOfDate","thumb-down"],["Samples / code issue","samplesCodeIssue","thumb-down"],["Other","otherDown","thumb-down"]],[],[],[]]
+    </template>
+  
+</div>
+            
+          </devsite-content>
+        </main>
+        <devsite-footer-promos class="devsite-footer">
+          
+            
+          
+        </devsite-footer-promos>
+        <devsite-footer-linkboxes class="devsite-footer">
+          
+            
+<nav class="devsite-footer-linkboxes nocontent"
+     aria-label="Footer links"
+     data-nosnippet>
+  
+  <ul class="devsite-footer-linkboxes-list">
+    
+    <li class="devsite-footer-linkbox ">
+    <h3 class="devsite-footer-linkbox-heading no-link">Connect</h3>
+      <ul class="devsite-footer-linkbox-list">
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//googledevelopers.blogspot.com"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 1)"
+            >
+            
+          
+            Blog
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//www.facebook.com/Google-Developers-967415219957038"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 2)"
+            >
+            
+          
+            Facebook
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//medium.com/google-developers"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 3)"
+            >
+            
+          
+            Medium
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//twitter.com/googledevs"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 4)"
+            >
+            
+          
+            Twitter
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//www.youtube.com/user/GoogleDevelopers"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 5)"
+            >
+            
+              
+              
+            
+          
+            YouTube
+          
+          </a>
+          
+          
+        </li>
+        
+      </ul>
+    </li>
+    
+    <li class="devsite-footer-linkbox ">
+    <h3 class="devsite-footer-linkbox-heading no-link">Programs</h3>
+      <ul class="devsite-footer-linkbox-list">
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//www.womentechmakers.com"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 1)"
+            >
+            
+          
+            Women Techmakers
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//developers.google.com/community/gdg"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 2)"
+            >
+            
+          
+            Google Developer Groups
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//developers.google.com/community/experts"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 3)"
+            >
+            
+          
+            Google Developer Experts
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//developers.google.com/community/accelerators"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 4)"
+            >
+            
+              
+              
+            
+          
+            Accelerators
+          
+          </a>
+          
+          
+        </li>
+        
+      </ul>
+    </li>
+    
+    <li class="devsite-footer-linkbox ">
+    <h3 class="devsite-footer-linkbox-heading no-link">Developer consoles</h3>
+      <ul class="devsite-footer-linkbox-list">
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//console.developers.google.com"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 1)"
+            >
+            
+          
+            Google API Console
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//console.cloud.google.com"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 2)"
+            >
+            
+          
+            Google Cloud Platform Console
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//play.google.com/apps/publish"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 3)"
+            >
+            
+          
+            Google Play Console
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//console.firebase.google.com"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 4)"
+            >
+            
+          
+            Firebase Console
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//console.actions.google.com"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 5)"
+            >
+            
+          
+            Actions on Google Console
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//cast.google.com/publish"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 6)"
+            >
+            
+          
+            Cast SDK Developer Console
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//chrome.google.com/webstore/developer/dashboard"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 7)"
+            >
+            
+              
+              
+            
+          
+            Chrome Web Store Dashboard
+          
+          </a>
+          
+          
+        </li>
+        
+      </ul>
+    </li>
+    
+  </ul>
+  
+</nav>
+          
+        </devsite-footer-linkboxes>
+        <devsite-footer-utility class="devsite-footer">
+          
+            
+
+<div class="devsite-footer-utility nocontent" data-nosnippet>
+  
+  
+  <nav class="devsite-footer-sites" aria-label="Other Google Developers websites">
+    <a href="https://developers.google.com/"
+       class="devsite-footer-sites-logo-link gc-analytics-event"
+       data-category="Site-Wide Custom Events"
+       data-label="Footer Google Developers Link">
+      <picture>
+        
+        <img class="devsite-footer-sites-logo"
+             src="https://www.gstatic.com/devrel-devsite/prod/vb08cbdb02acf7f66ad9727ddfba9d81df8806422eb5dd63dba194c9c8c7997f7/codelabs/images/lockup-google-for-developers.svg"
+             loading="lazy"
+             alt="Google Developers">
+      </picture>
+    </a>
+    <ul class="devsite-footer-sites-list">
+      
+      <li class="devsite-footer-sites-item">
+        <a href="//developer.android.com"
+           class="devsite-footer-sites-link
+                  gc-analytics-event"
+           data-category="Site-Wide Custom Events"
+         
+           data-label="Footer Android Link"
+         
+         >
+          Android
+        </a>
+      </li>
+      
+      <li class="devsite-footer-sites-item">
+        <a href="//developer.chrome.com/home"
+           class="devsite-footer-sites-link
+                  gc-analytics-event"
+           data-category="Site-Wide Custom Events"
+         
+           data-label="Footer Chrome Link"
+         
+         >
+          Chrome
+        </a>
+      </li>
+      
+      <li class="devsite-footer-sites-item">
+        <a href="//firebase.google.com"
+           class="devsite-footer-sites-link
+                  gc-analytics-event"
+           data-category="Site-Wide Custom Events"
+         
+           data-label="Footer Firebase Link"
+         
+         >
+          Firebase
+        </a>
+      </li>
+      
+      <li class="devsite-footer-sites-item">
+        <a href="//cloud.google.com"
+           class="devsite-footer-sites-link
+                  gc-analytics-event"
+           data-category="Site-Wide Custom Events"
+         
+           data-label="Footer Google Cloud Platform Link"
+         
+         >
+          Google Cloud Platform
+        </a>
+      </li>
+      
+      <li class="devsite-footer-sites-item">
+        <a href="//developers.google.com/products"
+           class="devsite-footer-sites-link
+                  gc-analytics-event"
+           data-category="Site-Wide Custom Events"
+         
+           data-label="Footer All products Link"
+         
+         >
+          All products
+        </a>
+      </li>
+      
+    </ul>
+  </nav>
+  
+
+  
+  <nav class="devsite-footer-utility-links" aria-label="Utility links">
+    
+    <ul class="devsite-footer-utility-list">
+      
+      <li class="devsite-footer-utility-item
+                 ">
+        
+        
+        <a class="devsite-footer-utility-link gc-analytics-event"
+           href="//developers.google.com/terms/site-terms"
+           data-category="Site-Wide Custom Events"
+           data-label="Footer Terms link"
+         >
+          Terms
+        </a>
+        
+      </li>
+      
+      <li class="devsite-footer-utility-item
+                 ">
+        
+        
+        <a class="devsite-footer-utility-link gc-analytics-event"
+           href="//policies.google.com/privacy"
+           data-category="Site-Wide Custom Events"
+           data-label="Footer Privacy link"
+         >
+          Privacy
+        </a>
+        
+      </li>
+      
+      <li class="devsite-footer-utility-item
+                 glue-cookie-notification-bar-control">
+        
+        
+        <a class="devsite-footer-utility-link gc-analytics-event"
+           href="#"
+           data-category="Site-Wide Custom Events"
+           data-label="Footer Manage cookies link"
+         
+           aria-hidden="true"
+         >
+          Manage cookies
+        </a>
+        
+      </li>
+      
+      <li class="devsite-footer-utility-item
+                 devsite-footer-utility-button">
+        
+        <span class="devsite-footer-utility-description">Sign up for the Google Developers newsletter</span>
+        
+        
+        <a class="devsite-footer-utility-link gc-analytics-event"
+           href="//services.google.com/fb/forms/googledevelopersnewsletter/?utm_medium=referral&amp;utm_source=google-products&amp;utm_team=googledevs&amp;utm_campaign=201611-newsletter-launch"
+           data-category="Site-Wide Custom Events"
+           data-label="Footer Subscribe link"
+         >
+          Subscribe
+        </a>
+        
+      </li>
+      
+    </ul>
+    
+    
+<devsite-language-selector>
+  <ul role="presentation">
+    
+    
+    <li role="presentation">
+      <a role="menuitem" lang="en"
+        >English</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="de"
+        >Deutsch</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="es"
+        >Español</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="es_419"
+        >Español – América Latina</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="fr"
+        >Français</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="id"
+        >Indonesia</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="it"
+        >Italiano</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="pl"
+        >Polski</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="pt_br"
+        >Português – Brasil</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="vi"
+        >Tiếng Việt</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="tr"
+        >Türkçe</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="ru"
+        >Русский</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="he"
+        >עברית</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="ar"
+        >العربيّة</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="fa"
+        >فارسی</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="hi"
+        >हिंदी</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="bn"
+        >বাংলা</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="th"
+        >ภาษาไทย</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="zh_cn"
+        >中文 – 简体</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="zh_tw"
+        >中文 – 繁體</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="ja"
+        >日本語</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="ko"
+        >한국어</a>
+    </li>
+    
+  </ul>
+</devsite-language-selector>
+
+  </nav>
+</div>
+          
+        </devsite-footer-utility>
+        <devsite-panel>
+          
+        </devsite-panel>
+        
+      </section>
+      </section>
+    <devsite-sitemask></devsite-sitemask>
+    <devsite-snackbar></devsite-snackbar>
+    <devsite-tooltip ></devsite-tooltip>
+    <devsite-heading-link></devsite-heading-link>
+    <devsite-analytics>
+      
+        <script type="application/json" analytics>[]</script>
+<script type="application/json" tag-management>{&#34;at&#34;: &#34;True&#34;, &#34;ga4&#34;: [], &#34;ga4p&#34;: [], &#34;gtm&#34;: [], &#34;parameters&#34;: {&#34;internalUser&#34;: &#34;False&#34;, &#34;language&#34;: {&#34;machineTranslated&#34;: &#34;False&#34;, &#34;requested&#34;: &#34;en&#34;, &#34;served&#34;: &#34;en&#34;}, &#34;pageType&#34;: &#34;codelab&#34;, &#34;projectName&#34;: null, &#34;signedIn&#34;: &#34;False&#34;, &#34;tenant&#34;: &#34;codelabs&#34;, &#34;recommendations&#34;: {&#34;sourcePage&#34;: &#34;&#34;, &#34;sourceType&#34;: 0, &#34;sourceRank&#34;: 0, &#34;sourceIdenticalDescriptions&#34;: 0, &#34;sourceTitleWords&#34;: 0, &#34;sourceDescriptionWords&#34;: 0, &#34;experiment&#34;: &#34;&#34;}, &#34;experiment&#34;: {&#34;ids&#34;: &#34;&#34;}}}</script>
+      
+    </devsite-analytics>
+    
+      <devsite-badger></devsite-badger>
+    
+    
+    
+    
+<script nonce="CMjgz/XCbFdvCWfl0LuineVM91LTL3">
+  
+  (function(d,e,v,s,i,t,E){d['GoogleDevelopersObject']=i;
+    t=e.createElement(v);t.async=1;t.src=s;E=e.getElementsByTagName(v)[0];
+    E.parentNode.insertBefore(t,E);})(window, document, 'script',
+    'https://www.gstatic.com/devrel-devsite/prod/vb08cbdb02acf7f66ad9727ddfba9d81df8806422eb5dd63dba194c9c8c7997f7/codelabs/js/app_loader.js', '[17,"en",null,"/js/devsite_app_module.js","https://www.gstatic.com/devrel-devsite/prod/vb08cbdb02acf7f66ad9727ddfba9d81df8806422eb5dd63dba194c9c8c7997f7","https://www.gstatic.com/devrel-devsite/prod/vb08cbdb02acf7f66ad9727ddfba9d81df8806422eb5dd63dba194c9c8c7997f7/codelabs","https://codelabs-dot-devsite-v2-prod.appspot.com",1,null,["/_pwa/codelabs/manifest.json","https://www.gstatic.com/devrel-devsite/prod/vb08cbdb02acf7f66ad9727ddfba9d81df8806422eb5dd63dba194c9c8c7997f7/images/video-placeholder.svg","https://www.gstatic.com/devrel-devsite/prod/vb08cbdb02acf7f66ad9727ddfba9d81df8806422eb5dd63dba194c9c8c7997f7/codelabs/images/favicon.png","https://www.gstatic.com/devrel-devsite/prod/vb08cbdb02acf7f66ad9727ddfba9d81df8806422eb5dd63dba194c9c8c7997f7/codelabs/images/lockup.svg","https://fonts.googleapis.com/css?family=Google+Sans:400,500|Roboto:400,400italic,500,500italic,700,700italic|Roboto+Mono:400,500,700&display=swap"],1,null,[1,6,8,12,14,17,21,25,50,52,63,70,75,76,80,87,91,92,93,97,98,100,101,102,103,104,105,107,108,109,110,112,113,117,118,120,122,124,125,126,127,129,130,131,132,133,134,135,136,138,140,141,147,148,149,151,152,156,157,158,159,161,163,164,168,169,170,179,180,182,183,186,191,193,196],"AIzaSyAP-jjEJBzmIyKR4F-3XITp8yM9T1gEEI8","AIzaSyB6xiKGDR5O3Ak2okS4rLkauxGUG7XP0hg","codelabs.developers.google.com","AIzaSyAQk0fBONSGUqCNznf6Krs82Ap1-NV6J4o","AIzaSyCCxcqdrZ_7QMeLCRY20bh_SXdAYqy70KY",null,null,null,["MiscFeatureFlags__enable_explain_this_code","EngEduTelemetry__enable_engedu_telemetry","MiscFeatureFlags__enable_view_transitions","DevPro__enable_developer_subscriptions","DevPro__enable_payments_first_batch","Profiles__enable_purchase_prompts","Profiles__enable_developer_profile_pages_as_content","Profiles__enable_dashboard_curated_recommendations","DevPro__enable_enterprise","Cloud__enable_cloud_dlp_service","Profiles__enable_callout_notifications","MiscFeatureFlags__enable_variable_operator","Search__enable_suggestions_from_borg","Concierge__enable_remove_info_panel_tags","Profiles__enable_stripe_subscription_management","MiscFeatureFlags__enable_project_variables","Profiles__require_profile_eligibility_for_signin","MiscFeatureFlags__developers_footer_image","MiscFeatureFlags__enable_explicit_template_dependencies","Profiles__enable_join_program_group_endpoint","Search__enable_ai_eligibility_checks","Cloud__enable_free_trial_server_call","TpcFeatures__enable_unmirrored_page_left_nav","Search__enable_dynamic_content_confidential_banner","DevPro__enable_credits_banner","Profiles__enable_completequiz_endpoint","CloudShell__cloud_code_overflow_menu","Profiles__enable_profile_collections","MiscFeatureFlags__enable_appearance_cookies","Cloud__enable_legacy_calculator_redirect","DevPro__enable_devsite_captcha","MiscFeatureFlags__gdp_dashboard_reskin_enabled","MiscFeatureFlags__enable_framebox_badge_methods","BookNav__enable_tenant_cache_key","SignIn__enable_l1_signup_flow","Profiles__enable_complete_playlist_endpoint","Profiles__enable_page_saving","Profiles__enable_awarding_url","DevPro__remove_eu_tax_intake_form","DevPro__enable_firebase_workspaces_card","MiscFeatureFlags__enable_firebase_utm","DevPro__enable_code_assist","Profiles__enable_developer_profile_benefits_ui_redesign","Cloud__enable_cloud_shell_fte_user_flow","MiscFeatureFlags__enable_variable_operator_index_yaml","Cloud__enable_cloud_shell","MiscFeatureFlags__developers_footer_dark_image","CloudShell__cloud_shell_button","DevPro__enable_vertex_credit_card","Analytics__enable_devpro_interaction_logging","Profiles__enable_playlist_community_acl","DevPro__enable_g1_integration","Profiles__enable_developer_profiles_callout","Profiles__enable_release_notes_notifications","Search__enable_page_map","Profiles__enable_auto_apply_credits","Cloud__fast_free_trial","Profiles__enable_completecodelab_endpoint","DevPro__enable_free_benefits","DevPro__enable_embed_profile_creation","Profiles__enable_public_developer_profiles","Experiments__reqs_query_experiments","Profiles__enable_user_type","Profiles__enable_targeted_hero","TpcFeatures__proxy_prod_host","DevPro__enable_cloud_innovators_plus","DevPro__enable_devpro_offers","Cloud__enable_cloudx_experiment_ids","DevPro__enable_nvidia_credits_card","Cloud__enable_llm_concierge_chat","Concierge__enable_pushui","Search__enable_ai_search_summaries_for_all","Analytics__enable_clearcut_logging","Cloud__cache_serialized_dynamic_content","DevPro__enable_google_payments_buyflow","MiscFeatureFlags__fix_lower_breadcrumbs","MiscFeatureFlags__remove_cross_domain_tracking_params","Concierge__enable_actions_menu","DevPro__enable_google_one_card","Profiles__enable_recognition_badges"],null,null,"AIzaSyBLEMok-5suZ67qRPzx0qUtbnLmyT_kCVE","https://developerscontentserving-pa.clients6.google.com","AIzaSyCM4QpTRSqP5qI4Dvjt4OAScIN8sOUlO-k","https://developerscontentsearch-pa.clients6.google.com",1,4,null,"https://developerprofiles-pa.clients6.google.com",[17,"codelabs","Google Codelabs","codelabs.developers.google.com",null,"codelabs-dot-devsite-v2-prod.appspot.com",null,null,[null,1,null,null,null,null,null,null,null,null,null,[1],null,null,null,null,null,null,[1],null,null,null,null,[1],null,null,null,null,null,null,[1]],null,[33,null,null,null,null,null,"/images/lockup.svg",null,null,null,null,1,1,null,null,null,null,null,null,null,null,1,null,null,null,null,[]],[],null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,[6,1,14,15,20,22,23,29,32,36],null,[[],[1,1]],[[null,null,null,null,null,null,null,null,null,null,null,null,1]],null,4],null,"pk_live_5170syrHvgGVmSx9sBrnWtA5luvk9BwnVcvIi7HizpwauFG96WedXsuXh790rtij9AmGllqPtMLfhe2RSwD6Pn38V00uBCydV4m",1,1,"https://developerscontentinsights-pa.clients6.google.com","AIzaSyCg-ZUslalsEbXMfIo9ZP8qufZgo3LSBDU","AIzaSyDxT0vkxnY_KeINtA4LSePJO-4MAZPMRsE","https://developers.clients6.google.com",null,null,"AIzaSyBQom12tzI-rybN7Sf-KfeL4nwm-Rf7PmI\n",null,null,"https://developers.googleapis.com"]')
+  
+</script>
+
+    <devsite-a11y-announce></devsite-a11y-announce>
+  </body>
+</html>

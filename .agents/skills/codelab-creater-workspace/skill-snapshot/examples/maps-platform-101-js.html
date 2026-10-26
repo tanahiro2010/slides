@@ -1,0 +1,1828 @@
+
+
+
+
+
+
+
+
+
+<!doctype html>
+<html 
+      lang="en"
+      dir="ltr">
+  <head>
+    <meta name="google-signin-client-id" content="721724668570-nbkv1cfusk7kk4eni4pjvepaus73b13t.apps.googleusercontent.com"><meta name="google-signin-scope"
+          content="profile email https://www.googleapis.com/auth/developerprofiles https://www.googleapis.com/auth/developerprofiles.award https://www.googleapis.com/auth/devprofiles.full_control.firstparty"><meta property="og:site_name" content="Google for Developers">
+    <meta property="og:type" content="website"><meta name="theme-color" content="#1a73e8"><meta charset="utf-8">
+    <meta content="IE=Edge" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+
+    <link rel="manifest" href="/_pwa/developers/manifest.json"
+          crossorigin="use-credentials">
+    <link rel="preconnect" href="//www.gstatic.com" crossorigin>
+    <link rel="preconnect" href="//fonts.googleapis.com" crossorigin>
+    <link rel="preconnect" href="//www.google-analytics.com" crossorigin><link rel="stylesheet" href="//fonts.googleapis.com/css?family=Google+Sans:400,500|Roboto:400,400italic,500,500italic,700,700italic|Roboto+Mono:400,500,700&display=swap">
+      <link rel="stylesheet"
+            href="//fonts.googleapis.com/css2?family=Material+Icons&family=Material+Symbols+Outlined&display=block"><link rel="stylesheet" href="https://www.gstatic.com/devrel-devsite/prod/vb08cbdb02acf7f66ad9727ddfba9d81df8806422eb5dd63dba194c9c8c7997f7/developers/css/app.css">
+      <link rel="shortcut icon" href="https://www.gstatic.com/devrel-devsite/prod/vb08cbdb02acf7f66ad9727ddfba9d81df8806422eb5dd63dba194c9c8c7997f7/developers/images/favicon-new.png">
+    <link rel="apple-touch-icon" href="https://www.gstatic.com/devrel-devsite/prod/vb08cbdb02acf7f66ad9727ddfba9d81df8806422eb5dd63dba194c9c8c7997f7/developers/images/touchicon-180-new.png"><link rel="canonical" href="https://developers.google.com/codelabs/maps-platform/maps-platform-101-js"><link rel="search" type="application/opensearchdescription+xml"
+            title="Google for Developers" href="https://developers.google.com/s/opensearch.xml">
+      <link rel="alternate" hreflang="en"
+          href="https://developers.google.com/codelabs/maps-platform/maps-platform-101-js" /><link rel="alternate" hreflang="x-default" href="https://developers.google.com/codelabs/maps-platform/maps-platform-101-js" /><link rel="alternate" hreflang="ar"
+          href="https://developers.google.com/codelabs/maps-platform/maps-platform-101-js?hl=ar" /><link rel="alternate" hreflang="bn"
+          href="https://developers.google.com/codelabs/maps-platform/maps-platform-101-js?hl=bn" /><link rel="alternate" hreflang="zh-Hans"
+          href="https://developers.google.com/codelabs/maps-platform/maps-platform-101-js?hl=zh-cn" /><link rel="alternate" hreflang="zh-Hant"
+          href="https://developers.google.com/codelabs/maps-platform/maps-platform-101-js?hl=zh-tw" /><link rel="alternate" hreflang="fa"
+          href="https://developers.google.com/codelabs/maps-platform/maps-platform-101-js?hl=fa" /><link rel="alternate" hreflang="fr"
+          href="https://developers.google.com/codelabs/maps-platform/maps-platform-101-js?hl=fr" /><link rel="alternate" hreflang="de"
+          href="https://developers.google.com/codelabs/maps-platform/maps-platform-101-js?hl=de" /><link rel="alternate" hreflang="he"
+          href="https://developers.google.com/codelabs/maps-platform/maps-platform-101-js?hl=he" /><link rel="alternate" hreflang="hi"
+          href="https://developers.google.com/codelabs/maps-platform/maps-platform-101-js?hl=hi" /><link rel="alternate" hreflang="id"
+          href="https://developers.google.com/codelabs/maps-platform/maps-platform-101-js?hl=id" /><link rel="alternate" hreflang="it"
+          href="https://developers.google.com/codelabs/maps-platform/maps-platform-101-js?hl=it" /><link rel="alternate" hreflang="ja"
+          href="https://developers.google.com/codelabs/maps-platform/maps-platform-101-js?hl=ja" /><link rel="alternate" hreflang="ko"
+          href="https://developers.google.com/codelabs/maps-platform/maps-platform-101-js?hl=ko" /><link rel="alternate" hreflang="pl"
+          href="https://developers.google.com/codelabs/maps-platform/maps-platform-101-js?hl=pl" /><link rel="alternate" hreflang="pt-BR"
+          href="https://developers.google.com/codelabs/maps-platform/maps-platform-101-js?hl=pt-br" /><link rel="alternate" hreflang="ru"
+          href="https://developers.google.com/codelabs/maps-platform/maps-platform-101-js?hl=ru" /><link rel="alternate" hreflang="es-419"
+          href="https://developers.google.com/codelabs/maps-platform/maps-platform-101-js?hl=es-419" /><link rel="alternate" hreflang="th"
+          href="https://developers.google.com/codelabs/maps-platform/maps-platform-101-js?hl=th" /><link rel="alternate" hreflang="tr"
+          href="https://developers.google.com/codelabs/maps-platform/maps-platform-101-js?hl=tr" /><link rel="alternate" hreflang="vi"
+          href="https://developers.google.com/codelabs/maps-platform/maps-platform-101-js?hl=vi" /><title>Add a map to your website (JavaScript) &nbsp;|&nbsp; Google for Developers</title>
+
+<meta property="og:title" content="Add a map to your website (JavaScript) &nbsp;|&nbsp; Google for Developers"><meta property="og:url" content="https://developers.google.com/codelabs/maps-platform/maps-platform-101-js"><meta property="og:locale" content="en">
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  
+
+    </head>
+  <body class="color-scheme--light"
+        template="codelab"
+        theme="google-blue"
+        type="codelab"
+        
+        
+        
+        layout="docs"
+        
+        
+        
+        
+        
+          
+            concierge='closed'
+          
+        
+        display-toc
+        pending>
+  
+    <devsite-progress type="indeterminate" id="app-progress"></devsite-progress>
+  
+  
+    <a href="#main-content" class="skip-link button">
+      
+      Skip to main content
+    </a>
+    <section class="devsite-wrapper">
+      <devsite-cookie-notification-bar></devsite-cookie-notification-bar>
+        <devsite-header role="banner">
+  
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="devsite-header--inner" data-nosnippet>
+  <div class="devsite-top-logo-row-wrapper-wrapper">
+    <div class="devsite-top-logo-row-wrapper">
+      <div class="devsite-top-logo-row">
+        <button type="button" id="devsite-hamburger-menu"
+          class="devsite-header-icon-button button-flat material-icons gc-analytics-event"
+          data-category="Site-Wide Custom Events"
+          data-label="Navigation menu button"
+          visually-hidden
+          aria-label="Open menu">
+        </button>
+        
+<div class="devsite-product-name-wrapper">
+
+  <a href="/" class="devsite-site-logo-link gc-analytics-event"
+   data-category="Site-Wide Custom Events" data-label="Site logo" track-type="globalNav"
+   track-name="googleForDevelopers" track-metadata-position="nav"
+   track-metadata-eventDetail="nav">
+  
+  <picture>
+    
+    <img src="https://www.gstatic.com/devrel-devsite/prod/vb08cbdb02acf7f66ad9727ddfba9d81df8806422eb5dd63dba194c9c8c7997f7/developers/images/lockup-new.svg" class="devsite-site-logo" alt="Google for Developers">
+  </picture>
+  
+</a>
+
+
+
+</div>
+        <div class="devsite-top-logo-row-middle">
+          <div class="devsite-header-upper-tabs">
+            
+           </div>
+          
+<devsite-search
+    enable-signin
+    enable-search
+    enable-suggestions
+      enable-query-completion
+    
+    enable-search-summaries
+    
+    tenant-name="Google for Developers"
+    
+    
+    
+    
+    
+    >
+  <form class="devsite-search-form" action="https://developers.google.com/s/results" method="GET">
+    <div class="devsite-search-container">
+      <button type="button"
+              search-open
+              class="devsite-search-button devsite-header-icon-button button-flat material-icons"
+              
+              aria-label="Open search"></button>
+      <div class="devsite-searchbox">
+        <input
+          aria-activedescendant=""
+          aria-autocomplete="list"
+          
+          aria-label="Search"
+          aria-expanded="false"
+          aria-haspopup="listbox"
+          autocomplete="off"
+          class="devsite-search-field devsite-search-query"
+          name="q"
+          
+          placeholder="Search"
+          role="combobox"
+          type="text"
+          value=""
+          >
+          <div class="devsite-search-image material-icons" aria-hidden="true">
+            
+              <svg class="devsite-search-ai-image" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <g clip-path="url(#clip0_6641_386)">
+                    <path d="M19.6 21L13.3 14.7C12.8 15.1 12.225 15.4167 11.575 15.65C10.925 15.8833 10.2333 16 9.5 16C7.68333 16 6.14167 15.375 4.875 14.125C3.625 12.8583 3 11.3167 3 9.5C3 7.68333 3.625 6.15 4.875 4.9C6.14167 3.63333 7.68333 3 9.5 3C10.0167 3 10.5167 3.05833 11 3.175C11.4833 3.275 11.9417 3.43333 12.375 3.65L10.825 5.2C10.6083 5.13333 10.3917 5.08333 10.175 5.05C9.95833 5.01667 9.73333 5 9.5 5C8.25 5 7.18333 5.44167 6.3 6.325C5.43333 7.19167 5 8.25 5 9.5C5 10.75 5.43333 11.8167 6.3 12.7C7.18333 13.5667 8.25 14 9.5 14C10.6667 14 11.6667 13.625 12.5 12.875C13.35 12.1083 13.8417 11.15 13.975 10H15.975C15.925 10.6333 15.7833 11.2333 15.55 11.8C15.3333 12.3667 15.05 12.8667 14.7 13.3L21 19.6L19.6 21ZM17.5 12C17.5 10.4667 16.9667 9.16667 15.9 8.1C14.8333 7.03333 13.5333 6.5 12 6.5C13.5333 6.5 14.8333 5.96667 15.9 4.9C16.9667 3.83333 17.5 2.53333 17.5 0.999999C17.5 2.53333 18.0333 3.83333 19.1 4.9C20.1667 5.96667 21.4667 6.5 23 6.5C21.4667 6.5 20.1667 7.03333 19.1 8.1C18.0333 9.16667 17.5 10.4667 17.5 12Z" fill="#5F6368"/>
+                  </g>
+                <defs>
+                <clipPath id="clip0_6641_386">
+                <rect width="24" height="24" fill="white"/>
+                </clipPath>
+                </defs>
+              </svg>
+            
+          </div>
+          <div class="devsite-search-shortcut-icon-container" aria-hidden="true">
+            <kbd class="devsite-search-shortcut-icon">/</kbd>
+          </div>
+      </div>
+    </div>
+  </form>
+  <button type="button"
+          search-close
+          class="devsite-search-button devsite-header-icon-button button-flat material-icons"
+          
+          aria-label="Close search"></button>
+</devsite-search>
+
+        </div>
+
+        
+
+          
+
+          
+
+          
+
+          
+
+          
+<devsite-language-selector>
+  <ul role="presentation">
+    
+    
+    <li role="presentation">
+      <a role="menuitem" lang="en"
+        >English</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="de"
+        >Deutsch</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="es"
+        >Español</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="es_419"
+        >Español – América Latina</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="fr"
+        >Français</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="id"
+        >Indonesia</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="it"
+        >Italiano</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="pl"
+        >Polski</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="pt_br"
+        >Português – Brasil</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="vi"
+        >Tiếng Việt</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="tr"
+        >Türkçe</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="ru"
+        >Русский</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="he"
+        >עברית</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="ar"
+        >العربيّة</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="fa"
+        >فارسی</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="hi"
+        >हिंदी</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="bn"
+        >বাংলা</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="th"
+        >ภาษาไทย</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="zh_cn"
+        >中文 – 简体</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="zh_tw"
+        >中文 – 繁體</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="ja"
+        >日本語</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="ko"
+        >한국어</a>
+    </li>
+    
+  </ul>
+</devsite-language-selector>
+
+
+          
+
+        
+
+        
+          <devsite-user 
+                        
+                        
+                          enable-profiles
+                        
+                        
+                          fp-auth
+                        
+                        id="devsite-user">
+            
+              
+              <span class="button devsite-top-button" aria-hidden="true" visually-hidden>Sign in</span>
+            
+          </devsite-user>
+        
+        
+        
+      </div>
+    </div>
+  </div>
+
+
+
+</div>
+
+
+
+  
+</devsite-header>
+        <devsite-book-nav scrollbars hidden>
+          
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="devsite-book-nav-filter"
+     hidden>
+  <span class="filter-list-icon material-icons" aria-hidden="true"></span>
+  <input type="text"
+         placeholder="Filter"
+         
+         aria-label="Type to filter"
+         role="searchbox">
+  
+  <span class="filter-clear-button hidden"
+        data-title="Clear filter"
+        aria-label="Clear filter"
+        role="button"
+        tabindex="0"></span>
+</div>
+
+<nav class="devsite-book-nav devsite-nav nocontent" data-nosnippet
+     aria-label="Side menu">
+  <div class="devsite-mobile-header">
+    <button type="button"
+            id="devsite-close-nav"
+            class="devsite-header-icon-button button-flat material-icons gc-analytics-event"
+            data-category="Site-Wide Custom Events"
+            data-label="Close navigation"
+            aria-label="Close navigation">
+    </button>
+    <div class="devsite-product-name-wrapper">
+
+  <a href="/" class="devsite-site-logo-link gc-analytics-event"
+   data-category="Site-Wide Custom Events" data-label="Site logo" track-type="globalNav"
+   track-name="googleForDevelopers" track-metadata-position="nav"
+   track-metadata-eventDetail="nav">
+  
+  <picture>
+    
+    <img src="https://www.gstatic.com/devrel-devsite/prod/vb08cbdb02acf7f66ad9727ddfba9d81df8806422eb5dd63dba194c9c8c7997f7/developers/images/lockup-new.svg" class="devsite-site-logo" alt="Google for Developers">
+  </picture>
+  
+</a>
+
+
+</div>
+  </div>
+
+  <div class="devsite-book-nav-wrapper">
+    <div class="devsite-mobile-nav-top">
+      
+        <ul class="devsite-nav-list">
+          
+          
+          
+        </ul>
+      
+    </div>
+    
+  </div>
+</nav>
+          
+        </devsite-book-nav>
+      
+      <section id="gc-wrapper">
+        <main role="main" id="main-content" class="devsite-main-content"
+            
+              
+              has-sidebar
+            >
+          <div class="devsite-sidebar">
+            <div class="devsite-sidebar-content">
+                
+                <devsite-toc class="devsite-nav"
+                            role="navigation"
+                            aria-label="On this page"
+                            depth="1"
+                            scrollbars
+                            data-nosnippet
+                  ></devsite-toc>
+                <devsite-recommendations-sidebar class="nocontent devsite-nav" data-nosnippet>
+                </devsite-recommendations-sidebar>
+            </div>
+          </div>
+          <devsite-content>
+            
+              
+
+
+
+
+
+
+
+
+
+
+<article class="devsite-article"><style>
+      body {
+        transition: opacity ease-in 0.2s;
+      }
+
+      body[unresolved] {
+        opacity: 0;
+        display: block;
+        overflow: hidden;
+        position: relative;
+      }
+      </style>
+  
+  
+  
+  
+  
+
+  <div class="devsite-article-meta nocontent" role="navigation" data-nosnippet>
+    
+    
+    <ul class="devsite-breadcrumb-list"
+  >
+  
+</ul>
+    
+  </div>
+  
+    <h1 class="devsite-page-title" tabindex="-1">
+      Add a map to your website (JavaScript)<devsite-actions hidden data-nosnippet><devsite-feature-tooltip
+      ack-key="AckCollectionsBookmarkTooltipDismiss"
+      analytics-category="Site-Wide Custom Events"
+      analytics-action-show="Callout Profile displayed"
+      analytics-action-close="Callout Profile dismissed"
+      analytics-label="Create Collection Callout"
+      class="devsite-page-bookmark-tooltip nocontent"
+      data-nosnippet
+      dismiss-button="true"
+      id="devsite-collections-dropdown"
+      
+      dismiss-button-text="Dismiss"
+
+      
+      close-button-text="Got it">
+
+    
+    
+      <devsite-bookmark></devsite-bookmark>
+    
+
+    <span slot="popout-heading">
+      
+      Stay organized with collections
+    </span>
+    <span slot="popout-contents">
+      
+      Save and categorize content based on your preferences.
+    </span>
+  </devsite-feature-tooltip></devsite-actions>
+  
+      
+    </h1>
+  
+
+  <devsite-toc class="devsite-nav"
+    depth="1"
+    devsite-toc-embedded
+    >
+  </devsite-toc>
+  <div class="devsite-article-body clearfix
+  ">
+
+  
+    
+    
+    <google-codelab-analytics gaid="UA-49880327-14" ga4id="G-JTFZSJVVVZ"></google-codelab-analytics>
+    <google-codelab codelab-gaid=""
+                    codelab-ga4id=""
+                    doc-id=""
+                    id="maps-platform-101-js"
+                    title="Add a map to your website (JavaScript)"
+                    no-tooltip=""
+                    environment="web"
+                    category="mapsplatform,web"
+                    feedback-link="https://github.com/googlecodelabs/maps-platform-101-js/issues/new"
+                    layout="paginated"
+                    >
+      
+        <google-codelab-step label="Before You Begin" duration="0" step="0">
+          
+            <google-codelab-about codelab-title="Add a map to your website (JavaScript)"
+                                  authors="Alex Muramoto"
+                                  last-updated="2024-09-18T19:33:22Z"
+                                  duration="42">
+            </google-codelab-about>
+          
+          <h2 class="step-title" id="0" data-text="Before You Begin" tabindex="-1">
+              1. Before You Begin
+          </h2>
+          <p>In this codelab, you learn everything you need to get started using Google Maps Platform for the web. You learn all the basics, from getting set up to loading the Maps JavaScript API, displaying your first map, working with markers and marker clustering, drawing on the map, and handling user interaction.</p>
+<h2 is-upgraded id="what-youll-build" data-text="What you'll build" tabindex="-1">What you'll build</h2>
+<p class="image-container"><img alt="e52623cb8578d625.png" style="width: 647.50px" src="/static/codelabs/maps-platform/maps-platform-101-js/img/e52623cb8578d625.png" srcset="https://developers.google.com/static/codelabs/maps-platform/maps-platform-101-js/img/e52623cb8578d625_36.png 36w,https://developers.google.com/static/codelabs/maps-platform/maps-platform-101-js/img/e52623cb8578d625_48.png 48w,https://developers.google.com/static/codelabs/maps-platform/maps-platform-101-js/img/e52623cb8578d625_72.png 72w,https://developers.google.com/static/codelabs/maps-platform/maps-platform-101-js/img/e52623cb8578d625_96.png 96w,https://developers.google.com/static/codelabs/maps-platform/maps-platform-101-js/img/e52623cb8578d625_480.png 480w,https://developers.google.com/static/codelabs/maps-platform/maps-platform-101-js/img/e52623cb8578d625_720.png 720w,https://developers.google.com/static/codelabs/maps-platform/maps-platform-101-js/img/e52623cb8578d625_856.png 856w,https://developers.google.com/static/codelabs/maps-platform/maps-platform-101-js/img/e52623cb8578d625_960.png 960w,https://developers.google.com/static/codelabs/maps-platform/maps-platform-101-js/img/e52623cb8578d625_1440.png 1440w,https://developers.google.com/static/codelabs/maps-platform/maps-platform-101-js/img/e52623cb8578d625_1920.png 1920w,https://developers.google.com/static/codelabs/maps-platform/maps-platform-101-js/img/e52623cb8578d625_2880.png 2880w" sizes="(max-width: 840px) 100vw, 856px"></p>
+<p>In this codelab, you build a simple web app that does the following:</p>
+<ul>
+<li>Loads the Maps JavaScript API</li>
+<li>Displays a map centered on Sydney, Australia</li>
+<li>Displays custom markers for popular attractions in Sydney</li>
+<li>Implements marker clustering</li>
+<li>Enables user interaction that recenters and draws a circle on the map when a marker is clicked</li>
+</ul>
+<h2 class="checklist" is-upgraded id="what-youll-learn" data-text="What you'll learn" tabindex="-1">What you'll learn</h2>
+<ul class="checklist">
+<li>Getting started with Google Maps Platform</li>
+<li>Loading the Maps JavaScript API dynamically from JavaScript code</li>
+<li>Loading a map</li>
+<li>Using markers, custom markers, and marker clustering</li>
+<li>Working with the Maps JavaScript API event system to provide user interaction</li>
+<li>Controlling the map dynamically</li>
+<li>Drawing on the map</li>
+</ul>
+
+
+        </google-codelab-step>
+      
+        <google-codelab-step label="Prerequisites" duration="0" step="1">
+          
+          <h2 class="step-title" id="1" data-text="Prerequisites" tabindex="-1">
+              2. Prerequisites
+          </h2>
+          <p>You&#39;ll need to familiarize with the items below to complete this Codelab. If you are already familiar with working with Google Maps Platform, skip ahead to the Codelab!</p>
+<h2 is-upgraded id="required-google-maps-platform-products" data-text="Required Google Maps Platform Products" tabindex="-1">Required Google Maps Platform Products</h2>
+<p>In this Codelab, you&#39;ll use the following Google Maps Platform products:</p>
+<ul>
+<li><a href="https://developers.google.com/maps/documentation/javascript/" target="_blank">Maps JavaScript API</a></li>
+<li><a href="https://developers.google.com/maps/documentation/javascript/marker-clustering" target="_blank">MarkerClustererPlus</a> open source marker clustering library</li>
+</ul>
+<h2 is-upgraded id="other-requirements-for-this-codelab" data-text="Other Requirements for this Codelab" tabindex="-1">Other Requirements for this Codelab</h2>
+<p>To complete this codelab, you&#39;ll need the following accounts, services, and tools:</p>
+<ul>
+<li>A Google Cloud Platform account with billing enabled</li>
+<li>A Google Maps Platform API key with the Maps JavaScript API enabled</li>
+<li>Basic knowledge of JavaScript, HTML, and CSS</li>
+<li><a href="https://nodejs.org/" target="_blank">Node.js</a> installed on your computer</li>
+<li>A text editor or IDE of your choice</li>
+</ul>
+<h2 is-upgraded id="get-started-with-google-maps-platform" data-text="Get started with Google Maps Platform" tabindex="-1">Get started with Google Maps Platform</h2>
+<p>If you haven&#39;t used Google Maps Platform before, follow the <a href="https://developers.google.com/maps/gmp-get-started" target="_blank">Get Started with Google Maps Platform guide</a> or watch the Getting Started with <a href="https://www.youtube.com/playlist?list=PL2rFahu9sLJ0yio9sC7BclL4a9r76ygHi" target="_blank">Google Maps Platform playlist</a> to complete the following steps:</p>
+<ol type="1">
+<li>Create a billing account.</li>
+<li>Create a project.</li>
+<li>Enable Google Maps Platform APIs and SDKs (listed in the previous section).</li>
+<li>Generate an API key.</li>
+</ol>
+<aside class="special"><p><strong>Note:</strong> You need to sign in to an existing Google Account or create a new one as part of the sign-up process.</p>
+</aside>
+
+
+
+        </google-codelab-step>
+      
+        <google-codelab-step label="Get Set Up" duration="7" step="2">
+          
+          <h2 class="step-title" id="2" data-text="Get Set Up" tabindex="-1">
+              3. Get Set Up
+          </h2>
+          <h2 is-upgraded id="set-up-google-maps-platform" data-text="Set up Google Maps Platform" tabindex="-1">Set up Google Maps Platform</h2>
+<p>If you do not already have a Google Cloud Platform account and a project with billing enabled, please see the <a href="https://developers.google.com/maps/gmp-get-started" target="_blank">Getting Started with Google Maps Platform</a> guide to create a billing account and a project.</p>
+<ol type="1">
+<li>In the <a href="https://console.cloud.google.com/" target="_blank">Cloud Console</a>, click the project drop-down menu and select the project that you want to use for this codelab.</li>
+</ol>
+<p class="image-container"><img style="width: 311.50px" src="https://developers.google.com/codelabs/maps-platform/shared/project-drop-down.png"></p>
+<ol type="1" start="2">
+<li>Enable the Google Maps Platform APIs and SDKs required for this codelab in the <a href="https://console.cloud.google.com/marketplace" target="_blank">Google Cloud Marketplace</a>. To do so, follow the steps in <a href="https://youtu.be/n1UorU1PALk" target="_blank">this video</a> or <a href="https://developers.google.com/maps/gmp-get-started#enable-api-sdk" target="_blank">this documentation</a>.</li>
+<li>Generate an API key in the <a href="https://console.cloud.google.com/apis/credentials" target="_blank">Credentials</a> page of Cloud Console. You can follow the steps in <a href="https://youtu.be/2_HZObVbe-g" target="_blank">this video</a> or <a href="https://developers.google.com/maps/gmp-get-started#api-key" target="_blank">this documentation</a>. All requests to Google Maps Platform require an API key.</li>
+</ol>
+
+<h2 is-upgraded id="node.js-setup" data-text="Node.js setup" tabindex="-1">Node.js setup</h2>
+<p>If you do not already have it, go to  <a href="https://nodejs.org/" target="_blank">https://nodejs.org/</a> to download and install the Node.js runtime on your computer.</p>
+<p>Node.js comes with the npm package manager, which you need to install dependencies for this codelab.</p>
+<h2 is-upgraded id="project-starter-template-setup" data-text="Project starter template setup" tabindex="-1">Project starter template setup</h2>
+<p>Before you begin this codelab, do the following to download the starter project template, as well as the complete solution code:</p>
+<ol type="1">
+<li>Download or fork the GitHub repo for this codelab at  <a href="https://github.com/googlecodelabs/maps-platform-101-js" target="_blank">https://github.com/googlecodelabs/maps-platform-101-js</a>.</li>
+</ol>
+<p>The starter project is located in the <code translate="no" dir="ltr">/starter</code> directory and includes the basic file structure you need to complete the codelab. Everything you need to work with is located in the <code translate="no" dir="ltr">/starter/src</code> directory. 2. Once you download the starter project, run <code translate="no" dir="ltr">npm install</code> in the <code translate="no" dir="ltr">/starter</code> directory. This installs all of the needed dependencies listed in <code translate="no" dir="ltr">package.json</code>. 3. Once your dependencies are installed, run <code translate="no" dir="ltr">npm start</code> in the directory.</p>
+<p>The starter project has been set up for you to use webpack-dev-server, which compiles and runs the code you write locally. webpack-dev-server also automatically reloads your app in the browser any time you make code changes.</p>
+<p>If you&#39;d like to see the full solution code running, you can complete the setup steps above in the <code translate="no" dir="ltr">/solution</code> directory.</p>
+
+
+        </google-codelab-step>
+      
+        <google-codelab-step label="Load the Maps JavaScript API" duration="5" step="3">
+          
+          <h2 class="step-title" id="3" data-text="Load the Maps JavaScript API" tabindex="-1">
+              4. Load the Maps JavaScript API
+          </h2>
+          <p>Before you begin, please make sure you follow the steps in <a href="#1" target="_blank">Getting Set Up</a>. All done? Okay, time to build your first web app using Google Maps Platform!</p>
+<p>The foundation of using Google Maps Platform for the web is the Maps JavaScript API. This API provides a JavaScript interface for using all of the features of Google Maps Platform, including the map, markers, drawing tools, and other Google Maps Platform services, such as Places.</p>
+<p>If you have previous experience with the Maps JavaScript API, you may be familiar with loading it by inserting a <code translate="no" dir="ltr">script</code> tag into an HTML file like this:</p>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="JavaScript"><code translate="no" dir="ltr"><span class="devsite-syntax-w">    </span>&lt;<span class="devsite-syntax-nx">script</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-k">async</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">defer</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">src</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-s2">"https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&amp;callback=initMap"</span>&gt;
+</code></pre></devsite-code>
+<p>This is still a perfectly valid way of loading the API, but in modern JavaScript dependencies are normally dynamically included from code. To accomplish the equivalent of the <code translate="no" dir="ltr">script</code> tag above from code, you&#39;ll use the <a href="https://www.npmjs.com/package/@googlemaps/map-loader" target="_blank">@googlemaps/js-api-loader module</a>. The JS API Loader is already included in the dependencies of the project&#39;s <code translate="no" dir="ltr">package.json</code> file, so it was installed when you ran <code translate="no" dir="ltr">npm install</code> earlier.</p>
+<p>To use the JS API Loader, do the following:</p>
+<ol type="1">
+<li>Open <code translate="no" dir="ltr">/src/app.js</code>. This file is where you will do all of your work for this codelab.</li>
+<li>Import the <code translate="no" dir="ltr">Loader</code> class from @googlemaps/js-api-loader. <br><br> Add the following to the top of <code translate="no" dir="ltr">app.js</code>:<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="JavaScript"><code translate="no" dir="ltr"><span class="devsite-syntax-w"> </span><span class="devsite-syntax-k">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">Loader</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">}</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kr">from</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s1">'@googlemaps/js-api-loader'</span><span class="devsite-syntax-p">;</span>
+</code></pre></devsite-code>
+</li>
+<li>Create an <code translate="no" dir="ltr">apiOptions</code> object. <br><br> The <code translate="no" dir="ltr">Loader</code> class requires a JSON object that specifies various options for loading the Maps JavaScript API, including your Google Maps Platform API key, what version of the API you want to load, and any additional libraries provided by the Maps JS API you want to load. For the purposes of this codelab, you only need to specify the API key by appending the following to <code translate="no" dir="ltr">app.js</code>:<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="JavaScript"><code translate="no" dir="ltr"><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">const</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">apiOptions</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-nx">apiKey</span><span class="devsite-syntax-o">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s2">"YOUR API KEY"</span>
+<span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">}</span>
+</code></pre></devsite-code>
+</li>
+<li>Create an instance of <code translate="no" dir="ltr">Loader</code> and pass it your <code translate="no" dir="ltr">apiOptions</code>.<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="JavaScript"><code translate="no" dir="ltr"><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">const</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">loader</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-ow">new</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">Loader</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-nx">apiOptions</span><span class="devsite-syntax-p">);</span>
+</code></pre></devsite-code>
+</li>
+<li>Load the Maps JS API. <br><br> To load the API, call <code translate="no" dir="ltr">load()</code> on the <code translate="no" dir="ltr">Loader</code> instance. The JS API Loader returns a promise that resolves once the API is loaded and ready for use. Add the following stub to load the API and handle the promise:<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="JavaScript"><code translate="no" dir="ltr"><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">loader</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-nx">load</span><span class="devsite-syntax-p">().</span><span class="devsite-syntax-nx">then</span><span class="devsite-syntax-p">(()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span>&gt;<span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-nx">console</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-nx">log</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s1">'Maps JS API loaded'</span><span class="devsite-syntax-p">);</span>
+<span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">});</span>
+</code></pre></devsite-code>
+</li>
+</ol>
+<p>If everything is successful you should see the <code translate="no" dir="ltr">console.log</code> statement in the browser console. Using Chrome, this additional window can be accessed at <strong>View -&gt; Developer -&gt; Javascript Console</strong>.</p>
+<p class="image-container"><img alt="4fa88d1618cc7fd.png" style="width: 521.00px" src="/static/codelabs/maps-platform/maps-platform-101-js/img/4fa88d1618cc7fd.png" srcset="https://developers.google.com/static/codelabs/maps-platform/maps-platform-101-js/img/4fa88d1618cc7fd_36.png 36w,https://developers.google.com/static/codelabs/maps-platform/maps-platform-101-js/img/4fa88d1618cc7fd_48.png 48w,https://developers.google.com/static/codelabs/maps-platform/maps-platform-101-js/img/4fa88d1618cc7fd_72.png 72w,https://developers.google.com/static/codelabs/maps-platform/maps-platform-101-js/img/4fa88d1618cc7fd_96.png 96w,https://developers.google.com/static/codelabs/maps-platform/maps-platform-101-js/img/4fa88d1618cc7fd_480.png 480w,https://developers.google.com/static/codelabs/maps-platform/maps-platform-101-js/img/4fa88d1618cc7fd_720.png 720w,https://developers.google.com/static/codelabs/maps-platform/maps-platform-101-js/img/4fa88d1618cc7fd_856.png 856w,https://developers.google.com/static/codelabs/maps-platform/maps-platform-101-js/img/4fa88d1618cc7fd_960.png 960w,https://developers.google.com/static/codelabs/maps-platform/maps-platform-101-js/img/4fa88d1618cc7fd_1440.png 1440w,https://developers.google.com/static/codelabs/maps-platform/maps-platform-101-js/img/4fa88d1618cc7fd_1920.png 1920w,https://developers.google.com/static/codelabs/maps-platform/maps-platform-101-js/img/4fa88d1618cc7fd_2880.png 2880w" sizes="(max-width: 840px) 100vw, 856px"></p>
+<p>To recap, you&#39;ve now dynamically loaded the Maps JavaScript API from code and defined the callback function that is executed once the Maps JavaScript API is done loading.</p>
+<p>Your <code translate="no" dir="ltr">app.js</code> file should look something like this:</p>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="JavaScript"><code translate="no" dir="ltr"><span class="devsite-syntax-w">    </span><span class="devsite-syntax-k">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">Loader</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">}</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kr">from</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s1">'@googlemaps/js-api-loader'</span><span class="devsite-syntax-p">;</span>
+
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">const</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">apiOptions</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">      </span><span class="devsite-syntax-nx">apiKey</span><span class="devsite-syntax-o">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s2">"YOUR API KEY"</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">}</span>
+
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">const</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">loader</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-ow">new</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">Loader</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-nx">apiOptions</span><span class="devsite-syntax-p">);</span>
+
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-nx">loader</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-nx">load</span><span class="devsite-syntax-p">().</span><span class="devsite-syntax-nx">then</span><span class="devsite-syntax-p">(()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span>&gt;<span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">      </span><span class="devsite-syntax-nx">console</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-nx">log</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s1">'Maps JS API Loaded'</span><span class="devsite-syntax-p">);</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">});</span>
+</code></pre></devsite-code>
+<p>Now that the Maps JavaScript API is loaded, you&#39;ll load the map in the next step.</p>
+
+
+        </google-codelab-step>
+      
+        <google-codelab-step label="Display a map" duration="5" step="4">
+          
+          <h2 class="step-title" id="4" data-text="Display a map" tabindex="-1">
+              5. Display a map
+          </h2>
+          <p>Time to display your first map!</p>
+<p>The most commonly used part of the Maps JavaScript API is <code translate="no" dir="ltr">google.maps.Map</code>, which is the class that allows us to create and manipulate map instances. Take a look at how that&#39;s done by creating a new function called <code translate="no" dir="ltr">displayMap()</code>.</p>
+<ol type="1">
+<li>Define your map settings. <br><br> The Maps JavaScript API supports a variety of different settings for the map, but only two are required:<ul>
+<li><code translate="no" dir="ltr">center</code>: sets the latitude and longitude for the center of the map.</li>
+<li><code translate="no" dir="ltr">zoom</code>: sets the initial zoom level of the map.</li>
+</ul>
+Use the following code to center the map on Sydney, Australia, and give it a zoom level of 14, which is just the right zoom level to show the city center.<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="JavaScript"><code translate="no" dir="ltr"><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">function</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">displayMap</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-kd">const</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">mapOptions</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">     </span><span class="devsite-syntax-nx">center</span><span class="devsite-syntax-o">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">lat</span><span class="devsite-syntax-o">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">-</span><span class="devsite-syntax-mf">33.860664</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">lng</span><span class="devsite-syntax-o">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-mf">151.208138</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">},</span>
+<span class="devsite-syntax-w">     </span><span class="devsite-syntax-nx">zoom</span><span class="devsite-syntax-o">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-mf">14</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-p">};</span>
+<span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">}</span>
+</code></pre></devsite-code>
+</li>
+<li>Get the <code translate="no" dir="ltr">div</code> where the map should be injected into the DOM. <br><br> Before you can display the map, you need to tell the Maps JavaScript API where you want it to be displayed in the page. If you take a quick look in <code translate="no" dir="ltr">index.html</code>, you see that there&#39;s already a <code translate="no" dir="ltr">div</code> that looks like this:<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="JavaScript"><code translate="no" dir="ltr"><span class="devsite-syntax-w"> </span>&lt;<span class="devsite-syntax-nx">div</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">id</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-s2">"map"</span>&gt;&lt;<span class="devsite-syntax-o">/</span><span class="devsite-syntax-nx">div</span>&gt;
+</code></pre></devsite-code>
+To tell the Maps JavaScript API this is where you want the map to be injected, use <code translate="no" dir="ltr">document.getElementById</code> to get its DOM reference:<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="JavaScript"><code translate="no" dir="ltr"><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">const</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">mapDiv</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nb">document</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-nx">getElementById</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s1">'map'</span><span class="devsite-syntax-p">);</span>
+</code></pre></devsite-code>
+</li>
+<li>Create an instance of <code translate="no" dir="ltr">google.maps.Map</code>. <br><br> To ask the Maps JavaScript API to create a new map that can be displayed, create an instance of <code translate="no" dir="ltr">google.maps.Map</code>, and pass in the <code translate="no" dir="ltr">mapDiv</code> and <code translate="no" dir="ltr">mapOptions</code>. You also return the <code translate="no" dir="ltr">Map</code> instance from this function so that you can do more with it later:<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="JavaScript"><code translate="no" dir="ltr"><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">const</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">map</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-ow">new</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">google</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-nx">maps</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-nb">Map</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-nx">mapDiv</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">mapOptions</span><span class="devsite-syntax-p">);</span>
+<span class="devsite-syntax-w"> </span><span class="devsite-syntax-k">return</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">map</span><span class="devsite-syntax-p">;</span>
+</code></pre></devsite-code>
+</li>
+<li>Display the map! <br><br> Once you define all of the logic for creating your map instance, all that&#39;s left is to call <code translate="no" dir="ltr">displayMap()</code> from the JS API promise handler so that it is called once the Maps JavaScript API loads:<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="JavaScript"><code translate="no" dir="ltr"><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">loader</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-nx">then</span><span class="devsite-syntax-p">(()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span>&gt;<span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-nx">console</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-nx">log</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s1">'Maps JS API loaded'</span><span class="devsite-syntax-p">);</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-kd">const</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">map</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">displayMap</span><span class="devsite-syntax-p">();</span>
+<span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">});</span>
+</code></pre></devsite-code>
+</li>
+</ol>
+<p>You should now see a beautiful map of Sydney in your browser:</p>
+<p class="image-container"><img alt="fb0cd6bc38532780.png" style="width: 602.00px" src="/static/codelabs/maps-platform/maps-platform-101-js/img/fb0cd6bc38532780.png" srcset="https://developers.google.com/static/codelabs/maps-platform/maps-platform-101-js/img/fb0cd6bc38532780_36.png 36w,https://developers.google.com/static/codelabs/maps-platform/maps-platform-101-js/img/fb0cd6bc38532780_48.png 48w,https://developers.google.com/static/codelabs/maps-platform/maps-platform-101-js/img/fb0cd6bc38532780_72.png 72w,https://developers.google.com/static/codelabs/maps-platform/maps-platform-101-js/img/fb0cd6bc38532780_96.png 96w,https://developers.google.com/static/codelabs/maps-platform/maps-platform-101-js/img/fb0cd6bc38532780_480.png 480w,https://developers.google.com/static/codelabs/maps-platform/maps-platform-101-js/img/fb0cd6bc38532780_720.png 720w,https://developers.google.com/static/codelabs/maps-platform/maps-platform-101-js/img/fb0cd6bc38532780_856.png 856w,https://developers.google.com/static/codelabs/maps-platform/maps-platform-101-js/img/fb0cd6bc38532780_960.png 960w,https://developers.google.com/static/codelabs/maps-platform/maps-platform-101-js/img/fb0cd6bc38532780_1440.png 1440w,https://developers.google.com/static/codelabs/maps-platform/maps-platform-101-js/img/fb0cd6bc38532780_1920.png 1920w,https://developers.google.com/static/codelabs/maps-platform/maps-platform-101-js/img/fb0cd6bc38532780_2880.png 2880w" sizes="(max-width: 840px) 100vw, 856px"></p>
+<p>To recap, in this step you defined display options for the map, created a new map instance, and injected it into the DOM.</p>
+<p>Your <code translate="no" dir="ltr">displayMap()</code> function should look something like this:</p>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="JavaScript"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">function</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">displayMap</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">  </span><span class="devsite-syntax-kd">const</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">mapOptions</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-nx">center</span><span class="devsite-syntax-o">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">lat</span><span class="devsite-syntax-o">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">-</span><span class="devsite-syntax-mf">33.860664</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">lng</span><span class="devsite-syntax-o">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-mf">151.208138</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">},</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-nx">zoom</span><span class="devsite-syntax-o">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-mf">14</span>
+<span class="devsite-syntax-w">  </span><span class="devsite-syntax-p">};</span>
+<span class="devsite-syntax-w">  </span><span class="devsite-syntax-kd">const</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">mapDiv</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nb">document</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-nx">getElementById</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s1">'map'</span><span class="devsite-syntax-p">);</span>
+<span class="devsite-syntax-w">  </span><span class="devsite-syntax-kd">const</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">map</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-ow">new</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">google</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-nx">maps</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-nb">Map</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-nx">mapDiv</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">mapOptions</span><span class="devsite-syntax-p">);</span>
+<span class="devsite-syntax-w">  </span><span class="devsite-syntax-k">return</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">map</span><span class="devsite-syntax-p">;</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre></devsite-code>
+
+
+        </google-codelab-step>
+      
+        <google-codelab-step label="Cloud-based map styling (Optional)" duration="0" step="5">
+          
+          <h2 class="step-title" id="5" data-text="Cloud-based map styling (Optional)" tabindex="-1">
+              6. Cloud-based map styling (Optional)
+          </h2>
+          <p>You can customize the style of your map using <a href="https://developers.google.com/maps/documentation/android-sdk/maps-customization-overview" target="_blank">Cloud-based map styling</a>.</p>
+<h2 is-upgraded id="create-a-map-id" data-text="Create a Map ID" tabindex="-1">Create a Map ID</h2>
+<p>If you have not yet created a map ID with a map style associated to it, see the <a href="https://developers.google.com/maps/documentation/get-map-id" target="_blank">Map IDs</a> guide to complete the following steps:</p>
+<ol type="1">
+<li>Create a map ID.</li>
+<li>Associate a map ID to a map style.</li>
+</ol>
+<aside class="warning"><p><strong>Note:</strong>  Using a Map ID on Maps SDK for Android or Maps SDK for iOS triggers a map load that is charged against the Dynamic Maps SKU. See <a href="https://developers.google.com/maps/billing-and-pricing/pricing#dynamic-maps" target="_blank">Google Maps Billing</a> for more information.</p>
+</aside>
+
+<h2 is-upgraded id="adding-the-map-id-to-your-app" data-text="Adding the Map ID to your app" tabindex="-1">Adding the Map ID to your app</h2>
+<p>To use the map ID you created, modify the <code translate="no" dir="ltr">displayMap</code> function in the <code translate="no" dir="ltr">app.js</code> file and pass your map ID in the <code translate="no" dir="ltr">mapId</code> property of the <code translate="no" dir="ltr">mapOptions</code> object.</p>
+<h3 is-upgraded id="app.js" data-text="app.js" tabindex="-1"><a href="https://github.com/googlecodelabs/maps-platform-101-js/blob/master/solution/src/app.js#L3" target="_blank">app.js</a></h3>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="JavaScript"><code translate="no" dir="ltr"><span class="devsite-syntax-kd">function</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">displayMap</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">  </span><span class="devsite-syntax-kd">const</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">mapOptions</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-nx">center</span><span class="devsite-syntax-o">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">lat</span><span class="devsite-syntax-o">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">-</span><span class="devsite-syntax-mf">33.860664</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">lng</span><span class="devsite-syntax-o">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-mf">151.208138</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">},</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-nx">zoom</span><span class="devsite-syntax-o">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-mf">14</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-nx">mapId</span><span class="devsite-syntax-o">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s1">'YOUR_MAP_ID'</span>
+<span class="devsite-syntax-w">  </span><span class="devsite-syntax-p">};</span>
+<span class="devsite-syntax-w">  </span><span class="devsite-syntax-kd">const</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">mapDiv</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nb">document</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-nx">getElementById</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s1">'map'</span><span class="devsite-syntax-p">);</span>
+<span class="devsite-syntax-w">  </span><span class="devsite-syntax-k">return</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-ow">new</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">google</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-nx">maps</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-nb">Map</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-nx">mapDiv</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">mapOptions</span><span class="devsite-syntax-p">);</span>
+<span class="devsite-syntax-p">}</span>
+</code></pre></devsite-code>
+<p>Once you&#39;ve completed this, you should now see the style you selected on the map!</p>
+
+
+        </google-codelab-step>
+      
+        <google-codelab-step label="Add markers to the map" duration="5" step="6">
+          
+          <h2 class="step-title" id="6" data-text="Add markers to the map" tabindex="-1">
+              7. Add markers to the map
+          </h2>
+          <p>There&#39;s lots of things developers do with the Maps JavaScript API, but putting markers on the map is definitely the most popular. Markers allow you to show specific points on the map, and are a common UI element for handling user interaction. If you&#39;ve used Google Maps before, then you&#39;re probably familiar with the default marker, which looks like this:</p>
+<p class="image-container"><img alt="590815267846f166.png" style="width: 432.21px" src="/static/codelabs/maps-platform/maps-platform-101-js/img/590815267846f166.png" srcset="https://developers.google.com/static/codelabs/maps-platform/maps-platform-101-js/img/590815267846f166_36.png 36w,https://developers.google.com/static/codelabs/maps-platform/maps-platform-101-js/img/590815267846f166_48.png 48w,https://developers.google.com/static/codelabs/maps-platform/maps-platform-101-js/img/590815267846f166_72.png 72w,https://developers.google.com/static/codelabs/maps-platform/maps-platform-101-js/img/590815267846f166_96.png 96w,https://developers.google.com/static/codelabs/maps-platform/maps-platform-101-js/img/590815267846f166_480.png 480w,https://developers.google.com/static/codelabs/maps-platform/maps-platform-101-js/img/590815267846f166_720.png 720w,https://developers.google.com/static/codelabs/maps-platform/maps-platform-101-js/img/590815267846f166_856.png 856w,https://developers.google.com/static/codelabs/maps-platform/maps-platform-101-js/img/590815267846f166_960.png 960w,https://developers.google.com/static/codelabs/maps-platform/maps-platform-101-js/img/590815267846f166_1440.png 1440w,https://developers.google.com/static/codelabs/maps-platform/maps-platform-101-js/img/590815267846f166_1920.png 1920w,https://developers.google.com/static/codelabs/maps-platform/maps-platform-101-js/img/590815267846f166_2880.png 2880w" sizes="(max-width: 840px) 100vw, 856px"></p>
+<p>In this step, you&#39;ll use <code translate="no" dir="ltr">google.maps.Marker</code>  to put markers on the map.</p>
+<ol type="1">
+<li>Define an object for your marker locations. <br><br> To start, create a new <code translate="no" dir="ltr">addMarkers()</code> function, and declare a <code translate="no" dir="ltr">locations</code> object that has the following set of latitude/longitude points for popular tourist attractions in Sydney. <br><br> Also, note that you need to pass your <code translate="no" dir="ltr">Map</code> instance to the function. You&#39;ll use this later when you create your marker instances.<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="JavaScript"><code translate="no" dir="ltr"><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">function</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">addMarkers</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-nx">map</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-kd">const</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">locations</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">     </span><span class="devsite-syntax-nx">operaHouse</span><span class="devsite-syntax-o">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">lat</span><span class="devsite-syntax-o">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">-</span><span class="devsite-syntax-mf">33.8567844</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">lng</span><span class="devsite-syntax-o">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-mf">151.213108</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">},</span>
+<span class="devsite-syntax-w">     </span><span class="devsite-syntax-nx">tarongaZoo</span><span class="devsite-syntax-o">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">lat</span><span class="devsite-syntax-o">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">-</span><span class="devsite-syntax-mf">33.8472767</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">lng</span><span class="devsite-syntax-o">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-mf">151.2188164</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">},</span>
+<span class="devsite-syntax-w">     </span><span class="devsite-syntax-nx">manlyBeach</span><span class="devsite-syntax-o">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">lat</span><span class="devsite-syntax-o">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">-</span><span class="devsite-syntax-mf">33.8209738</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">lng</span><span class="devsite-syntax-o">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-mf">151.2563253</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">},</span>
+<span class="devsite-syntax-w">     </span><span class="devsite-syntax-nx">hyderPark</span><span class="devsite-syntax-o">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">lat</span><span class="devsite-syntax-o">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">-</span><span class="devsite-syntax-mf">33.8690081</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">lng</span><span class="devsite-syntax-o">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-mf">151.2052393</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">},</span>
+<span class="devsite-syntax-w">     </span><span class="devsite-syntax-nx">theRocks</span><span class="devsite-syntax-o">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">lat</span><span class="devsite-syntax-o">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">-</span><span class="devsite-syntax-mf">33.8587568</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">lng</span><span class="devsite-syntax-o">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-mf">151.2058246</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">},</span>
+<span class="devsite-syntax-w">     </span><span class="devsite-syntax-nx">circularQuay</span><span class="devsite-syntax-o">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">lat</span><span class="devsite-syntax-o">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">-</span><span class="devsite-syntax-mf">33.858761</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">lng</span><span class="devsite-syntax-o">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-mf">151.2055688</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">},</span>
+<span class="devsite-syntax-w">     </span><span class="devsite-syntax-nx">harbourBridge</span><span class="devsite-syntax-o">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">lat</span><span class="devsite-syntax-o">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">-</span><span class="devsite-syntax-mf">33.852228</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">lng</span><span class="devsite-syntax-o">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-mf">151.2038374</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">},</span>
+<span class="devsite-syntax-w">     </span><span class="devsite-syntax-nx">kingsCross</span><span class="devsite-syntax-o">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">lat</span><span class="devsite-syntax-o">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">-</span><span class="devsite-syntax-mf">33.8737375</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">lng</span><span class="devsite-syntax-o">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-mf">151.222569</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">},</span>
+<span class="devsite-syntax-w">     </span><span class="devsite-syntax-nx">botanicGardens</span><span class="devsite-syntax-o">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">lat</span><span class="devsite-syntax-o">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">-</span><span class="devsite-syntax-mf">33.864167</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">lng</span><span class="devsite-syntax-o">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-mf">151.216387</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">},</span>
+<span class="devsite-syntax-w">     </span><span class="devsite-syntax-nx">museumOfSydney</span><span class="devsite-syntax-o">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">lat</span><span class="devsite-syntax-o">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">-</span><span class="devsite-syntax-mf">33.8636005</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">lng</span><span class="devsite-syntax-o">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-mf">151.2092542</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">},</span>
+<span class="devsite-syntax-w">     </span><span class="devsite-syntax-nx">maritimeMuseum</span><span class="devsite-syntax-o">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">lat</span><span class="devsite-syntax-o">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">-</span><span class="devsite-syntax-mf">33.869395</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">lng</span><span class="devsite-syntax-o">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-mf">151.198648</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">},</span>
+<span class="devsite-syntax-w">     </span><span class="devsite-syntax-nx">kingStreetWharf</span><span class="devsite-syntax-o">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">lat</span><span class="devsite-syntax-o">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">-</span><span class="devsite-syntax-mf">33.8665445</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">lng</span><span class="devsite-syntax-o">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-mf">151.1989808</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">},</span>
+<span class="devsite-syntax-w">     </span><span class="devsite-syntax-nx">aquarium</span><span class="devsite-syntax-o">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">lat</span><span class="devsite-syntax-o">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">-</span><span class="devsite-syntax-mf">33.869627</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">lng</span><span class="devsite-syntax-o">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-mf">151.202146</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">},</span>
+<span class="devsite-syntax-w">     </span><span class="devsite-syntax-nx">darlingHarbour</span><span class="devsite-syntax-o">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">lat</span><span class="devsite-syntax-o">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">-</span><span class="devsite-syntax-mf">33.87488</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">lng</span><span class="devsite-syntax-o">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-mf">151.1987113</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">},</span>
+<span class="devsite-syntax-w">     </span><span class="devsite-syntax-nx">barangaroo</span><span class="devsite-syntax-o">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">lat</span><span class="devsite-syntax-o">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">-</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-mf">33.8605523</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">lng</span><span class="devsite-syntax-o">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-mf">151.1972205</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">}</span>
+</code></pre></devsite-code>
+</li>
+<li>Create an instance of <code translate="no" dir="ltr">google.maps.Marker</code> for each marker you want displayed. <br><br> To create your markers, use the code below to iterate through the <code translate="no" dir="ltr">locations</code> object using a <code translate="no" dir="ltr">for...in</code> loop, create a set of options for how each marker should be rendered, and then create an instance of <code translate="no" dir="ltr">google.maps.Marker</code> for each location. <br><br> Notice the <code translate="no" dir="ltr">icon</code> property of <code translate="no" dir="ltr">markerOptions</code>. Remember the default map pin from earlier? Did you know you can also customize the pin to be any image you want? Well, you can! <br><br> The <code translate="no" dir="ltr">icon</code> property allows you to provide the path to any image file you want to use as a custom marker. If you started this codelab using our project template, then an image is already included for you in <code translate="no" dir="ltr">/src/images</code>. <br><br> Notice also that you need to store your marker instances in an array and return them from the function so that they can be used later.<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="JavaScript"><code translate="no" dir="ltr"><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">const</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">markers</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">[];</span>
+<span class="devsite-syntax-w"> </span><span class="devsite-syntax-k">for</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-kd">const</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">location</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-ow">in</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">locations</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-kd">const</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">markerOptions</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">     </span><span class="devsite-syntax-nx">map</span><span class="devsite-syntax-o">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">map</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">     </span><span class="devsite-syntax-nx">position</span><span class="devsite-syntax-o">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">locations</span><span class="devsite-syntax-p">[</span><span class="devsite-syntax-nx">location</span><span class="devsite-syntax-p">],</span>
+<span class="devsite-syntax-w">     </span><span class="devsite-syntax-nx">icon</span><span class="devsite-syntax-o">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s1">'./img/custom_pin.png'</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-kd">const</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">marker</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-ow">new</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">google</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-nx">maps</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-nx">Marker</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-nx">markerOptions</span><span class="devsite-syntax-p">);</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-nx">markers</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-nx">push</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-nx">marker</span><span class="devsite-syntax-p">);</span>
+<span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-w"> </span><span class="devsite-syntax-k">return</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">markers</span><span class="devsite-syntax-p">;</span>
+</code></pre></devsite-code>
+</li>
+<li>Display the markers. <br><br> The Maps JavaScript API automatically creates and displays a marker whenever a new instance of <code translate="no" dir="ltr">google.maps.Marker</code> is created, so now all you need to do is update your JS API promise handler to call <code translate="no" dir="ltr">addMarkers()</code> and pass it your <code translate="no" dir="ltr">Map</code> instance:<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="JavaScript"><code translate="no" dir="ltr"><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">loader</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-nx">then</span><span class="devsite-syntax-p">(()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span>&gt;<span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-nx">console</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-nx">log</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s1">'Maps JS API loaded'</span><span class="devsite-syntax-p">);</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-kd">const</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">map</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">displayMap</span><span class="devsite-syntax-p">();</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-kd">const</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">markers</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">addMarkers</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-nx">map</span><span class="devsite-syntax-p">);</span>
+<span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">});</span>
+</code></pre></devsite-code>
+</li>
+</ol>
+<p>You should now see custom markers on the map:</p>
+<p class="image-container"><img alt="1e4a55de15215480.png" style="width: 602.00px" src="/static/codelabs/maps-platform/maps-platform-101-js/img/1e4a55de15215480.png" srcset="https://developers.google.com/static/codelabs/maps-platform/maps-platform-101-js/img/1e4a55de15215480_36.png 36w,https://developers.google.com/static/codelabs/maps-platform/maps-platform-101-js/img/1e4a55de15215480_48.png 48w,https://developers.google.com/static/codelabs/maps-platform/maps-platform-101-js/img/1e4a55de15215480_72.png 72w,https://developers.google.com/static/codelabs/maps-platform/maps-platform-101-js/img/1e4a55de15215480_96.png 96w,https://developers.google.com/static/codelabs/maps-platform/maps-platform-101-js/img/1e4a55de15215480_480.png 480w,https://developers.google.com/static/codelabs/maps-platform/maps-platform-101-js/img/1e4a55de15215480_720.png 720w,https://developers.google.com/static/codelabs/maps-platform/maps-platform-101-js/img/1e4a55de15215480_856.png 856w,https://developers.google.com/static/codelabs/maps-platform/maps-platform-101-js/img/1e4a55de15215480_960.png 960w,https://developers.google.com/static/codelabs/maps-platform/maps-platform-101-js/img/1e4a55de15215480_1440.png 1440w,https://developers.google.com/static/codelabs/maps-platform/maps-platform-101-js/img/1e4a55de15215480_1920.png 1920w,https://developers.google.com/static/codelabs/maps-platform/maps-platform-101-js/img/1e4a55de15215480_2880.png 2880w" sizes="(max-width: 840px) 100vw, 856px"></p>
+<p>To recap, in this step you defined a set of marker locations and created an instance of <code translate="no" dir="ltr">google.maps.Marker</code> with a custom marker icon for each location.</p>
+<p>Your <code translate="no" dir="ltr">addMarkers()</code> function should look something like this:</p>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="JavaScript"><code translate="no" dir="ltr"><span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">function</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">addMarkers</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-nx">map</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">      </span><span class="devsite-syntax-kd">const</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">locations</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-nx">operaHouse</span><span class="devsite-syntax-o">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">lat</span><span class="devsite-syntax-o">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">-</span><span class="devsite-syntax-mf">33.8567844</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">lng</span><span class="devsite-syntax-o">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-mf">151.213108</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">},</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-nx">tarongaZoo</span><span class="devsite-syntax-o">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">lat</span><span class="devsite-syntax-o">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">-</span><span class="devsite-syntax-mf">33.8472767</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">lng</span><span class="devsite-syntax-o">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-mf">151.2188164</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">},</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-nx">manlyBeach</span><span class="devsite-syntax-o">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">lat</span><span class="devsite-syntax-o">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">-</span><span class="devsite-syntax-mf">33.8209738</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">lng</span><span class="devsite-syntax-o">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-mf">151.2563253</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">},</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-nx">hyderPark</span><span class="devsite-syntax-o">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">lat</span><span class="devsite-syntax-o">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">-</span><span class="devsite-syntax-mf">33.8690081</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">lng</span><span class="devsite-syntax-o">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-mf">151.2052393</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">},</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-nx">theRocks</span><span class="devsite-syntax-o">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">lat</span><span class="devsite-syntax-o">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">-</span><span class="devsite-syntax-mf">33.8587568</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">lng</span><span class="devsite-syntax-o">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-mf">151.2058246</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">},</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-nx">circularQuay</span><span class="devsite-syntax-o">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">lat</span><span class="devsite-syntax-o">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">-</span><span class="devsite-syntax-mf">33.858761</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">lng</span><span class="devsite-syntax-o">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-mf">151.2055688</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">},</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-nx">harbourBridge</span><span class="devsite-syntax-o">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">lat</span><span class="devsite-syntax-o">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">-</span><span class="devsite-syntax-mf">33.852228</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">lng</span><span class="devsite-syntax-o">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-mf">151.2038374</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">},</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-nx">kingsCross</span><span class="devsite-syntax-o">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">lat</span><span class="devsite-syntax-o">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">-</span><span class="devsite-syntax-mf">33.8737375</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">lng</span><span class="devsite-syntax-o">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-mf">151.222569</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">},</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-nx">botanicGardens</span><span class="devsite-syntax-o">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">lat</span><span class="devsite-syntax-o">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">-</span><span class="devsite-syntax-mf">33.864167</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">lng</span><span class="devsite-syntax-o">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-mf">151.216387</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">},</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-nx">museumOfSydney</span><span class="devsite-syntax-o">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">lat</span><span class="devsite-syntax-o">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">-</span><span class="devsite-syntax-mf">33.8636005</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">lng</span><span class="devsite-syntax-o">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-mf">151.2092542</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">},</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-nx">maritimeMuseum</span><span class="devsite-syntax-o">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">lat</span><span class="devsite-syntax-o">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">-</span><span class="devsite-syntax-mf">33.869395</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">lng</span><span class="devsite-syntax-o">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-mf">151.198648</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">},</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-nx">kingStreetWharf</span><span class="devsite-syntax-o">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">lat</span><span class="devsite-syntax-o">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">-</span><span class="devsite-syntax-mf">33.8665445</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">lng</span><span class="devsite-syntax-o">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-mf">151.1989808</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">},</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-nx">aquarium</span><span class="devsite-syntax-o">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">lat</span><span class="devsite-syntax-o">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">-</span><span class="devsite-syntax-mf">33.869627</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">lng</span><span class="devsite-syntax-o">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-mf">151.202146</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">},</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-nx">darlingHarbour</span><span class="devsite-syntax-o">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">lat</span><span class="devsite-syntax-o">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">-</span><span class="devsite-syntax-mf">33.87488</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">lng</span><span class="devsite-syntax-o">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-mf">151.1987113</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">},</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-nx">barangaroo</span><span class="devsite-syntax-o">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">lat</span><span class="devsite-syntax-o">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">-</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-mf">33.8605523</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">lng</span><span class="devsite-syntax-o">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-mf">151.1972205</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-w">      </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-w">      </span><span class="devsite-syntax-kd">const</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">markers</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">[];</span>
+<span class="devsite-syntax-w">      </span><span class="devsite-syntax-k">for</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-kd">const</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">location</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-ow">in</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">locations</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-kd">const</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">markerOptions</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">          </span><span class="devsite-syntax-nx">map</span><span class="devsite-syntax-o">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">map</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">          </span><span class="devsite-syntax-nx">position</span><span class="devsite-syntax-o">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">locations</span><span class="devsite-syntax-p">[</span><span class="devsite-syntax-nx">location</span><span class="devsite-syntax-p">],</span>
+<span class="devsite-syntax-w">          </span><span class="devsite-syntax-nx">icon</span><span class="devsite-syntax-o">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s1">'./img/custom_pin.png'</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-kd">const</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">marker</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-ow">new</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">google</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-nx">maps</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-nx">Marker</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-nx">markerOptions</span><span class="devsite-syntax-p">);</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-nx">markers</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-nx">push</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-nx">marker</span><span class="devsite-syntax-p">);</span>
+<span class="devsite-syntax-w">      </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-w">      </span><span class="devsite-syntax-k">return</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">markers</span><span class="devsite-syntax-p">;</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">}</span>
+</code></pre></devsite-code>
+<p>In the next step, you&#39;ll look at how to improve the user experience of markers using marker clustering.</p>
+
+
+        </google-codelab-step>
+      
+        <google-codelab-step label="Enable marker clustering" duration="10" step="7">
+          
+          <h2 class="step-title" id="7" data-text="Enable marker clustering" tabindex="-1">
+              8. Enable marker clustering
+          </h2>
+          <p>When using a lot of markers or markers that are in close proximity to one another, you may encounter an issue where the markers overlap or appear too crowded together, which causes a bad user experience. For example, after creating the markers in the last step, you may have noticed this:</p>
+<p class="image-container"><img alt="6e39736160c6bce4.png" style="width: 402.00px" src="/static/codelabs/maps-platform/maps-platform-101-js/img/6e39736160c6bce4.png" srcset="https://developers.google.com/static/codelabs/maps-platform/maps-platform-101-js/img/6e39736160c6bce4_36.png 36w,https://developers.google.com/static/codelabs/maps-platform/maps-platform-101-js/img/6e39736160c6bce4_48.png 48w,https://developers.google.com/static/codelabs/maps-platform/maps-platform-101-js/img/6e39736160c6bce4_72.png 72w,https://developers.google.com/static/codelabs/maps-platform/maps-platform-101-js/img/6e39736160c6bce4_96.png 96w,https://developers.google.com/static/codelabs/maps-platform/maps-platform-101-js/img/6e39736160c6bce4_480.png 480w,https://developers.google.com/static/codelabs/maps-platform/maps-platform-101-js/img/6e39736160c6bce4_720.png 720w,https://developers.google.com/static/codelabs/maps-platform/maps-platform-101-js/img/6e39736160c6bce4_856.png 856w,https://developers.google.com/static/codelabs/maps-platform/maps-platform-101-js/img/6e39736160c6bce4_960.png 960w,https://developers.google.com/static/codelabs/maps-platform/maps-platform-101-js/img/6e39736160c6bce4_1440.png 1440w,https://developers.google.com/static/codelabs/maps-platform/maps-platform-101-js/img/6e39736160c6bce4_1920.png 1920w,https://developers.google.com/static/codelabs/maps-platform/maps-platform-101-js/img/6e39736160c6bce4_2880.png 2880w" sizes="(max-width: 840px) 100vw, 856px"></p>
+<p>This is where marker clustering comes in. Marker clustering is another commonly implemented feature, which groups nearby markers into a single icon that changes depending on the zoom level, like this:</p>
+<p class="image-container"><img alt="4f372caab95d7499.png" style="width: 404.89px" src="/static/codelabs/maps-platform/maps-platform-101-js/img/4f372caab95d7499.png" srcset="https://developers.google.com/static/codelabs/maps-platform/maps-platform-101-js/img/4f372caab95d7499_36.png 36w,https://developers.google.com/static/codelabs/maps-platform/maps-platform-101-js/img/4f372caab95d7499_48.png 48w,https://developers.google.com/static/codelabs/maps-platform/maps-platform-101-js/img/4f372caab95d7499_72.png 72w,https://developers.google.com/static/codelabs/maps-platform/maps-platform-101-js/img/4f372caab95d7499_96.png 96w,https://developers.google.com/static/codelabs/maps-platform/maps-platform-101-js/img/4f372caab95d7499_480.png 480w,https://developers.google.com/static/codelabs/maps-platform/maps-platform-101-js/img/4f372caab95d7499_720.png 720w,https://developers.google.com/static/codelabs/maps-platform/maps-platform-101-js/img/4f372caab95d7499_856.png 856w,https://developers.google.com/static/codelabs/maps-platform/maps-platform-101-js/img/4f372caab95d7499_960.png 960w,https://developers.google.com/static/codelabs/maps-platform/maps-platform-101-js/img/4f372caab95d7499_1440.png 1440w,https://developers.google.com/static/codelabs/maps-platform/maps-platform-101-js/img/4f372caab95d7499_1920.png 1920w,https://developers.google.com/static/codelabs/maps-platform/maps-platform-101-js/img/4f372caab95d7499_2880.png 2880w" sizes="(max-width: 840px) 100vw, 856px"></p>
+<p>The algorithm for marker clustering divides the visible area of the map into a grid, then clusters icons that are in the same cell. Luckily, you don&#39;t have to worry about any of that because the Google Maps Platform team created a helpful, open-source utility library called <code translate="no" dir="ltr">MarkerClustererPlus</code> that does everything for you automatically. You can view the source for  <a href="https://github.com/googlemaps/v3-utility-library/tree/master/packages/markerclustererplus" target="_blank">MarkerClustererPluson GitHub</a>.</p>
+<ol type="1">
+<li>Import the <code translate="no" dir="ltr">MarkerCluster</code>. <br><br> For the template project for this codelab, the <code translate="no" dir="ltr">MarkerClustererPlus</code> utility library is already included in the dependencies declared in the <code translate="no" dir="ltr">package.json</code> file, so you already installed it when you ran <code translate="no" dir="ltr">npm install</code> at the beginning of this codelab. <br><br> To import the library, add the following to the top of your <code translate="no" dir="ltr">app.js</code> file:<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="JavaScript"><code translate="no" dir="ltr"><span class="devsite-syntax-w"> </span><span class="devsite-syntax-k">import</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">MarkerClusterer</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kr">from</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s1">'@google/markerclustererplus'</span><span class="devsite-syntax-p">;</span>
+</code></pre></devsite-code>
+</li>
+<li>Create a new instance of <code translate="no" dir="ltr">MarkerClusterer</code>. <br><br> To create marker clusters, you need to do two things: provide the icons you want to use for your marker clusters, and create a new instance of <code translate="no" dir="ltr">MarkerClusterer</code>. <br><br> First, declare an object that specifies the path to the icons you want to use. In the template project, there are already a set of images saved in <code translate="no" dir="ltr">./img/m</code>. Notice the image filenames are numbered sequentially with the same prefix: <code translate="no" dir="ltr">m1.png</code>, <code translate="no" dir="ltr">m2.png</code>, <code translate="no" dir="ltr">m3.png</code>, and so on. <br><br> When you set the <code translate="no" dir="ltr">imagePath</code> property in the options for the marker clusterer, you simply provide the path and file prefix, and the marker clusterer automatically uses all files with that prefix and append a number to the end. <br><br> Second, create a new instance of <code translate="no" dir="ltr">MarkerClusterer</code>, and pass it the instance of <code translate="no" dir="ltr">Map</code> where you want the marker clusters displayed and an array of <code translate="no" dir="ltr">Marker</code> instances that you want clustered.<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="JavaScript"><code translate="no" dir="ltr"><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">function</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">clusterMarkers</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-nx">map</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">markers</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-kd">const</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">clustererOptions</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">imagePath</span><span class="devsite-syntax-o">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s1">'./img/m'</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-kd">const</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">markerCluster</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-ow">new</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">MarkerClusterer</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-nx">map</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">markers</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">clustererOptions</span><span class="devsite-syntax-p">);</span>
+<span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">}</span>
+</code></pre></devsite-code>
+</li>
+<li>Display the marker clusters. <br><br> Call <code translate="no" dir="ltr">clusterMarkers()</code> from the JS API promise handler. The marker clusters are automatically added to the map when the <code translate="no" dir="ltr">MarkerClusterer</code> instance is created in the function call.<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="JavaScript"><code translate="no" dir="ltr"><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">loader</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-nx">then</span><span class="devsite-syntax-p">(()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span>&gt;<span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-nx">console</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-nx">log</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s1">'Maps JS API loaded'</span><span class="devsite-syntax-p">);</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-kd">const</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">map</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">displayMap</span><span class="devsite-syntax-p">();</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-kd">const</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">markers</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">addMarkers</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-nx">map</span><span class="devsite-syntax-p">);</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-nx">clusterMarkers</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-nx">map</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">markers</span><span class="devsite-syntax-p">);</span>
+<span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">});</span>
+</code></pre></devsite-code>
+</li>
+</ol>
+<p>You should now see a couple marker clusters on your map.</p>
+<p class="image-container"><img alt="e52623cb8578d625.png" style="width: 602.00px" src="/static/codelabs/maps-platform/maps-platform-101-js/img/e52623cb8578d625.png" srcset="https://developers.google.com/static/codelabs/maps-platform/maps-platform-101-js/img/e52623cb8578d625_36.png 36w,https://developers.google.com/static/codelabs/maps-platform/maps-platform-101-js/img/e52623cb8578d625_48.png 48w,https://developers.google.com/static/codelabs/maps-platform/maps-platform-101-js/img/e52623cb8578d625_72.png 72w,https://developers.google.com/static/codelabs/maps-platform/maps-platform-101-js/img/e52623cb8578d625_96.png 96w,https://developers.google.com/static/codelabs/maps-platform/maps-platform-101-js/img/e52623cb8578d625_480.png 480w,https://developers.google.com/static/codelabs/maps-platform/maps-platform-101-js/img/e52623cb8578d625_720.png 720w,https://developers.google.com/static/codelabs/maps-platform/maps-platform-101-js/img/e52623cb8578d625_856.png 856w,https://developers.google.com/static/codelabs/maps-platform/maps-platform-101-js/img/e52623cb8578d625_960.png 960w,https://developers.google.com/static/codelabs/maps-platform/maps-platform-101-js/img/e52623cb8578d625_1440.png 1440w,https://developers.google.com/static/codelabs/maps-platform/maps-platform-101-js/img/e52623cb8578d625_1920.png 1920w,https://developers.google.com/static/codelabs/maps-platform/maps-platform-101-js/img/e52623cb8578d625_2880.png 2880w" sizes="(max-width: 840px) 100vw, 856px"></p>
+<p>Notice that if you zoom in or out, MarkerClustererPlus automatically renumbers and resizes the clusters for you. You can also click on any marker cluster icon to zoom in and see all of the markers included in that cluster.</p>
+<p class="image-container"><img alt="d572fa11aca13eeb.png" style="width: 602.00px" src="/static/codelabs/maps-platform/maps-platform-101-js/img/d572fa11aca13eeb.png" srcset="https://developers.google.com/static/codelabs/maps-platform/maps-platform-101-js/img/d572fa11aca13eeb_36.png 36w,https://developers.google.com/static/codelabs/maps-platform/maps-platform-101-js/img/d572fa11aca13eeb_48.png 48w,https://developers.google.com/static/codelabs/maps-platform/maps-platform-101-js/img/d572fa11aca13eeb_72.png 72w,https://developers.google.com/static/codelabs/maps-platform/maps-platform-101-js/img/d572fa11aca13eeb_96.png 96w,https://developers.google.com/static/codelabs/maps-platform/maps-platform-101-js/img/d572fa11aca13eeb_480.png 480w,https://developers.google.com/static/codelabs/maps-platform/maps-platform-101-js/img/d572fa11aca13eeb_720.png 720w,https://developers.google.com/static/codelabs/maps-platform/maps-platform-101-js/img/d572fa11aca13eeb_856.png 856w,https://developers.google.com/static/codelabs/maps-platform/maps-platform-101-js/img/d572fa11aca13eeb_960.png 960w,https://developers.google.com/static/codelabs/maps-platform/maps-platform-101-js/img/d572fa11aca13eeb_1440.png 1440w,https://developers.google.com/static/codelabs/maps-platform/maps-platform-101-js/img/d572fa11aca13eeb_1920.png 1920w,https://developers.google.com/static/codelabs/maps-platform/maps-platform-101-js/img/d572fa11aca13eeb_2880.png 2880w" sizes="(max-width: 840px) 100vw, 856px"></p>
+<p>To recap, in this step you imported the open-source <code translate="no" dir="ltr">MarkerClustererPlus</code> utility library and used it to create an instance of <code translate="no" dir="ltr">MarkerClusterer</code> that automatically clustered the markers you created in the previous step.</p>
+<p>Your <code translate="no" dir="ltr">clusterMarkers()</code> function should look something like this:</p>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="JavaScript"><code translate="no" dir="ltr"><span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">function</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">clusterMarkers</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-nx">map</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">markers</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">      </span><span class="devsite-syntax-kd">const</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">clustererOptions</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">imagePath</span><span class="devsite-syntax-o">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s1">'./img/m'</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-w">      </span><span class="devsite-syntax-kd">const</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">markerCluster</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-ow">new</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">MarkerClusterer</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-nx">map</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">markers</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">clustererOptions</span><span class="devsite-syntax-p">);</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">}</span>
+</code></pre></devsite-code>
+<p>Next, you&#39;ll learn how to handle user interaction.</p>
+
+
+        </google-codelab-step>
+      
+        <google-codelab-step label="Add user interaction" duration="5" step="8">
+          
+          <h2 class="step-title" id="8" data-text="Add user interaction" tabindex="-1">
+              9. Add user interaction
+          </h2>
+          <p>Now you have a great looking map that displays some of Sydney&#39;s most popular tourist destinations. In this step, you&#39;ll add some additional handling of user interactions using the event system of the Maps JavaScript API to further improve the user experience of your map.</p>
+<p>The Maps JavaScript API provides a comprehensive event system that uses JavaScript event handlers to allow you to handle various user interactions in code. For example, you can create event listeners to trigger code execution for interactions like the user clicking on the map and markers, panning the view of the map, zooming in and out, and more.</p>
+<p>In this step, you&#39;ll add a click listener to your markers, and then programmatically make the map pan to put the marker the user clicked at the center of the map.</p>
+<ol type="1">
+<li>Set a click listener on your markers. <br><br> All of the objects in the Maps JavaScript API that support the event system implement a standard set of functions for handling user interaction, such as <code translate="no" dir="ltr">addListener</code>, <code translate="no" dir="ltr">removeListener</code>, and more. <br><br> To add a click event listener to each marker, iterate the <code translate="no" dir="ltr">markers</code> array and call <code translate="no" dir="ltr">addListener</code> on the marker instance to attach a listener for the <code translate="no" dir="ltr">click</code> event:<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="JavaScript"><code translate="no" dir="ltr"><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">function</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">addPanToMarker</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-nx">map</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">markers</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-nx">markers</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-nx">map</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-nx">marker</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span>&gt;<span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">     </span><span class="devsite-syntax-nx">marker</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-nx">addListener</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s1">'click'</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">event</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span>&gt;<span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+
+<span class="devsite-syntax-w">     </span><span class="devsite-syntax-p">});</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-p">});</span>
+<span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">}</span>
+</code></pre></devsite-code>
+</li>
+<li>Pan to a marker when it is clicked on. <br><br> The <code translate="no" dir="ltr">click</code> event is triggered whenever a user clicks or taps on a marker, and returns an event as a JSON object with information about the UI element that was clicked. To improve the user experience of the map, you can handle the <code translate="no" dir="ltr">click</code> event and use its <code translate="no" dir="ltr">LatLng</code> object to get the latitude and longitude of the marker that was clicked. <br><br> Once you have that, simply pass that to the <code translate="no" dir="ltr">Map</code> instance&#39;s built-in <code translate="no" dir="ltr">panTo()</code> function to have the map smoothly pan to recenter on the clicked marker by adding the following in the callback function of the event handler:<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="JavaScript"><code translate="no" dir="ltr"><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">const</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">location</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">lat</span><span class="devsite-syntax-o">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">event</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-nx">latLng</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-nx">lat</span><span class="devsite-syntax-p">(),</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">lng</span><span class="devsite-syntax-o">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">event</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-nx">latLng</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-nx">lng</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">};</span>
+<span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">map</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-nx">panTo</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-nx">location</span><span class="devsite-syntax-p">);</span>
+</code></pre></devsite-code>
+</li>
+<li>Assign the click listeners. <br><br> Call <code translate="no" dir="ltr">addPanToMarker()</code> from the JS API promise handler, and pass it your map and markers to execute the code and assign your click listeners.<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="JavaScript"><code translate="no" dir="ltr"><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">loader</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-nx">then</span><span class="devsite-syntax-p">(()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span>&gt;<span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-nx">console</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-nx">log</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s1">'Maps JS API loaded'</span><span class="devsite-syntax-p">);</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-kd">const</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">map</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">displayMap</span><span class="devsite-syntax-p">();</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-kd">const</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">markers</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">addMarkers</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-nx">map</span><span class="devsite-syntax-p">);</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-nx">clusterMarkers</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-nx">map</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">markers</span><span class="devsite-syntax-p">);</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-nx">addPanToMarker</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-nx">map</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">markers</span><span class="devsite-syntax-p">);</span>
+<span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">});</span>
+</code></pre></devsite-code>
+</li>
+</ol>
+<p>Now go to the browser and click on your markers. You should see the map automatically pan to recenter when a marker is clicked.</p>
+<p>To recap, in this step, you used the event system of the Maps JavaScript API to assign a click listener to all of the markers on the map, retrieved the latitude and longitude of the marker from the fired click event, and used that to recenter the map whenever a marker is clicked.</p>
+<p>Your <code translate="no" dir="ltr">addPanToMarker()</code> function should look something like this:</p>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="JavaScript"><code translate="no" dir="ltr"><span class="devsite-syntax-w">    </span><span class="devsite-syntax-kd">function</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">addPanToMarker</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-nx">map</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">markers</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">      </span><span class="devsite-syntax-nx">markers</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">markers</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-nx">map</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-nx">marker</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span>&gt;<span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-nx">marker</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-nx">addListener</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s1">'click'</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">event</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span>&gt;<span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">          </span><span class="devsite-syntax-kd">const</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">location</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">lat</span><span class="devsite-syntax-o">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">event</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-nx">latLng</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-nx">lat</span><span class="devsite-syntax-p">(),</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">lng</span><span class="devsite-syntax-o">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">event</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-nx">latLng</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-nx">lng</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">};</span>
+<span class="devsite-syntax-w">          </span><span class="devsite-syntax-nx">map</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-nx">panTo</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-nx">location</span><span class="devsite-syntax-p">);</span>
+<span class="devsite-syntax-w">        </span><span class="devsite-syntax-p">});</span>
+<span class="devsite-syntax-w">      </span><span class="devsite-syntax-p">});</span>
+<span class="devsite-syntax-w">      </span><span class="devsite-syntax-k">return</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">markers</span><span class="devsite-syntax-p">;</span>
+<span class="devsite-syntax-w">    </span><span class="devsite-syntax-p">}</span>
+</code></pre></devsite-code>
+<p>Only one more step to go! Next, you&#39;ll further improve the user experience of the map by using the drawing features of the Maps JavaScript API.</p>
+
+
+        </google-codelab-step>
+      
+        <google-codelab-step label="Draw on the map" duration="5" step="9">
+          
+          <h2 class="step-title" id="9" data-text="Draw on the map" tabindex="-1">
+              10. Draw on the map
+          </h2>
+          <p>So far, you&#39;ve created a map of Sydney that shows markers for popular tourist destinations and handles the user interaction. For the last step of this codelab, you&#39;ll use the drawing features of the Maps JavaScript API to add an additional useful feature to your map experience.</p>
+<p>Imagine that this map is going to be used by users that want to explore the city of Sydney. A useful feature would be to visualize a radius around a marker when it is clicked. This would allow the user to easily understand what other destinations are within an easy walking distance of the clicked marker.</p>
+<p>The Maps JavaScript API includes a set of functions for drawing shapes on the map, such as squares, polygons, lines, and circles. Next, you&#39;ll render a circle to show an 800-meter (approximately half-mile) radius around a marker when it is clicked.</p>
+<ol type="1">
+<li>Draw a circle with <code translate="no" dir="ltr">google.maps.Circle</code>. <br><br> The drawing functions in the Maps JavaScript API give you a wide variety of options for how a drawn object appears on the map. To render a circular radius, declare a set of options for a circle, such as color, stroke weight, where the circle should be centered and its radius, then create a new instance of  <code translate="no" dir="ltr">google.maps.Circle</code> to create a new circle:<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="JavaScript"><code translate="no" dir="ltr"><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">function</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">drawCircle</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-nx">map</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">location</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-kd">const</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">circleOptions</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">     </span><span class="devsite-syntax-nx">strokeColor</span><span class="devsite-syntax-o">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-s1">'#FF0000'</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">     </span><span class="devsite-syntax-nx">strokeOpacity</span><span class="devsite-syntax-o">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-mf">0.8</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">     </span><span class="devsite-syntax-nx">strokeWeight</span><span class="devsite-syntax-o">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-mf">1</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">     </span><span class="devsite-syntax-nx">map</span><span class="devsite-syntax-o">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">map</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">     </span><span class="devsite-syntax-nx">center</span><span class="devsite-syntax-o">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">location</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-w">     </span><span class="devsite-syntax-nx">radius</span><span class="devsite-syntax-o">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-mf">800</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-kd">const</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">circle</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-ow">new</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">google</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-nx">maps</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-nx">Circle</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-nx">circleOptions</span><span class="devsite-syntax-p">);</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-k">return</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">circle</span><span class="devsite-syntax-p">;</span>
+<span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">}</span>
+</code></pre></devsite-code>
+</li>
+<li>Draw the circle when a marker is clicked. <br><br> To draw the circle when the user clicks on a marker, all you need to do is call the <code translate="no" dir="ltr">drawCircle()</code> function you wrote above from the click listener callback in <code translate="no" dir="ltr">addPanToMarker()</code>, and pass it the map and location of the marker. <br><br> Notice how a conditional statement is also added that calls <code translate="no" dir="ltr">circle.setMap(null)</code>. This removes the previously rendered circle from the map if the user clicks another marker, so that you don&#39;t end up with a map covered in circles as your user explores the map. <br><br> Your <code translate="no" dir="ltr">addPanToMarker()</code> function should look something like this:<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="JavaScript"><code translate="no" dir="ltr"><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kd">function</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">addPanToMarker</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-nx">map</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">markers</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-kd">let</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">circle</span><span class="devsite-syntax-p">;</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-nx">markers</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-nx">map</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-nx">marker</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span>&gt;<span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">     </span><span class="devsite-syntax-nx">marker</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-nx">addListener</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s1">'click'</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">event</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span>&gt;<span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">       </span><span class="devsite-syntax-kd">const</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">location</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">lat</span><span class="devsite-syntax-o">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">event</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-nx">latLng</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-nx">lat</span><span class="devsite-syntax-p">(),</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">lng</span><span class="devsite-syntax-o">:</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">event</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-nx">latLng</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-nx">lng</span><span class="devsite-syntax-p">()</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">};</span>
+<span class="devsite-syntax-w">       </span><span class="devsite-syntax-nx">map</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-nx">panTo</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-nx">location</span><span class="devsite-syntax-p">);</span>
+<span class="devsite-syntax-w">       </span><span class="devsite-syntax-k">if</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-nx">circle</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">{</span>
+<span class="devsite-syntax-w">         </span><span class="devsite-syntax-nx">circle</span><span class="devsite-syntax-p">.</span><span class="devsite-syntax-nx">setMap</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-kc">null</span><span class="devsite-syntax-p">);</span>
+<span class="devsite-syntax-w">       </span><span class="devsite-syntax-p">}</span>
+<span class="devsite-syntax-w">       </span><span class="devsite-syntax-nx">circle</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">drawCircle</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-nx">map</span><span class="devsite-syntax-p">,</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nx">location</span><span class="devsite-syntax-p">);</span>
+<span class="devsite-syntax-w">     </span><span class="devsite-syntax-p">});</span>
+<span class="devsite-syntax-w">   </span><span class="devsite-syntax-p">});</span>
+<span class="devsite-syntax-w"> </span><span class="devsite-syntax-p">}</span>
+</code></pre></devsite-code>
+</li>
+</ol>
+<p>All done! Go to your browser, and click on one of the markers. You should see a circular radius rendered around it:</p>
+<p class="image-container"><img alt="254baef70c3ab4d5.png" style="width: 602.00px" src="/static/codelabs/maps-platform/maps-platform-101-js/img/254baef70c3ab4d5.png" srcset="https://developers.google.com/static/codelabs/maps-platform/maps-platform-101-js/img/254baef70c3ab4d5_36.png 36w,https://developers.google.com/static/codelabs/maps-platform/maps-platform-101-js/img/254baef70c3ab4d5_48.png 48w,https://developers.google.com/static/codelabs/maps-platform/maps-platform-101-js/img/254baef70c3ab4d5_72.png 72w,https://developers.google.com/static/codelabs/maps-platform/maps-platform-101-js/img/254baef70c3ab4d5_96.png 96w,https://developers.google.com/static/codelabs/maps-platform/maps-platform-101-js/img/254baef70c3ab4d5_480.png 480w,https://developers.google.com/static/codelabs/maps-platform/maps-platform-101-js/img/254baef70c3ab4d5_720.png 720w,https://developers.google.com/static/codelabs/maps-platform/maps-platform-101-js/img/254baef70c3ab4d5_856.png 856w,https://developers.google.com/static/codelabs/maps-platform/maps-platform-101-js/img/254baef70c3ab4d5_960.png 960w,https://developers.google.com/static/codelabs/maps-platform/maps-platform-101-js/img/254baef70c3ab4d5_1440.png 1440w,https://developers.google.com/static/codelabs/maps-platform/maps-platform-101-js/img/254baef70c3ab4d5_1920.png 1920w,https://developers.google.com/static/codelabs/maps-platform/maps-platform-101-js/img/254baef70c3ab4d5_2880.png 2880w" sizes="(max-width: 840px) 100vw, 856px"></p>
+
+
+        </google-codelab-step>
+      
+        <google-codelab-step label="Congratulations" duration="0" step="10">
+          
+          <h2 class="step-title" id="10" data-text="Congratulations" tabindex="-1">
+              11. Congratulations
+          </h2>
+          <p>You successfully built your first web app using Google Maps Platform, including loading the Maps JavaScript API, loading a map, working with markers, controlling and drawing on the map, and adding user interaction.</p>
+<p>To see the completed code, check out the finished project in the <code translate="no" dir="ltr">/solutions</code> directory.</p>
+<h2 is-upgraded id="whats-next" data-text="What's next?" tabindex="-1">What's next?</h2>
+<p>In this codelab, you covered the basics of what you can do with the Maps JavaScript API. Next, try adding some of these features to the map:</p>
+<ul>
+<li>Change the  <a href="https://developers.google.com/maps/documentation/javascript/maptypes" target="_blank">map type</a> to display satellite, hybrid, and terrain maps.</li>
+<li>Enable  <a href="https://developers.google.com/maps/documentation/javascript/localization" target="_blank">localization</a> to load the map in different languages.</li>
+<li>Customize other  <a href="https://developers.google.com/maps/documentation/javascript/interaction" target="_blank">user interactions</a> like zoom and  <a href="https://developers.google.com/maps/documentation/javascript/controls" target="_blank">map controls</a>.</li>
+<li>Add  <a href="https://developers.google.com/maps/documentation/javascript/infowindows" target="_blank">info windows</a> to display information when markers are clicked.</li>
+<li>Check out the additional  <a href="https://developers.google.com/maps/documentation/javascript/libraries" target="_blank">libraries</a> available for the Maps JavaScript API that enable additional functionality, such as Places, drawing, and visualization.</li>
+</ul>
+<p>To continue learning more ways you can work with Google Maps Platform on the web, check out these links:</p>
+<ul>
+<li><a href="https://developers.google.com/maps/documentation/javascript/" target="_blank">Maps JavaScript API documentation</a></li>
+<li><a href="https://www.youtube.com/googlemapsplatform" target="_blank">Google Maps Platform YouTube channel</a></li>
+<li><a href="https://codelabs.developers.google.com/?cat=Maps+Platform" target="_blank">Google Maps Platform codelabs</a></li>
+<li><a href="https://github.com/googlemaps" target="_blank">Google Maps Platform open source projects on GitHub</a></li>
+</ul>
+
+
+        </google-codelab-step>
+      
+    </google-codelab>
+  
+  
+
+  
+</div>
+
+  
+    
+    
+    
+  
+
+  <div class="devsite-floating-action-buttons"></div></article>
+
+
+<devsite-content-footer class="nocontent" data-nosnippet>
+  <p>Except as otherwise noted, the content of this page is licensed under the <a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 License</a>, and code samples are licensed under the <a href="https://www.apache.org/licenses/LICENSE-2.0">Apache 2.0 License</a>. For details, see the <a href="https://developers.google.com/site-policies">Google Developers Site Policies</a>. Java is a registered trademark of Oracle and/or its affiliates.</p>
+  
+</devsite-content-footer>
+
+
+<devsite-notification
+>
+</devsite-notification>
+
+
+  
+<div class="devsite-content-data">
+  
+  
+    <template class="devsite-content-data-template">
+      [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Missing the information I need","missingTheInformationINeed","thumb-down"],["Too complicated / too many steps","tooComplicatedTooManySteps","thumb-down"],["Out of date","outOfDate","thumb-down"],["Samples / code issue","samplesCodeIssue","thumb-down"],["Other","otherDown","thumb-down"]],[],[],[]]
+    </template>
+  
+</div>
+            
+          </devsite-content>
+        </main>
+        <devsite-footer-promos class="devsite-footer">
+          
+            
+          
+        </devsite-footer-promos>
+        <devsite-footer-linkboxes class="devsite-footer">
+          
+            
+<nav class="devsite-footer-linkboxes nocontent"
+     aria-label="Footer links"
+     data-nosnippet>
+  
+  <ul class="devsite-footer-linkboxes-list">
+    
+    <li class="devsite-footer-linkbox ">
+    <h3 class="devsite-footer-linkbox-heading no-link">Connect</h3>
+      <ul class="devsite-footer-linkbox-list">
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//googledevelopers.blogspot.com"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 1)"
+            >
+            
+          
+            Blog
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="https://goo.gle/3FReQXN"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 2)"
+            >
+            
+          
+            Bluesky
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="https://www.instagram.com/googlefordevs/"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 3)"
+            >
+            
+          
+            Instagram
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="https://www.linkedin.com/showcase/googledevelopers/"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 4)"
+            >
+            
+          
+            LinkedIn
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//twitter.com/googledevs"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 5)"
+            >
+            
+          
+            X (Twitter)
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//www.youtube.com/user/GoogleDevelopers"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 6)"
+            >
+            
+              
+              
+            
+          
+            YouTube
+          
+          </a>
+          
+          
+        </li>
+        
+      </ul>
+    </li>
+    
+    <li class="devsite-footer-linkbox ">
+    <h3 class="devsite-footer-linkbox-heading no-link">Programs</h3>
+      <ul class="devsite-footer-linkbox-list">
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/program"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 1)"
+            >
+            
+          
+            Google Developer Program
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/community"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 2)"
+            >
+            
+          
+            Google Developer Groups
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/community/experts"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 3)"
+            >
+            
+          
+            Google Developer Experts
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/community/accelerators"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 4)"
+            >
+            
+          
+            Accelerators
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="/community/nvidia"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 5)"
+            >
+            
+              
+              
+            
+          
+            Google Cloud & NVIDIA
+          
+          </a>
+          
+          
+        </li>
+        
+      </ul>
+    </li>
+    
+    <li class="devsite-footer-linkbox ">
+    <h3 class="devsite-footer-linkbox-heading no-link">Developer consoles</h3>
+      <ul class="devsite-footer-linkbox-list">
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//console.developers.google.com"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 1)"
+            >
+            
+          
+            Google API Console
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//console.cloud.google.com"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 2)"
+            >
+            
+          
+            Google Cloud Platform Console
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//play.google.com/apps/publish"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 3)"
+            >
+            
+          
+            Google Play Console
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//console.firebase.google.com"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 4)"
+            >
+            
+          
+            Firebase Console
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//console.actions.google.com"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 5)"
+            >
+            
+          
+            Actions on Google Console
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//cast.google.com/publish"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 6)"
+            >
+            
+          
+            Cast SDK Developer Console
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//chrome.google.com/webstore/developer/dashboard"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 7)"
+            >
+            
+          
+            Chrome Web Store Dashboard
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//console.home.google.com"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 8)"
+            >
+            
+              
+              
+            
+          
+            Google Home Developer Console
+          
+          </a>
+          
+          
+        </li>
+        
+      </ul>
+    </li>
+    
+  </ul>
+  
+</nav>
+          
+        </devsite-footer-linkboxes>
+        <devsite-footer-utility class="devsite-footer">
+          
+            
+
+<div class="devsite-footer-utility nocontent" data-nosnippet>
+  
+  
+  <nav class="devsite-footer-sites" aria-label="Other Google Developers websites">
+    <a href="https://developers.google.com/"
+       class="devsite-footer-sites-logo-link gc-analytics-event"
+       data-category="Site-Wide Custom Events"
+       data-label="Footer Google Developers Link">
+      <picture>
+        
+        <img class="devsite-footer-sites-logo"
+             src="https://www.gstatic.com/devrel-devsite/prod/vb08cbdb02acf7f66ad9727ddfba9d81df8806422eb5dd63dba194c9c8c7997f7/developers/images/lockup-google-for-developers.svg"
+             loading="lazy"
+             alt="Google Developers">
+      </picture>
+    </a>
+    <ul class="devsite-footer-sites-list">
+      
+      <li class="devsite-footer-sites-item">
+        <a href="//developer.android.com"
+           class="devsite-footer-sites-link
+                  gc-analytics-event"
+           data-category="Site-Wide Custom Events"
+         
+           data-label="Footer Android Link"
+         
+         >
+          Android
+        </a>
+      </li>
+      
+      <li class="devsite-footer-sites-item">
+        <a href="//developer.chrome.com/home"
+           class="devsite-footer-sites-link
+                  gc-analytics-event"
+           data-category="Site-Wide Custom Events"
+         
+           data-label="Footer Chrome Link"
+         
+         >
+          Chrome
+        </a>
+      </li>
+      
+      <li class="devsite-footer-sites-item">
+        <a href="//firebase.google.com"
+           class="devsite-footer-sites-link
+                  gc-analytics-event"
+           data-category="Site-Wide Custom Events"
+         
+           data-label="Footer Firebase Link"
+         
+         >
+          Firebase
+        </a>
+      </li>
+      
+      <li class="devsite-footer-sites-item">
+        <a href="//cloud.google.com"
+           class="devsite-footer-sites-link
+                  gc-analytics-event"
+           data-category="Site-Wide Custom Events"
+         
+           data-label="Footer Google Cloud Platform Link"
+         
+         >
+          Google Cloud Platform
+        </a>
+      </li>
+      
+      <li class="devsite-footer-sites-item">
+        <a href="//ai.google.dev/"
+           class="devsite-footer-sites-link
+                  gc-analytics-event"
+           data-category="Site-Wide Custom Events"
+         
+           data-label="Footer Google AI Link"
+         
+         >
+          Google AI
+        </a>
+      </li>
+      
+      <li class="devsite-footer-sites-item">
+        <a href="/products"
+           class="devsite-footer-sites-link
+                  gc-analytics-event"
+           data-category="Site-Wide Custom Events"
+         
+           data-label="Footer All products Link"
+         
+         >
+          All products
+        </a>
+      </li>
+      
+    </ul>
+  </nav>
+  
+
+  
+  <nav class="devsite-footer-utility-links" aria-label="Utility links">
+    
+    <ul class="devsite-footer-utility-list">
+      
+      <li class="devsite-footer-utility-item
+                 ">
+        
+        
+        <a class="devsite-footer-utility-link gc-analytics-event"
+           href="/terms/site-terms"
+           data-category="Site-Wide Custom Events"
+           data-label="Footer Terms link"
+         >
+          Terms
+        </a>
+        
+      </li>
+      
+      <li class="devsite-footer-utility-item
+                 ">
+        
+        
+        <a class="devsite-footer-utility-link gc-analytics-event"
+           href="//policies.google.com/privacy"
+           data-category="Site-Wide Custom Events"
+           data-label="Footer Privacy link"
+         >
+          Privacy
+        </a>
+        
+      </li>
+      
+      <li class="devsite-footer-utility-item
+                 glue-cookie-notification-bar-control">
+        
+        
+        <a class="devsite-footer-utility-link gc-analytics-event"
+           href="#"
+           data-category="Site-Wide Custom Events"
+           data-label="Footer Manage cookies link"
+         
+           aria-hidden="true"
+         >
+          Manage cookies
+        </a>
+        
+      </li>
+      
+    </ul>
+    
+    
+<devsite-language-selector>
+  <ul role="presentation">
+    
+    
+    <li role="presentation">
+      <a role="menuitem" lang="en"
+        >English</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="de"
+        >Deutsch</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="es"
+        >Español</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="es_419"
+        >Español – América Latina</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="fr"
+        >Français</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="id"
+        >Indonesia</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="it"
+        >Italiano</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="pl"
+        >Polski</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="pt_br"
+        >Português – Brasil</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="vi"
+        >Tiếng Việt</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="tr"
+        >Türkçe</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="ru"
+        >Русский</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="he"
+        >עברית</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="ar"
+        >العربيّة</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="fa"
+        >فارسی</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="hi"
+        >हिंदी</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="bn"
+        >বাংলা</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="th"
+        >ภาษาไทย</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="zh_cn"
+        >中文 – 简体</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="zh_tw"
+        >中文 – 繁體</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="ja"
+        >日本語</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="ko"
+        >한국어</a>
+    </li>
+    
+  </ul>
+</devsite-language-selector>
+
+  </nav>
+</div>
+          
+        </devsite-footer-utility>
+        <devsite-panel>
+          
+        </devsite-panel>
+        
+          <devsite-concierge
+  
+  
+    data-info-panel
+  
+  
+    data-ai-panel
+  
+  
+  
+  
+    data-api-explorer-panel
+  >
+</devsite-concierge>
+        
+      </section>
+      </section>
+    <devsite-sitemask></devsite-sitemask>
+    <devsite-snackbar></devsite-snackbar>
+    <devsite-tooltip ></devsite-tooltip>
+    <devsite-heading-link></devsite-heading-link>
+    <devsite-analytics>
+      
+        <script type="application/json" analytics>[{&#34;dimensions&#34;: {&#34;dimension3&#34;: false, &#34;dimension5&#34;: &#34;en&#34;, &#34;dimension11&#34;: false, &#34;dimension6&#34;: &#34;en&#34;, &#34;dimension1&#34;: &#34;Signed out&#34;}, &#34;gaid&#34;: &#34;UA-24532603-1&#34;, &#34;metrics&#34;: {&#34;ratings_count&#34;: &#34;metric2&#34;, &#34;ratings_value&#34;: &#34;metric1&#34;}, &#34;purpose&#34;: 1}]</script>
+<script type="application/json" tag-management>{&#34;at&#34;: &#34;True&#34;, &#34;ga4&#34;: [{&#34;id&#34;: &#34;G-272J68FCRF&#34;, &#34;purpose&#34;: 1}], &#34;ga4p&#34;: [{&#34;id&#34;: &#34;G-272J68FCRF&#34;, &#34;purpose&#34;: 1}], &#34;gtm&#34;: [{&#34;id&#34;: &#34;GTM-T98GCPGN&#34;, &#34;purpose&#34;: 1}], &#34;parameters&#34;: {&#34;internalUser&#34;: &#34;False&#34;, &#34;language&#34;: {&#34;machineTranslated&#34;: &#34;False&#34;, &#34;requested&#34;: &#34;en&#34;, &#34;served&#34;: &#34;en&#34;}, &#34;pageType&#34;: &#34;codelab&#34;, &#34;projectName&#34;: null, &#34;signedIn&#34;: &#34;False&#34;, &#34;tenant&#34;: &#34;developers&#34;, &#34;recommendations&#34;: {&#34;sourcePage&#34;: &#34;&#34;, &#34;sourceType&#34;: 0, &#34;sourceRank&#34;: 0, &#34;sourceIdenticalDescriptions&#34;: 0, &#34;sourceTitleWords&#34;: 0, &#34;sourceDescriptionWords&#34;: 0, &#34;experiment&#34;: &#34;&#34;}, &#34;experiment&#34;: {&#34;ids&#34;: &#34;&#34;}}}</script>
+      
+    </devsite-analytics>
+    
+      <devsite-badger></devsite-badger>
+    
+    
+    
+    
+<script nonce="lsL90myvViWEctE/AA45eoKpL9z14D">
+  
+  (function(d,e,v,s,i,t,E){d['GoogleDevelopersObject']=i;
+    t=e.createElement(v);t.async=1;t.src=s;E=e.getElementsByTagName(v)[0];
+    E.parentNode.insertBefore(t,E);})(window, document, 'script',
+    'https://www.gstatic.com/devrel-devsite/prod/vb08cbdb02acf7f66ad9727ddfba9d81df8806422eb5dd63dba194c9c8c7997f7/developers/js/app_loader.js', '[1,"en",null,"/js/devsite_app_module.js","https://www.gstatic.com/devrel-devsite/prod/vb08cbdb02acf7f66ad9727ddfba9d81df8806422eb5dd63dba194c9c8c7997f7","https://www.gstatic.com/devrel-devsite/prod/vb08cbdb02acf7f66ad9727ddfba9d81df8806422eb5dd63dba194c9c8c7997f7/developers","https://developers-dot-devsite-v2-prod.appspot.com",1,null,["/_pwa/developers/manifest.json","https://www.gstatic.com/devrel-devsite/prod/vb08cbdb02acf7f66ad9727ddfba9d81df8806422eb5dd63dba194c9c8c7997f7/images/video-placeholder.svg","https://www.gstatic.com/devrel-devsite/prod/vb08cbdb02acf7f66ad9727ddfba9d81df8806422eb5dd63dba194c9c8c7997f7/developers/images/favicon-new.png","https://www.gstatic.com/devrel-devsite/prod/vb08cbdb02acf7f66ad9727ddfba9d81df8806422eb5dd63dba194c9c8c7997f7/developers/images/lockup-new.svg","https://fonts.googleapis.com/css?family=Google+Sans:400,500|Roboto:400,400italic,500,500italic,700,700italic|Roboto+Mono:400,500,700&display=swap"],1,null,[1,6,8,12,14,17,21,25,50,52,63,70,75,76,80,87,91,92,93,97,98,100,101,102,103,104,105,107,108,109,110,112,113,116,117,118,120,122,124,125,126,127,129,130,131,132,133,134,135,136,138,140,141,147,148,149,151,152,156,157,158,159,161,163,164,168,169,170,179,180,182,183,186,191,193,196],"AIzaSyAP-jjEJBzmIyKR4F-3XITp8yM9T1gEEI8","AIzaSyB6xiKGDR5O3Ak2okS4rLkauxGUG7XP0hg","developers.google.com","AIzaSyAQk0fBONSGUqCNznf6Krs82Ap1-NV6J4o","AIzaSyCCxcqdrZ_7QMeLCRY20bh_SXdAYqy70KY",null,null,null,["DevPro__enable_vertex_credit_card","Concierge__enable_concierge_restricted","MiscFeatureFlags__gdp_dashboard_reskin_enabled","Profiles__enable_auto_apply_credits","Profiles__enable_completecodelab_endpoint","DevPro__enable_payments_first_batch","MiscFeatureFlags__enable_variable_operator_index_yaml","DevPro__enable_free_benefits","DevPro__enable_google_one_card","BookNav__enable_tenant_cache_key","DevPro__enable_embed_profile_creation","DevPro__enable_cloud_innovators_plus","Profiles__enable_release_notes_notifications","Profiles__enable_profile_collections","Concierge__enable_key_takeaways","MiscFeatureFlags__enable_view_transitions","DevPro__enable_devpro_offers","MiscFeatureFlags__enable_explicit_template_dependencies","CloudShell__cloud_code_overflow_menu","DevPro__enable_nvidia_credits_card","Search__enable_ai_search_summaries_for_all","Profiles__enable_callout_notifications","Search__enable_ai_eligibility_checks","Profiles__enable_public_developer_profiles","MiscFeatureFlags__enable_project_variables","DevPro__enable_firebase_workspaces_card","MiscFeatureFlags__developers_footer_dark_image","Profiles__enable_playlist_community_acl","Cloud__fast_free_trial","Search__enable_suggestions_from_borg","Concierge__enable_remove_info_panel_tags","MiscFeatureFlags__enable_variable_operator","EngEduTelemetry__enable_engedu_telemetry","Cloud__enable_cloudx_experiment_ids","Analytics__enable_devpro_interaction_logging","Search__enable_dynamic_content_confidential_banner","Profiles__enable_developer_profile_benefits_ui_redesign","Profiles__enable_developer_profile_pages_as_content","Cloud__enable_legacy_calculator_redirect","Concierge__enable_actions_menu","Profiles__enable_awarding_url","Profiles__enable_stripe_subscription_management","MiscFeatureFlags__enable_firebase_utm","Analytics__enable_clearcut_logging","TpcFeatures__enable_unmirrored_page_left_nav","DevPro__enable_credits_banner","CloudShell__cloud_shell_button","Profiles__enable_dashboard_curated_recommendations","Cloud__enable_cloud_dlp_service","Concierge__enable_pushui","DevPro__enable_developer_subscriptions","Significatio__enable_by_tenant","MiscFeatureFlags__remove_cross_domain_tracking_params","Concierge__enable_devsite_llm_tools","Cloud__cache_serialized_dynamic_content","Cloud__enable_cloud_shell","MiscFeatureFlags__developers_footer_image","DevPro__enable_devsite_captcha","Profiles__enable_targeted_hero","DevPro__enable_g1_integration","Experiments__reqs_query_experiments","Profiles__enable_purchase_prompts","Concierge__enable_key_takeaways_new_ui","Cloud__enable_cloud_shell_fte_user_flow","DevPro__enable_code_assist","Search__enable_ai_search_summaries_restricted","Search__enable_page_map","Profiles__enable_join_program_group_endpoint","Profiles__enable_completequiz_endpoint","DevPro__remove_eu_tax_intake_form","Profiles__require_profile_eligibility_for_signin","Profiles__enable_developer_profiles_callout","MiscFeatureFlags__enable_explain_this_code","DevPro__enable_enterprise","Profiles__enable_user_type","TpcFeatures__proxy_prod_host","Concierge__enable_concierge","Cloud__enable_llm_concierge_chat","Profiles__enable_page_saving","Profiles__enable_recognition_badges","Profiles__enable_complete_playlist_endpoint","DevPro__enable_google_payments_buyflow","Cloud__enable_free_trial_server_call","MiscFeatureFlags__enable_framebox_badge_methods","Search__enable_ai_search_summaries","MiscFeatureFlags__fix_lower_breadcrumbs","SignIn__enable_l1_signup_flow","MiscFeatureFlags__enable_appearance_cookies"],null,null,"AIzaSyBLEMok-5suZ67qRPzx0qUtbnLmyT_kCVE","https://developerscontentserving-pa.clients6.google.com","AIzaSyCM4QpTRSqP5qI4Dvjt4OAScIN8sOUlO-k","https://developerscontentsearch-pa.clients6.google.com",1,4,null,"https://developerprofiles-pa.clients6.google.com",[1,"developers","Google for Developers","developers.google.com",null,"developers-dot-devsite-v2-prod.appspot.com",null,null,[1,1,[1],null,null,null,null,null,null,null,null,[1],null,null,null,null,null,null,[1],[1,null,null,[1,20],"/recommendations/information"],null,null,null,[1,1,1],[1,1,null,1,1,null,null,["/meridian"]],[1,null,null,null,null,null,null,["/admob","/ad-manager/mobile-ads-sdk","/ml-kit"]],null,[null,["/meridian","/youtube/devices/"]],1,null,[1]],null,[null,null,null,null,null,null,"/images/lockup-new.svg","/images/touchicon-180-new.png",null,null,null,null,1,null,null,null,null,null,null,null,null,1,null,null,null,"/images/lockup-dark-theme-new.svg",[]],[],null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,[6,1,14,15,20,22,23,29,32,36],null,[[null,null,null,[3,7,10,2,39,17,4,32,24,11,12,13,34,15,25],null,null,[1,[["docType","Choose a content type",[["Tutorial",null,null,null,null,null,null,null,null,"Tutorial"],["Guide",null,null,null,null,null,null,null,null,"Guide"],["Sample",null,null,null,null,null,null,null,null,"Sample"]]],["product","Choose a product",[["Android",null,null,null,null,null,null,null,null,"Android"],["ARCore",null,null,null,null,null,null,null,null,"ARCore"],["ChromeOS",null,null,null,null,null,null,null,null,"ChromeOS"],["Firebase",null,null,null,null,null,null,null,null,"Firebase"],["Flutter",null,null,null,null,null,null,null,null,"Flutter"],["Assistant",null,null,null,null,null,null,null,null,"Google Assistant"],["GoogleCloud",null,null,null,null,null,null,null,null,"Google Cloud"],["GoogleMapsPlatform",null,null,null,null,null,null,null,null,"Google Maps Platform"],["GooglePay",null,null,null,null,null,null,null,null,"Google Pay & Google Wallet"],["GooglePlay",null,null,null,null,null,null,null,null,"Google Play"],["Tensorflow",null,null,null,null,null,null,null,null,"TensorFlow"]]],["category","Choose a topic",[["AiAndMachineLearning",null,null,null,null,null,null,null,null,"AI and Machine Learning"],["Data",null,null,null,null,null,null,null,null,"Data"],["Enterprise",null,null,null,null,null,null,null,null,"Enterprise"],["Gaming",null,null,null,null,null,null,null,null,"Gaming"],["Mobile",null,null,null,null,null,null,null,null,"Mobile"],["Web",null,null,null,null,null,null,null,null,"Web"]]]]]],[1,1],null,1],[[["UA-24532603-1"],["UA-22084204-5"],null,null,["UA-24532603-5"],["GTM-T98GCPGN"],null,[["G-272J68FCRF"],null,null,[["G-272J68FCRF",2]]],[["UA-24532603-1",2]],null,[["UA-24532603-5",2]],[["GTM-T98GCPGN",2]],1],[[4,3],[15,12],[3,2],[14,11],[5,4],[16,13],[12,9],[1,1],[13,10],[6,5],[11,8]],[[2,2],[1,1]]],null,4,null,null,null,null,null,null,null,null,null,null,null,null,null,"developers.devsite.google",null,null,null,null,null,[]],null,"pk_live_5170syrHvgGVmSx9sBrnWtA5luvk9BwnVcvIi7HizpwauFG96WedXsuXh790rtij9AmGllqPtMLfhe2RSwD6Pn38V00uBCydV4m",1,1,"https://developerscontentinsights-pa.clients6.google.com","AIzaSyCg-ZUslalsEbXMfIo9ZP8qufZgo3LSBDU","AIzaSyDxT0vkxnY_KeINtA4LSePJO-4MAZPMRsE","https://developers.clients6.google.com",["https://codeassist.google.com","https://code-assist-free-tier.corp.google.com"],null,"AIzaSyBQom12tzI-rybN7Sf-KfeL4nwm-Rf7PmI\n",null,null,"https://developers.googleapis.com"]')
+  
+</script>
+
+    <devsite-a11y-announce></devsite-a11y-announce>
+  </body>
+</html>

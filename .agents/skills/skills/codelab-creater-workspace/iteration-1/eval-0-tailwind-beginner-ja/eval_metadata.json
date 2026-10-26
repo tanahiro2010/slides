@@ -1,0 +1,20 @@
+{
+  "eval_id": 0,
+  "eval_name": "tailwind-beginner-ja",
+  "prompt": "次の GDG 合同勉強会向けに、Tailwind CSS の基礎を学ぶ 60 分のハンズオン codelab を作ってください。対象は HTML/CSS は触ったことがあるけどフレームワーク未経験の大学生。ファイル名は `tailwind-css-basics-workshop/claat.md` です。",
+  "assertions": [
+    "Frontmatter has all 6 required fields",
+    "Frontmatter uses bare key:value (no `---` fence)",
+    "Exactly one `# Title` document heading",
+    "Every `##` step has `Duration: H:MM:SS`",
+    "No `## Step N:` prefix in step headers",
+    "Last step matches recap convention",
+    "≥6 steps total",
+    "Step 1 covers ≥2 of build/learn/need",
+    "All fenced code blocks have language tags",
+    "≥1 callout box",
+    "Total Duration ~60 min (±30%)",
+    "Output is in Japanese",
+    "Mentions Tailwind"
+  ]
+}

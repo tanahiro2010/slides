@@ -9,15 +9,15 @@ Every codelab in this repo is a `claat.md` file inside `<content-name>/` that ge
 
 This skill has two halves:
 
-- **[Part 1: Writing](#part-1-writing-a-high-quality-codelab)** — pedagogy patterns distilled from 20+ official Google codelabs across Flutter, Android, Firebase, Cloud, AI/Gemini, AR, IoT, Web, Data. Use these to decide _what_ to write.
-- **[Part 2: Claat mechanics](#part-2-claat-markdown-mechanics)** — the markdown syntax that the `make claat` pipeline expects. Use these to decide _how_ to write it.
+- **[Part 1: Writing](#part-1-writing-a-high-quality-codelab)** — pedagogy patterns distilled from 20+ official Google codelabs across Flutter, Android, Firebase, Cloud, AI/Gemini, AR, IoT, Web, Data. Use these to decide *what* to write.
+- **[Part 2: Claat mechanics](#part-2-claat-markdown-mechanics)** — the markdown syntax that the `make claat` pipeline expects. Use these to decide *how* to write it.
 
 Plus reference material loaded on demand:
 
 - **`references/figures.md`** — visual language for architecture diagrams, hierarchy trees, and concept illustrations; gen-image prompt template that keeps output on-brand. Load before planning a figure or calling `/gen-image`.
 - **`examples/`** — 20 raw HTML files of official Google codelabs (Flutter, Android, Firebase, Cloud, AI, AR, IoT, Web, Data). Grep / read these when you're unsure how a real Google codelab handles a specific situation. Filenames are kebab-case slugs (e.g. `flutter-codelab-first.html`, `adk-java-getting-started.html`).
 
-**A note on the in-repo worked example.** `portfolio-2026/claat.md` is the longest existing codelab in this repo and useful as a syntactic reference, but it predates several conventions in Part 1 below (e.g. it uses `## Step 1: …` step-number prefixes and bold-paragraph labels instead of `###` sub-sections in Step 1). Treat Part 1 of this skill — and the official codelabs in `examples/` — as the source of truth for _new_ codelabs. Don't retrofit older codelabs in this repo; their URLs are published and renaming/restructuring them breaks links.
+**A note on the in-repo worked example.** `portfolio-2026/claat.md` is the longest existing codelab in this repo and useful as a syntactic reference, but it predates several conventions in Part 1 below (e.g. it uses `## Step 1: …` step-number prefixes and bold-paragraph labels instead of `###` sub-sections in Step 1). Treat Part 1 of this skill — and the official codelabs in `examples/` — as the source of truth for *new* codelabs. Don't retrofit older codelabs in this repo; their URLs are published and renaming/restructuring them breaks links.
 
 ## Workflow
 
@@ -39,12 +39,12 @@ These conventions are taken from official Google codelabs. Follow them by defaul
 
 Every codelab is built from four blocks. Skip none.
 
-| #    | Step name (pick one)                                                | Purpose                                 |
-| ---- | ------------------------------------------------------------------- | --------------------------------------- |
-| 1    | `はじめに` / `Introduction` / `Overview` / `Before you begin`       | Frame the codelab                       |
-| 2    | `セットアップ` / `Setup` / `Environment setup`                      | Get tools / projects / accounts ready   |
-| 3..N | One step per feature or concept                                     | Each step produces visible progress     |
-| Last | `おめでとうございます` / `まとめと次のステップ` / `Congratulations` | Recap + next steps + cleanup (if cloud) |
+| #     | Step name (pick one)                                           | Purpose                                    |
+|-------|----------------------------------------------------------------|--------------------------------------------|
+| 1     | `はじめに` / `Introduction` / `Overview` / `Before you begin`   | Frame the codelab                          |
+| 2     | `セットアップ` / `Setup` / `Environment setup`                  | Get tools / projects / accounts ready      |
+| 3..N  | One step per feature or concept                                | Each step produces visible progress        |
+| Last  | `おめでとうございます` / `まとめと次のステップ` / `Congratulations` | Recap + next steps + cleanup (if cloud)   |
 
 Setup is always step 2 — never folded into step 1, never deferred. Every codelab analyzed used this exact skeleton.
 
@@ -54,7 +54,6 @@ Step 1 frames the entire codelab. It contains these `###` sub-sections (canonica
 
 ```markdown
 ## はじめに
-
 Duration: 0:03:00
 
 このコードラボでは…（1〜2 文の概要）
@@ -62,26 +61,21 @@ Duration: 0:03:00
 ![完成イメージ](img/step1-final-result.png)
 
 ### このコードラボで作るもの
-
 具体的な成果物。GIF か最終結果のスクリーンショットを必ず添える。
 
 ### このコードラボで学ぶこと
-
-- 動詞で始まる箇条書きを 4〜7 項目
-- 「〜の方法」「〜を構築する」など
+* 動詞で始まる箇条書きを 4〜7 項目
+* 「〜の方法」「〜を構築する」など
 
 ### 必要なもの
-
-- ツール、アカウント、バージョン、ハードウェアを列挙
-- 例: Node.js 20+、Chrome、GitHub アカウント
+* ツール、アカウント、バージョン、ハードウェアを列挙
+* 例: Node.js 20+、Chrome、GitHub アカウント
 
 ### 前提知識（任意）
-
-- 「〜の基本的な理解」と書く（「必要なもの」とは区別する）
+* 「〜の基本的な理解」と書く（「必要なもの」とは区別する）
 
 ### このコードラボで扱わないこと（任意・推奨）
-
-- 範囲外のテーマを明示し、代替リソースへのリンクを添える
+* 範囲外のテーマを明示し、代替リソースへのリンクを添える
 ```
 
 The "扱わないこと" / "What this isn't" section is rare but high-value — Android XR Fundamentals does this and it prevents misaligned expectations. Worth adding whenever scope is fuzzy.
@@ -89,20 +83,18 @@ The "扱わないこと" / "What this isn't" section is rare but high-value — 
 ## Writing step headers
 
 **Do:**
-
 - Imperative + concrete noun: `プロジェクトを作成する`, `ボタンを追加する`, `Detect planes in the real world`
 - Concept nouns when introducing a concept: `Compose の状態`, `Spaces and Spatial Panels`
 - Be specific to the artifact (`ナビゲーションレールを追加する`, not `UI を改善する`)
 
 **Don't:**
-
 - Step numbers in the header — the sidebar auto-numbers
 - Marketing words (`最強の…`, `完璧な…`, `amazing`)
 - Vague verbs (`〜について学ぶ`, `Working with…`, `Diving into…`)
 
 ## Sub-step granularity
 
-Within a step, each `###` sub-section does exactly _one_ of:
+Within a step, each `###` sub-section does exactly *one* of:
 
 1. A concrete action — `Flutter をインストールする`, `Authentication をセットアップする`
 2. A concept explanation — `Composable functions とは`, `Spatial panels`
@@ -127,14 +119,10 @@ void main() => runApp(MyApp());
 ````
 
 Rules:
-
-- **Announce the filename** with inline code _before_ the block, never after
+- **Announce the filename** with inline code *before* the block, never after
 - **Language tag** on the fence (`dart`, `kotlin`, `bash`, `yaml`, …) for syntax highlighting
-- **Diff syntax highlight** uses `diff <language>` on the fence, for example ` ```diff js `, so additions/deletions and the language are both highlighted
-- **Diff blocks need locator context** — include enough unchanged surrounding code for learners to know exactly where to apply the change. For method changes, include the enclosing class and method signature. For a branch or callback change, include the enclosing method and nearby sibling branches. For import changes, include the import group. For append-at-end changes, include the preceding class/function plus the new appended code.
-- **Avoid context-free additions** — don't show only `+Positioned(...)`, `+Text(...)`, or `+Future<void> ...` unless the surrounding parent (`Stack.children`, class, abstract class, etc.) is also visible.
 - **Complete and pasteable** — no `…` placeholders that learners must guess at
-- **1–2 sentence "why"** _after_ the block — what it does, not how
+- **1–2 sentence "why"** *after* the block — what it does, not how
 
 Chunk long files (>~50 lines) into per-section blocks. Don't paste 200-line files all at once.
 
@@ -186,15 +174,14 @@ Reuse this scaffold verbatim when applicable — official codelabs do.
 
 ## Callout usage
 
-| Keyword (Part 2 syntax) | Intent                                  | Max length          |
-| ----------------------- | --------------------------------------- | ------------------- |
-| `Note` / `補足`         | Side info that aids understanding       | 2 sentences         |
-| `Tip` / `Hint`          | Optional shortcut or improvement        | 1 sentence          |
-| `Warning` / `Caution`   | Irreversible action, cost, common error | 3 sentences         |
-| `Troubleshooting`       | Error recovery with links               | List or 3 sentences |
+| Keyword (Part 2 syntax)        | Intent                                      | Max length     |
+|--------------------------------|---------------------------------------------|----------------|
+| `Note` / `補足`                | Side info that aids understanding           | 2 sentences    |
+| `Tip` / `Hint`                 | Optional shortcut or improvement            | 1 sentence     |
+| `Warning` / `Caution`          | Irreversible action, cost, common error     | 3 sentences    |
+| `Troubleshooting`              | Error recovery with links                   | List or 3 sentences |
 
 Rules:
-
 - A callout longer than 3 sentences should be regular prose instead
 - Never place two callouts back-to-back — keep at least one prose paragraph between
 - Reach for `Warning` for cost-incurring / destructive / data-losing actions
@@ -215,12 +202,12 @@ Use a `start/` and `done/` layout (or `step_01/`, `step_02/`, …) so learners c
 
 ## Visual cadence
 
-| Where                 | What                                  |
-| --------------------- | ------------------------------------- |
-| Step 1                | One image / GIF of the _final_ result |
-| UI-action sub-section | One screenshot of the relevant UI     |
-| Concept sub-section   | One diagram (use `/gen-image`)        |
-| Pure-code sub-section | No image needed                       |
+| Where                          | What                                         |
+|--------------------------------|----------------------------------------------|
+| Step 1                         | One image / GIF of the *final* result        |
+| UI-action sub-section          | One screenshot of the relevant UI            |
+| Concept sub-section            | One diagram (use `/gen-image`)               |
+| Pure-code sub-section          | No image needed                              |
 
 Always place the image **immediately before** the action it supports, not after.
 
@@ -238,23 +225,19 @@ The closing step mirrors Step 1 to close the loop:
 
 ```markdown
 ## おめでとうございます！
-
 Duration: 0:05:00
 
 このコードラボでは…（1 文の振り返り）
 
 ### 学んだこと
-
-- ステップ 1 の「学ぶこと」と対応させる
-- 同じ動詞・同じ順序で書くと達成感が出る
+* ステップ 1 の「学ぶこと」と対応させる
+* 同じ動詞・同じ順序で書くと達成感が出る
 
 ### 次のステップ
-
-- [関連コードラボへのリンク](https://...)
-- 公式ドキュメントへのリンク
+* [関連コードラボへのリンク](https://...)
+* 公式ドキュメントへのリンク
 
 ### クリーンアップ（クラウドリソースを作成した場合）
-
 課金を防ぐため、作成したリソースを削除します:
 …
 ```
@@ -263,8 +246,8 @@ The recap intentionally echoes Step 1's promises.
 
 ## Length & pacing
 
-| Audience            | Steps | Total duration | Per-step Duration |
-| ------------------- | ----- | -------------- | ----------------- |
+| Audience          | Steps | Total duration | Per-step Duration |
+|-------------------|-------|----------------|-------------------|
 | 初学者 / Beginner   | 7–10  | 15–45 min      | 5–10 min          |
 | 中級 / Intermediate | 10–15 | 45–90 min      | 10–20 min         |
 | 上級 / Advanced     | 9–11  | 90+ min        | 15–25 min         |
@@ -329,7 +312,6 @@ Each `##` heading starts a new step. The text after `##` is the step title displ
 
 ```markdown
 ## 環境の準備
-
 Duration: 0:15:00
 
 ステップの本文をここに書く。
@@ -343,24 +325,23 @@ Sub-headings within a step use `###`. **Do not** put `Step 1:` / `Step 2:` prefi
 
 `> **Keyword:** text` becomes a styled aside box. The `fix-claat-codespans.py` postprocessor handles the conversion. Recognized keywords (first word after `>`):
 
-| Keyword(s)                   | Box style        |
-| ---------------------------- | ---------------- |
-| `Note`, `Notice`, `補足`     | Info (blue)      |
-| `Tip`, `Tips`, `Hint`        | Success (green)  |
-| `Warning`, `Warn`, `Caution` | Warning (yellow) |
-| `Troubleshooting`            | Warning (red)    |
+| Keyword(s)                          | Box style       |
+|-------------------------------------|-----------------|
+| `Note`, `Notice`, `補足`             | Info (blue)     |
+| `Tip`, `Tips`, `Hint`               | Success (green) |
+| `Warning`, `Warn`, `Caution`        | Warning (red)   |
+| `Troubleshooting`                   | Warning (red)   |
 
 Multi-line callouts: indent continuation lines with `>`.
 
 ```markdown
 > **Troubleshooting:** インストールがうまくいかない場合は、
 > 以下の点を確認してください。
->
 > - ネットワーク接続を確認する
 > - 管理者権限で実行する
 ```
 
-(For _when_ to use each box, see [Callout usage](#callout-usage) in Part 1.)
+(For *when* to use each box, see [Callout usage](#callout-usage) in Part 1.)
 
 ## Code blocks (syntax)
 
@@ -372,7 +353,7 @@ Use fenced code blocks with a language specifier — the renderer does syntax hi
 ```html
 <!DOCTYPE html>
 <html>
-  …
+…
 </html>
 ```
 ````
@@ -395,7 +376,6 @@ For UI steps where you need a real screenshot but don't have one yet, write a pl
 
 ```markdown
 ![VSCode でファイルを新規作成する手順](img/step2-1.png)
-
 <!-- TODO: screenshot — VSCode explorer, new file icon highlighted -->
 ```
 
@@ -430,7 +410,6 @@ make claat <content-name>
 ```
 
 After building, open `<content-name>/index.html` in a browser and check:
-
 - Callout boxes render with color (not plain `>` text)
 - Inline `<code>` containing HTML tags shows `&lt;…&gt;`, not raw tags
 - Images load (or show the placeholder broken-image icon as expected)
