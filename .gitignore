@@ -35,3 +35,12 @@ test.json
 **/sandbox/data/
 **/*.raw.jsonl
 **/sandbox/node_modules/
+
+# --- verify-pipeline: Cloudflare WAF検証 ---
+# 認証情報・生ログ・テスト結果は公開しない。
+**/Cloudflare WAFの緊急更新と誤検知の検証/sandbox/.env
+**/Cloudflare WAFの緊急更新と誤検知の検証/sandbox/.env.*
+!**/Cloudflare WAFの緊急更新と誤検知の検証/sandbox/.env.example
+**/Cloudflare WAFの緊急更新と誤検知の検証/sandbox/data/
+**/Cloudflare WAFの緊急更新と誤検知の検証/sandbox/*.raw.jsonl
+**/Cloudflare WAFの緊急更新と誤検知の検証/sandbox/node_modules/

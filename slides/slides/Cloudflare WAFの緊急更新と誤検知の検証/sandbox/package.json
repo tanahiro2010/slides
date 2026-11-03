@@ -1,0 +1,9 @@
+{
+  "name": "cloudflare-waf-emergency-test",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "run": "node scripts/run.mjs",
+    "config": "node scripts/config.mjs"
+  }
+}

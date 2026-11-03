@@ -59,6 +59,12 @@ published: true
 
 ---
 
+::center bg=red::
+
+そして、自分で話を聞いてみたい人を呼びました
+
+---
+
 ::center bg=purple size=2::
 
 🙇
@@ -1844,7 +1850,7 @@ Hono は Web のフレームワーク。**ここは説明しない**（分から
 コミュニティ活動のすゝめ
 
 田中博悠 / tanahiro2010
-https://github.com/tanahiro2010
+<https://github.com/tanahiro2010>
 
 ::note::
 
