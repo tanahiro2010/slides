@@ -12,7 +12,7 @@
   },
   "dependencies": {
     "@tanahiro2010/ssg": "workspace:*",
-    "ippon-slides": "^0.1.6",
+    "ippon-slides": "^0.1.10",
     "react": "^19.3.1",
     "react-dom": "^19.3.1"
   },

@@ -11,7 +11,7 @@
     "prepare": "vp config"
   },
   "dependencies": {
-    "ippon-slides": "^0.1.6"
+    "ippon-slides": "^0.1.10"
   },
   "devDependencies": {
     "@textlint-ja/textlint-rule-preset-ai-writing": "^1.7.0",

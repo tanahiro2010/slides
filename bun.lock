@@ -5,7 +5,7 @@
     "": {
       "name": "tanahiro2010-slides",
       "dependencies": {
-        "ippon-slides": "^0.1.6",
+        "ippon-slides": "^0.1.10",
       },
       "devDependencies": {
         "@textlint-ja/textlint-rule-preset-ai-writing": "^1.7.0",
@@ -40,7 +40,7 @@
       "version": "0.0.0",
       "dependencies": {
         "@tanahiro2010/ssg": "workspace:*",
-        "ippon-slides": "^0.1.6",
+        "ippon-slides": "^0.1.10",
         "react": "^19.3.1",
         "react-dom": "^19.3.1",
       },
@@ -693,7 +693,7 @@
 
     "ip-address": ["ip-address@10.7.4", "https://npm.flatt.tech/ip-address/-/ip-address-10.7.4.tgz", {}, "sha512-DWBMKyeM25D70nrIiTkgQth59/G+naKOTep6huF9j+GmeK3DMD60Zvxg5d5qQnz+38AHgou6ean2LECX+lrKDg=="],
 
-    "ippon-slides": ["ippon-slides@0.1.6", "https://npm.flatt.tech/ippon-slides/-/ippon-slides-0.1.6.tgz", { "bin": { "ippon": "bin/ippon.js" } }, "sha512-D/bw4b25fV/lTfXfE0+jV1jqTrBOYw4kuNI8PT5aFRZoyS/gMEbSaFgbUcmkkuodrx7CaDvFFICXEnZShJQEjw=="],
+    "ippon-slides": ["ippon-slides@0.1.10", "https://npm.flatt.tech/ippon-slides/-/ippon-slides-0.1.10.tgz", { "bin": { "ippon": "bin/ippon.js" } }, "sha512-CguLHnuo5gk93DcGsuHKAHAlAyPzb4ljMI8QJda6BxVXLfPCyea+D+qS23AVXHgGAgWo9yUMOSseBj1GM5MMhA=="],
 
     "is-arrayish": ["is-arrayish@0.2.1", "https://npm.flatt.tech/is-arrayish/-/is-arrayish-0.2.1.tgz", {}, "sha512-zz06S8t0ozoDXMG+ube26zeCTNXcKIPJZJi8hBrF4idCLms4CG9QtK7qBl1boi5ODzFpjswb5JPmHCbMpjaYzg=="],
 
