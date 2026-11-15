@@ -1,9 +1,15 @@
 ---
 name: slide-creater
-description: Use this skill whenever the user asks to create slides, a slide deck, a presentation, a talk, 発表資料, スライド, or anything that will become a Marp deck in this repository. Explains the project-specific Marp template at `.marp/template.md` — its load-bearing frontmatter / script / style blocks, slide classes (`title` / `lead` / `section` / `split` / `invert`), CSS variables, figure conventions, and Japanese-copy style — so new decks match GDG on Campus University of Osaka's existing decks. Trigger even when the user just says "make slides" or "create a deck" without mentioning Marp; in this repo, slides always mean Marp + this template.
+description: Use this skill whenever the user asks to create slides, a slide deck, a presentation, a talk, 発表資料, スライド for `slides/speakerdeck/` — the GDG on Campus University of Osaka community-talk decks that build as Marp. Explains the project-specific Marp template at `.marp/template.md` — its load-bearing frontmatter / script / style blocks, slide classes (`title` / `lead` / `section` / `split` / `invert`), CSS variables, figure conventions, and Japanese-copy style — so new decks match GDG on Campus University of Osaka's existing decks. Do NOT use for a deck under `slides/slides/` — that directory is always built with ippon-slides regardless of frontmatter, so use `yusukebe-creater` there instead (see "Scope" below).
 ---
 
 # slide-creater
+
+## Scope: `slides/speakerdeck/` only
+
+The build pipeline (`apps/slides/scripts/build.js`) picks the renderer **by folder, not by frontmatter**: every deck under `slides/speakerdeck/` is built with `marp`, and every deck under `slides/slides/` is built with `ippon-slides` — unconditionally. Writing `marp: true` in a `slides/slides/` deck's frontmatter does nothing; the build still runs it through `ippon-slides` and the Marp directives (`<!-- _class: ... -->` etc.) just sit there as dead text.
+
+So: if the deck you're about to write lives in `slides/slides/`, stop and use the `yusukebe-creater` skill (ippon format) instead of this one. This skill is for `slides/speakerdeck/` decks only.
 
 This repo has a custom Marp template at `.marp/template.md` with bespoke CSS in `.marp/gdg.css`. Every new deck starts by copying that template — it already contains a working example of every supported slide class, so you'll match the visual style by editing example slides in place rather than writing slides from scratch. This skill covers the project-specific conventions only; assume the user knows Marp basics.
 
