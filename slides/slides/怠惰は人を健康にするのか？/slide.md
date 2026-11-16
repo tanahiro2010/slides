@@ -339,6 +339,8 @@ published: true
 > ▶ **素に戻って明るく。** QR を指して数秒待つ。10 秒で切る。
 ---
 
-::center::
-
 Thanks for listening!
+
+::right center::
+
+::qr url=https://blog.tanahiro2010.com/articles/lazy-for-health caption::
