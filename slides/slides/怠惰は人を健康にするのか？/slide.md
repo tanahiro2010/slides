@@ -339,6 +339,7 @@ published: true
 > ▶ **素に戻って明るく。** QR を指して数秒待つ。10 秒で切る。
 ---
 
+
 Thanks for listening!
 
 ::right center::
