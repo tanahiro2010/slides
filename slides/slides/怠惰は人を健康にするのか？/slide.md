@@ -344,3 +344,7 @@ Thanks for listening!
 ::right center::
 
 ::qr url=https://blog.tanahiro2010.com/articles/lazy-for-health caption::
+
+::note::
+ブログ記事もあります。
+ぜひ読んでください
