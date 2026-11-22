@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 520" font-family="Hiragino Sans, Noto Sans JP, sans-serif">
+  <rect width="1200" height="520" fill="#ffffff"/>
+  <text x="300" y="60" text-anchor="middle" font-size="40" font-weight="700" fill="#b91c1c">JOIN（修正前）</text>
+  <text x="900" y="60" text-anchor="middle" font-size="40" font-weight="700" fill="#15803d">CROSS JOIN（修正後）</text>
+  <line x1="600" y1="30" x2="600" y2="500" stroke="#d4d4d4" stroke-width="3"/>
+  <rect x="60" y="100" width="480" height="130" rx="16" fill="#fee2e2" stroke="#b91c1c" stroke-width="3"/>
+  <text x="300" y="155" text-anchor="middle" font-size="30" fill="#111">account_events</text>
+  <text x="300" y="200" text-anchor="middle" font-size="28" fill="#111">account_id = 1 → 10万行</text>
+  <text x="300" y="285" text-anchor="middle" font-size="40" fill="#555">↓ 1行ずつ</text>
+  <rect x="60" y="320" width="480" height="130" rx="16" fill="#f5f5f5" stroke="#737373" stroke-width="3"/>
+  <text x="300" y="375" text-anchor="middle" font-size="30" fill="#111">activity_events</text>
+  <text x="300" y="420" text-anchor="middle" font-size="28" fill="#111">parent_pr_id が違えば捨てる</text>
+  <text x="300" y="495" text-anchor="middle" font-size="30" font-weight="700" fill="#b91c1c">× 2,000 PR = 2億行</text>
+  <rect x="660" y="100" width="480" height="130" rx="16" fill="#dcfce7" stroke="#15803d" stroke-width="3"/>
+  <text x="900" y="155" text-anchor="middle" font-size="30" fill="#111">activity_events</text>
+  <text x="900" y="200" text-anchor="middle" font-size="28" fill="#111">parent_pr_id = ? → 約50行</text>
+  <text x="900" y="285" text-anchor="middle" font-size="40" fill="#555">↓ 1行ずつ</text>
+  <rect x="660" y="320" width="480" height="130" rx="16" fill="#f5f5f5" stroke="#737373" stroke-width="3"/>
+  <text x="900" y="375" text-anchor="middle" font-size="30" fill="#111">account_events</text>
+  <text x="900" y="420" text-anchor="middle" font-size="28" fill="#111">event_id で 1 行だけ確認</text>
+  <text x="900" y="495" text-anchor="middle" font-size="30" font-weight="700" fill="#15803d">× 2,000 PR = 10万行</text>
+</svg>
