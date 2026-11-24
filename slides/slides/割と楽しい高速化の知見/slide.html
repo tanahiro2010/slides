@@ -1,0 +1,1719 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;600;700&display=swap">
+<title>Rust製CLIを高速化し続けたら、ボトルネックが次々に移動した話</title>
+<meta name="description" content="ghusageの同期・集計・CIを計測しながら改善した記録">
+<meta name="author" content="田中博悠 / tanahiro2010">
+<meta name="generator" content="ippon-slides">
+<style>:root {
+  --slide-bg: #000;
+  --slide-fg: #fff;
+  --slide-accent: #ff6a00;
+  --slide-accent-2: #ff6a00;
+  --slide-muted: #8a8a8a;
+  --slide-code-bg: #0d0d0d;
+  --slide-border: rgba(255, 255, 255, 0.12);
+  --slide-font: -apple-system, 'Hiragino Sans', 'Noto Sans JP', system-ui, sans-serif;
+  /* macOS には凸版文久見出しゴシックが入っている。ない環境では本文フォントに落ちる */
+  --slide-display-font: 'Toppan Bunkyu Midashi Gothic', '凸版文久見出しゴシック', var(--slide-font);
+  --slide-mono: 'SF Mono', Menlo, Consolas, monospace;
+}
+
+/* 1280x720 で 16px。画面の短い辺に合わせて rem ごと拡大縮小する */
+html {
+  font-size: max(16px, min(1.25vw, 2.223vh));
+  touch-action: manipulation;
+}
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+body {
+  background: var(--slide-bg);
+  color: var(--slide-fg);
+  font-family: var(--slide-font);
+  overflow: hidden;
+}
+#deck {
+  position: fixed;
+  inset: 0;
+}
+
+/* ---------- slide ---------- */
+
+.slide {
+  position: absolute;
+  inset: 0;
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  padding: 6vh 9vw;
+  box-sizing: border-box;
+  overflow: auto;
+  /* 日本語を文節で改行する（Chrome 119+） */
+  word-break: auto-phrase;
+}
+.slide pre {
+  word-break: normal;
+}
+.slide.active {
+  display: flex;
+  animation: slide-in 0.25s ease;
+}
+@keyframes slide-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.slide > :first-child {
+  margin-top: 0;
+}
+
+.slide h1 {
+  font-family: var(--slide-display-font);
+  font-size: calc(clamp(2.2rem, 5vw, 3.6rem) * var(--slide-size, 1));
+  line-height: 1.15;
+  margin: 0 0 1.5rem;
+}
+.slide h2 {
+  font-family: var(--slide-display-font);
+  font-size: calc(clamp(1.8rem, 4vw, 2.6rem) * var(--slide-size, 1));
+  line-height: 1.2;
+  margin: 0 0 2.2rem;
+}
+.slide h3 {
+  font-size: calc(clamp(1.4rem, 3vw, 1.9rem) * var(--slide-size, 1));
+  margin: 0 0 1rem;
+}
+.slide p,
+.slide li {
+  font-size: calc(clamp(1.1rem, 2.2vw, 1.5rem) * var(--slide-size, 1));
+  line-height: 1.6;
+}
+.slide ul,
+.slide ol {
+  padding-left: 1.4em;
+  margin: 0 0 1rem;
+}
+.slide li {
+  margin: 0.35em 0;
+}
+.slide li > ul {
+  margin: 0;
+}
+.slide li li {
+  font-size: 0.85em;
+  color: var(--slide-muted);
+}
+.slide a {
+  color: inherit;
+  text-underline-offset: 0.15em;
+}
+/* 太字 = アクセントカラー */
+.slide strong {
+  font-weight: 700;
+  color: var(--slide-accent-2);
+}
+.slide strong code {
+  color: inherit;
+}
+.slide .arrow {
+  color: var(--slide-muted);
+  font-family: 'Hiragino Sans', system-ui, sans-serif;
+  font-weight: 800;
+}
+.slide img {
+  max-height: 58vh;
+  max-width: 100%;
+  object-fit: contain;
+  display: block;
+  margin: 1rem auto;
+  border-radius: 6px;
+  cursor: zoom-in;
+}
+.img-caption {
+  display: block;
+  text-align: center;
+  margin-top: 0.2rem;
+  font-size: 0.85rem;
+  color: var(--slide-muted);
+}
+
+/* `::qr::` URL の QR コード（背景色に関係なく読めるよう白地のまま） */
+.slide .qr {
+  /* 幅は figure 側で決める（SVG の素の大きさに縮まないように） */
+  width: min(calc(38vh * var(--slide-size, 1)), 100%);
+  margin: 1rem auto;
+  text-align: center;
+}
+.slide .qr svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
+  border-radius: 6px;
+}
+.slide .qr figcaption {
+  margin-top: 0.4rem;
+  font-family: var(--slide-mono);
+  font-size: 0.85rem;
+  color: var(--slide-muted);
+  overflow-wrap: anywhere;
+}
+
+/* `::wide::` 左右の余白を詰める */
+.slide.wide {
+  padding-left: 3vw;
+  padding-right: 3vw;
+}
+
+/* `::right::` 2 カラム */
+.slide .cols {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4vw;
+  align-items: start;
+  width: 100%;
+}
+.slide .cols.left-wide {
+  grid-template-columns: 1.4fr 1fr;
+}
+.slide .cols.right-wide {
+  grid-template-columns: 1fr 1.4fr;
+}
+.slide .cols.center {
+  align-items: center;
+}
+.slide .cols > * > :first-child {
+  margin-top: 0;
+}
+.slide .cols pre {
+  margin-top: 0;
+}
+
+/* `::center::` 1 枚 1 メッセージ */
+.slide.center {
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.slide.center h1,
+.slide.center h2 {
+  margin-bottom: 0.4em;
+}
+.slide.center p {
+  font-family: var(--slide-display-font);
+  font-size: calc(clamp(1.8rem, 4.5vw, 3.5rem) * var(--slide-size, 1));
+  font-weight: 600;
+  line-height: 1.5;
+  margin: 0.2em 0;
+}
+.slide.center ul,
+.slide.center ol {
+  text-align: left;
+}
+.slide.center pre {
+  text-align: left;
+  max-width: 100%;
+}
+
+/* `-# ` で始まる段落は小さい注釈 */
+.slide .note,
+.slide.center p.note {
+  font-family: var(--slide-font);
+  font-weight: 400;
+  color: var(--slide-muted);
+}
+.slide .note {
+  font-size: calc(clamp(0.95rem, 1.8vw, 1.25rem) * var(--slide-size, 1));
+}
+.slide.center p.note {
+  font-size: clamp(1.2rem, 2.6vw, 2.1rem);
+}
+
+/* `::title::` 表紙 */
+.slide.title {
+  padding-bottom: 8vh;
+}
+.slide.title h1 {
+  margin-top: auto;
+  font-size: calc(clamp(2.6rem, 7vw, 5.2rem) * var(--slide-size, 1));
+  line-height: 1.2;
+}
+.slide.title p {
+  font-size: clamp(1.3rem, 2.6vw, 1.9rem);
+  font-weight: 600;
+  margin: 0.2em 0;
+}
+.slide.title p:last-child {
+  margin-top: auto;
+  font-size: clamp(1rem, 1.8vw, 1.3rem);
+  color: var(--slide-muted);
+}
+
+/* `::bg=white::` 明るい背景 */
+.slide.light {
+  --slide-fg: #1f1f1f;
+  --slide-accent-2: #e85d00;
+  --slide-muted: #777;
+  --slide-border: rgba(0, 0, 0, 0.12);
+  --slide-code-bg: #f0f0f0;
+  color: var(--slide-fg);
+}
+
+.slide blockquote {
+  border-left: 4px solid var(--slide-accent-2);
+  margin: 0 0 1rem;
+  padding: 0.2rem 0 0.2rem 1.2rem;
+  color: var(--slide-muted);
+}
+
+.slide table {
+  border-collapse: collapse;
+  font-size: calc(clamp(1rem, 2vw, 1.35rem) * var(--slide-size, 1));
+  margin: 0 auto 1rem 0;
+}
+.slide.center table {
+  margin: 0 auto;
+}
+.slide th,
+.slide td {
+  padding: 0.5em 1.2em;
+  border-bottom: 1px solid var(--slide-border);
+  text-align: left;
+}
+.slide th {
+  color: var(--slide-muted);
+  font-weight: 600;
+}
+.slide td.num,
+.slide th.num {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ---------- code ---------- */
+
+.slide pre {
+  position: relative;
+  font-family: var(--slide-mono);
+  font-size: calc(clamp(0.8rem, 1.35vw, 1rem) * var(--slide-size, 1));
+  background: var(--slide-code-bg);
+  border: 1px solid var(--slide-border);
+  padding: 1.2rem 1.5rem;
+  border-radius: 10px;
+  overflow: auto;
+  max-height: 64vh;
+  line-height: 1.5;
+  margin: 0 0 1rem;
+}
+.slide pre code {
+  display: block;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+.slide pre[data-lang]::before {
+  content: attr(data-lang);
+  position: absolute;
+  top: 0.5rem;
+  right: 0.8rem;
+  font-size: 0.7rem;
+  color: var(--slide-muted);
+  opacity: 0.6;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+.slide :not(pre) > code {
+  font-family: var(--slide-mono);
+  background: rgba(127, 127, 127, 0.18);
+  padding: 0.1em 0.4em;
+  border-radius: 4px;
+  font-size: 0.9em;
+}
+
+/* ハイライト（atom-one-dark 寄り） */
+.hl-c {
+  color: #7f848e;
+  font-style: italic;
+}
+.hl-s {
+  color: #98c379;
+}
+.hl-k {
+  color: #c678dd;
+}
+.hl-n {
+  color: #d19a66;
+}
+.hl-f {
+  color: #61afef;
+}
+.hl-t {
+  color: #e5c07b;
+}
+.hl-i {
+  color: #56b6c2;
+}
+/* console */
+.hl-prompt {
+  color: var(--slide-accent-2);
+  user-select: none;
+}
+.hl-cmd {
+  color: #fff;
+  font-weight: 600;
+}
+.light .hl-cmd {
+  color: #1f1f1f;
+}
+.hl-out {
+  color: #abb2bf;
+}
+.hl-err {
+  color: #ef5350;
+  font-weight: 600;
+}
+.hl-ok {
+  color: #98c379;
+}
+/* `!! ` を付けた行は行全体を帯でハイライト */
+.hl-mark {
+  display: inline-block;
+  width: calc(100% + 3rem);
+  margin: 0 -1.5rem;
+  padding: 0 1.5rem;
+  box-sizing: border-box;
+  background: rgba(255, 106, 0, 0.16);
+  box-shadow: inset 3px 0 0 var(--slide-accent-2);
+}
+
+/* コードブロック右上のコピーボタン（deck.js が付ける） */
+.copy-btn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  padding: 0.25em 0.7em;
+  font: inherit;
+  font-size: 0.75rem;
+  line-height: 1.4;
+  color: #ddd;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 6px;
+  cursor: pointer;
+  opacity: 0;
+  transition:
+    opacity 0.15s ease,
+    background 0.15s ease;
+}
+.slide pre:hover .copy-btn,
+.copy-btn:focus-visible {
+  opacity: 1;
+}
+.copy-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+.copy-btn.copied {
+  color: #fff;
+  background: var(--slide-accent);
+  border-color: var(--slide-accent);
+  opacity: 1;
+}
+
+/* ---------- ::http:: プレイグラウンド ---------- */
+
+.slide .http {
+  border: 1px solid var(--slide-border);
+  border-radius: 10px;
+  overflow: hidden;
+  margin: 0 0 1rem;
+  font-size: calc(clamp(0.85rem, 1.5vw, 1.1rem) * var(--slide-size, 1));
+}
+.http-req {
+  display: flex;
+  align-items: center;
+  gap: 0.6em;
+  padding: 0.6em 0.9em;
+  background: var(--slide-code-bg);
+  border-bottom: 1px solid var(--slide-border);
+}
+.http-method {
+  font-family: var(--slide-mono);
+  font-weight: 700;
+  font-size: 0.85em;
+  padding: 0.15em 0.6em;
+  border-radius: 5px;
+  background: rgba(127, 127, 127, 0.2);
+  color: var(--slide-fg);
+  letter-spacing: 0.03em;
+}
+.http-method.m-get {
+  color: #61afef;
+}
+.http-method.m-post {
+  color: #98c379;
+}
+.http-method.m-put,
+.http-method.m-patch {
+  color: #e5c07b;
+}
+.http-method.m-delete {
+  color: #ef5350;
+}
+.http-url {
+  font-family: var(--slide-mono);
+  font-size: 0.9em;
+  color: var(--slide-muted);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  flex: 1;
+  min-width: 0;
+}
+.http-send {
+  flex: none;
+  padding: 0.25em 0.9em;
+  font: inherit;
+  font-size: 0.8em;
+  color: #ddd;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 6px;
+  cursor: pointer;
+}
+.light .http-send {
+  color: #333;
+  background: rgba(0, 0, 0, 0.06);
+  border-color: rgba(0, 0, 0, 0.18);
+}
+.http-send:hover {
+  background: var(--slide-accent);
+  border-color: var(--slide-accent);
+  color: #fff;
+}
+.http-send:disabled {
+  opacity: 0.55;
+  cursor: default;
+}
+.http-res {
+  padding: 0.7em 0.9em;
+}
+.http-status {
+  display: flex;
+  align-items: baseline;
+  gap: 0.7em;
+  font-family: var(--slide-mono);
+  margin-bottom: 0.6em;
+}
+.http-code {
+  font-weight: 700;
+}
+.http-code.s-2xx {
+  color: #98c379;
+}
+.http-code.s-3xx {
+  color: #61afef;
+}
+.http-code.s-4xx {
+  color: #e5c07b;
+}
+.http-code.s-1xx,
+.http-code.s-5xx {
+  color: #ef5350;
+}
+.http-statustext {
+  color: var(--slide-fg);
+}
+.http-time {
+  margin-left: auto;
+  color: var(--slide-muted);
+  font-variant-numeric: tabular-nums;
+}
+.http-errmsg {
+  color: #ef5350;
+  font-weight: 600;
+}
+.http-headers {
+  margin-bottom: 0.6em;
+}
+.http-headers summary {
+  cursor: pointer;
+  color: var(--slide-muted);
+  font-size: 0.85em;
+  user-select: none;
+}
+.http-headers table {
+  margin: 0.5em 0 0;
+  font-family: var(--slide-mono);
+  font-size: 0.8em;
+  border-collapse: collapse;
+}
+.http-headers td {
+  padding: 0.15em 0.9em 0.15em 0;
+  border: 0;
+  vertical-align: top;
+  word-break: break-all;
+}
+.http-headers .http-hk {
+  color: #56b6c2;
+  white-space: nowrap;
+}
+.http-headers .http-hv {
+  color: var(--slide-muted);
+}
+.slide .http-res pre {
+  margin: 0;
+  max-height: 42vh;
+}
+.http-msg {
+  color: var(--slide-muted);
+  font-size: 0.85em;
+  margin: 0.5em 0 0;
+}
+
+/* ---------- Spotlight / Zoom（画像・コードの拡大） ---------- */
+
+.slide pre {
+  cursor: zoom-in;
+}
+.zoom {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4vmin;
+  box-sizing: border-box;
+  background: rgba(0, 0, 0, 0.9);
+  cursor: zoom-out;
+  animation: zoom-fade 0.15s ease;
+}
+@keyframes zoom-fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.zoom img {
+  max-width: 92vw;
+  max-height: 92vh;
+  object-fit: contain;
+  border-radius: 6px;
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.6);
+}
+.zoom pre.zoom-code {
+  margin: 0;
+  max-width: 92vw;
+  max-height: 88vh;
+  overflow: auto;
+  box-sizing: border-box;
+  padding: 1.5rem 1.8rem;
+  font-family: var(--slide-mono);
+  font-size: clamp(1rem, 2.1vw, 1.7rem);
+  line-height: 1.6;
+  color: var(--slide-fg);
+  background: var(--slide-code-bg);
+  border: 1px solid var(--slide-border);
+  border-radius: 12px;
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.6);
+  cursor: default;
+}
+.zoom-code .zc-line {
+  display: block;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  padding: 0 0.4em;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: opacity 0.12s ease;
+}
+.zoom-code .zc-line:hover {
+  background: rgba(127, 127, 127, 0.16);
+}
+.zoom-code.dimmed .zc-line:not(.spot) {
+  opacity: 0.3;
+}
+.zoom-code .zc-line.spot {
+  background: rgba(255, 106, 0, 0.18);
+  box-shadow: inset 3px 0 0 var(--slide-accent-2);
+  opacity: 1;
+}
+
+/* ---------- chrome ---------- */
+
+#progress {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  height: 4px;
+  width: 0;
+  background: var(--slide-accent);
+  transition: width 0.2s ease;
+  z-index: 10;
+}
+#counter,
+#timer,
+#hint {
+  font-family: system-ui, -apple-system, 'Hiragino Sans', sans-serif;
+  position: fixed;
+  color: var(--slide-muted);
+  font-variant-numeric: tabular-nums;
+  z-index: 10;
+}
+#counter {
+  bottom: 12px;
+  right: 18px;
+  font-size: 0.9rem;
+}
+#timer {
+  bottom: 34px;
+  right: 18px;
+  font-size: 0.95rem;
+}
+#hint {
+  bottom: 12px;
+  left: 18px;
+  font-size: 0.8rem;
+  opacity: 0.6;
+}
+:fullscreen #hint {
+  display: none;
+}
+@media (pointer: coarse) {
+  #hint {
+    display: none;
+  }
+}
+
+/* ---------- overview（o / Esc） ---------- */
+
+#overview {
+  position: fixed;
+  inset: 0;
+  z-index: 20;
+  display: none;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  justify-content: center;
+  gap: 20px;
+  padding: 28px;
+  box-sizing: border-box;
+  overflow-y: auto;
+  background: #29292c;
+}
+body.overview #overview {
+  display: flex;
+}
+body.overview #deck,
+body.overview #progress,
+body.overview #counter,
+body.overview #timer,
+body.overview #hint,
+body.overview #presenter {
+  display: none;
+}
+.ov-item {
+  cursor: pointer;
+}
+.ov-frame {
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: var(--slide-bg);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.35);
+}
+.ov-item.current .ov-frame {
+  outline: 3px solid var(--slide-accent);
+  outline-offset: 2px;
+}
+.ov-item:hover .ov-frame {
+  border-color: var(--slide-accent);
+}
+.ov-scale {
+  position: relative;
+  transform-origin: 0 0;
+}
+#overview .slide {
+  display: flex;
+  animation: none;
+  overflow: hidden;
+}
+.ov-num {
+  margin-top: 6px;
+  text-align: center;
+  font-size: 0.8rem;
+  color: var(--slide-muted);
+  font-variant-numeric: tabular-nums;
+}
+.ov-item.current .ov-num {
+  color: var(--slide-fg);
+  font-weight: 600;
+}
+
+/* ---------- presenter（p / 別ウィンドウ） ---------- */
+
+#presenter {
+  position: fixed;
+  inset: 0;
+  z-index: 30;
+  display: none;
+  box-sizing: border-box;
+  padding: 24px;
+  gap: 24px;
+  background: #1c1c1f;
+  color: #fff;
+  font-family: system-ui, -apple-system, 'Hiragino Sans', sans-serif;
+}
+body.presenter #presenter {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+}
+body.presenter #deck,
+body.presenter #progress,
+body.presenter #counter,
+body.presenter #timer,
+body.presenter #hint,
+body.presenter #overview {
+  display: none;
+}
+
+.pv-left {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  min-width: 0;
+}
+.pv-slot:last-child {
+  opacity: 0.85;
+}
+.pv-slot:last-child .pv-frame {
+  width: 62%;
+}
+.pv-label {
+  font-size: 0.85rem;
+  color: #9a9aa0;
+  margin-bottom: 6px;
+  font-variant-numeric: tabular-nums;
+}
+.pv-frame {
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: var(--slide-bg);
+  box-shadow: 0 2px 14px rgba(0, 0, 0, 0.4);
+}
+.pv-scale {
+  position: relative;
+  transform-origin: 0 0;
+}
+#presenter .slide {
+  display: flex;
+  animation: none;
+  overflow: hidden;
+}
+
+.pv-right {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  min-width: 0;
+}
+.pv-clock {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+}
+.pv-elapsed {
+  font-size: 2.8rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
+}
+.pv-wall {
+  font-size: 1rem;
+  color: #9a9aa0;
+  font-variant-numeric: tabular-nums;
+}
+.pv-controls {
+  display: flex;
+  gap: 10px;
+}
+.pv-controls button {
+  flex: 1;
+  padding: 10px 0;
+  font-size: 1.1rem;
+  color: #fff;
+  background: #2e2e33;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 8px;
+  cursor: pointer;
+}
+.pv-controls button:hover {
+  background: var(--slide-accent);
+  border-color: var(--slide-accent);
+}
+.pv-notes {
+  flex: 1;
+  overflow-y: auto;
+  padding: 16px 18px;
+  background: #242428;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+.pv-notes .pv-empty {
+  color: #76767c;
+}
+
+/* ---------- PDF（ブラウザの印刷 → PDF に保存） ---------- */
+
+@media print {
+  @page {
+    size: 1280px 720px;
+    margin: 0;
+  }
+  html {
+    font-size: 16px;
+  }
+  html,
+  body {
+    height: auto;
+    overflow: visible;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  #deck {
+    position: static;
+  }
+  .slide {
+    display: flex !important;
+    position: relative;
+    width: 1280px;
+    height: 720px;
+    padding: 43px 115px;
+    animation: none !important;
+    overflow: hidden;
+    break-after: page;
+    background: var(--slide-bg);
+  }
+  .slide.wide {
+    padding-left: 38px;
+    padding-right: 38px;
+  }
+  .slide.center p {
+    font-size: calc(3.5rem * var(--slide-size, 1));
+  }
+  .slide.title h1 {
+    font-size: calc(5.2rem * var(--slide-size, 1));
+  }
+  #progress,
+  #counter,
+  #timer,
+  #hint,
+  #overview,
+  #presenter,
+  .copy-btn,
+  .http-send,
+  .zoom {
+    display: none !important;
+  }
+}
+</style>
+</head>
+<body>
+<div id="deck">
+<section class="slide"><h1>Rust製CLIを高速化し続けたら、ボトルネックが次々に移動した話</h1><p>田中博悠 / tanahiro2010</p><p>Open Source Conference in Osaka 2027</p></section>
+<section class="slide"><h2>自己紹介</h2><div class="cols"><div><ul><li>田中博悠 / tanahiro2010</li><li>三田学園高校の高校1年生</li><li>Web / AI / OSS</li><li>今日はU18 DevのFounder</li><li>Hono Conference 2026 / GDG Greater Kwansai</li><li>最近はRust製CLI「ghusage」を開発中</li></ul></div><div><p><img src="img/tanahiro_hono.jpg" alt="Hono Conferenceで登壇する田中博悠"></p></div></div></section>
+<section class="slide"><h2>今日の話</h2><ul><li>初回同期に5分</li><li>減らしたら、次は差分同期</li><li>SQLiteを直したら、CIも見直す</li></ul></section>
+<section class="slide center"><p>前提知識</p></section>
+<section class="slide"><h2>週の活動をこんなふうに見る</h2><ul><li><code>weekly</code> や <code>daily</code> で期間ごとの活動を見る</li><li><code>prs --details</code> でPull Requestの詳細を確認</li><li><code>reviews</code>、<code>comments</code>、<code>repos</code> から切り口を変える</li></ul></section>
+<section class="slide"><h2>まずはこの3行</h2><pre data-lang="sh"><code>npm install <span class="hl-t">-g</span> ghusage
+ghusage sync
+ghusage</code></pre></section>
+<section class="slide wide"><p><img src="img/ghusage.png" alt="ghusageの実行結果"></p></section>
+<section class="slide"><h2>最初の同期に5分</h2><ul><li>30日分の初回同期: 295秒</li><li>APIリクエスト: 2,015回</li><li>これでは、使うたびに待つ</li></ul></section>
+<section class="slide center"><p>遅い</p></section>
+<section class="slide"><h2>まず何を測る？</h2><pre data-lang="sh"><code>GHUSAGE_LOG=ghusage_github=debug ghusage sync <span class="hl-t">--format</span> json</code></pre><ul><li>所要時間と<code>api.requests</code>を見る</li><li>ログを並べてAPIの待ち時間を見る</li></ul></section>
+<section class="slide"><h2>いらないAPI呼び出し</h2><ul><li>更新されていないIssueも毎回詳細取得</li><li>PRごとにCI結果を別リクエストで取得</li><li>同期段階の間に待ち合わせがあった</li></ul></section>
+<section class="slide"><h2>Issueは毎回取り直さなくていい</h2><pre data-lang="text"><code>更新時刻が同じ ＋ 前回の取得がcomplete → 詳細取得を省略
+更新時刻が違う / 前回の取得が不完全 → 取り直す</code></pre><p class="note">インクリメンタルビルド的な考え方</p></section>
+<section class="slide"><h2>PRと一緒にCI結果も取る</h2><pre data-lang="text"><code>REST:     PR → check runs → statuses
+GraphQL:  PR + check runs
+          └ statusesがある場合だけREST</code></pre></section>
+<section class="slide"><h2>初回同期は半分以下に</h2><ul><li>295秒 <span class="arrow">→</span> 124秒</li><li>2,015リクエスト <span class="arrow">→</span> 952リクエスト</li><li>複数の変更をまとめた前後比較</li></ul></section>
+<section class="slide"><h2>まだ残る待ち時間を分ける</h2><pre data-lang="text"><code>呼ぶ回数を減らす       2,015 → 952
+同時に動かす数を増やす  4 → 8</code></pre><ul><li>同じ30日分、同じアカウントで比較</li><li>集計結果も完全一致</li></ul></section>
+<section class="slide"><h2>レポートを続けて見るなら</h2><pre data-lang="sh"><code>ghusage weekly
+ghusage daily</code></pre><p>5分以内の2回目は同期を省く</p></section>
+<section class="slide center"><p>でも、差分はまだ15秒</p></section>
+<section class="slide"><h2>APIログを時間順に並べる</h2><pre data-lang="text"><code>0.5–2.2s   /search/issues ×3
+2.2–3.5s   /graphql (PR)
+3.3–10.5s  /search/commits ×9  ← 直列で約7秒
+10.5–11.9s /repos/*/commits        (並列)
+11.7–14.1s /repositories/&lt;id&gt;/commits ×6 (直列)</code></pre></section>
+<section class="slide"><h2>1ページ目が返ったら</h2><pre data-lang="text"><code>total_count が分かる
+       ↓
+2〜10ページを同時に取得
+       ↓
+ページ順に並べて同期</code></pre><ul><li>GitHubの検索結果上限: 1,000件</li><li>1ページ: 最大100件</li></ul></section>
+<section class="slide"><h2>直列の待ちをほどく</h2><pre data-lang="text"><code>コミット検索 ───────────────┐
+PR検索 ── repo一覧 ── default branchのコミット
+                            └─ 必要になった時だけ合流</code></pre></section>
+<section class="slide"><h2>待つのは必要なところだけ</h2><pre data-lang="text"><code>同時に開始: PR検索 || コミット検索
+PRのrepo一覧が必要: default-branch commits の取得だけ待つ
+ページ数が分かった: 2ページ目以降をまとめて取得</code></pre></section>
+<section class="slide"><h2>リクエスト数はほぼ同じ</h2><ul><li>v0.1.4: 14.8秒 / 45〜47リクエスト</li><li>v0.1.5: 6.2秒 / 46〜47リクエスト</li><li>公開版の実アカウント比較、各2〜3回</li></ul></section>
+<section class="slide center"><p>速くなった</p></section>
+<section class="slide center"><p>しかし</p></section>
+<section class="slide"><h2>並列化で検索結果が欠けた</h2><ul><li>検索APIが<code>incomplete_results: true</code>を返すことがあった</li><li>不完全なまま同期完了にするとデータが欠ける</li><li>速さだけでは成功と呼べない</li></ul></section>
+<section class="slide"><h2>不完全なら取り直す</h2><ul><li>不完全な検索を指数バックオフ付きで再試行</li><li>取れなければCoverageをpartialとして残す</li><li>不完全な結果で同期カーソルを進めない</li></ul></section>
+<section class="slide"><h2>変更行数は「ついで」に取る</h2><pre data-lang="text"><code>PRのコミット行数  → PRクエリに相乗り
+その他のコミット  → --diff-stats で100件ずつ
+2回目              → 取得済みを再利用</code></pre></section>
+<section class="slide"><h2>APIの次はSQLite</h2><ul><li>集計ベンチの7日分: 131〜173秒</li><li>データ量: 10万イベント</li><li>これはDebugビルドの計測</li></ul></section>
+<section class="slide center"><p>JOINを直した</p></section>
+<section class="slide center"><p><strong>しかし</strong></p></section>
+<section class="slide"><h2>集計はまだ遅い</h2><ul><li>実行計画を調べ、JOIN順序を修正</li><li>7日分の集計: 131〜173秒 <span class="arrow">→</span> 1〜2秒</li><li>それでもrelease集計に改善余地</li></ul></section>
+<section class="slide"><h2>読まなくていい履歴</h2><pre data-lang="text"><code>自分が作ったPR  → 時間指標に過去履歴が要る
+他の人のPR      → 期間内の履歴だけ読む</code></pre></section>
+<section class="slide"><h2>あと26msが縮まらない</h2><ul><li>CIランナーの7日p95: 654ms <span class="arrow">→</span> 226ms</li><li>その後も200msの目標を超えていた</li><li>推測で直さず、サンプルを採る</li></ul></section>
+<section class="slide"><h2>プロファイルに列名検索が並んでいた</h2><pre data-lang="text"><code>rusqlite::RowIndex::idx
+columnName
+_platform_strlen
+_platform_memcmp</code></pre></section>
+<section class="slide"><h2>列の場所は最初に一度だけ調べる</h2><pre data-lang="text"><code>クエリごと  EventCols::of(&amp;stmt)
+各行        r.get(idx)</code></pre></section>
+<section class="slide"><h2>列名参照を変えた結果</h2><ul><li>CIランナー・7日: 226ms <span class="arrow">→</span> 145ms</li><li>CIランナー・30日: 223ms</li></ul></section>
+<section class="slide"><h2>待っている間、何が起きてる？</h2><pre data-lang="text"><code>同期中:  6/8 in parallel · 31 requests done
+         search commits p3 · 2.1s
+         octo/app commits p2 · 1.4s
+         repository list · 0.8s</code></pre></section>
+<section class="slide"><h2>コミット詳細は一度取ればいい</h2><pre data-lang="text"><code>初回: GitHubから取得 → SQLiteに保存
+次回: SQLiteから表示
+      ネットワークなし / offlineでも開ける</code></pre></section>
+<section class="slide center"><p>CIも13分</p></section>
+<section class="slide"><h2>CIの中で2分待っていた</h2><ul><li><code>cargo test</code>がOSごとに6〜8分</li><li>集計テスト1回が131〜173秒</li><li>CI設定より先に製品の集計処理を直す</li></ul></section>
+<section class="slide"><h2>同じ入力なら、もう検証済み</h2><pre data-lang="text"><code>入力ファイルのハッシュを計算
+       ↓
+同じOSで成功済み？ ── Yes → 中身を省略して成功
+       └──────────── No  → いつものCI</code></pre><ul><li>同じブランチの古い実行もキャンセル</li><li>同じ内容の再実行: 11.6分 <span class="arrow">→</span> 約25秒</li></ul></section>
+<section class="slide"><h2>CIの仕事を分けた</h2><pre data-lang="text"><code>テスト / release build    別ジョブで実行
+fmt / 重い集計テスト      Ubuntuに集約
+Windows                   rust-lldを使う
+dev push                  release buildをskip</code></pre></section>
+<section class="slide"><h2>CIの時間も縮んだ</h2><pre data-lang="text"><code>SQLite修正             約13分 → 約8分
+test / buildを分離      8.3分 → 6.7分
+OSの重複 + rust-lld     6.7分 → 5.0分
+devでrelease buildなし  5.0分 → 3.0分</code></pre></section>
+<section class="slide"><h2>テストが不安定だと、やり直しで遅い</h2><pre data-lang="text"><code>以前: 遅いランナーで受信数が揺れる → CIを再実行
+変更: サーバーの受信数ではなく、クライアントの再試行回数を検証</code></pre><ul><li>期限も300msから1秒へ</li><li>確認したい「最大5回」は維持</li></ul></section>
+<section class="slide"><h2>ベンチ結果をPRで見る</h2><pre data-lang="text"><code>同じランナーで 基準版 → PR版
+中央値 / p95 / 変化率をコメント</code></pre><ul><li>基準版が遅すぎて60分で止まったこともある</li><li>変更のない処理に約10%差が出たこともある</li></ul></section>
+<section class="slide"><h2>dev pushなら3分</h2><pre data-lang="text"><code>dev push    test / clippy     release buildなし
+release PR  test / clippy / release build
+同じ入力    検証済みの結果を再利用</code></pre></section>
+<section class="slide"><h2>ページキャッシュは戻した</h2><pre data-lang="sql"><code>PRAGMA cache_size = -32768; -- 32 MiB</code></pre><ul><li>高負荷で測定値が2〜6倍に揺れた</li><li>効果を判断できず、設定を撤回</li></ul></section>
+<section class="slide center"><p>ビルドが6秒短くなった</p></section>
+<section class="slide"><h2>まずコンパイルの内訳を見る</h2><pre data-lang="sh"><code>cargo build <span class="hl-t">--timings</span></code></pre><pre data-lang="text"><code>dev clean     44秒
+release clean 62秒
+aws-lc-sys    dev 23秒 / release 27秒</code></pre></section>
+<section class="slide"><h2>それでも採用しなかった</h2><ul><li>TLSライブラリ変更でclean build: 62秒 <span class="arrow">→</span> 56秒</li><li>暗号ライブラリ変更のコストに見合わない</li><li>ビルド時間の差で、実行時性能の差ではない</li></ul></section>
+<section class="slide"><h2>変えていないのに10%ずれた</h2><ul><li>固定順の測定で、変更していない処理に約10%差</li><li>実装変更では説明できない結果</li><li>環境や順序の影響は仮説のまま</li></ul></section>
+<section class="slide"><h2>次に試したいこと</h2><ul><li>ベンチマークを基準<span class="arrow">→</span>PRではなく、交互に測る</li><li>初回同期は検索APIの回数そのものを減らす</li><li>結合テストのリンク回数を減らす</li></ul></section>
+<section class="slide"><h2>直すと次が遅くなる</h2><pre data-lang="text"><code>API       仕事の量を減らす
+通信      待つ順番を変える
+SQLite    読むデータと列を見直す
+CI        実行する仕事を選ぶ</code></pre></section>
+<section class="slide"><h2>まとめ</h2><ul><li>僕も最初は「遅い」としか分からなかった</li><li>計測すると、次に見る場所が見えた</li><li>速さとデータの正確さは一緒に見る</li></ul></section>
+<section class="slide"><h2>ghusage</h2><ul><li>GitHub: https://github.com/tanahiro2010/ghusage</li><li>高速化の施策と計測条件はリポジトリの記録を参照</li></ul></section>
+</div>
+<div id="overview"></div>
+<div id="presenter"></div>
+<div id="progress"></div>
+<div id="timer"></div>
+<div id="counter"></div>
+<div id="hint">← → 移動 ・ f フルスクリーン ・ o 一覧 ・ p 発表者</div>
+<script id="notes" type="application/json">["\u003cp>ghusageを作っていたら、最初の同期に5分かかりました。そこから遅い場所を一個ずつ直していった話です。\u003c/p>\u003cblockquote>\u003cp>▶ まず最初の待ち時間を提示する。\u003c/p>\u003c/blockquote>","\u003cp>田中博悠です。三田学園の高校生で、WebとかAIエージェントを作っています。Hono Conference 2026ではコアスタッフをしていました。\u003c/p>\u003cp>ghusageもそのひとつです。使ってみたら遅かったので、速くしてみました。\u003c/p>\u003cp>今日はU18 DevのFounderとして来ています。普段はWebやAIまわりを触ることが多いですが、今回の主役はRustで作ったCLIです。ghusageを使ってみたら遅かったので、速くしてみました。\u003c/p>\u003cp>::center::\u003c/p>\u003cp>問い：自分の作ったアプリ...遅すぎ？！\u003cbr>ってなることないですか？\u003c/p>\u003cp>自分で作ったアプリを触っていて、「これ、遅すぎない？」ってなることありませんか。僕はghusageの初回同期でなりました。今日は、そのとき何を見て、どこから直していったかを話します。\u003c/p>","\u003cp>最初はAPIの同期を速くしたかったんですが、直していくと別の場所が目立ち始めました。今日は初回同期、差分同期、SQLiteの集計、最後にCIまで、遅い場所が移っていく順に見ていきます。\u003c/p>","\u003cp>ここから先は、ghusageが何をするものかだけ先に紹介します。GitHub APIやSQLiteに詳しくなくても追えるように、必要なところは画面と簡単な図で説明します。\u003c/p>\u003ch2>ghusageって何？\u003c/h2>\u003cul>\u003cli>GitHubでの自分の活動をまとめるRust製CLI / TUI\u003c/li>\u003cli>コミット、PR、レビュー、コメント、CIを同期\u003c/li>\u003c/ul>\u003cp>::right center::\u003c/p>\u003cfigure class=\"qr\">\u003csvg xmlns=\"http://www.w3.org/2000/svg\" width=\"37\" height=\"37\" viewBox=\"0 0 37 37\" shape-rendering=\"crispEdges\">\u003crect width=\"37\" height=\"37\" fill=\"#fff\"/>\u003cpath d=\"M4 4h1v1h-1zM5 4h1v1h-1zM6 4h1v1h-1zM7 4h1v1h-1zM8 4h1v1h-1zM9 4h1v1h-1zM10 4h1v1h-1zM13 4h1v1h-1zM14 4h1v1h-1zM16 4h1v1h-1zM20 4h1v1h-1zM22 4h1v1h-1zM23 4h1v1h-1zM24 4h1v1h-1zM26 4h1v1h-1zM27 4h1v1h-1zM28 4h1v1h-1zM29 4h1v1h-1zM30 4h1v1h-1zM31 4h1v1h-1zM32 4h1v1h-1zM4 5h1v1h-1zM10 5h1v1h-1zM14 5h1v1h-1zM19 5h1v1h-1zM20 5h1v1h-1zM22 5h1v1h-1zM26 5h1v1h-1zM32 5h1v1h-1zM4 6h1v1h-1zM6 6h1v1h-1zM7 6h1v1h-1zM8 6h1v1h-1zM10 6h1v1h-1zM12 6h1v1h-1zM13 6h1v1h-1zM15 6h1v1h-1zM16 6h1v1h-1zM18 6h1v1h-1zM23 6h1v1h-1zM24 6h1v1h-1zM26 6h1v1h-1zM28 6h1v1h-1zM29 6h1v1h-1zM30 6h1v1h-1zM32 6h1v1h-1zM4 7h1v1h-1zM6 7h1v1h-1zM7 7h1v1h-1zM8 7h1v1h-1zM10 7h1v1h-1zM12 7h1v1h-1zM13 7h1v1h-1zM14 7h1v1h-1zM16 7h1v1h-1zM17 7h1v1h-1zM18 7h1v1h-1zM19 7h1v1h-1zM20 7h1v1h-1zM21 7h1v1h-1zM23 7h1v1h-1zM26 7h1v1h-1zM28 7h1v1h-1zM29 7h1v1h-1zM30 7h1v1h-1zM32 7h1v1h-1zM4 8h1v1h-1zM6 8h1v1h-1zM7 8h1v1h-1zM8 8h1v1h-1zM10 8h1v1h-1zM12 8h1v1h-1zM13 8h1v1h-1zM16 8h1v1h-1zM20 8h1v1h-1zM21 8h1v1h-1zM22 8h1v1h-1zM23 8h1v1h-1zM24 8h1v1h-1zM26 8h1v1h-1zM28 8h1v1h-1zM29 8h1v1h-1zM30 8h1v1h-1zM32 8h1v1h-1zM4 9h1v1h-1zM10 9h1v1h-1zM12 9h1v1h-1zM14 9h1v1h-1zM17 9h1v1h-1zM18 9h1v1h-1zM19 9h1v1h-1zM20 9h1v1h-1zM22 9h1v1h-1zM24 9h1v1h-1zM26 9h1v1h-1zM32 9h1v1h-1zM4 10h1v1h-1zM5 10h1v1h-1zM6 10h1v1h-1zM7 10h1v1h-1zM8 10h1v1h-1zM9 10h1v1h-1zM10 10h1v1h-1zM12 10h1v1h-1zM14 10h1v1h-1zM16 10h1v1h-1zM18 10h1v1h-1zM20 10h1v1h-1zM22 10h1v1h-1zM24 10h1v1h-1zM26 10h1v1h-1zM27 10h1v1h-1zM28 10h1v1h-1zM29 10h1v1h-1zM30 10h1v1h-1zM31 10h1v1h-1zM32 10h1v1h-1zM12 11h1v1h-1zM13 11h1v1h-1zM14 11h1v1h-1zM15 11h1v1h-1zM16 11h1v1h-1zM18 11h1v1h-1zM19 11h1v1h-1zM20 11h1v1h-1zM22 11h1v1h-1zM4 12h1v1h-1zM6 12h1v1h-1zM7 12h1v1h-1zM8 12h1v1h-1zM9 12h1v1h-1zM10 12h1v1h-1zM15 12h1v1h-1zM17 12h1v1h-1zM18 12h1v1h-1zM19 12h1v1h-1zM20 12h1v1h-1zM21 12h1v1h-1zM26 12h1v1h-1zM27 12h1v1h-1zM28 12h1v1h-1zM29 12h1v1h-1zM30 12h1v1h-1zM4 13h1v1h-1zM5 13h1v1h-1zM6 13h1v1h-1zM7 13h1v1h-1zM8 13h1v1h-1zM9 13h1v1h-1zM12 13h1v1h-1zM13 13h1v1h-1zM14 13h1v1h-1zM16 13h1v1h-1zM20 13h1v1h-1zM21 13h1v1h-1zM22 13h1v1h-1zM23 13h1v1h-1zM24 13h1v1h-1zM26 13h1v1h-1zM27 13h1v1h-1zM28 13h1v1h-1zM32 13h1v1h-1zM4 14h1v1h-1zM6 14h1v1h-1zM10 14h1v1h-1zM13 14h1v1h-1zM15 14h1v1h-1zM18 14h1v1h-1zM19 14h1v1h-1zM22 14h1v1h-1zM28 14h1v1h-1zM4 15h1v1h-1zM6 15h1v1h-1zM8 15h1v1h-1zM12 15h1v1h-1zM14 15h1v1h-1zM15 15h1v1h-1zM16 15h1v1h-1zM18 15h1v1h-1zM19 15h1v1h-1zM24 15h1v1h-1zM29 15h1v1h-1zM31 15h1v1h-1zM8 16h1v1h-1zM10 16h1v1h-1zM11 16h1v1h-1zM12 16h1v1h-1zM14 16h1v1h-1zM15 16h1v1h-1zM16 16h1v1h-1zM21 16h1v1h-1zM24 16h1v1h-1zM29 16h1v1h-1zM30 16h1v1h-1zM7 17h1v1h-1zM8 17h1v1h-1zM9 17h1v1h-1zM13 17h1v1h-1zM16 17h1v1h-1zM17 17h1v1h-1zM20 17h1v1h-1zM23 17h1v1h-1zM24 17h1v1h-1zM25 17h1v1h-1zM26 17h1v1h-1zM27 17h1v1h-1zM28 17h1v1h-1zM32 17h1v1h-1zM4 18h1v1h-1zM6 18h1v1h-1zM7 18h1v1h-1zM8 18h1v1h-1zM10 18h1v1h-1zM12 18h1v1h-1zM15 18h1v1h-1zM17 18h1v1h-1zM18 18h1v1h-1zM19 18h1v1h-1zM20 18h1v1h-1zM21 18h1v1h-1zM22 18h1v1h-1zM24 18h1v1h-1zM25 18h1v1h-1zM28 18h1v1h-1zM29 18h1v1h-1zM30 18h1v1h-1zM4 19h1v1h-1zM5 19h1v1h-1zM6 19h1v1h-1zM8 19h1v1h-1zM9 19h1v1h-1zM11 19h1v1h-1zM16 19h1v1h-1zM17 19h1v1h-1zM20 19h1v1h-1zM22 19h1v1h-1zM23 19h1v1h-1zM24 19h1v1h-1zM25 19h1v1h-1zM26 19h1v1h-1zM27 19h1v1h-1zM28 19h1v1h-1zM31 19h1v1h-1zM5 20h1v1h-1zM10 20h1v1h-1zM13 20h1v1h-1zM14 20h1v1h-1zM16 20h1v1h-1zM18 20h1v1h-1zM19 20h1v1h-1zM21 20h1v1h-1zM23 20h1v1h-1zM25 20h1v1h-1zM27 20h1v1h-1zM29 20h1v1h-1zM30 20h1v1h-1zM4 21h1v1h-1zM5 21h1v1h-1zM8 21h1v1h-1zM9 21h1v1h-1zM11 21h1v1h-1zM15 21h1v1h-1zM20 21h1v1h-1zM21 21h1v1h-1zM22 21h1v1h-1zM23 21h1v1h-1zM25 21h1v1h-1zM26 21h1v1h-1zM27 21h1v1h-1zM28 21h1v1h-1zM30 21h1v1h-1zM32 21h1v1h-1zM4 22h1v1h-1zM8 22h1v1h-1zM9 22h1v1h-1zM10 22h1v1h-1zM13 22h1v1h-1zM14 22h1v1h-1zM15 22h1v1h-1zM19 22h1v1h-1zM20 22h1v1h-1zM21 22h1v1h-1zM24 22h1v1h-1zM26 22h1v1h-1zM27 22h1v1h-1zM28 22h1v1h-1zM30 22h1v1h-1zM4 23h1v1h-1zM6 23h1v1h-1zM7 23h1v1h-1zM12 23h1v1h-1zM15 23h1v1h-1zM16 23h1v1h-1zM18 23h1v1h-1zM20 23h1v1h-1zM24 23h1v1h-1zM25 23h1v1h-1zM26 23h1v1h-1zM31 23h1v1h-1zM4 24h1v1h-1zM6 24h1v1h-1zM10 24h1v1h-1zM11 24h1v1h-1zM13 24h1v1h-1zM15 24h1v1h-1zM16 24h1v1h-1zM21 24h1v1h-1zM22 24h1v1h-1zM23 24h1v1h-1zM24 24h1v1h-1zM25 24h1v1h-1zM26 24h1v1h-1zM27 24h1v1h-1zM28 24h1v1h-1zM30 24h1v1h-1zM31 24h1v1h-1zM32 24h1v1h-1zM12 25h1v1h-1zM13 25h1v1h-1zM14 25h1v1h-1zM15 25h1v1h-1zM17 25h1v1h-1zM18 25h1v1h-1zM24 25h1v1h-1zM28 25h1v1h-1zM29 25h1v1h-1zM30 25h1v1h-1zM31 25h1v1h-1zM32 25h1v1h-1zM4 26h1v1h-1zM5 26h1v1h-1zM6 26h1v1h-1zM7 26h1v1h-1zM8 26h1v1h-1zM9 26h1v1h-1zM10 26h1v1h-1zM13 26h1v1h-1zM17 26h1v1h-1zM18 26h1v1h-1zM19 26h1v1h-1zM21 26h1v1h-1zM22 26h1v1h-1zM23 26h1v1h-1zM24 26h1v1h-1zM26 26h1v1h-1zM28 26h1v1h-1zM29 26h1v1h-1zM30 26h1v1h-1zM4 27h1v1h-1zM10 27h1v1h-1zM12 27h1v1h-1zM13 27h1v1h-1zM14 27h1v1h-1zM17 27h1v1h-1zM19 27h1v1h-1zM22 27h1v1h-1zM23 27h1v1h-1zM24 27h1v1h-1zM28 27h1v1h-1zM32 27h1v1h-1zM4 28h1v1h-1zM6 28h1v1h-1zM7 28h1v1h-1zM8 28h1v1h-1zM10 28h1v1h-1zM12 28h1v1h-1zM13 28h1v1h-1zM15 28h1v1h-1zM18 28h1v1h-1zM19 28h1v1h-1zM20 28h1v1h-1zM21 28h1v1h-1zM22 28h1v1h-1zM24 28h1v1h-1zM25 28h1v1h-1zM26 28h1v1h-1zM27 28h1v1h-1zM28 28h1v1h-1zM30 28h1v1h-1zM4 29h1v1h-1zM6 29h1v1h-1zM7 29h1v1h-1zM8 29h1v1h-1zM10 29h1v1h-1zM12 29h1v1h-1zM15 29h1v1h-1zM16 29h1v1h-1zM17 29h1v1h-1zM23 29h1v1h-1zM24 29h1v1h-1zM29 29h1v1h-1zM30 29h1v1h-1zM31 29h1v1h-1zM32 29h1v1h-1zM4 30h1v1h-1zM6 30h1v1h-1zM7 30h1v1h-1zM8 30h1v1h-1zM10 30h1v1h-1zM12 30h1v1h-1zM13 30h1v1h-1zM14 30h1v1h-1zM15 30h1v1h-1zM18 30h1v1h-1zM19 30h1v1h-1zM20 30h1v1h-1zM22 30h1v1h-1zM23 30h1v1h-1zM24 30h1v1h-1zM25 30h1v1h-1zM26 30h1v1h-1zM27 30h1v1h-1zM28 30h1v1h-1zM29 30h1v1h-1zM30 30h1v1h-1zM31 30h1v1h-1zM4 31h1v1h-1zM10 31h1v1h-1zM14 31h1v1h-1zM16 31h1v1h-1zM19 31h1v1h-1zM22 31h1v1h-1zM24 31h1v1h-1zM25 31h1v1h-1zM27 31h1v1h-1zM29 31h1v1h-1zM31 31h1v1h-1zM4 32h1v1h-1zM5 32h1v1h-1zM6 32h1v1h-1zM7 32h1v1h-1zM8 32h1v1h-1zM9 32h1v1h-1zM10 32h1v1h-1zM12 32h1v1h-1zM14 32h1v1h-1zM16 32h1v1h-1zM17 32h1v1h-1zM19 32h1v1h-1zM20 32h1v1h-1zM21 32h1v1h-1zM22 32h1v1h-1zM23 32h1v1h-1zM26 32h1v1h-1zM27 32h1v1h-1zM28 32h1v1h-1zM30 32h1v1h-1z\" fill=\"#000\"/>\u003c/svg>\u003cfigcaption>https://github.com/tanahiro2010/ghusage\u003c/figcaption>\u003c/figure>\u003cp>ghusageは、自分のGitHub活動をまとめて見るためのCLIです。GitHubのリポジトリもこのQRから見られます。まずは、どんなデータを見られるかを画面で紹介します。\u003c/p>","\u003cp>コミットだけじゃなく、PRやレビュー、コメントも見られます。週単位で振り返ったり、PRごとの動きを追ったりできます。\u003c/p>","\u003cp>npmでインストールして同期すると、GitHubから活動を取ってローカルに保存します。その後はCLIから週や日ごとのレポートを見られます。実際の画面は次に出します。\u003c/p>","\u003cp>これが実際に動かしている画面です。活動の数やリポジトリごとの集計がターミナルに出ます。便利に使いたかったんですが、最初の同期で待たされました。\u003c/p>","\u003cp>自分のアカウントで初回同期したら、295秒。5分近く待つことになりました。\u003c/p>","\u003cp>はい、遅い。まずはそこからです。\u003c/p>","\u003cp>僕が最初に見たのはこの3つです。実行時間、リクエスト数、それからAPIの開始・終了時刻。\u003c/p>","\u003cp>ログを見たら、毎回いらないデータまで取りにいっていました。ここは呼び方を工夫するより、呼ぶ回数を減らせそうです。\u003c/p>","\u003cp>Issueの検索結果には更新時刻があります。前回ちゃんと取れていて、その時刻も同じなら、詳細を取り直さなくてよさそうです。\u003c/p>","\u003cp>PRの情報を取るGraphQLにCI結果も載せました。全部入りきらないときはRESTに戻れるようにしています。\u003c/p>","\u003cp>いろいろ直して、295秒が124秒に。リクエストも半分以下になりました。これは変更をまとめた数字です。\u003c/p>","\u003cp>リクエスト数を減らすのとは別に、同時に動かす数も見ました。4本から8本にして、180秒が124秒。リクエストは952回のままです。数字だけ速くなって、結果が変わっていたら困るので、集計の値が一致することも確認しています。\u003c/p>","\u003cp>weeklyを見てdailyも見たくなる。そのたびに十数秒待つのはもったいないです。直前の同期が5分以内なら同期を省き、最後に同期できた時刻までのレポートを出すようにしました。更新されていないデータを最新のふりはしません。常に取りに行きたい人は \u003ccode>--max-age 0\u003c/code> にできます。\u003c/p>","\u003cp>初回はだいぶマシ。でも普段使う差分同期はまだ15秒。ここは別の遅さでした。\u003c/p>","\u003cp>ログを並べると、コミット検索だけで約7秒。ページが返るたびに次のページを取りにいっていました。\u003c/p>","\u003cp>ページ送りを一件ずつ待つ必要はありません。最初の応答で件数が分かるので、残りをまとめて取れます。URL全体を組み立て直すのではなく、GitHubが返した次ページのリンクのページ番号だけを変える形にしました。ホストを検査する既存の安全策もそのまま使えます。\u003c/p>","\u003cp>ページを並列にしたあとも、PR検索が終わるまでコミット検索を始めていませんでした。コミット検索自体はPRの結果を必要としません。必要なのは、あとでdefault branchのコミットを取るリポジトリ一覧だけ。そこだけ受け取って合流する形に変えました。\u003c/p>","\u003cp>全部を同時に投げたわけではありません。ページ数が分かった後のページと、互いに依存しない検索を重ねました。\u003c/p>","\u003cp>回数はほぼ同じなのに、平均14.8秒から6.2秒になりました。各バージョンを数回動かしたときの結果です。\u003c/p>","\u003cp>数字を見ると、やっと速くなった。これでよし、と思いました。\u003c/p>","\u003cp>並列にした検索で、不完全な結果が返ることがありました。\u003c/p>","\u003cp>速くなった。でもGitHubから不完全な検索結果が返ることがありました。データが抜けたままでは困ります。\u003c/p>","\u003cp>不完全なら少し待って取り直す。それでもダメなら「一部取れてない」と表示するようにしました。試した4回は全部completeで、1回は再取得しています。\u003c/p>","\u003cp>追加削除行数も欲しいとなると、RESTならコミットごとに1回呼ぶことになります。千件なら千回です。PRに含まれるコミット分は、すでに取っているPRのGraphQLに足しました。それ以外は、必要なときだけ \u003ccode>--diff-stats\u003c/code> でまとめて取ります。実アカウントの7日分では、1,153件中472件が追加リクエストなしでした。\u003c/p>","\u003cp>APIが落ち着いたと思ったら、今度はローカルの集計が遅い。10万イベントのDebugベンチで、7日分に2分以上かかっていました。\u003c/p>","\u003cp>SQLiteの実行計画を直しました。10万イベントのDebugベンチで、7日分の集計が2分以上から1〜2秒になりました。\u003c/p>","\u003cp>ただ、Debugの数字が大きく縮んでも話は終わりませんでした。今度はreleaseビルドで集計を測ると、まだ改善できるところが残っていました。\u003c/p>","\u003cp>JOIN順を直したら、2分以上かかっていた集計が1〜2秒になりました。詳しい話は以前の記事に書いたので、今日はその先です。\u003c/p>","\u003cp>集計に必要なのは、自分が作ったPRの過去履歴だけでした。他の人のPRまで読んでいたので、そこをやめました。出力が変わっていないことも確認しています。\u003c/p>","\u003cp>これで226ms。でも目標は200ms。まだちょっと届かないので、プロファイルを取りました。\u003c/p>","\u003cp>1行に約20列。行ごとに名前で列を探していました。プロファイルを見て、ここが残っていたか、と。\u003c/p>","\u003cp>あとは列名ではなく位置で読む。データの中身はそのままで、行の読み方だけ変えました。\u003c/p>","\u003cp>CIランナーで測ると、7日分は226msから145msへ、30日分は223msでした。ここは元の記録に643msと654msという別の数字も残っていて、単純な連続比較ではありません。測定条件をそろえて読む必要があります。M4での7日分は93.8msでした。\u003c/p>","\u003cp>ここは実行時間そのものではなく、待っている間の見え方の話です。最初は無言で、止まったのか分かりませんでした。2行の進捗を出し、並列化した後は「何本走っていて何が動いているか」も見えるようにしました。端末以外では何も出さず、短い同期では表示もしません。同期が終われば表示を消します。\u003c/p>","\u003cp>PRの詳細からコミットのdiffを開くときも、毎回GitHubを待っていました。SHAが同じならコミットの内容は変わらないので、取った詳細をキャッシュします。2回目からはオフラインでも開けて、初回の取得中もTUIの操作は止めません。\u003c/p>","\u003cp>「Actionsを並列にできない？」と聞かれて、まずログを見ました。\u003c/p>","\u003cp>ベンチマークのテストモードでキャッシュを読む1回が、2分以上かかっていました。CIの並列化を急がなくてよかった。\u003c/p>","\u003cp>ドキュメントだけ変えたのに、毎回すべてのOSで全部走るのは待ちます。前回成功した入力ファイルの組み合わせを記録しておき、同じなら中の検証を飛ばします。必須チェック自体は成功を返す。ファイルが空だったら誤って全部スキップしないよう、そこはエラーにします。\u003c/p>","\u003cp>テストとrelease buildを別ジョブにしました。fmtと重い集計テストはUbuntuに寄せて、Windowsではrust-lldを使います。dev pushではrelease buildを走らせません。\u003c/p>","\u003cp>一つの変更で一気に縮んだわけではありません。特に最後の3分は、dev pushでrelease buildを省いた条件です。\u003c/p>","\u003cp>これは処理時間を縮めた話ではありません。ただ、Windowsの遅いランナーでタイムアウトのテストが不安定で、数分のCIをやり直していました。テストが確かめたいのはクライアントの再試行回数です。サーバーに何回届いたかは、遅い環境だと最後のリクエストが届く前に期限が切れる。見る場所をクライアント側に移しました。\u003c/p>","\u003cp>手元のマシンは他の作業でも負荷が大きく、結果が信用できない時がありました。そこでrelease向けPRでは、同じランナーで基準版とPR版を測ってコメントします。ただし毎回基準版から先に測るので、測定順の偏りは残ります。変更していない処理まで10%遅く見えたことがあり、ここはまだ改善したいところです。\u003c/p>","\u003cp>3分だったのはdevへのpushです。release向けCIまで3分になったわけではありません。同じ内容の再実行なら、前の結果を使って約25秒で終わります。\u003c/p>","\u003cp>SQLiteのページキャッシュを広げたら速くなるかも、と思って試しました。でもマシンの負荷で数字が2〜6倍も揺れて、効果が分からない。いったん戻しました。\u003c/p>","\u003cp>AWS-LCからringに替えたときのclean buildの結果です。\u003c/p>","\u003cp>「Rustのビルドが遅い」と感じても、どこが遅いかは別の話です。timingsを見ると、暗号ライブラリのビルドスクリプトが大きく見えました。でも開発ビルド全体の時間を決めていたわけではありませんでした。\u003c/p>","\u003cp>ビルドは6秒短くなりました。でも暗号ライブラリを替えるほどの差かな？ と思って、これは採用しませんでした。実行時の速さを測った数字でもありません。\u003c/p>","\u003cp>変更していない処理まで10%くらい遅く見えたことがありました。測る順番のせいかもしれない。まだ原因は分かっていません。\u003c/p>","\u003cp>ここから先はまだ候補です。交互に測るのは、順番の偏りを減らしたいから。初回同期は並列化だけでは限界があり、検索APIのレート制限に当たります。呼ぶ回数そのものを減らせるかを考えています。\u003c/p>","\u003cp>最初はAPI、次は通信の待ち時間、その次はSQLiteの読み込みとCI。直すたび、次に遅いところが見えてきました。\u003c/p>","\u003cp>295秒を直したら、次は差分同期。そこを直したら、今度は集計とCI。僕の高速化はずっとこの繰り返しでした。\u003c/p>","\u003cp>ソースコードも公開しています。気になったらGitHubを見てみてください。ありがとうございました。\u003c/p>"]</script>
+<script>"use strict";
+// スライドのナビゲーション。ippon が HTML に埋め込む。
+//   → / Space / PageDown / クリック右側     次へ
+//   ← / PageUp / クリック左側              前へ
+//   Home / End                              最初 / 最後
+//   f                                       フルスクリーン
+//   o / Esc                                 一覧
+//   p                                       発表者ビュー（別ウィンドウ）
+(() => {
+    const slides = Array.from(document.querySelectorAll('#deck .slide'));
+    if (!slides.length)
+        return;
+    // ippon serve のときだけ注入される設定（スマホリモコン用）。無ければ従来どおり何もしない
+    const serveCfg = window.__ippon;
+    const $ = (id) => document.getElementById(id);
+    const div = (className) => {
+        const el = document.createElement('div');
+        el.className = className;
+        return el;
+    };
+    function fmt(ms) {
+        const total = Math.floor(ms / 1000);
+        const m = Math.floor(total / 60);
+        const s = total % 60;
+        return m + ':' + (s < 10 ? '0' : '') + s;
+    }
+    // ---------- Spotlight / Zoom（画像・コードをクリックで拡大） ----------
+    let zoomEl = null;
+    function closeZoom() {
+        if (zoomEl) {
+            zoomEl.remove();
+            zoomEl = null;
+        }
+    }
+    function openZoom(content) {
+        closeZoom();
+        const ov = div('zoom');
+        ov.appendChild(content);
+        ov.addEventListener('click', () => closeZoom()); // 背景クリックで閉じる
+        document.body.appendChild(ov);
+        zoomEl = ov;
+    }
+    function openImageZoom(img) {
+        const big = document.createElement('img');
+        big.src = img.currentSrc || img.src;
+        big.alt = img.alt;
+        openZoom(big);
+    }
+    function openCodeZoom(pre) {
+        const box = pre.cloneNode(true);
+        box.querySelector('.copy-btn')?.remove();
+        box.classList.add('zoom-code');
+        const code = box.querySelector('code');
+        if (code) {
+            // 行ごとに分けてクリックでスポットライトできるようにする
+            // （ハイライトのトークンは行をまたがないので innerHTML を改行で割れる）
+            const lines = code.innerHTML.split('\n');
+            code.textContent = '';
+            for (const ln of lines) {
+                const line = div('zc-line');
+                line.innerHTML = ln.length ? ln : '&#8203;';
+                line.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    line.classList.toggle('spot');
+                    box.classList.toggle('dimmed', !!box.querySelector('.zc-line.spot'));
+                });
+                code.appendChild(line);
+            }
+        }
+        // コード内のクリックは閉じない（行スポットライトを操作するため）
+        box.addEventListener('click', (e) => e.stopPropagation());
+        openZoom(box);
+    }
+    // 別ウィンドウで開いたときは発表者ビューとして動く（本番のナビは動かさない）
+    if (window.name === 'ippon-presenter') {
+        presenterMode();
+        return;
+    }
+    let idx = 0;
+    const progress = $('progress');
+    const counter = $('counter');
+    const timerEl = $('timer');
+    const clamp = (n) => Math.max(0, Math.min(slides.length - 1, n));
+    // ---------- タイマー（表紙から進んだら開始、表紙に戻ったらリセット） ----------
+    let startedAt = null;
+    let ticking;
+    function syncTimer() {
+        if (idx === 0) {
+            startedAt = null;
+            clearInterval(ticking);
+            ticking = undefined;
+            timerEl.textContent = '';
+            return;
+        }
+        const t0 = (startedAt ?? (startedAt = Date.now()));
+        ticking ?? (ticking = window.setInterval(() => {
+            timerEl.textContent = fmt(Date.now() - t0);
+        }, 500));
+        timerEl.textContent = fmt(Date.now() - t0);
+    }
+    // ---------- 描画 ----------
+    function render() {
+        slides.forEach((s, i) => s.classList.toggle('active', i === idx));
+        slides[idx].scrollTop = 0;
+        counter.textContent = idx + 1 + ' / ' + slides.length;
+        progress.style.width = ((idx + 1) / slides.length) * 100 + '%';
+        syncTimer();
+        broadcast();
+        netPublish();
+    }
+    function go(n) {
+        n = clamp(n);
+        if (n === idx)
+            return;
+        idx = n;
+        render();
+        history.replaceState(null, '', '#' + (idx + 1));
+    }
+    window.addEventListener('hashchange', () => {
+        const n = parseInt(location.hash.slice(1), 10);
+        if (n)
+            go(n - 1);
+    });
+    // ---------- 発表者ビュー（別ウィンドウ）との同期 ----------
+    let presenterWin = null;
+    function openPresenter() {
+        if (presenterWin && !presenterWin.closed) {
+            presenterWin.focus();
+            return;
+        }
+        presenterWin = window.open(location.href, 'ippon-presenter', 'width=1024,height=700');
+    }
+    function broadcast() {
+        if (presenterWin && !presenterWin.closed)
+            presenterWin.postMessage({ ippon: 'state', idx, total: slides.length, startedAt }, '*');
+    }
+    window.addEventListener('message', (e) => {
+        const m = e.data;
+        if (!m || typeof m !== 'object')
+            return;
+        if (m.ippon === 'hello')
+            broadcast();
+        else if (m.ippon === 'go' && typeof m.n === 'number')
+            go(m.n);
+    });
+    // ---------- serve（スマホリモコン：SSE で受信、/cmd へ state 送信） ----------
+    function netPublish() {
+        if (!serveCfg)
+            return;
+        const running = startedAt != null;
+        fetch('/cmd?t=' + encodeURIComponent(serveCfg.token), {
+            method: 'POST',
+            headers: { 'content-type': 'application/json' },
+            body: JSON.stringify({
+                type: 'state',
+                idx,
+                total: slides.length,
+                elapsed: running ? Date.now() - startedAt : 0,
+                running,
+            }),
+        }).catch(() => { });
+    }
+    function resetTimer() {
+        startedAt = idx === 0 ? null : Date.now();
+        syncTimer();
+        netPublish();
+    }
+    function initServe() {
+        if (!serveCfg)
+            return;
+        const es = new EventSource('/events?t=' + encodeURIComponent(serveCfg.token));
+        es.onmessage = (e) => {
+            let m;
+            try {
+                m = JSON.parse(e.data);
+            }
+            catch {
+                return;
+            }
+            if (m.type === 'go' && typeof m.n === 'number')
+                go(m.n);
+            else if (m.type === 'timer' && m.action === 'reset')
+                resetTimer();
+        };
+    }
+    // QR を全画面で出す（r キー）。スマホのカメラで読めばリモコンになる
+    let qrOverlay = null;
+    function toggleQr() {
+        if (!serveCfg)
+            return;
+        if (qrOverlay) {
+            qrOverlay.remove();
+            qrOverlay = null;
+            return;
+        }
+        const ov = div('');
+        ov.style.cssText =
+            'position:fixed;inset:0;z-index:40;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;background:rgba(0,0,0,.88);cursor:pointer';
+        const box = div('');
+        box.style.cssText = 'background:#fff;padding:16px;border-radius:12px;width:min(60vmin,360px)';
+        box.innerHTML = serveCfg.qr;
+        const svg = box.querySelector('svg');
+        if (svg)
+            svg.setAttribute('style', 'width:100%;height:auto;display:block');
+        const url = div('');
+        url.style.cssText =
+            'color:#fff;font-family:system-ui,sans-serif;font-size:1rem;word-break:break-all;max-width:80vw;text-align:center';
+        url.textContent = serveCfg.remoteUrl;
+        const hint = div('');
+        hint.style.cssText = 'color:#aaa;font-family:system-ui,sans-serif;font-size:.85rem';
+        hint.textContent = 'スマホのカメラで読み取るとリモコンになります（同じ Wi-Fi に接続）';
+        ov.appendChild(box);
+        ov.appendChild(url);
+        ov.appendChild(hint);
+        ov.addEventListener('click', () => toggleQr());
+        document.body.appendChild(ov);
+        qrOverlay = ov;
+    }
+    const overview = $('overview');
+    let ovItems = null;
+    let ovOpen = false;
+    const THUMB = 240;
+    function buildOverview() {
+        return slides.map((s, i) => {
+            const item = div('ov-item');
+            const frame = div('ov-frame');
+            const scale = div('ov-scale');
+            const clone = s.cloneNode(true);
+            clone.classList.remove('active');
+            scale.appendChild(clone);
+            frame.appendChild(scale);
+            const num = div('ov-num');
+            num.textContent = String(i + 1);
+            item.appendChild(frame);
+            item.appendChild(num);
+            item.addEventListener('click', () => {
+                idx = i;
+                closeOverview();
+                render();
+                history.replaceState(null, '', '#' + (idx + 1));
+            });
+            overview.appendChild(item);
+            return { item, frame, scale };
+        });
+    }
+    function layoutOverview(items) {
+        const w = window.innerWidth;
+        const h = window.innerHeight;
+        const k = THUMB / w;
+        for (const t of items) {
+            t.frame.style.width = THUMB + 'px';
+            t.frame.style.height = h * k + 'px';
+            t.scale.style.width = w + 'px';
+            t.scale.style.height = h + 'px';
+            t.scale.style.transform = 'scale(' + k + ')';
+        }
+    }
+    function openOverview() {
+        const items = (ovItems ?? (ovItems = buildOverview()));
+        layoutOverview(items);
+        items.forEach((t, i) => t.item.classList.toggle('current', i === idx));
+        ovOpen = true;
+        document.body.classList.add('overview');
+        items[idx].item.scrollIntoView({ block: 'center' });
+    }
+    function closeOverview() {
+        ovOpen = false;
+        document.body.classList.remove('overview');
+    }
+    window.addEventListener('resize', () => {
+        if (ovOpen && ovItems)
+            layoutOverview(ovItems);
+    });
+    // ---------- 入力 ----------
+    document.addEventListener('keydown', (e) => {
+        if (e.metaKey || e.ctrlKey || e.altKey)
+            return;
+        if (zoomEl) {
+            if (e.key === 'Escape')
+                closeZoom();
+            return;
+        }
+        if (ovOpen) {
+            if (e.key === 'Escape' || e.key === 'o')
+                closeOverview();
+            return;
+        }
+        if (qrOverlay) {
+            if (e.key === 'Escape' || e.key === 'r')
+                toggleQr();
+            return;
+        }
+        switch (e.key) {
+            case 'ArrowRight':
+            case 'PageDown':
+            case ' ':
+                e.preventDefault();
+                go(idx + 1);
+                break;
+            case 'ArrowLeft':
+            case 'PageUp':
+                e.preventDefault();
+                go(idx - 1);
+                break;
+            case 'Home':
+                go(0);
+                break;
+            case 'End':
+                go(slides.length - 1);
+                break;
+            case 'f':
+                if (document.fullscreenElement)
+                    document.exitFullscreen();
+                else
+                    document.documentElement.requestFullscreen();
+                break;
+            case 'o':
+                openOverview();
+                break;
+            case 'p':
+                openPresenter();
+                break;
+            case 'r':
+                toggleQr();
+                break;
+            case 'Escape':
+                if (!document.fullscreenElement)
+                    openOverview();
+                break;
+        }
+    });
+    // 画面の右 3 割で次へ、左 3 割で前へ（リンクと文字選択は邪魔しない）
+    const deck = $('deck');
+    deck.addEventListener('click', (e) => {
+        if (e.target instanceof Element && e.target.closest('a, button'))
+            return;
+        if (String(window.getSelection() || ''))
+            return;
+        const x = e.clientX / window.innerWidth;
+        if (x > 0.7)
+            go(idx + 1);
+        else if (x < 0.3)
+            go(idx - 1);
+    });
+    // 横スワイプ
+    let touch = null;
+    deck.addEventListener('touchstart', (e) => {
+        const t = e.touches[0];
+        touch = e.touches.length === 1 && t ? { x: t.clientX, y: t.clientY } : null;
+    }, { passive: true });
+    deck.addEventListener('touchend', (e) => {
+        const t = e.changedTouches[0];
+        if (!touch || !t)
+            return;
+        const dx = t.clientX - touch.x;
+        const dy = t.clientY - touch.y;
+        touch = null;
+        if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy) * 1.5)
+            go(dx < 0 ? idx + 1 : idx - 1);
+    }, { passive: true });
+    // コードブロックの右上にコピーボタンを付ける
+    slides.forEach((s) => {
+        s.querySelectorAll('pre').forEach((pre) => {
+            const code = pre.querySelector('code') || pre;
+            const btn = document.createElement('button');
+            btn.type = 'button';
+            btn.className = 'copy-btn';
+            btn.textContent = 'Copy';
+            btn.addEventListener('click', () => {
+                const text = code.innerText;
+                const done = () => {
+                    btn.textContent = 'Copied!';
+                    btn.classList.add('copied');
+                    window.setTimeout(() => {
+                        btn.textContent = 'Copy';
+                        btn.classList.remove('copied');
+                    }, 1200);
+                };
+                if (navigator.clipboard && navigator.clipboard.writeText) {
+                    navigator.clipboard.writeText(text).then(done, done);
+                }
+                else {
+                    const ta = document.createElement('textarea');
+                    ta.value = text;
+                    document.body.appendChild(ta);
+                    ta.select();
+                    try {
+                        document.execCommand('copy');
+                    }
+                    catch { }
+                    document.body.removeChild(ta);
+                    done();
+                }
+            });
+            pre.appendChild(btn);
+            // クリックでコードを拡大（文字選択中とコピーボタンは邪魔しない）
+            pre.addEventListener('click', (e) => {
+                if (e.target instanceof Element && e.target.closest('.copy-btn'))
+                    return;
+                if (String(window.getSelection() || ''))
+                    return;
+                e.stopPropagation();
+                openCodeZoom(pre);
+            });
+        });
+        // 画像はクリックで拡大
+        s.querySelectorAll('img').forEach((img) => {
+            img.addEventListener('click', (e) => {
+                e.stopPropagation();
+                openImageZoom(img);
+            });
+        });
+    });
+    // ::http:: の「再送信」ボタン：ブラウザからライブで叩く（CORS が通る相手のみ）。
+    // 失敗したらビルド時のスナップショットに戻す。
+    function escText(s) {
+        return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+    }
+    function hlJson(src) {
+        const re = /"(?:[^"\\]|\\.)*"|\b(?:true|false|null)\b|-?\d+(?:\.\d+)?/g;
+        let out = '';
+        let last = 0;
+        let m;
+        while ((m = re.exec(src))) {
+            out += escText(src.slice(last, m.index));
+            const tok = m[0];
+            last = m.index + tok.length;
+            // 文字列で直後が : ならキー（hl-t）、それ以外の文字列は hl-s、数値と true/false/null は hl-n
+            const cls = tok[0] === '"' ? (/^\s*:/.test(src.slice(last)) ? 'hl-t' : 'hl-s') : 'hl-n';
+            out += '<span class="' + cls + '">' + escText(tok) + '</span>';
+        }
+        return out + escText(src.slice(last));
+    }
+    function httpStatusClass(status) {
+        return 's-' + (status < 200 ? 1 : status < 300 ? 2 : status < 400 ? 3 : status < 500 ? 4 : 5) + 'xx';
+    }
+    function httpResultHtml(r, text, ms) {
+        let count = 0;
+        let rows = '';
+        r.headers.forEach((v, k) => {
+            count++;
+            rows += '<tr><td class="http-hk">' + escText(k) + '</td><td class="http-hv">' + escText(v) + '</td></tr>';
+        });
+        const ct = r.headers.get('content-type') || '';
+        let body;
+        if (/\bjson\b/i.test(ct) || /^\s*[[{]/.test(text)) {
+            try {
+                body = '<pre data-lang="json"><code>' + hlJson(JSON.stringify(JSON.parse(text), null, 2)) + '</code></pre>';
+            }
+            catch {
+                body = '<pre><code>' + escText(text) + '</code></pre>';
+            }
+        }
+        else {
+            body = '<pre><code>' + escText(text) + '</code></pre>';
+        }
+        return ('<div class="http-status">' +
+            '<span class="http-code ' + httpStatusClass(r.status) + '">' + r.status + '</span>' +
+            '<span class="http-statustext">' + escText(r.statusText) + '</span>' +
+            '<span class="http-time">' + ms + ' ms</span></div>' +
+            '<details class="http-headers"><summary>ヘッダー（' + count + '）</summary><table>' + rows + '</table></details>' +
+            body);
+    }
+    slides.forEach((s) => {
+        s.querySelectorAll('.http').forEach((box) => {
+            const btn = box.querySelector('.http-send');
+            const resEl = box.querySelector('.http-res');
+            if (!btn || !resEl)
+                return;
+            const baked = resEl.innerHTML; // ビルド時スナップショット
+            const method = box.dataset.method || 'GET';
+            const url = box.dataset.url || '';
+            btn.addEventListener('click', async () => {
+                if (!url)
+                    return;
+                const label = btn.textContent;
+                btn.disabled = true;
+                btn.textContent = '送信中…';
+                const t0 = performance.now();
+                try {
+                    const r = await fetch(url, { method });
+                    const text = await r.text();
+                    resEl.dataset.state = 'ok';
+                    resEl.innerHTML = httpResultHtml(r, text, Math.round(performance.now() - t0));
+                }
+                catch (e) {
+                    const msg = e instanceof Error ? e.message : String(e);
+                    resEl.dataset.state = 'error';
+                    resEl.innerHTML =
+                        '<div class="http-status"><span class="http-errmsg">✗ ' + escText(msg) + '</span></div>' +
+                            '<p class="http-msg">ブラウザからは CORS で取得できないことがあります。ビルド時のスナップショットを表示します。</p>' +
+                            baked;
+                }
+                finally {
+                    btn.disabled = false;
+                    btn.textContent = label;
+                }
+            });
+        });
+    });
+    const start = parseInt(location.hash.slice(1), 10);
+    if (start)
+        idx = clamp(start - 1);
+    render();
+    if (serveCfg) {
+        const hint = $('hint');
+        if (hint)
+            hint.textContent += ' ・ r リモコン';
+        initServe();
+    }
+    // ---------- 発表者ビュー本体（別ウィンドウで動く） ----------
+    function presenterMode() {
+        document.body.classList.add('presenter');
+        const root = $('presenter');
+        const left = div('pv-left');
+        const right = div('pv-right');
+        root.appendChild(left);
+        root.appendChild(right);
+        const makeSlot = (labelText) => {
+            const slot = div('pv-slot');
+            const label = div('pv-label');
+            label.textContent = labelText;
+            const frame = div('pv-frame');
+            const scale = div('pv-scale');
+            frame.appendChild(scale);
+            slot.appendChild(label);
+            slot.appendChild(frame);
+            left.appendChild(slot);
+            return { label, frame, scale };
+        };
+        const cur = makeSlot('現在');
+        const nxt = makeSlot('次へ');
+        const clock = div('pv-clock');
+        const elapsedEl = div('pv-elapsed');
+        const wallEl = div('pv-wall');
+        clock.appendChild(elapsedEl);
+        clock.appendChild(wallEl);
+        const controls = div('pv-controls');
+        const prevBtn = document.createElement('button');
+        prevBtn.textContent = '◀';
+        const nextBtn = document.createElement('button');
+        nextBtn.textContent = '▶';
+        controls.appendChild(prevBtn);
+        controls.appendChild(nextBtn);
+        const notesEl = div('pv-notes');
+        right.appendChild(clock);
+        right.appendChild(controls);
+        right.appendChild(notesEl);
+        // serve のときはリモコン用 QR を手元に出す
+        if (serveCfg) {
+            const qr = div('');
+            qr.style.cssText = 'display:flex;align-items:center;gap:12px;margin-top:4px';
+            const img = div('');
+            img.style.cssText = 'background:#fff;padding:8px;border-radius:8px;width:120px;flex:none';
+            img.innerHTML = serveCfg.qr;
+            const s = img.querySelector('svg');
+            if (s)
+                s.setAttribute('style', 'width:100%;height:auto;display:block');
+            const cap = div('');
+            cap.style.cssText = 'font-size:.8rem;color:#9a9aa0;word-break:break-all';
+            cap.textContent = 'スマホで読み取るとリモコン: ' + serveCfg.remoteUrl;
+            qr.appendChild(img);
+            qr.appendChild(cap);
+            right.appendChild(qr);
+        }
+        let curIdx = 0;
+        let total = slides.length;
+        let startedAt = null;
+        // 発表者ノートは <script id="notes"> の JSON から読む（スライド本体には無い）
+        let notesData = [];
+        try {
+            const el = document.getElementById('notes');
+            if (el && el.textContent)
+                notesData = JSON.parse(el.textContent);
+        }
+        catch { }
+        function fitPreview(frame, scale) {
+            const w = window.innerWidth;
+            const h = window.innerHeight;
+            const fw = frame.clientWidth;
+            const k = fw / w;
+            frame.style.height = fw * (h / w) + 'px';
+            scale.style.width = w + 'px';
+            scale.style.height = h + 'px';
+            scale.style.transform = 'scale(' + k + ')';
+        }
+        function setPreview(frame, scale, i) {
+            scale.textContent = '';
+            const s = slides[i];
+            if (s)
+                scale.appendChild(s.cloneNode(true));
+            fitPreview(frame, scale);
+        }
+        function draw() {
+            cur.label.textContent = '現在  ' + (curIdx + 1) + ' / ' + total;
+            setPreview(cur.frame, cur.scale, curIdx);
+            const hasNext = curIdx + 1 < total;
+            nxt.label.textContent = hasNext ? '次へ  ' + (curIdx + 2) + ' / ' + total : 'おわり';
+            setPreview(nxt.frame, nxt.scale, hasNext ? curIdx + 1 : -1);
+            const note = notesData[curIdx];
+            notesEl.innerHTML = note ? note : '<p class="pv-empty">（ノートなし）</p>';
+        }
+        function tick() {
+            elapsedEl.textContent = startedAt == null ? '0:00' : fmt(Date.now() - startedAt);
+            wallEl.textContent = new Date().toLocaleTimeString();
+        }
+        const send = (n) => {
+            if (window.opener)
+                window.opener.postMessage({ ippon: 'go', n }, '*');
+        };
+        prevBtn.addEventListener('click', () => send(curIdx - 1));
+        nextBtn.addEventListener('click', () => send(curIdx + 1));
+        window.addEventListener('message', (e) => {
+            const m = e.data;
+            if (!m || m.ippon !== 'state')
+                return;
+            if (typeof m.idx === 'number')
+                curIdx = m.idx;
+            if (typeof m.total === 'number')
+                total = m.total;
+            startedAt = m.startedAt ?? null;
+            draw();
+            tick();
+        });
+        document.addEventListener('keydown', (e) => {
+            if (e.metaKey || e.ctrlKey || e.altKey)
+                return;
+            switch (e.key) {
+                case 'ArrowRight':
+                case 'PageDown':
+                case ' ':
+                    e.preventDefault();
+                    send(curIdx + 1);
+                    break;
+                case 'ArrowLeft':
+                case 'PageUp':
+                    e.preventDefault();
+                    send(curIdx - 1);
+                    break;
+                case 'Home':
+                    send(0);
+                    break;
+                case 'End':
+                    send(total - 1);
+                    break;
+                case 'p':
+                case 'Escape':
+                    window.close();
+                    break;
+            }
+        });
+        window.addEventListener('resize', () => {
+            fitPreview(cur.frame, cur.scale);
+            fitPreview(nxt.frame, nxt.scale);
+        });
+        window.setInterval(tick, 500);
+        // 本番ウィンドウに現在の状態を要求する
+        if (window.opener)
+            window.opener.postMessage({ ippon: 'hello' }, '*');
+        draw();
+        tick();
+    }
+})();
+</script>
+</body>
+</html>
