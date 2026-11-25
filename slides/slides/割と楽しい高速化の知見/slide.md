@@ -3,7 +3,7 @@ title: Rust製CLIを高速化し続けたら、ボトルネックが次々に移
 description: ghusageの同期・集計・CIを計測しながら改善した記録
 author: 田中博悠 / tanahiro2010
 date: "2026-11-24"
-slug: rust-cli-performance-bottlenecks
+slug: more-than-faster
 published: true
 ---
 
@@ -84,7 +84,7 @@ ghusageもそのひとつです。使ってみたら遅かったので、速く�
 
 ::right center::
 
-::qr url=https://github.com/tanahiro2010/ghusage caption::
+::qr url=<https://github.com/tanahiro2010/ghusage> caption::
 
 ::note::
 
@@ -424,6 +424,7 @@ SQLiteの実行計画を直しました。10万イベントのDebugベンチで�
 ---
 
 ## 集計はまだ遅い
+
 - 実行計画を調べ、JOIN順序を修正
 - 7日分の集計: 131〜173秒 → 1〜2秒
 - それでもrelease集計に改善余地
@@ -751,7 +752,7 @@ CI        実行する仕事を選ぶ
 
 ## ghusage
 
-- GitHub: https://github.com/tanahiro2010/ghusage
+- GitHub: <https://github.com/tanahiro2010/ghusage>
 - 高速化の施策と計測条件はリポジトリの記録を参照
 
 ::note::
