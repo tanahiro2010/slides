@@ -1,0 +1,20 @@
+{
+  "eval_id": 1,
+  "eval_name": "gemini-chrome-extension-en",
+  "prompt": "Draft a 90-minute codelab for our GDG workshop titled 'Build a Chrome Extension with Gemini API'. The extension summarizes the current web page when the user clicks the toolbar icon. Audience already knows JavaScript but hasn't built a Chrome extension before. Cover manifest v3, content scripts, calling the Gemini API from the extension, and packaging. Save the markdown as `gemini-chrome-extension-workshop/claat.md`.",
+  "assertions": [
+    "Frontmatter has all 6 required fields",
+    "Frontmatter uses bare key:value (no `---` fence)",
+    "Exactly one `# Title` document heading",
+    "Every `##` step has `Duration: H:MM:SS`",
+    "No `## Step N:` prefix in step headers",
+    "Last step matches recap convention",
+    "≥6 steps total",
+    "Step 1 covers ≥2 of build/learn/need",
+    "All fenced code blocks have language tags",
+    "≥1 callout box",
+    "Total Duration ~90 min (±30%)",
+    "Output is in English",
+    "Mentions manifest, content script, Gemini"
+  ]
+}

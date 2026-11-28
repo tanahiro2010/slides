@@ -1,0 +1,1748 @@
+
+
+
+
+
+
+
+
+
+<!doctype html>
+<html 
+      lang="en"
+      dir="ltr">
+  <head>
+    <meta name="google-signin-client-id" content="721724668570-nbkv1cfusk7kk4eni4pjvepaus73b13t.apps.googleusercontent.com"><meta name="google-signin-scope"
+          content="profile email https://www.googleapis.com/auth/developerprofiles https://www.googleapis.com/auth/developerprofiles.award https://www.googleapis.com/auth/devprofiles.full_control.firstparty"><meta property="og:site_name" content="Google Codelabs">
+    <meta property="og:type" content="website"><meta name="theme-color" content="#1a73e8"><meta charset="utf-8">
+    <meta content="IE=Edge" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+
+    <link rel="manifest" href="/_pwa/codelabs/manifest.json"
+          crossorigin="use-credentials">
+    <link rel="preconnect" href="//www.gstatic.com" crossorigin>
+    <link rel="preconnect" href="//fonts.googleapis.com" crossorigin>
+    <link rel="preconnect" href="//www.google-analytics.com" crossorigin><link rel="stylesheet" href="//fonts.googleapis.com/css?family=Google+Sans:400,500|Roboto:400,400italic,500,500italic,700,700italic|Roboto+Mono:400,500,700&display=swap">
+      <link rel="stylesheet"
+            href="//fonts.googleapis.com/css2?family=Material+Icons&family=Material+Symbols+Outlined&display=block"><link rel="stylesheet" href="https://www.gstatic.com/devrel-devsite/prod/vb08cbdb02acf7f66ad9727ddfba9d81df8806422eb5dd63dba194c9c8c7997f7/codelabs/css/app.css">
+      <link rel="shortcut icon" href="https://www.gstatic.com/devrel-devsite/prod/vb08cbdb02acf7f66ad9727ddfba9d81df8806422eb5dd63dba194c9c8c7997f7/codelabs/images/favicon.png">
+    <link rel="apple-touch-icon" href="https://www.gstatic.com/devrel-devsite/prod/vb08cbdb02acf7f66ad9727ddfba9d81df8806422eb5dd63dba194c9c8c7997f7/codelabs/images/touchicon-180.png"><link rel="canonical" href="https://codelabs.developers.google.com/codelabs/cloud-vision-api-python"><link rel="search" type="application/opensearchdescription+xml"
+            title="Google Codelabs" href="https://codelabs.developers.google.com/s/opensearch.xml">
+      <link rel="alternate" hreflang="en"
+          href="https://codelabs.developers.google.com/codelabs/cloud-vision-api-python" /><link rel="alternate" hreflang="x-default" href="https://codelabs.developers.google.com/codelabs/cloud-vision-api-python" /><link rel="alternate" hreflang="ar"
+          href="https://codelabs.developers.google.com/codelabs/cloud-vision-api-python?hl=ar" /><link rel="alternate" hreflang="bn"
+          href="https://codelabs.developers.google.com/codelabs/cloud-vision-api-python?hl=bn" /><link rel="alternate" hreflang="zh-Hans"
+          href="https://codelabs.developers.google.com/codelabs/cloud-vision-api-python?hl=zh-cn" /><link rel="alternate" hreflang="zh-Hant"
+          href="https://codelabs.developers.google.com/codelabs/cloud-vision-api-python?hl=zh-tw" /><link rel="alternate" hreflang="fa"
+          href="https://codelabs.developers.google.com/codelabs/cloud-vision-api-python?hl=fa" /><link rel="alternate" hreflang="fr"
+          href="https://codelabs.developers.google.com/codelabs/cloud-vision-api-python?hl=fr" /><link rel="alternate" hreflang="de"
+          href="https://codelabs.developers.google.com/codelabs/cloud-vision-api-python?hl=de" /><link rel="alternate" hreflang="he"
+          href="https://codelabs.developers.google.com/codelabs/cloud-vision-api-python?hl=he" /><link rel="alternate" hreflang="hi"
+          href="https://codelabs.developers.google.com/codelabs/cloud-vision-api-python?hl=hi" /><link rel="alternate" hreflang="id"
+          href="https://codelabs.developers.google.com/codelabs/cloud-vision-api-python?hl=id" /><link rel="alternate" hreflang="it"
+          href="https://codelabs.developers.google.com/codelabs/cloud-vision-api-python?hl=it" /><link rel="alternate" hreflang="ja"
+          href="https://codelabs.developers.google.com/codelabs/cloud-vision-api-python?hl=ja" /><link rel="alternate" hreflang="ko"
+          href="https://codelabs.developers.google.com/codelabs/cloud-vision-api-python?hl=ko" /><link rel="alternate" hreflang="pl"
+          href="https://codelabs.developers.google.com/codelabs/cloud-vision-api-python?hl=pl" /><link rel="alternate" hreflang="pt-BR"
+          href="https://codelabs.developers.google.com/codelabs/cloud-vision-api-python?hl=pt-br" /><link rel="alternate" hreflang="ru"
+          href="https://codelabs.developers.google.com/codelabs/cloud-vision-api-python?hl=ru" /><link rel="alternate" hreflang="es-419"
+          href="https://codelabs.developers.google.com/codelabs/cloud-vision-api-python?hl=es-419" /><link rel="alternate" hreflang="th"
+          href="https://codelabs.developers.google.com/codelabs/cloud-vision-api-python?hl=th" /><link rel="alternate" hreflang="tr"
+          href="https://codelabs.developers.google.com/codelabs/cloud-vision-api-python?hl=tr" /><link rel="alternate" hreflang="vi"
+          href="https://codelabs.developers.google.com/codelabs/cloud-vision-api-python?hl=vi" /><title>Using the Vision API with Python &nbsp;|&nbsp; Google Codelabs</title>
+
+<meta property="og:title" content="Using the Vision API with Python &nbsp;|&nbsp; Google Codelabs"><meta name="description" content="In this tutorial, you will learn to use the Vision API with Python.">
+  <meta property="og:description" content="In this tutorial, you will learn to use the Vision API with Python."><meta property="og:url" content="https://codelabs.developers.google.com/codelabs/cloud-vision-api-python"><meta property="og:locale" content="en">
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  
+
+    </head>
+  <body class="color-scheme--light"
+        template="codelab"
+        theme="codelabs-theme"
+        type="codelab"
+        
+        
+        
+        layout="docs"
+        
+        
+        
+        
+        
+        display-toc
+        pending>
+  
+    <devsite-progress type="indeterminate" id="app-progress"></devsite-progress>
+  
+  
+    <a href="#main-content" class="skip-link button">
+      
+      Skip to main content
+    </a>
+    <section class="devsite-wrapper">
+      <devsite-cookie-notification-bar></devsite-cookie-notification-bar>
+        <devsite-header role="banner">
+  
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="devsite-header--inner" data-nosnippet>
+  <div class="devsite-top-logo-row-wrapper-wrapper">
+    <div class="devsite-top-logo-row-wrapper">
+      <div class="devsite-top-logo-row">
+        <button type="button" id="devsite-hamburger-menu"
+          class="devsite-header-icon-button button-flat material-icons gc-analytics-event"
+          data-category="Site-Wide Custom Events"
+          data-label="Navigation menu button"
+          visually-hidden
+          aria-label="Open menu">
+        </button>
+        
+<div class="devsite-product-name-wrapper">
+
+  <a href="/" class="devsite-site-logo-link gc-analytics-event"
+   data-category="Site-Wide Custom Events" data-label="Site logo" track-type="globalNav"
+   track-name="googleCodelabs" track-metadata-position="nav"
+   track-metadata-eventDetail="nav">
+  
+  <picture>
+    
+    <img src="https://www.gstatic.com/devrel-devsite/prod/vb08cbdb02acf7f66ad9727ddfba9d81df8806422eb5dd63dba194c9c8c7997f7/codelabs/images/lockup.svg" class="devsite-site-logo" alt="Google Codelabs">
+  </picture>
+  
+</a>
+
+
+
+</div>
+        <div class="devsite-top-logo-row-middle">
+          <div class="devsite-header-upper-tabs">
+            
+           </div>
+          
+<devsite-search
+    enable-signin
+    enable-search
+    enable-suggestions
+      enable-query-completion
+    
+    enable-search-summaries
+    
+    tenant-name="Google Codelabs"
+    
+    
+    
+    
+    
+    >
+  <form class="devsite-search-form" action="https://codelabs.developers.google.com/s/results" method="GET">
+    <div class="devsite-search-container">
+      <button type="button"
+              search-open
+              class="devsite-search-button devsite-header-icon-button button-flat material-icons"
+              
+              aria-label="Open search"></button>
+      <div class="devsite-searchbox">
+        <input
+          aria-activedescendant=""
+          aria-autocomplete="list"
+          
+          aria-label="Search"
+          aria-expanded="false"
+          aria-haspopup="listbox"
+          autocomplete="off"
+          class="devsite-search-field devsite-search-query"
+          name="q"
+          
+          placeholder="Search"
+          role="combobox"
+          type="text"
+          value=""
+          >
+          <div class="devsite-search-image material-icons" aria-hidden="true">
+            
+              <svg class="devsite-search-ai-image" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <g clip-path="url(#clip0_6641_386)">
+                    <path d="M19.6 21L13.3 14.7C12.8 15.1 12.225 15.4167 11.575 15.65C10.925 15.8833 10.2333 16 9.5 16C7.68333 16 6.14167 15.375 4.875 14.125C3.625 12.8583 3 11.3167 3 9.5C3 7.68333 3.625 6.15 4.875 4.9C6.14167 3.63333 7.68333 3 9.5 3C10.0167 3 10.5167 3.05833 11 3.175C11.4833 3.275 11.9417 3.43333 12.375 3.65L10.825 5.2C10.6083 5.13333 10.3917 5.08333 10.175 5.05C9.95833 5.01667 9.73333 5 9.5 5C8.25 5 7.18333 5.44167 6.3 6.325C5.43333 7.19167 5 8.25 5 9.5C5 10.75 5.43333 11.8167 6.3 12.7C7.18333 13.5667 8.25 14 9.5 14C10.6667 14 11.6667 13.625 12.5 12.875C13.35 12.1083 13.8417 11.15 13.975 10H15.975C15.925 10.6333 15.7833 11.2333 15.55 11.8C15.3333 12.3667 15.05 12.8667 14.7 13.3L21 19.6L19.6 21ZM17.5 12C17.5 10.4667 16.9667 9.16667 15.9 8.1C14.8333 7.03333 13.5333 6.5 12 6.5C13.5333 6.5 14.8333 5.96667 15.9 4.9C16.9667 3.83333 17.5 2.53333 17.5 0.999999C17.5 2.53333 18.0333 3.83333 19.1 4.9C20.1667 5.96667 21.4667 6.5 23 6.5C21.4667 6.5 20.1667 7.03333 19.1 8.1C18.0333 9.16667 17.5 10.4667 17.5 12Z" fill="#5F6368"/>
+                  </g>
+                <defs>
+                <clipPath id="clip0_6641_386">
+                <rect width="24" height="24" fill="white"/>
+                </clipPath>
+                </defs>
+              </svg>
+            
+          </div>
+          <div class="devsite-search-shortcut-icon-container" aria-hidden="true">
+            <kbd class="devsite-search-shortcut-icon">/</kbd>
+          </div>
+      </div>
+    </div>
+  </form>
+  <button type="button"
+          search-close
+          class="devsite-search-button devsite-header-icon-button button-flat material-icons"
+          
+          aria-label="Close search"></button>
+</devsite-search>
+
+        </div>
+
+        
+
+          
+
+          
+
+          
+
+          
+
+          
+<devsite-language-selector>
+  <ul role="presentation">
+    
+    
+    <li role="presentation">
+      <a role="menuitem" lang="en"
+        >English</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="de"
+        >Deutsch</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="es"
+        >Español</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="es_419"
+        >Español – América Latina</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="fr"
+        >Français</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="id"
+        >Indonesia</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="it"
+        >Italiano</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="pl"
+        >Polski</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="pt_br"
+        >Português – Brasil</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="vi"
+        >Tiếng Việt</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="tr"
+        >Türkçe</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="ru"
+        >Русский</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="he"
+        >עברית</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="ar"
+        >العربيّة</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="fa"
+        >فارسی</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="hi"
+        >हिंदी</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="bn"
+        >বাংলা</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="th"
+        >ภาษาไทย</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="zh_cn"
+        >中文 – 简体</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="zh_tw"
+        >中文 – 繁體</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="ja"
+        >日本語</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="ko"
+        >한국어</a>
+    </li>
+    
+  </ul>
+</devsite-language-selector>
+
+
+          
+
+        
+
+        
+          <devsite-user 
+                        
+                        
+                          enable-profiles
+                        
+                        
+                          fp-auth
+                        
+                        id="devsite-user">
+            
+              
+              <span class="button devsite-top-button" aria-hidden="true" visually-hidden>Sign in</span>
+            
+          </devsite-user>
+        
+        
+        
+      </div>
+    </div>
+  </div>
+
+
+
+</div>
+
+
+
+  
+</devsite-header>
+        <devsite-book-nav scrollbars hidden>
+          
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="devsite-book-nav-filter"
+     hidden>
+  <span class="filter-list-icon material-icons" aria-hidden="true"></span>
+  <input type="text"
+         placeholder="Filter"
+         
+         aria-label="Type to filter"
+         role="searchbox">
+  
+  <span class="filter-clear-button hidden"
+        data-title="Clear filter"
+        aria-label="Clear filter"
+        role="button"
+        tabindex="0"></span>
+</div>
+
+<nav class="devsite-book-nav devsite-nav nocontent" data-nosnippet
+     aria-label="Side menu">
+  <div class="devsite-mobile-header">
+    <button type="button"
+            id="devsite-close-nav"
+            class="devsite-header-icon-button button-flat material-icons gc-analytics-event"
+            data-category="Site-Wide Custom Events"
+            data-label="Close navigation"
+            aria-label="Close navigation">
+    </button>
+    <div class="devsite-product-name-wrapper">
+
+  <a href="/" class="devsite-site-logo-link gc-analytics-event"
+   data-category="Site-Wide Custom Events" data-label="Site logo" track-type="globalNav"
+   track-name="googleCodelabs" track-metadata-position="nav"
+   track-metadata-eventDetail="nav">
+  
+  <picture>
+    
+    <img src="https://www.gstatic.com/devrel-devsite/prod/vb08cbdb02acf7f66ad9727ddfba9d81df8806422eb5dd63dba194c9c8c7997f7/codelabs/images/lockup.svg" class="devsite-site-logo" alt="Google Codelabs">
+  </picture>
+  
+</a>
+
+
+</div>
+  </div>
+
+  <div class="devsite-book-nav-wrapper">
+    <div class="devsite-mobile-nav-top">
+      
+        <ul class="devsite-nav-list">
+          
+          
+          
+        </ul>
+      
+    </div>
+    
+  </div>
+</nav>
+          
+        </devsite-book-nav>
+      
+      <section id="gc-wrapper">
+        <main role="main" id="main-content" class="devsite-main-content"
+            
+              
+              has-sidebar
+            >
+          <div class="devsite-sidebar">
+            <div class="devsite-sidebar-content">
+                
+                <devsite-toc class="devsite-nav"
+                            role="navigation"
+                            aria-label="On this page"
+                            depth="1"
+                            scrollbars
+                            data-nosnippet
+                  ></devsite-toc>
+                <devsite-recommendations-sidebar class="nocontent devsite-nav" data-nosnippet>
+                </devsite-recommendations-sidebar>
+            </div>
+          </div>
+          <devsite-content>
+            
+              
+
+
+
+
+
+
+
+
+
+
+<article class="devsite-article"><style>
+      body {
+        transition: opacity ease-in 0.2s;
+      }
+
+      body[unresolved] {
+        opacity: 0;
+        display: block;
+        overflow: hidden;
+        position: relative;
+      }
+      </style>
+  
+  
+  
+  
+  
+
+  <div class="devsite-article-meta nocontent" role="navigation" data-nosnippet>
+    
+    
+    <ul class="devsite-breadcrumb-list"
+  >
+  
+</ul>
+    
+  </div>
+  
+    <h1 class="devsite-page-title" tabindex="-1">
+      Using the Vision API with Python<devsite-actions hidden data-nosnippet></devsite-actions>
+  
+      
+    </h1>
+  
+
+  <devsite-toc class="devsite-nav"
+    depth="1"
+    devsite-toc-embedded
+    >
+  </devsite-toc>
+  
+    
+  <div class="devsite-article-body clearfix
+  ">
+
+  
+    
+    
+    <google-codelab-analytics gaid="UA-49880327-14" ga4id="G-JTFZSJVVVZ"></google-codelab-analytics>
+    <google-codelab codelab-gaid="UA-66226300-1"
+                    codelab-ga4id=""
+                    doc-id="1khrWlcr3GAQIQlas9l3b1uRbls5VG02MwRiDW6ES7qE"
+                    id="cloud-vision-api-python"
+                    title="Using the Vision API with Python"
+                    no-tooltip=""
+                    environment="web"
+                    category="cloud,machinelearning"
+                    feedback-link="https://github.com/googlecodelabs/feedback/issues/new?title=[cloud-vision-python]…&amp;labels=cloud,python,ml&amp;assignees=picardparis"
+                    layout="paginated"
+                    >
+      
+        <google-codelab-step label="Overview" duration="0" step="0">
+          
+            <google-codelab-about codelab-title="Using the Vision API with Python"
+                                  authors="multiple Googlers"
+                                  last-updated="2026-03-20T17:30:16Z"
+                                  duration="8">
+            </google-codelab-about>
+          
+          <h2 class="step-title" id="0" data-text="Overview" tabindex="-1">
+              1. Overview
+          </h2>
+          
+          <p class="image-container"><img alt="5ab7829fc22b21c4.png" style="width: 76.80px" src="/static/codelabs/cloud-vision-api-python/img/5ab7829fc22b21c4.png" srcset="https://codelabs.developers.google.com/static/codelabs/cloud-vision-api-python/img/5ab7829fc22b21c4_36.png 36w,https://codelabs.developers.google.com/static/codelabs/cloud-vision-api-python/img/5ab7829fc22b21c4_48.png 48w,https://codelabs.developers.google.com/static/codelabs/cloud-vision-api-python/img/5ab7829fc22b21c4_72.png 72w,https://codelabs.developers.google.com/static/codelabs/cloud-vision-api-python/img/5ab7829fc22b21c4_96.png 96w,https://codelabs.developers.google.com/static/codelabs/cloud-vision-api-python/img/5ab7829fc22b21c4_480.png 480w,https://codelabs.developers.google.com/static/codelabs/cloud-vision-api-python/img/5ab7829fc22b21c4_720.png 720w,https://codelabs.developers.google.com/static/codelabs/cloud-vision-api-python/img/5ab7829fc22b21c4_856.png 856w,https://codelabs.developers.google.com/static/codelabs/cloud-vision-api-python/img/5ab7829fc22b21c4_960.png 960w,https://codelabs.developers.google.com/static/codelabs/cloud-vision-api-python/img/5ab7829fc22b21c4_1440.png 1440w,https://codelabs.developers.google.com/static/codelabs/cloud-vision-api-python/img/5ab7829fc22b21c4_1920.png 1920w,https://codelabs.developers.google.com/static/codelabs/cloud-vision-api-python/img/5ab7829fc22b21c4_2880.png 2880w" sizes="(max-width: 840px) 100vw, 856px"></p>
+<p>The  <a href="https://cloud.google.com/vision/docs/" target="_blank">Vision API</a> allows developers to easily integrate vision detection features within applications, including image labeling, face and landmark detection, optical character recognition (OCR), and tagging of explicit content.</p>
+<p>In this tutorial, you will focus on using the Vision API with Python.</p>
+<h3 class="checklist" is-upgraded id="what-youll-learn" data-text="What you'll learn" tabindex="-1"><strong>What you'll learn</strong></h3>
+<ul class="checklist">
+<li>How to set up your environment</li>
+<li>How to perform label detection</li>
+<li>How to perform text detection</li>
+<li>How to perform landmark detection</li>
+<li>How to perform face detection</li>
+<li>How to perform object detection</li>
+</ul>
+<h3 is-upgraded id="what-youll-need" data-text="What you'll need" tabindex="-1"><strong>What you'll need</strong></h3>
+<ul>
+<li>A Google Cloud project</li>
+<li>A browser, such as  <a href="https://www.google.com/chrome" target="_blank">Chrome</a> or  <a href="https://www.mozilla.org/firefox/" target="_blank">Firefox</a></li>
+<li>Familiarity using Python</li>
+</ul>
+<h3 is-upgraded id="survey" data-text="Survey" tabindex="-1"><strong>Survey</strong></h3>
+<google-codelab-survey survey-id="cloud-vision-api-python-1">
+<h4 id="how-will-you-use-this-tutorial" data-text="How will you use this tutorial?" tabindex="-1">How will you use this tutorial?</h4>
+<paper-radio-group>
+<paper-radio-button>Read it through only</paper-radio-button>
+<paper-radio-button>Read it and complete the exercises</paper-radio-button>
+</paper-radio-group>
+<h4 id="how-would-you-rate-your-experience-with-python" data-text="How would you rate your experience with Python?" tabindex="-1">How would you rate your experience with Python?</h4>
+<paper-radio-group>
+<paper-radio-button>Novice</paper-radio-button>
+<paper-radio-button>Intermediate</paper-radio-button>
+<paper-radio-button>Proficient</paper-radio-button>
+</paper-radio-group>
+<h4 id="how-would-you-rate-your-experience-with-google-cloud-services" data-text="How would you rate your experience with Google Cloud services?" tabindex="-1">How would you rate your experience with Google Cloud services?</h4>
+<paper-radio-group>
+<paper-radio-button>Novice</paper-radio-button>
+<paper-radio-button>Intermediate</paper-radio-button>
+<paper-radio-button>Proficient</paper-radio-button>
+</paper-radio-group>
+</google-codelab-survey>
+
+
+        </google-codelab-step>
+      
+        <google-codelab-step label="Setup and requirements" duration="2" step="1">
+          
+          <h2 class="step-title" id="1" data-text="Setup and requirements" tabindex="-1">
+              2. Setup and requirements
+          </h2>
+          
+          <h2 is-upgraded id="self-paced-environment-setup" data-text="Self-paced environment setup" tabindex="-1"><strong>Self-paced environment setup</strong></h2>
+<ol type="1">
+<li>Sign-in to the  <a href="http://console.cloud.google.com" target="_blank">Google Cloud Console</a> and create a new project or reuse an existing one. If you don&#39;t already have a Gmail or Google Workspace account, you must  <a href="https://accounts.google.com/SignUp" target="_blank">create one</a>.</li>
+</ol>
+<p class="image-container"><img alt="b35bf95b8bf3d5d8.png" style="width: 452.50px" src="/static/codelabs/cloud-vision-api-python/img/b35bf95b8bf3d5d8.png" srcset="https://codelabs.developers.google.com/static/codelabs/cloud-vision-api-python/img/b35bf95b8bf3d5d8_36.png 36w,https://codelabs.developers.google.com/static/codelabs/cloud-vision-api-python/img/b35bf95b8bf3d5d8_48.png 48w,https://codelabs.developers.google.com/static/codelabs/cloud-vision-api-python/img/b35bf95b8bf3d5d8_72.png 72w,https://codelabs.developers.google.com/static/codelabs/cloud-vision-api-python/img/b35bf95b8bf3d5d8_96.png 96w,https://codelabs.developers.google.com/static/codelabs/cloud-vision-api-python/img/b35bf95b8bf3d5d8_480.png 480w,https://codelabs.developers.google.com/static/codelabs/cloud-vision-api-python/img/b35bf95b8bf3d5d8_720.png 720w,https://codelabs.developers.google.com/static/codelabs/cloud-vision-api-python/img/b35bf95b8bf3d5d8_856.png 856w,https://codelabs.developers.google.com/static/codelabs/cloud-vision-api-python/img/b35bf95b8bf3d5d8_960.png 960w,https://codelabs.developers.google.com/static/codelabs/cloud-vision-api-python/img/b35bf95b8bf3d5d8_1440.png 1440w,https://codelabs.developers.google.com/static/codelabs/cloud-vision-api-python/img/b35bf95b8bf3d5d8_1920.png 1920w,https://codelabs.developers.google.com/static/codelabs/cloud-vision-api-python/img/b35bf95b8bf3d5d8_2880.png 2880w" sizes="(max-width: 840px) 100vw, 856px"></p>
+<p class="image-container"><img alt="a99b7ace416376c4.png" style="width: 401.24px" src="/static/codelabs/cloud-vision-api-python/img/a99b7ace416376c4.png" srcset="https://codelabs.developers.google.com/static/codelabs/cloud-vision-api-python/img/a99b7ace416376c4_36.png 36w,https://codelabs.developers.google.com/static/codelabs/cloud-vision-api-python/img/a99b7ace416376c4_48.png 48w,https://codelabs.developers.google.com/static/codelabs/cloud-vision-api-python/img/a99b7ace416376c4_72.png 72w,https://codelabs.developers.google.com/static/codelabs/cloud-vision-api-python/img/a99b7ace416376c4_96.png 96w,https://codelabs.developers.google.com/static/codelabs/cloud-vision-api-python/img/a99b7ace416376c4_480.png 480w,https://codelabs.developers.google.com/static/codelabs/cloud-vision-api-python/img/a99b7ace416376c4_720.png 720w,https://codelabs.developers.google.com/static/codelabs/cloud-vision-api-python/img/a99b7ace416376c4_856.png 856w,https://codelabs.developers.google.com/static/codelabs/cloud-vision-api-python/img/a99b7ace416376c4_960.png 960w,https://codelabs.developers.google.com/static/codelabs/cloud-vision-api-python/img/a99b7ace416376c4_1440.png 1440w,https://codelabs.developers.google.com/static/codelabs/cloud-vision-api-python/img/a99b7ace416376c4_1920.png 1920w,https://codelabs.developers.google.com/static/codelabs/cloud-vision-api-python/img/a99b7ace416376c4_2880.png 2880w" sizes="(max-width: 840px) 100vw, 856px"></p>
+<p class="image-container"><img alt="bd84a6d3004737c5.png" style="width: 392.00px" src="/static/codelabs/cloud-vision-api-python/img/bd84a6d3004737c5.png" srcset="https://codelabs.developers.google.com/static/codelabs/cloud-vision-api-python/img/bd84a6d3004737c5_36.png 36w,https://codelabs.developers.google.com/static/codelabs/cloud-vision-api-python/img/bd84a6d3004737c5_48.png 48w,https://codelabs.developers.google.com/static/codelabs/cloud-vision-api-python/img/bd84a6d3004737c5_72.png 72w,https://codelabs.developers.google.com/static/codelabs/cloud-vision-api-python/img/bd84a6d3004737c5_96.png 96w,https://codelabs.developers.google.com/static/codelabs/cloud-vision-api-python/img/bd84a6d3004737c5_480.png 480w,https://codelabs.developers.google.com/static/codelabs/cloud-vision-api-python/img/bd84a6d3004737c5_720.png 720w,https://codelabs.developers.google.com/static/codelabs/cloud-vision-api-python/img/bd84a6d3004737c5_856.png 856w,https://codelabs.developers.google.com/static/codelabs/cloud-vision-api-python/img/bd84a6d3004737c5_960.png 960w,https://codelabs.developers.google.com/static/codelabs/cloud-vision-api-python/img/bd84a6d3004737c5_1440.png 1440w,https://codelabs.developers.google.com/static/codelabs/cloud-vision-api-python/img/bd84a6d3004737c5_1920.png 1920w,https://codelabs.developers.google.com/static/codelabs/cloud-vision-api-python/img/bd84a6d3004737c5_2880.png 2880w" sizes="(max-width: 840px) 100vw, 856px"></p>
+<ul>
+<li>The <strong>Project name</strong> is the display name for this project&#39;s participants. It is a character string not used by Google APIs. You can always update it.</li>
+<li>The <strong>Project ID</strong> is unique across all Google Cloud projects and is immutable (cannot be changed after it has been set). The Cloud Console auto-generates a unique string; usually you don&#39;t care what it is. In most codelabs, you&#39;ll need to reference your Project ID (typically identified as <code translate="no" dir="ltr">PROJECT_ID</code>). If you don&#39;t like the generated ID, you might generate another random one. Alternatively, you can try your own, and see if it&#39;s available. It can&#39;t be changed after this step and remains for the duration of the project.</li>
+<li>For your information, there is a third value, a <strong>Project Number</strong>, which some APIs use. Learn more about all three of these values in the  <a href="https://cloud.google.com/resource-manager/docs/creating-managing-projects#before_you_begin" target="_blank">documentation</a>.</li>
+</ul>
+<aside class="warning"><p><strong>Caution:</strong> A project ID is globally unique and can&#39;t be used by anyone else after you&#39;ve selected it. You are the only user of that ID. Even if a project is deleted, the ID can&#39;t be used again</p>
+</aside>
+<aside class="special"><p><strong>Note:</strong> If you use a Gmail account, you can leave the default location set to <strong>No organization</strong>. If you use a Google Workspace account, choose a location that makes sense for your organization.</p>
+</aside>
+<ol type="1" start="2">
+<li>Next, you&#39;ll need to  <a href="https://console.cloud.google.com/billing" target="_blank">enable billing</a> in the Cloud Console to use Cloud resources/APIs. Running through this codelab won&#39;t cost much, if anything at all. To shut down resources to avoid incurring billing beyond this tutorial, you can delete the resources you created or delete the project. New Google Cloud users are eligible for the  <a href="http://cloud.google.com/free" target="_blank">$300 USD Free Trial</a> program.</li>
+</ol>
+<h2 is-upgraded id="start-cloud-shell" data-text="Start Cloud Shell" tabindex="-1"><strong>Start Cloud Shell</strong></h2>
+<p>While Google Cloud can be operated remotely from your laptop, in this codelab you will be using  <a href="https://cloud.google.com/shell" target="_blank">Cloud Shell</a>, a command line environment running in the Cloud.</p>
+<h3 is-upgraded id="activate-cloud-shell" data-text="Activate Cloud Shell" tabindex="-1">Activate Cloud Shell</h3>
+<ol type="1">
+<li>From the Cloud Console, click <strong>Activate Cloud Shell  </strong><img alt="853e55310c205094.png" style="width: 21.60px" src="/static/codelabs/cloud-vision-api-python/img/853e55310c205094.png" srcset="https://codelabs.developers.google.com/static/codelabs/cloud-vision-api-python/img/853e55310c205094_36.png 36w,https://codelabs.developers.google.com/static/codelabs/cloud-vision-api-python/img/853e55310c205094_48.png 48w,https://codelabs.developers.google.com/static/codelabs/cloud-vision-api-python/img/853e55310c205094_72.png 72w,https://codelabs.developers.google.com/static/codelabs/cloud-vision-api-python/img/853e55310c205094_96.png 96w,https://codelabs.developers.google.com/static/codelabs/cloud-vision-api-python/img/853e55310c205094_480.png 480w,https://codelabs.developers.google.com/static/codelabs/cloud-vision-api-python/img/853e55310c205094_720.png 720w,https://codelabs.developers.google.com/static/codelabs/cloud-vision-api-python/img/853e55310c205094_856.png 856w,https://codelabs.developers.google.com/static/codelabs/cloud-vision-api-python/img/853e55310c205094_960.png 960w,https://codelabs.developers.google.com/static/codelabs/cloud-vision-api-python/img/853e55310c205094_1440.png 1440w,https://codelabs.developers.google.com/static/codelabs/cloud-vision-api-python/img/853e55310c205094_1920.png 1920w,https://codelabs.developers.google.com/static/codelabs/cloud-vision-api-python/img/853e55310c205094_2880.png 2880w" sizes="(max-width: 840px) 100vw, 856px">.</li>
+</ol>
+<p class="image-container"><img alt="55efc1aaa7a4d3ad.png" style="width: 276.00px" src="/static/codelabs/cloud-vision-api-python/img/55efc1aaa7a4d3ad.png" srcset="https://codelabs.developers.google.com/static/codelabs/cloud-vision-api-python/img/55efc1aaa7a4d3ad_36.png 36w,https://codelabs.developers.google.com/static/codelabs/cloud-vision-api-python/img/55efc1aaa7a4d3ad_48.png 48w,https://codelabs.developers.google.com/static/codelabs/cloud-vision-api-python/img/55efc1aaa7a4d3ad_72.png 72w,https://codelabs.developers.google.com/static/codelabs/cloud-vision-api-python/img/55efc1aaa7a4d3ad_96.png 96w,https://codelabs.developers.google.com/static/codelabs/cloud-vision-api-python/img/55efc1aaa7a4d3ad_480.png 480w,https://codelabs.developers.google.com/static/codelabs/cloud-vision-api-python/img/55efc1aaa7a4d3ad_720.png 720w,https://codelabs.developers.google.com/static/codelabs/cloud-vision-api-python/img/55efc1aaa7a4d3ad_856.png 856w,https://codelabs.developers.google.com/static/codelabs/cloud-vision-api-python/img/55efc1aaa7a4d3ad_960.png 960w,https://codelabs.developers.google.com/static/codelabs/cloud-vision-api-python/img/55efc1aaa7a4d3ad_1440.png 1440w,https://codelabs.developers.google.com/static/codelabs/cloud-vision-api-python/img/55efc1aaa7a4d3ad_1920.png 1920w,https://codelabs.developers.google.com/static/codelabs/cloud-vision-api-python/img/55efc1aaa7a4d3ad_2880.png 2880w" sizes="(max-width: 840px) 100vw, 856px"></p>
+<p>If this is your first time starting Cloud Shell, you&#39;re presented with an intermediate screen describing what it is. If you were presented with an intermediate screen, click <strong>Continue</strong>.</p>
+<p class="image-container"><img alt="9c92662c6a846a5c.png" style="width: 583.00px" src="/static/codelabs/cloud-vision-api-python/img/9c92662c6a846a5c.png" srcset="https://codelabs.developers.google.com/static/codelabs/cloud-vision-api-python/img/9c92662c6a846a5c_36.png 36w,https://codelabs.developers.google.com/static/codelabs/cloud-vision-api-python/img/9c92662c6a846a5c_48.png 48w,https://codelabs.developers.google.com/static/codelabs/cloud-vision-api-python/img/9c92662c6a846a5c_72.png 72w,https://codelabs.developers.google.com/static/codelabs/cloud-vision-api-python/img/9c92662c6a846a5c_96.png 96w,https://codelabs.developers.google.com/static/codelabs/cloud-vision-api-python/img/9c92662c6a846a5c_480.png 480w,https://codelabs.developers.google.com/static/codelabs/cloud-vision-api-python/img/9c92662c6a846a5c_720.png 720w,https://codelabs.developers.google.com/static/codelabs/cloud-vision-api-python/img/9c92662c6a846a5c_856.png 856w,https://codelabs.developers.google.com/static/codelabs/cloud-vision-api-python/img/9c92662c6a846a5c_960.png 960w,https://codelabs.developers.google.com/static/codelabs/cloud-vision-api-python/img/9c92662c6a846a5c_1440.png 1440w,https://codelabs.developers.google.com/static/codelabs/cloud-vision-api-python/img/9c92662c6a846a5c_1920.png 1920w,https://codelabs.developers.google.com/static/codelabs/cloud-vision-api-python/img/9c92662c6a846a5c_2880.png 2880w" sizes="(max-width: 840px) 100vw, 856px"></p>
+<p>It should only take a few moments to provision and connect to Cloud Shell.</p>
+<p class="image-container"><img alt="9f0e51b578fecce5.png" style="width: 701.23px" src="/static/codelabs/cloud-vision-api-python/img/9f0e51b578fecce5.png" srcset="https://codelabs.developers.google.com/static/codelabs/cloud-vision-api-python/img/9f0e51b578fecce5_36.png 36w,https://codelabs.developers.google.com/static/codelabs/cloud-vision-api-python/img/9f0e51b578fecce5_48.png 48w,https://codelabs.developers.google.com/static/codelabs/cloud-vision-api-python/img/9f0e51b578fecce5_72.png 72w,https://codelabs.developers.google.com/static/codelabs/cloud-vision-api-python/img/9f0e51b578fecce5_96.png 96w,https://codelabs.developers.google.com/static/codelabs/cloud-vision-api-python/img/9f0e51b578fecce5_480.png 480w,https://codelabs.developers.google.com/static/codelabs/cloud-vision-api-python/img/9f0e51b578fecce5_720.png 720w,https://codelabs.developers.google.com/static/codelabs/cloud-vision-api-python/img/9f0e51b578fecce5_856.png 856w,https://codelabs.developers.google.com/static/codelabs/cloud-vision-api-python/img/9f0e51b578fecce5_960.png 960w,https://codelabs.developers.google.com/static/codelabs/cloud-vision-api-python/img/9f0e51b578fecce5_1440.png 1440w,https://codelabs.developers.google.com/static/codelabs/cloud-vision-api-python/img/9f0e51b578fecce5_1920.png 1920w,https://codelabs.developers.google.com/static/codelabs/cloud-vision-api-python/img/9f0e51b578fecce5_2880.png 2880w" sizes="(max-width: 840px) 100vw, 856px"></p>
+<p>This virtual machine is loaded with all the development tools needed. It offers a persistent 5 GB home directory and runs in Google Cloud, greatly enhancing network performance and authentication.  Much, if not all, of your work in this codelab can be done with a browser.</p>
+<p>Once connected to Cloud Shell, you should see that you are authenticated and that the project is set to your project ID.</p>
+<ol type="1" start="2">
+<li>Run the following command in Cloud Shell to confirm that you are authenticated:</li>
+</ol>
+<div></div><devsite-code><pre translate="no" dir="ltr" is-upgraded>gcloud auth list
+</pre></devsite-code>
+<p><strong>Command output</strong></p>
+<div></div><devsite-code><pre translate="no" dir="ltr" is-upgraded> Credentialed Accounts
+ACTIVE  ACCOUNT
+*       &lt;my_account&gt;@&lt;my_domain.com&gt;
+
+To set the active account, run:
+    $ gcloud config set account `ACCOUNT`
+</pre></devsite-code>
+<aside class="special"><p><strong>Note:</strong> The <code translate="no" dir="ltr">gcloud</code> command-line tool is the powerful and unified command-line tool in Google Cloud. It comes preinstalled in Cloud Shell. You will notice its support for tab completion. For more information, see  <a href="https://cloud.google.com/sdk/gcloud/" target="_blank">gcloud command-line tool overview</a>.</p>
+</aside>
+<ol type="1" start="3">
+<li>Run the following command in Cloud Shell to confirm that the gcloud command knows about your project:</li>
+</ol>
+<div></div><devsite-code><pre translate="no" dir="ltr" is-upgraded>gcloud config list project
+</pre></devsite-code>
+<p><strong>Command output</strong></p>
+<div></div><devsite-code><pre translate="no" dir="ltr" is-upgraded>[core]
+project = &lt;PROJECT_ID&gt;
+</pre></devsite-code>
+<p>If it is not, you can set it with this command:</p>
+<div></div><devsite-code><pre translate="no" dir="ltr" is-upgraded>gcloud config set project &lt;PROJECT_ID&gt;
+</pre></devsite-code>
+<p><strong>Command output</strong></p>
+<div></div><devsite-code><pre translate="no" dir="ltr" is-upgraded>Updated property [core/project].
+</pre></devsite-code>
+<aside class="special"><p><strong>Note:</strong> If you&#39;re completing this tutorial outside of Cloud Shell, follow  <a href="https://cloud.google.com/docs/authentication/provide-credentials-adc" target="_blank">Set up Application Default Credentials</a>.</p>
+</aside>
+
+
+        </google-codelab-step>
+      
+        <google-codelab-step label="Environment setup" duration="1" step="2">
+          
+          <h2 class="step-title" id="2" data-text="Environment setup" tabindex="-1">
+              3. Environment setup
+          </h2>
+          
+          <p>Before you can begin using the Vision API, run the following command in Cloud Shell to enable the API:</p>
+<div></div><devsite-code><pre translate="no" dir="ltr" is-upgraded>gcloud services enable vision.googleapis.com
+</pre></devsite-code>
+<p>You should see something like this:</p>
+<div></div><devsite-code><pre translate="no" dir="ltr" is-upgraded>Operation &#34;operations/...&#34; finished successfully.
+</pre></devsite-code>
+<p>Now, you can use the Vision API!</p>
+<p>Navigate to your home directory:</p>
+<div></div><devsite-code><pre translate="no" dir="ltr" is-upgraded>cd ~
+</pre></devsite-code>
+<p>Create a Python virtual environment to isolate the dependencies:</p>
+<div></div><devsite-code><pre translate="no" dir="ltr" is-upgraded>virtualenv venv-vision
+</pre></devsite-code>
+<p>Activate the virtual environment:</p>
+<div></div><devsite-code><pre translate="no" dir="ltr" is-upgraded>source venv-vision/bin/activate
+</pre></devsite-code>
+<aside class="special"><p><strong>Note:</strong> To stop using the virtual environment and go back to your system Python version, you can use the <code translate="no" dir="ltr">deactivate</code> command.</p>
+</aside>
+<p>Install IPython and the Vision API client library:</p>
+<div></div><devsite-code><pre translate="no" dir="ltr" is-upgraded>pip install ipython google-cloud-vision
+</pre></devsite-code>
+<p>You should see something like this:</p>
+<div></div><devsite-code><pre translate="no" dir="ltr" is-upgraded>...
+Installing collected packages: ..., ipython, google-cloud-vision
+Successfully installed ... google-cloud-vision-3.4.0 ...
+</pre></devsite-code>
+<p>Now, you&#39;re ready to use the Vision API client library!</p>
+<aside class="special"><p><strong>Note:</strong> If you&#39;re setting up your own Python development environment outside of Cloud Shell, you can follow these  <a href="https://cloud.google.com/python/setup" target="_blank">guidelines</a>.</p>
+</aside>
+<p>In the next steps, you&#39;ll use an interactive Python interpreter called  <a href="https://ipython.org/" target="_blank">IPython</a>, which you installed in the previous step. Start a session by running <code translate="no" dir="ltr">ipython</code> in Cloud Shell:</p>
+<div></div><devsite-code><pre translate="no" dir="ltr" is-upgraded>ipython
+</pre></devsite-code>
+<p>You should see something like this:</p>
+<div></div><devsite-code><pre translate="no" dir="ltr" is-upgraded>Python 3.9.2 (default, Feb 28 2021, 17:03:44)
+Type &#39;copyright&#39;, &#39;credits&#39; or &#39;license&#39; for more information
+IPython 8.12.0 -- An enhanced Interactive Python. Type &#39;?&#39; for help.
+
+In [1]:
+</pre></devsite-code>
+<aside class="special"><p><strong>Note:</strong> If needed, you can quit your IPython session with the <code translate="no" dir="ltr">exit</code> command.</p>
+</aside>
+<p>You&#39;re ready to make your first request...</p>
+
+
+        </google-codelab-step>
+      
+        <google-codelab-step label="Perform label detection" duration="1" step="3">
+          
+          <h2 class="step-title" id="3" data-text="Perform label detection" tabindex="-1">
+              4. Perform label detection
+          </h2>
+          
+          <p>One of the Vision API core features is to identify objects or entities in an image, known as label annotation. Label detection identifies general objects, locations, activities, animal species, products, and more. The Vision API takes an input image and returns the most likely labels which apply to that image. It returns the top-matching labels along with a confidence score of a match to the image.</p>
+<p>In this example, you will perform label detection on an image (courtesy of  <a href="https://unsplash.com/photos/wfwUpfVqrKU" target="_blank">Alex Knight</a>) of Setagaya, a popular district in Tokyo:</p>
+<p class="image-container"><img alt="756f97f0b1e46c38.jpeg" style="width: 624.00px" src="/static/codelabs/cloud-vision-api-python/img/756f97f0b1e46c38.jpeg" srcset="https://codelabs.developers.google.com/static/codelabs/cloud-vision-api-python/img/756f97f0b1e46c38_36.jpeg 36w,https://codelabs.developers.google.com/static/codelabs/cloud-vision-api-python/img/756f97f0b1e46c38_48.jpeg 48w,https://codelabs.developers.google.com/static/codelabs/cloud-vision-api-python/img/756f97f0b1e46c38_72.jpeg 72w,https://codelabs.developers.google.com/static/codelabs/cloud-vision-api-python/img/756f97f0b1e46c38_96.jpeg 96w,https://codelabs.developers.google.com/static/codelabs/cloud-vision-api-python/img/756f97f0b1e46c38_480.jpeg 480w,https://codelabs.developers.google.com/static/codelabs/cloud-vision-api-python/img/756f97f0b1e46c38_720.jpeg 720w,https://codelabs.developers.google.com/static/codelabs/cloud-vision-api-python/img/756f97f0b1e46c38_856.jpeg 856w,https://codelabs.developers.google.com/static/codelabs/cloud-vision-api-python/img/756f97f0b1e46c38_960.jpeg 960w,https://codelabs.developers.google.com/static/codelabs/cloud-vision-api-python/img/756f97f0b1e46c38_1440.jpeg 1440w,https://codelabs.developers.google.com/static/codelabs/cloud-vision-api-python/img/756f97f0b1e46c38_1920.jpeg 1920w,https://codelabs.developers.google.com/static/codelabs/cloud-vision-api-python/img/756f97f0b1e46c38_2880.jpeg 2880w" sizes="(max-width: 840px) 100vw, 856px"></p>
+<p>Copy the following code into your IPython session:</p>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Python"><code translate="no" dir="ltr"><span class="devsite-syntax-kn">from</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">typing</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kn">import</span> <span class="devsite-syntax-n">Sequence</span>
+
+<span class="devsite-syntax-kn">from</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nn">google.cloud</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-kn">import</span> <span class="devsite-syntax-n">vision</span>
+
+
+<span class="devsite-syntax-k">def</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">analyze_image_from_uri</span><span class="devsite-syntax-p">(</span>
+    <span class="devsite-syntax-n">image_uri</span><span class="devsite-syntax-p">:</span> <span class="devsite-syntax-nb">str</span><span class="devsite-syntax-p">,</span>
+    <span class="devsite-syntax-n">feature_types</span><span class="devsite-syntax-p">:</span> <span class="devsite-syntax-n">Sequence</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-p">)</span> <span class="devsite-syntax-o">-</span>&gt; <span class="devsite-syntax-n">vision</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">AnnotateImageResponse</span><span class="devsite-syntax-p">:</span>
+    <span class="devsite-syntax-n">client</span> <span class="devsite-syntax-o">=</span> <span class="devsite-syntax-n">vision</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">ImageAnnotatorClient</span><span class="devsite-syntax-p">()</span>
+
+    <span class="devsite-syntax-n">image</span> <span class="devsite-syntax-o">=</span> <span class="devsite-syntax-n">vision</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">Image</span><span class="devsite-syntax-p">()</span>
+    <span class="devsite-syntax-n">image</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">source</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">image_uri</span> <span class="devsite-syntax-o">=</span> <span class="devsite-syntax-n">image_uri</span>
+    <span class="devsite-syntax-n">features</span> <span class="devsite-syntax-o">=</span> <span class="devsite-syntax-p">[</span><span class="devsite-syntax-n">vision</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">Feature</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">type_</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-n">feature_type</span><span class="devsite-syntax-p">)</span> <span class="devsite-syntax-k">for</span> <span class="devsite-syntax-n">feature_type</span> <span class="devsite-syntax-ow">in</span> <span class="devsite-syntax-n">feature_types</span><span class="devsite-syntax-p">]</span>
+    <span class="devsite-syntax-n">request</span> <span class="devsite-syntax-o">=</span> <span class="devsite-syntax-n">vision</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">AnnotateImageRequest</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">image</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-n">image</span><span class="devsite-syntax-p">,</span> <span class="devsite-syntax-n">features</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-n">features</span><span class="devsite-syntax-p">)</span>
+
+    <span class="devsite-syntax-n">response</span> <span class="devsite-syntax-o">=</span> <span class="devsite-syntax-n">client</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">annotate_image</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">request</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-n">request</span><span class="devsite-syntax-p">)</span>
+
+    <span class="devsite-syntax-k">return</span> <span class="devsite-syntax-n">response</span>
+
+
+<span class="devsite-syntax-k">def</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">print_labels</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">response</span><span class="devsite-syntax-p">:</span> <span class="devsite-syntax-n">vision</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">AnnotateImageResponse</span><span class="devsite-syntax-p">):</span>
+    <span class="devsite-syntax-nb">print</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s2">"="</span> <span class="devsite-syntax-o">*</span> <span class="devsite-syntax-mi">80</span><span class="devsite-syntax-p">)</span>
+    <span class="devsite-syntax-k">for</span> <span class="devsite-syntax-n">label</span> <span class="devsite-syntax-ow">in</span> <span class="devsite-syntax-n">response</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">label_annotations</span><span class="devsite-syntax-p">:</span>
+        <span class="devsite-syntax-nb">print</span><span class="devsite-syntax-p">(</span>
+            <span class="devsite-syntax-sa">f</span><span class="devsite-syntax-s2">"</span><span class="devsite-syntax-si">{</span><span class="devsite-syntax-n">label</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">score</span><span class="devsite-syntax-si">:</span><span class="devsite-syntax-s2">4.0%</span><span class="devsite-syntax-si">}</span><span class="devsite-syntax-s2">"</span><span class="devsite-syntax-p">,</span>
+            <span class="devsite-syntax-sa">f</span><span class="devsite-syntax-s2">"</span><span class="devsite-syntax-si">{</span><span class="devsite-syntax-n">label</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">description</span><span class="devsite-syntax-si">:</span><span class="devsite-syntax-s2">5</span><span class="devsite-syntax-si">}</span><span class="devsite-syntax-s2">"</span><span class="devsite-syntax-p">,</span>
+            <span class="devsite-syntax-n">sep</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-s2">" | "</span><span class="devsite-syntax-p">,</span>
+        <span class="devsite-syntax-p">)</span>
+        
+</code></pre></devsite-code>
+<p>Take a moment to study the code and see how it uses the <code translate="no" dir="ltr">annotate_image</code> client library method to analyze an image for a set of given features.</p>
+<p>Send a request with the <code translate="no" dir="ltr">LABEL_DETECTION</code> feature:</p>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Python"><code translate="no" dir="ltr"><span class="devsite-syntax-n">image_uri</span> <span class="devsite-syntax-o">=</span> <span class="devsite-syntax-s2">"gs://cloud-samples-data/vision/label/setagaya.jpeg"</span>
+<span class="devsite-syntax-n">features</span> <span class="devsite-syntax-o">=</span> <span class="devsite-syntax-p">[</span><span class="devsite-syntax-n">vision</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">Feature</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">Type</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">LABEL_DETECTION</span><span class="devsite-syntax-p">]</span>
+
+<span class="devsite-syntax-n">response</span> <span class="devsite-syntax-o">=</span> <span class="devsite-syntax-n">analyze_image_from_uri</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">image_uri</span><span class="devsite-syntax-p">,</span> <span class="devsite-syntax-n">features</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-n">print_labels</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">response</span><span class="devsite-syntax-p">)</span>
+</code></pre></devsite-code>
+<p>You should get the following output:</p>
+<div></div><devsite-code><pre translate="no" dir="ltr" is-upgraded>================================================================================
+ 97% | Bicycle
+ 96% | Tire
+ 94% | Wheel
+ 91% | Automotive lighting
+ 89% | Infrastructure
+ 87% | Bicycle wheel
+ 86% | Mode of transport
+ 85% | Building
+ 83% | Electricity
+ 82% | Neighbourhood
+</pre></devsite-code>
+<aside class="warning"><p>If you get a <code translate="no" dir="ltr">PermissionDenied</code> error, type <code translate="no" dir="ltr">exit</code> to quit IPython, and return to the <strong>Setup and requirements</strong> step.</p>
+</aside>
+<p>Here is how the results are presented by the online demo:</p>
+<p class="image-container"><img alt="2191b0425c9c148f.png" style="width: 624.00px" src="/static/codelabs/cloud-vision-api-python/img/2191b0425c9c148f.png" srcset="https://codelabs.developers.google.com/static/codelabs/cloud-vision-api-python/img/2191b0425c9c148f_36.png 36w,https://codelabs.developers.google.com/static/codelabs/cloud-vision-api-python/img/2191b0425c9c148f_48.png 48w,https://codelabs.developers.google.com/static/codelabs/cloud-vision-api-python/img/2191b0425c9c148f_72.png 72w,https://codelabs.developers.google.com/static/codelabs/cloud-vision-api-python/img/2191b0425c9c148f_96.png 96w,https://codelabs.developers.google.com/static/codelabs/cloud-vision-api-python/img/2191b0425c9c148f_480.png 480w,https://codelabs.developers.google.com/static/codelabs/cloud-vision-api-python/img/2191b0425c9c148f_720.png 720w,https://codelabs.developers.google.com/static/codelabs/cloud-vision-api-python/img/2191b0425c9c148f_856.png 856w,https://codelabs.developers.google.com/static/codelabs/cloud-vision-api-python/img/2191b0425c9c148f_960.png 960w,https://codelabs.developers.google.com/static/codelabs/cloud-vision-api-python/img/2191b0425c9c148f_1440.png 1440w,https://codelabs.developers.google.com/static/codelabs/cloud-vision-api-python/img/2191b0425c9c148f_1920.png 1920w,https://codelabs.developers.google.com/static/codelabs/cloud-vision-api-python/img/2191b0425c9c148f_2880.png 2880w" sizes="(max-width: 840px) 100vw, 856px"></p>
+<h2 is-upgraded id="summary" data-text="Summary" tabindex="-1"><strong>Summary</strong></h2>
+<p>In this step, you were able to perform label detection on an image and display the most likely labels associated with that image. Read more about  <a href="https://cloud.google.com/vision/docs/labels" target="_blank">label detection</a>.</p>
+
+
+        </google-codelab-step>
+      
+        <google-codelab-step label="Perform text detection" duration="1" step="4">
+          
+          <h2 class="step-title" id="4" data-text="Perform text detection" tabindex="-1">
+              5. Perform text detection
+          </h2>
+          
+          <p>Text detection performs Optical Character Recognition (OCR). It detects and extracts text within an image with support for a broad range of languages. It also features automatic language identification.</p>
+<p>In this example, you will perform text detection on a traffic sign image:</p>
+<p class="image-container"><img alt="4dedd3fcfd9ad99b.jpeg" style="width: 624.00px" src="/static/codelabs/cloud-vision-api-python/img/4dedd3fcfd9ad99b.jpeg" srcset="https://codelabs.developers.google.com/static/codelabs/cloud-vision-api-python/img/4dedd3fcfd9ad99b_36.jpeg 36w,https://codelabs.developers.google.com/static/codelabs/cloud-vision-api-python/img/4dedd3fcfd9ad99b_48.jpeg 48w,https://codelabs.developers.google.com/static/codelabs/cloud-vision-api-python/img/4dedd3fcfd9ad99b_72.jpeg 72w,https://codelabs.developers.google.com/static/codelabs/cloud-vision-api-python/img/4dedd3fcfd9ad99b_96.jpeg 96w,https://codelabs.developers.google.com/static/codelabs/cloud-vision-api-python/img/4dedd3fcfd9ad99b_480.jpeg 480w,https://codelabs.developers.google.com/static/codelabs/cloud-vision-api-python/img/4dedd3fcfd9ad99b_720.jpeg 720w,https://codelabs.developers.google.com/static/codelabs/cloud-vision-api-python/img/4dedd3fcfd9ad99b_856.jpeg 856w,https://codelabs.developers.google.com/static/codelabs/cloud-vision-api-python/img/4dedd3fcfd9ad99b_960.jpeg 960w,https://codelabs.developers.google.com/static/codelabs/cloud-vision-api-python/img/4dedd3fcfd9ad99b_1440.jpeg 1440w,https://codelabs.developers.google.com/static/codelabs/cloud-vision-api-python/img/4dedd3fcfd9ad99b_1920.jpeg 1920w,https://codelabs.developers.google.com/static/codelabs/cloud-vision-api-python/img/4dedd3fcfd9ad99b_2880.jpeg 2880w" sizes="(max-width: 840px) 100vw, 856px"></p>
+<p>Copy the following code into your IPython session:</p>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Python"><code translate="no" dir="ltr"><span class="devsite-syntax-k">def</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">print_text</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">response</span><span class="devsite-syntax-p">:</span> <span class="devsite-syntax-n">vision</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">AnnotateImageResponse</span><span class="devsite-syntax-p">):</span>
+    <span class="devsite-syntax-nb">print</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s2">"="</span> <span class="devsite-syntax-o">*</span> <span class="devsite-syntax-mi">80</span><span class="devsite-syntax-p">)</span>
+    <span class="devsite-syntax-k">for</span> <span class="devsite-syntax-n">annotation</span> <span class="devsite-syntax-ow">in</span> <span class="devsite-syntax-n">response</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">text_annotations</span><span class="devsite-syntax-p">:</span>
+        <span class="devsite-syntax-n">vertices</span> <span class="devsite-syntax-o">=</span> <span class="devsite-syntax-p">[</span><span class="devsite-syntax-sa">f</span><span class="devsite-syntax-s2">"(</span><span class="devsite-syntax-si">{</span><span class="devsite-syntax-n">v</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">x</span><span class="devsite-syntax-si">}</span><span class="devsite-syntax-s2">,</span><span class="devsite-syntax-si">{</span><span class="devsite-syntax-n">v</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">y</span><span class="devsite-syntax-si">}</span><span class="devsite-syntax-s2">)"</span> <span class="devsite-syntax-k">for</span> <span class="devsite-syntax-n">v</span> <span class="devsite-syntax-ow">in</span> <span class="devsite-syntax-n">annotation</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">bounding_poly</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">vertices</span><span class="devsite-syntax-p">]</span>
+        <span class="devsite-syntax-nb">print</span><span class="devsite-syntax-p">(</span>
+            <span class="devsite-syntax-sa">f</span><span class="devsite-syntax-s2">"</span><span class="devsite-syntax-si">{</span><span class="devsite-syntax-nb">repr</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">annotation</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">description</span><span class="devsite-syntax-p">)</span><span class="devsite-syntax-si">:</span><span class="devsite-syntax-s2">42</span><span class="devsite-syntax-si">}</span><span class="devsite-syntax-s2">"</span><span class="devsite-syntax-p">,</span>
+            <span class="devsite-syntax-s2">","</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">join</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">vertices</span><span class="devsite-syntax-p">),</span>
+            <span class="devsite-syntax-n">sep</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-s2">" | "</span><span class="devsite-syntax-p">,</span>
+        <span class="devsite-syntax-p">)</span>
+        
+</code></pre></devsite-code>
+<p>Send a request with the <code translate="no" dir="ltr">TEXT_DETECTION</code> feature:</p>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Python"><code translate="no" dir="ltr"><span class="devsite-syntax-n">image_uri</span> <span class="devsite-syntax-o">=</span> <span class="devsite-syntax-s2">"gs://cloud-samples-data/vision/ocr/sign.jpg"</span>
+<span class="devsite-syntax-n">features</span> <span class="devsite-syntax-o">=</span> <span class="devsite-syntax-p">[</span><span class="devsite-syntax-n">vision</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">Feature</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">Type</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">TEXT_DETECTION</span><span class="devsite-syntax-p">]</span>
+
+<span class="devsite-syntax-n">response</span> <span class="devsite-syntax-o">=</span> <span class="devsite-syntax-n">analyze_image_from_uri</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">image_uri</span><span class="devsite-syntax-p">,</span> <span class="devsite-syntax-n">features</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-n">print_text</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">response</span><span class="devsite-syntax-p">)</span>
+</code></pre></devsite-code>
+<p>You should get the following output:</p>
+<div></div><devsite-code><pre translate="no" dir="ltr" is-upgraded>================================================================================
+&#39;WAITING?\nPLEASE\nTURN OFF\nYOUR\nENGINE&#39; | (310,821),(2225,821),(2225,1965),(310,1965)
+&#39;WAITING&#39;                                  | (344,821),(2025,879),(2016,1127),(335,1069)
+&#39;?&#39;                                        | (2057,881),(2225,887),(2216,1134),(2048,1128)
+&#39;PLEASE&#39;                                   | (1208,1230),(1895,1253),(1891,1374),(1204,1351)
+&#39;TURN&#39;                                     | (1217,1414),(1718,1434),(1713,1558),(1212,1538)
+&#39;OFF&#39;                                      | (1787,1437),(2133,1451),(2128,1575),(1782,1561)
+&#39;YOUR&#39;                                     | (1211,1609),(1741,1626),(1737,1747),(1207,1731)
+&#39;ENGINE&#39;                                   | (1213,1805),(1923,1819),(1920,1949),(1210,1935)
+</pre></devsite-code>
+<p>Here is how the results are presented by the online demo:</p>
+<p class="image-container"><img alt="9c70fbce871c5fe5.png" style="width: 624.00px" src="/static/codelabs/cloud-vision-api-python/img/9c70fbce871c5fe5.png" srcset="https://codelabs.developers.google.com/static/codelabs/cloud-vision-api-python/img/9c70fbce871c5fe5_36.png 36w,https://codelabs.developers.google.com/static/codelabs/cloud-vision-api-python/img/9c70fbce871c5fe5_48.png 48w,https://codelabs.developers.google.com/static/codelabs/cloud-vision-api-python/img/9c70fbce871c5fe5_72.png 72w,https://codelabs.developers.google.com/static/codelabs/cloud-vision-api-python/img/9c70fbce871c5fe5_96.png 96w,https://codelabs.developers.google.com/static/codelabs/cloud-vision-api-python/img/9c70fbce871c5fe5_480.png 480w,https://codelabs.developers.google.com/static/codelabs/cloud-vision-api-python/img/9c70fbce871c5fe5_720.png 720w,https://codelabs.developers.google.com/static/codelabs/cloud-vision-api-python/img/9c70fbce871c5fe5_856.png 856w,https://codelabs.developers.google.com/static/codelabs/cloud-vision-api-python/img/9c70fbce871c5fe5_960.png 960w,https://codelabs.developers.google.com/static/codelabs/cloud-vision-api-python/img/9c70fbce871c5fe5_1440.png 1440w,https://codelabs.developers.google.com/static/codelabs/cloud-vision-api-python/img/9c70fbce871c5fe5_1920.png 1920w,https://codelabs.developers.google.com/static/codelabs/cloud-vision-api-python/img/9c70fbce871c5fe5_2880.png 2880w" sizes="(max-width: 840px) 100vw, 856px"></p>
+<h2 is-upgraded id="summary_1" data-text="Summary" tabindex="-1"><strong>Summary</strong></h2>
+<p>In this step, you were able to perform text detection on an image and display the recognized text from the image. Read more about  <a href="https://cloud.google.com/vision/docs/ocr" target="_blank">text detection</a>.</p>
+
+
+        </google-codelab-step>
+      
+        <google-codelab-step label="Perform landmark detection" duration="1" step="5">
+          
+          <h2 class="step-title" id="5" data-text="Perform landmark detection" tabindex="-1">
+              6. Perform landmark detection
+          </h2>
+          
+          <p>Landmark detection detects popular natural and man-made structures within an image.</p>
+<p>In this example, you will perform landmark detection on an image (courtesy of  <a href="https://unsplash.com/photos/PM4VZZn-YyM" target="_blank">John Towner</a>) of the Eiffel Tower:</p>
+<p class="image-container"><img alt="fb7801e36884b875.jpeg" style="width: 624.00px" src="/static/codelabs/cloud-vision-api-python/img/fb7801e36884b875.jpeg" srcset="https://codelabs.developers.google.com/static/codelabs/cloud-vision-api-python/img/fb7801e36884b875_36.jpeg 36w,https://codelabs.developers.google.com/static/codelabs/cloud-vision-api-python/img/fb7801e36884b875_48.jpeg 48w,https://codelabs.developers.google.com/static/codelabs/cloud-vision-api-python/img/fb7801e36884b875_72.jpeg 72w,https://codelabs.developers.google.com/static/codelabs/cloud-vision-api-python/img/fb7801e36884b875_96.jpeg 96w,https://codelabs.developers.google.com/static/codelabs/cloud-vision-api-python/img/fb7801e36884b875_480.jpeg 480w,https://codelabs.developers.google.com/static/codelabs/cloud-vision-api-python/img/fb7801e36884b875_720.jpeg 720w,https://codelabs.developers.google.com/static/codelabs/cloud-vision-api-python/img/fb7801e36884b875_856.jpeg 856w,https://codelabs.developers.google.com/static/codelabs/cloud-vision-api-python/img/fb7801e36884b875_960.jpeg 960w,https://codelabs.developers.google.com/static/codelabs/cloud-vision-api-python/img/fb7801e36884b875_1440.jpeg 1440w,https://codelabs.developers.google.com/static/codelabs/cloud-vision-api-python/img/fb7801e36884b875_1920.jpeg 1920w,https://codelabs.developers.google.com/static/codelabs/cloud-vision-api-python/img/fb7801e36884b875_2880.jpeg 2880w" sizes="(max-width: 840px) 100vw, 856px"></p>
+<p>Copy the following code into your IPython session:</p>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Python"><code translate="no" dir="ltr"><span class="devsite-syntax-k">def</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">print_landmarks</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">response</span><span class="devsite-syntax-p">:</span> <span class="devsite-syntax-n">vision</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">AnnotateImageResponse</span><span class="devsite-syntax-p">,</span> <span class="devsite-syntax-n">min_score</span><span class="devsite-syntax-p">:</span> <span class="devsite-syntax-nb">float</span> <span class="devsite-syntax-o">=</span> <span class="devsite-syntax-mf">0.5</span><span class="devsite-syntax-p">):</span>
+    <span class="devsite-syntax-nb">print</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s2">"="</span> <span class="devsite-syntax-o">*</span> <span class="devsite-syntax-mi">80</span><span class="devsite-syntax-p">)</span>
+    <span class="devsite-syntax-k">for</span> <span class="devsite-syntax-n">landmark</span> <span class="devsite-syntax-ow">in</span> <span class="devsite-syntax-n">response</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">landmark_annotations</span><span class="devsite-syntax-p">:</span>
+        <span class="devsite-syntax-k">if</span> <span class="devsite-syntax-n">landmark</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">score</span> &lt; <span class="devsite-syntax-n">min_score</span><span class="devsite-syntax-p">:</span>
+            <span class="devsite-syntax-k">continue</span>
+        <span class="devsite-syntax-n">vertices</span> <span class="devsite-syntax-o">=</span> <span class="devsite-syntax-p">[</span><span class="devsite-syntax-sa">f</span><span class="devsite-syntax-s2">"(</span><span class="devsite-syntax-si">{</span><span class="devsite-syntax-n">v</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">x</span><span class="devsite-syntax-si">}</span><span class="devsite-syntax-s2">,</span><span class="devsite-syntax-si">{</span><span class="devsite-syntax-n">v</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">y</span><span class="devsite-syntax-si">}</span><span class="devsite-syntax-s2">)"</span> <span class="devsite-syntax-k">for</span> <span class="devsite-syntax-n">v</span> <span class="devsite-syntax-ow">in</span> <span class="devsite-syntax-n">landmark</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">bounding_poly</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">vertices</span><span class="devsite-syntax-p">]</span>
+        <span class="devsite-syntax-n">lat_lng</span> <span class="devsite-syntax-o">=</span> <span class="devsite-syntax-n">landmark</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">locations</span><span class="devsite-syntax-p">[</span><span class="devsite-syntax-mi">0</span><span class="devsite-syntax-p">]</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">lat_lng</span>
+        <span class="devsite-syntax-nb">print</span><span class="devsite-syntax-p">(</span>
+            <span class="devsite-syntax-sa">f</span><span class="devsite-syntax-s2">"</span><span class="devsite-syntax-si">{</span><span class="devsite-syntax-n">landmark</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">description</span><span class="devsite-syntax-si">:</span><span class="devsite-syntax-s2">18</span><span class="devsite-syntax-si">}</span><span class="devsite-syntax-s2">"</span><span class="devsite-syntax-p">,</span>
+            <span class="devsite-syntax-s2">","</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">join</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">vertices</span><span class="devsite-syntax-p">),</span>
+            <span class="devsite-syntax-sa">f</span><span class="devsite-syntax-s2">"</span><span class="devsite-syntax-si">{</span><span class="devsite-syntax-n">lat_lng</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">latitude</span><span class="devsite-syntax-si">:</span><span class="devsite-syntax-s2">.5f</span><span class="devsite-syntax-si">}</span><span class="devsite-syntax-s2">"</span><span class="devsite-syntax-p">,</span>
+            <span class="devsite-syntax-sa">f</span><span class="devsite-syntax-s2">"</span><span class="devsite-syntax-si">{</span><span class="devsite-syntax-n">lat_lng</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">longitude</span><span class="devsite-syntax-si">:</span><span class="devsite-syntax-s2">.5f</span><span class="devsite-syntax-si">}</span><span class="devsite-syntax-s2">"</span><span class="devsite-syntax-p">,</span>
+            <span class="devsite-syntax-n">sep</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-s2">" | "</span><span class="devsite-syntax-p">,</span>
+        <span class="devsite-syntax-p">)</span>
+        
+</code></pre></devsite-code>
+<p>Send a request with the <code translate="no" dir="ltr">LANDMARK_DETECTION</code> feature:</p>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Python"><code translate="no" dir="ltr"><span class="devsite-syntax-n">image_uri</span> <span class="devsite-syntax-o">=</span> <span class="devsite-syntax-s2">"gs://cloud-samples-data/vision/landmark/eiffel_tower.jpg"</span>
+<span class="devsite-syntax-n">features</span> <span class="devsite-syntax-o">=</span> <span class="devsite-syntax-p">[</span><span class="devsite-syntax-n">vision</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">Feature</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">Type</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">LANDMARK_DETECTION</span><span class="devsite-syntax-p">]</span>
+
+<span class="devsite-syntax-n">response</span> <span class="devsite-syntax-o">=</span> <span class="devsite-syntax-n">analyze_image_from_uri</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">image_uri</span><span class="devsite-syntax-p">,</span> <span class="devsite-syntax-n">features</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-n">print_landmarks</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">response</span><span class="devsite-syntax-p">)</span>
+</code></pre></devsite-code>
+<p>You should get the following output:</p>
+<div></div><devsite-code><pre translate="no" dir="ltr" is-upgraded>================================================================================
+Trocadéro Gardens  | (303,36),(520,36),(520,371),(303,371) | 48.86160 | 2.28928
+Eiffel Tower       | (458,76),(512,76),(512,263),(458,263) | 48.85846 | 2.29435
+</pre></devsite-code>
+<p>Here is how the results are presented by the online demo:</p>
+<p class="image-container"><img alt="2788697365670985.png" style="width: 624.00px" src="/static/codelabs/cloud-vision-api-python/img/2788697365670985.png" srcset="https://codelabs.developers.google.com/static/codelabs/cloud-vision-api-python/img/2788697365670985_36.png 36w,https://codelabs.developers.google.com/static/codelabs/cloud-vision-api-python/img/2788697365670985_48.png 48w,https://codelabs.developers.google.com/static/codelabs/cloud-vision-api-python/img/2788697365670985_72.png 72w,https://codelabs.developers.google.com/static/codelabs/cloud-vision-api-python/img/2788697365670985_96.png 96w,https://codelabs.developers.google.com/static/codelabs/cloud-vision-api-python/img/2788697365670985_480.png 480w,https://codelabs.developers.google.com/static/codelabs/cloud-vision-api-python/img/2788697365670985_720.png 720w,https://codelabs.developers.google.com/static/codelabs/cloud-vision-api-python/img/2788697365670985_856.png 856w,https://codelabs.developers.google.com/static/codelabs/cloud-vision-api-python/img/2788697365670985_960.png 960w,https://codelabs.developers.google.com/static/codelabs/cloud-vision-api-python/img/2788697365670985_1440.png 1440w,https://codelabs.developers.google.com/static/codelabs/cloud-vision-api-python/img/2788697365670985_1920.png 1920w,https://codelabs.developers.google.com/static/codelabs/cloud-vision-api-python/img/2788697365670985_2880.png 2880w" sizes="(max-width: 840px) 100vw, 856px"></p>
+<h2 is-upgraded id="summary_2" data-text="Summary" tabindex="-1"><strong>Summary</strong></h2>
+<p>In this step, you were able to perform landmark detection on an image of the Eiffel Tower. Read more about  <a href="https://cloud.google.com/vision/docs/detecting-landmarks" target="_blank">landmark detection</a>.</p>
+
+
+        </google-codelab-step>
+      
+        <google-codelab-step label="Perform face detection" duration="1" step="6">
+          
+          <h2 class="step-title" id="6" data-text="Perform face detection" tabindex="-1">
+              7. Perform face detection
+          </h2>
+          
+          <p>Facial features detection detects multiple faces within an image along with the associated key facial attributes such as emotional state or wearing headwear.</p>
+<p>In this example, you will detect faces in the following picture (courtesy of  <a href="https://unsplash.com/photos/iSi02D_Qx_w" target="_blank">Himanshu Singh Gurjar</a>):</p>
+<p class="image-container"><img alt="58c578ece524cf32.jpeg" style="width: 624.00px" src="/static/codelabs/cloud-vision-api-python/img/58c578ece524cf32.jpeg" srcset="https://codelabs.developers.google.com/static/codelabs/cloud-vision-api-python/img/58c578ece524cf32_36.jpeg 36w,https://codelabs.developers.google.com/static/codelabs/cloud-vision-api-python/img/58c578ece524cf32_48.jpeg 48w,https://codelabs.developers.google.com/static/codelabs/cloud-vision-api-python/img/58c578ece524cf32_72.jpeg 72w,https://codelabs.developers.google.com/static/codelabs/cloud-vision-api-python/img/58c578ece524cf32_96.jpeg 96w,https://codelabs.developers.google.com/static/codelabs/cloud-vision-api-python/img/58c578ece524cf32_480.jpeg 480w,https://codelabs.developers.google.com/static/codelabs/cloud-vision-api-python/img/58c578ece524cf32_720.jpeg 720w,https://codelabs.developers.google.com/static/codelabs/cloud-vision-api-python/img/58c578ece524cf32_856.jpeg 856w,https://codelabs.developers.google.com/static/codelabs/cloud-vision-api-python/img/58c578ece524cf32_960.jpeg 960w,https://codelabs.developers.google.com/static/codelabs/cloud-vision-api-python/img/58c578ece524cf32_1440.jpeg 1440w,https://codelabs.developers.google.com/static/codelabs/cloud-vision-api-python/img/58c578ece524cf32_1920.jpeg 1920w,https://codelabs.developers.google.com/static/codelabs/cloud-vision-api-python/img/58c578ece524cf32_2880.jpeg 2880w" sizes="(max-width: 840px) 100vw, 856px"></p>
+<p>Copy the following code into your IPython session:</p>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Python"><code translate="no" dir="ltr"><span class="devsite-syntax-k">def</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">print_faces</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">response</span><span class="devsite-syntax-p">:</span> <span class="devsite-syntax-n">vision</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">AnnotateImageResponse</span><span class="devsite-syntax-p">):</span>
+    <span class="devsite-syntax-nb">print</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s2">"="</span> <span class="devsite-syntax-o">*</span> <span class="devsite-syntax-mi">80</span><span class="devsite-syntax-p">)</span>
+    <span class="devsite-syntax-k">for</span> <span class="devsite-syntax-n">face_number</span><span class="devsite-syntax-p">,</span> <span class="devsite-syntax-n">face</span> <span class="devsite-syntax-ow">in</span> <span class="devsite-syntax-nb">enumerate</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">response</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">face_annotations</span><span class="devsite-syntax-p">,</span> <span class="devsite-syntax-mi">1</span><span class="devsite-syntax-p">):</span>
+        <span class="devsite-syntax-n">vertices</span> <span class="devsite-syntax-o">=</span> <span class="devsite-syntax-s2">","</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">join</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-sa">f</span><span class="devsite-syntax-s2">"(</span><span class="devsite-syntax-si">{</span><span class="devsite-syntax-n">v</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">x</span><span class="devsite-syntax-si">}</span><span class="devsite-syntax-s2">,</span><span class="devsite-syntax-si">{</span><span class="devsite-syntax-n">v</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">y</span><span class="devsite-syntax-si">}</span><span class="devsite-syntax-s2">)"</span> <span class="devsite-syntax-k">for</span> <span class="devsite-syntax-n">v</span> <span class="devsite-syntax-ow">in</span> <span class="devsite-syntax-n">face</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">bounding_poly</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">vertices</span><span class="devsite-syntax-p">)</span>
+        <span class="devsite-syntax-nb">print</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-sa">f</span><span class="devsite-syntax-s2">"# Face </span><span class="devsite-syntax-si">{</span><span class="devsite-syntax-n">face_number</span><span class="devsite-syntax-si">}</span><span class="devsite-syntax-s2"> @ </span><span class="devsite-syntax-si">{</span><span class="devsite-syntax-n">vertices</span><span class="devsite-syntax-si">}</span><span class="devsite-syntax-s2">"</span><span class="devsite-syntax-p">)</span>
+        <span class="devsite-syntax-nb">print</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-sa">f</span><span class="devsite-syntax-s2">"Joy:     </span><span class="devsite-syntax-si">{</span><span class="devsite-syntax-n">face</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">joy_likelihood</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">name</span><span class="devsite-syntax-si">}</span><span class="devsite-syntax-s2">"</span><span class="devsite-syntax-p">)</span>
+        <span class="devsite-syntax-nb">print</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-sa">f</span><span class="devsite-syntax-s2">"Exposed: </span><span class="devsite-syntax-si">{</span><span class="devsite-syntax-n">face</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">under_exposed_likelihood</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">name</span><span class="devsite-syntax-si">}</span><span class="devsite-syntax-s2">"</span><span class="devsite-syntax-p">)</span>
+        <span class="devsite-syntax-nb">print</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-sa">f</span><span class="devsite-syntax-s2">"Blurred: </span><span class="devsite-syntax-si">{</span><span class="devsite-syntax-n">face</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">blurred_likelihood</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">name</span><span class="devsite-syntax-si">}</span><span class="devsite-syntax-s2">"</span><span class="devsite-syntax-p">)</span>
+        <span class="devsite-syntax-nb">print</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s2">"-"</span> <span class="devsite-syntax-o">*</span> <span class="devsite-syntax-mi">80</span><span class="devsite-syntax-p">)</span>
+        
+</code></pre></devsite-code>
+<p>Send a request with the <code translate="no" dir="ltr">FACE_DETECTION</code> feature:</p>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Python"><code translate="no" dir="ltr"><span class="devsite-syntax-n">image_uri</span> <span class="devsite-syntax-o">=</span> <span class="devsite-syntax-s2">"gs://cloud-samples-data/vision/face/faces.jpeg"</span>
+<span class="devsite-syntax-n">features</span> <span class="devsite-syntax-o">=</span> <span class="devsite-syntax-p">[</span><span class="devsite-syntax-n">vision</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">Feature</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">Type</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">FACE_DETECTION</span><span class="devsite-syntax-p">]</span>
+
+<span class="devsite-syntax-n">response</span> <span class="devsite-syntax-o">=</span> <span class="devsite-syntax-n">analyze_image_from_uri</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">image_uri</span><span class="devsite-syntax-p">,</span> <span class="devsite-syntax-n">features</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-n">print_faces</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">response</span><span class="devsite-syntax-p">)</span>
+</code></pre></devsite-code>
+<p>You should get the following output:</p>
+<div></div><devsite-code><pre translate="no" dir="ltr" is-upgraded>================================================================================
+# Face 1 @ (1077,157),(2146,157),(2146,1399),(1077,1399)
+Joy:     VERY_LIKELY
+Exposed: VERY_UNLIKELY
+Blurred: VERY_UNLIKELY
+--------------------------------------------------------------------------------
+# Face 2 @ (144,1273),(793,1273),(793,1844),(144,1844)
+Joy:     VERY_UNLIKELY
+Exposed: VERY_UNLIKELY
+Blurred: UNLIKELY
+--------------------------------------------------------------------------------
+# Face 3 @ (785,167),(1100,167),(1100,534),(785,534)
+Joy:     VERY_UNLIKELY
+Exposed: LIKELY
+Blurred: VERY_LIKELY
+--------------------------------------------------------------------------------
+</pre></devsite-code>
+<p>Here is how the results are presented by the online demo:</p>
+<p class="image-container"><img alt="cbb7f59299651b83.png" style="width: 624.00px" src="/static/codelabs/cloud-vision-api-python/img/cbb7f59299651b83.png" srcset="https://codelabs.developers.google.com/static/codelabs/cloud-vision-api-python/img/cbb7f59299651b83_36.png 36w,https://codelabs.developers.google.com/static/codelabs/cloud-vision-api-python/img/cbb7f59299651b83_48.png 48w,https://codelabs.developers.google.com/static/codelabs/cloud-vision-api-python/img/cbb7f59299651b83_72.png 72w,https://codelabs.developers.google.com/static/codelabs/cloud-vision-api-python/img/cbb7f59299651b83_96.png 96w,https://codelabs.developers.google.com/static/codelabs/cloud-vision-api-python/img/cbb7f59299651b83_480.png 480w,https://codelabs.developers.google.com/static/codelabs/cloud-vision-api-python/img/cbb7f59299651b83_720.png 720w,https://codelabs.developers.google.com/static/codelabs/cloud-vision-api-python/img/cbb7f59299651b83_856.png 856w,https://codelabs.developers.google.com/static/codelabs/cloud-vision-api-python/img/cbb7f59299651b83_960.png 960w,https://codelabs.developers.google.com/static/codelabs/cloud-vision-api-python/img/cbb7f59299651b83_1440.png 1440w,https://codelabs.developers.google.com/static/codelabs/cloud-vision-api-python/img/cbb7f59299651b83_1920.png 1920w,https://codelabs.developers.google.com/static/codelabs/cloud-vision-api-python/img/cbb7f59299651b83_2880.png 2880w" sizes="(max-width: 840px) 100vw, 856px"></p>
+<h2 is-upgraded id="summary_3" data-text="Summary" tabindex="-1"><strong>Summary</strong></h2>
+<p>In this step, you were able to perform face detection. Read more about  <a href="https://cloud.google.com/vision/docs/detecting-faces" target="_blank">face detection</a>.</p>
+
+
+        </google-codelab-step>
+      
+        <google-codelab-step label="Perform object detection" duration="1" step="7">
+          
+          <h2 class="step-title" id="7" data-text="Perform object detection" tabindex="-1">
+              8. Perform object detection
+          </h2>
+          
+          <p>In this example, you will perform object detection on the same prior image (courtesy of  <a href="https://unsplash.com/photos/wfwUpfVqrKU" target="_blank">Alex Knight</a>) of Setagaya:</p>
+<p class="image-container"><img alt="756f97f0b1e46c38.jpeg" style="width: 624.00px" src="/static/codelabs/cloud-vision-api-python/img/756f97f0b1e46c38.jpeg" srcset="https://codelabs.developers.google.com/static/codelabs/cloud-vision-api-python/img/756f97f0b1e46c38_36.jpeg 36w,https://codelabs.developers.google.com/static/codelabs/cloud-vision-api-python/img/756f97f0b1e46c38_48.jpeg 48w,https://codelabs.developers.google.com/static/codelabs/cloud-vision-api-python/img/756f97f0b1e46c38_72.jpeg 72w,https://codelabs.developers.google.com/static/codelabs/cloud-vision-api-python/img/756f97f0b1e46c38_96.jpeg 96w,https://codelabs.developers.google.com/static/codelabs/cloud-vision-api-python/img/756f97f0b1e46c38_480.jpeg 480w,https://codelabs.developers.google.com/static/codelabs/cloud-vision-api-python/img/756f97f0b1e46c38_720.jpeg 720w,https://codelabs.developers.google.com/static/codelabs/cloud-vision-api-python/img/756f97f0b1e46c38_856.jpeg 856w,https://codelabs.developers.google.com/static/codelabs/cloud-vision-api-python/img/756f97f0b1e46c38_960.jpeg 960w,https://codelabs.developers.google.com/static/codelabs/cloud-vision-api-python/img/756f97f0b1e46c38_1440.jpeg 1440w,https://codelabs.developers.google.com/static/codelabs/cloud-vision-api-python/img/756f97f0b1e46c38_1920.jpeg 1920w,https://codelabs.developers.google.com/static/codelabs/cloud-vision-api-python/img/756f97f0b1e46c38_2880.jpeg 2880w" sizes="(max-width: 840px) 100vw, 856px"></p>
+<p>Copy the following code into your IPython session:</p>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Python"><code translate="no" dir="ltr"><span class="devsite-syntax-k">def</span><span class="devsite-syntax-w"> </span><span class="devsite-syntax-nf">print_objects</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">response</span><span class="devsite-syntax-p">:</span> <span class="devsite-syntax-n">vision</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">AnnotateImageResponse</span><span class="devsite-syntax-p">):</span>
+    <span class="devsite-syntax-nb">print</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-s2">"="</span> <span class="devsite-syntax-o">*</span> <span class="devsite-syntax-mi">80</span><span class="devsite-syntax-p">)</span>
+    <span class="devsite-syntax-k">for</span> <span class="devsite-syntax-n">obj</span> <span class="devsite-syntax-ow">in</span> <span class="devsite-syntax-n">response</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">localized_object_annotations</span><span class="devsite-syntax-p">:</span>
+        <span class="devsite-syntax-n">nvertices</span> <span class="devsite-syntax-o">=</span> <span class="devsite-syntax-n">obj</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">bounding_poly</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">normalized_vertices</span>
+        <span class="devsite-syntax-nb">print</span><span class="devsite-syntax-p">(</span>
+            <span class="devsite-syntax-sa">f</span><span class="devsite-syntax-s2">"</span><span class="devsite-syntax-si">{</span><span class="devsite-syntax-n">obj</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">score</span><span class="devsite-syntax-si">:</span><span class="devsite-syntax-s2">4.0%</span><span class="devsite-syntax-si">}</span><span class="devsite-syntax-s2">"</span><span class="devsite-syntax-p">,</span>
+            <span class="devsite-syntax-sa">f</span><span class="devsite-syntax-s2">"</span><span class="devsite-syntax-si">{</span><span class="devsite-syntax-n">obj</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">name</span><span class="devsite-syntax-si">:</span><span class="devsite-syntax-s2">15</span><span class="devsite-syntax-si">}</span><span class="devsite-syntax-s2">"</span><span class="devsite-syntax-p">,</span>
+            <span class="devsite-syntax-sa">f</span><span class="devsite-syntax-s2">"</span><span class="devsite-syntax-si">{</span><span class="devsite-syntax-n">obj</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">mid</span><span class="devsite-syntax-si">:</span><span class="devsite-syntax-s2">10</span><span class="devsite-syntax-si">}</span><span class="devsite-syntax-s2">"</span><span class="devsite-syntax-p">,</span>
+            <span class="devsite-syntax-s2">","</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">join</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-sa">f</span><span class="devsite-syntax-s2">"(</span><span class="devsite-syntax-si">{</span><span class="devsite-syntax-n">v</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">x</span><span class="devsite-syntax-si">:</span><span class="devsite-syntax-s2">.1f</span><span class="devsite-syntax-si">}</span><span class="devsite-syntax-s2">,</span><span class="devsite-syntax-si">{</span><span class="devsite-syntax-n">v</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">y</span><span class="devsite-syntax-si">:</span><span class="devsite-syntax-s2">.1f</span><span class="devsite-syntax-si">}</span><span class="devsite-syntax-s2">)"</span> <span class="devsite-syntax-k">for</span> <span class="devsite-syntax-n">v</span> <span class="devsite-syntax-ow">in</span> <span class="devsite-syntax-n">nvertices</span><span class="devsite-syntax-p">),</span>
+            <span class="devsite-syntax-n">sep</span><span class="devsite-syntax-o">=</span><span class="devsite-syntax-s2">" | "</span><span class="devsite-syntax-p">,</span>
+        <span class="devsite-syntax-p">)</span>
+        
+</code></pre></devsite-code>
+<p>Send a request with the <code translate="no" dir="ltr">OBJECT_LOCALIZATION</code> feature:</p>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Python"><code translate="no" dir="ltr"><span class="devsite-syntax-n">image_uri</span> <span class="devsite-syntax-o">=</span> <span class="devsite-syntax-s2">"gs://cloud-samples-data/vision/label/setagaya.jpeg"</span>
+<span class="devsite-syntax-n">features</span> <span class="devsite-syntax-o">=</span> <span class="devsite-syntax-p">[</span><span class="devsite-syntax-n">vision</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">Feature</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">Type</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">OBJECT_LOCALIZATION</span><span class="devsite-syntax-p">]</span>
+
+<span class="devsite-syntax-n">response</span> <span class="devsite-syntax-o">=</span> <span class="devsite-syntax-n">analyze_image_from_uri</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">image_uri</span><span class="devsite-syntax-p">,</span> <span class="devsite-syntax-n">features</span><span class="devsite-syntax-p">)</span>
+<span class="devsite-syntax-n">print_objects</span><span class="devsite-syntax-p">(</span><span class="devsite-syntax-n">response</span><span class="devsite-syntax-p">)</span>
+</code></pre></devsite-code>
+<p>You should get the following output:</p>
+<div></div><devsite-code><pre translate="no" dir="ltr" is-upgraded>================================================================================
+ 93% | Bicycle         | /m/0199g   | (0.6,0.6),(0.8,0.6),(0.8,0.9),(0.6,0.9)
+ 92% | Bicycle wheel   | /m/01bqk0  | (0.6,0.7),(0.7,0.7),(0.7,0.9),(0.6,0.9)
+ 91% | Tire            | /m/0h9mv   | (0.7,0.7),(0.8,0.7),(0.8,1.0),(0.7,1.0)
+ 75% | Bicycle         | /m/0199g   | (0.3,0.6),(0.4,0.6),(0.4,0.7),(0.3,0.7)
+ 51% | Tire            | /m/0h9mv   | (0.3,0.6),(0.4,0.6),(0.4,0.7),(0.3,0.7)
+</pre></devsite-code>
+<p>Here is how the results are presented by the online demo:</p>
+<p class="image-container"><img alt="e1c2ca803d874a6b.png" style="width: 624.00px" src="/static/codelabs/cloud-vision-api-python/img/e1c2ca803d874a6b.png" srcset="https://codelabs.developers.google.com/static/codelabs/cloud-vision-api-python/img/e1c2ca803d874a6b_36.png 36w,https://codelabs.developers.google.com/static/codelabs/cloud-vision-api-python/img/e1c2ca803d874a6b_48.png 48w,https://codelabs.developers.google.com/static/codelabs/cloud-vision-api-python/img/e1c2ca803d874a6b_72.png 72w,https://codelabs.developers.google.com/static/codelabs/cloud-vision-api-python/img/e1c2ca803d874a6b_96.png 96w,https://codelabs.developers.google.com/static/codelabs/cloud-vision-api-python/img/e1c2ca803d874a6b_480.png 480w,https://codelabs.developers.google.com/static/codelabs/cloud-vision-api-python/img/e1c2ca803d874a6b_720.png 720w,https://codelabs.developers.google.com/static/codelabs/cloud-vision-api-python/img/e1c2ca803d874a6b_856.png 856w,https://codelabs.developers.google.com/static/codelabs/cloud-vision-api-python/img/e1c2ca803d874a6b_960.png 960w,https://codelabs.developers.google.com/static/codelabs/cloud-vision-api-python/img/e1c2ca803d874a6b_1440.png 1440w,https://codelabs.developers.google.com/static/codelabs/cloud-vision-api-python/img/e1c2ca803d874a6b_1920.png 1920w,https://codelabs.developers.google.com/static/codelabs/cloud-vision-api-python/img/e1c2ca803d874a6b_2880.png 2880w" sizes="(max-width: 840px) 100vw, 856px"></p>
+<h2 is-upgraded id="summary_4" data-text="Summary" tabindex="-1"><strong>Summary</strong></h2>
+<p>In this step, you were able to perform object detection. Read more about  <a href="https://cloud.google.com/vision/docs/object-localizer" target="_blank">object detection</a>.</p>
+
+
+        </google-codelab-step>
+      
+        <google-codelab-step label="Multiple features" duration="0" step="8">
+          
+          <h2 class="step-title" id="8" data-text="Multiple features" tabindex="-1">
+              9. Multiple features
+          </h2>
+          
+          <p>You&#39;ve seen how to use some features of the Vision API, but there are many more and you can request multiple features in a single request.</p>
+<p>Here the kind of request you can make to get all insights at once:</p>
+<div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Python"><code translate="no" dir="ltr"><span class="devsite-syntax-n">image_uri</span> <span class="devsite-syntax-o">=</span> <span class="devsite-syntax-s2">"gs://..."</span>
+<span class="devsite-syntax-n">features</span> <span class="devsite-syntax-o">=</span> <span class="devsite-syntax-p">[</span>
+    <span class="devsite-syntax-n">vision</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">Feature</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">Type</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">OBJECT_LOCALIZATION</span><span class="devsite-syntax-p">,</span>
+    <span class="devsite-syntax-n">vision</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">Feature</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">Type</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">FACE_DETECTION</span><span class="devsite-syntax-p">,</span>
+    <span class="devsite-syntax-n">vision</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">Feature</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">Type</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">LANDMARK_DETECTION</span><span class="devsite-syntax-p">,</span>
+    <span class="devsite-syntax-n">vision</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">Feature</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">Type</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">LOGO_DETECTION</span><span class="devsite-syntax-p">,</span>
+    <span class="devsite-syntax-n">vision</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">Feature</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">Type</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">LABEL_DETECTION</span><span class="devsite-syntax-p">,</span>
+    <span class="devsite-syntax-n">vision</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">Feature</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">Type</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">TEXT_DETECTION</span><span class="devsite-syntax-p">,</span>
+    <span class="devsite-syntax-n">vision</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">Feature</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">Type</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">DOCUMENT_TEXT_DETECTION</span><span class="devsite-syntax-p">,</span>
+    <span class="devsite-syntax-n">vision</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">Feature</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">Type</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">SAFE_SEARCH_DETECTION</span><span class="devsite-syntax-p">,</span>
+    <span class="devsite-syntax-n">vision</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">Feature</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">Type</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">IMAGE_PROPERTIES</span><span class="devsite-syntax-p">,</span>
+    <span class="devsite-syntax-n">vision</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">Feature</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">Type</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">CROP_HINTS</span><span class="devsite-syntax-p">,</span>
+    <span class="devsite-syntax-n">vision</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">Feature</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">Type</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">WEB_DETECTION</span><span class="devsite-syntax-p">,</span>
+    <span class="devsite-syntax-n">vision</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">Feature</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">Type</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">PRODUCT_SEARCH</span><span class="devsite-syntax-p">,</span>
+    <span class="devsite-syntax-n">vision</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">Feature</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">Type</span><span class="devsite-syntax-o">.</span><span class="devsite-syntax-n">OBJECT_LOCALIZATION</span><span class="devsite-syntax-p">,</span>
+<span class="devsite-syntax-p">]</span>
+
+<span class="devsite-syntax-c1"># response = analyze_image_from_uri(image_uri, features)</span>
+</code></pre></devsite-code>
+<p>And there are more possibilities, like performing detections on a batch of images, synchronously or asynchronously. Check out all the  <a href="https://cloud.google.com/vision/docs/how-to" target="_blank">how-to guides</a>.</p>
+
+
+        </google-codelab-step>
+      
+        <google-codelab-step label="Congratulations!" duration="0" step="9">
+          
+          <h2 class="step-title" id="9" data-text="Congratulations!" tabindex="-1">
+              10. Congratulations!
+          </h2>
+          
+          <p class="image-container"><img alt="5ab7829fc22b21c4.png" style="width: 76.80px" src="/static/codelabs/cloud-vision-api-python/img/5ab7829fc22b21c4.png" srcset="https://codelabs.developers.google.com/static/codelabs/cloud-vision-api-python/img/5ab7829fc22b21c4_36.png 36w,https://codelabs.developers.google.com/static/codelabs/cloud-vision-api-python/img/5ab7829fc22b21c4_48.png 48w,https://codelabs.developers.google.com/static/codelabs/cloud-vision-api-python/img/5ab7829fc22b21c4_72.png 72w,https://codelabs.developers.google.com/static/codelabs/cloud-vision-api-python/img/5ab7829fc22b21c4_96.png 96w,https://codelabs.developers.google.com/static/codelabs/cloud-vision-api-python/img/5ab7829fc22b21c4_480.png 480w,https://codelabs.developers.google.com/static/codelabs/cloud-vision-api-python/img/5ab7829fc22b21c4_720.png 720w,https://codelabs.developers.google.com/static/codelabs/cloud-vision-api-python/img/5ab7829fc22b21c4_856.png 856w,https://codelabs.developers.google.com/static/codelabs/cloud-vision-api-python/img/5ab7829fc22b21c4_960.png 960w,https://codelabs.developers.google.com/static/codelabs/cloud-vision-api-python/img/5ab7829fc22b21c4_1440.png 1440w,https://codelabs.developers.google.com/static/codelabs/cloud-vision-api-python/img/5ab7829fc22b21c4_1920.png 1920w,https://codelabs.developers.google.com/static/codelabs/cloud-vision-api-python/img/5ab7829fc22b21c4_2880.png 2880w" sizes="(max-width: 840px) 100vw, 856px"></p>
+<p>You learned how to use the Vision API with Python and tested a few image detection features!</p>
+<aside class="special"><p>Note: This codelab should not infer any cost. The Google Cloud Free Tier lets you analyze for free 1,000 images per feature every month. Learn more on the  <a href="https://cloud.google.com/vision/pricing" target="_blank">Vision pricing</a>.</p>
+</aside>
+<h2 is-upgraded id="clean-up" data-text="Clean up" tabindex="-1">Clean up</h2>
+<p>To clean up your development environment, from Cloud Shell:</p>
+<ul>
+<li>If you&#39;re still in your IPython session, go back to the shell: <code translate="no" dir="ltr">exit</code></li>
+<li>Stop using the Python virtual environment: <code translate="no" dir="ltr">deactivate</code></li>
+<li>Delete your virtual environment folder: <code translate="no" dir="ltr">cd ~ ; rm -rf ./venv-vision</code></li>
+</ul>
+<p>To delete your Google Cloud project, from Cloud Shell:</p>
+<ul>
+<li>Retrieve your current project ID: <code translate="no" dir="ltr">PROJECT_ID=$(gcloud config get-value core/project)</code></li>
+<li>Make sure this is the project you want to delete: <code translate="no" dir="ltr">echo $PROJECT_ID</code></li>
+<li>Delete the project: <code translate="no" dir="ltr">gcloud projects delete $PROJECT_ID</code></li>
+</ul>
+<h2 is-upgraded id="learn-more" data-text="Learn More" tabindex="-1"><strong>Learn More</strong></h2>
+<ul>
+<li>Test the online demo in your browser:  <a href="https://cloud.google.com/vision" target="_blank">https://cloud.google.com/vision</a></li>
+<li>Vision API documentation:  <a href="https://cloud.google.com/vision/docs" target="_blank">https://cloud.google.com/vision/docs</a></li>
+<li>Python on Google Cloud:  <a href="https://cloud.google.com/python" target="_blank">https://cloud.google.com/python</a></li>
+<li>Cloud Client Libraries for Python:  <a href="https://github.com/googleapis/google-cloud-python" target="_blank">https://github.com/googleapis/google-cloud-python</a></li>
+</ul>
+<h2 is-upgraded id="license" data-text="License" tabindex="-1"><strong>License</strong></h2>
+<p>This work is licensed under a Creative Commons Attribution 2.0 Generic License.</p>
+
+
+        </google-codelab-step>
+      
+    </google-codelab>
+  
+  
+
+  
+</div>
+
+  
+    
+    
+    
+  
+
+  <div class="devsite-floating-action-buttons"></div></article>
+
+
+<devsite-content-footer class="nocontent" data-nosnippet>
+  <p>Except as otherwise noted, the content of this page is licensed under the <a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 License</a>, and code samples are licensed under the <a href="https://www.apache.org/licenses/LICENSE-2.0">Apache 2.0 License</a>. For details, see the <a href="https://developers.google.com/site-policies">Google Developers Site Policies</a>. Java is a registered trademark of Oracle and/or its affiliates.</p>
+  
+</devsite-content-footer>
+
+
+<devsite-notification
+>
+</devsite-notification>
+
+
+  
+<div class="devsite-content-data">
+  
+  
+    <template class="devsite-content-data-template">
+      [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Missing the information I need","missingTheInformationINeed","thumb-down"],["Too complicated / too many steps","tooComplicatedTooManySteps","thumb-down"],["Out of date","outOfDate","thumb-down"],["Samples / code issue","samplesCodeIssue","thumb-down"],["Other","otherDown","thumb-down"]],[],[],[]]
+    </template>
+  
+</div>
+            
+          </devsite-content>
+        </main>
+        <devsite-footer-promos class="devsite-footer">
+          
+            
+          
+        </devsite-footer-promos>
+        <devsite-footer-linkboxes class="devsite-footer">
+          
+            
+<nav class="devsite-footer-linkboxes nocontent"
+     aria-label="Footer links"
+     data-nosnippet>
+  
+  <ul class="devsite-footer-linkboxes-list">
+    
+    <li class="devsite-footer-linkbox ">
+    <h3 class="devsite-footer-linkbox-heading no-link">Connect</h3>
+      <ul class="devsite-footer-linkbox-list">
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//googledevelopers.blogspot.com"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 1)"
+            >
+            
+          
+            Blog
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//www.facebook.com/Google-Developers-967415219957038"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 2)"
+            >
+            
+          
+            Facebook
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//medium.com/google-developers"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 3)"
+            >
+            
+          
+            Medium
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//twitter.com/googledevs"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 4)"
+            >
+            
+          
+            Twitter
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//www.youtube.com/user/GoogleDevelopers"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 5)"
+            >
+            
+              
+              
+            
+          
+            YouTube
+          
+          </a>
+          
+          
+        </li>
+        
+      </ul>
+    </li>
+    
+    <li class="devsite-footer-linkbox ">
+    <h3 class="devsite-footer-linkbox-heading no-link">Programs</h3>
+      <ul class="devsite-footer-linkbox-list">
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//www.womentechmakers.com"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 1)"
+            >
+            
+          
+            Women Techmakers
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//developers.google.com/community/gdg"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 2)"
+            >
+            
+          
+            Google Developer Groups
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//developers.google.com/community/experts"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 3)"
+            >
+            
+          
+            Google Developer Experts
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//developers.google.com/community/accelerators"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 4)"
+            >
+            
+              
+              
+            
+          
+            Accelerators
+          
+          </a>
+          
+          
+        </li>
+        
+      </ul>
+    </li>
+    
+    <li class="devsite-footer-linkbox ">
+    <h3 class="devsite-footer-linkbox-heading no-link">Developer consoles</h3>
+      <ul class="devsite-footer-linkbox-list">
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//console.developers.google.com"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 1)"
+            >
+            
+          
+            Google API Console
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//console.cloud.google.com"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 2)"
+            >
+            
+          
+            Google Cloud Platform Console
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//play.google.com/apps/publish"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 3)"
+            >
+            
+          
+            Google Play Console
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//console.firebase.google.com"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 4)"
+            >
+            
+          
+            Firebase Console
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//console.actions.google.com"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 5)"
+            >
+            
+          
+            Actions on Google Console
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//cast.google.com/publish"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 6)"
+            >
+            
+          
+            Cast SDK Developer Console
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//chrome.google.com/webstore/developer/dashboard"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 7)"
+            >
+            
+              
+              
+            
+          
+            Chrome Web Store Dashboard
+          
+          </a>
+          
+          
+        </li>
+        
+      </ul>
+    </li>
+    
+  </ul>
+  
+</nav>
+          
+        </devsite-footer-linkboxes>
+        <devsite-footer-utility class="devsite-footer">
+          
+            
+
+<div class="devsite-footer-utility nocontent" data-nosnippet>
+  
+  
+  <nav class="devsite-footer-sites" aria-label="Other Google Developers websites">
+    <a href="https://developers.google.com/"
+       class="devsite-footer-sites-logo-link gc-analytics-event"
+       data-category="Site-Wide Custom Events"
+       data-label="Footer Google Developers Link">
+      <picture>
+        
+        <img class="devsite-footer-sites-logo"
+             src="https://www.gstatic.com/devrel-devsite/prod/vb08cbdb02acf7f66ad9727ddfba9d81df8806422eb5dd63dba194c9c8c7997f7/codelabs/images/lockup-google-for-developers.svg"
+             loading="lazy"
+             alt="Google Developers">
+      </picture>
+    </a>
+    <ul class="devsite-footer-sites-list">
+      
+      <li class="devsite-footer-sites-item">
+        <a href="//developer.android.com"
+           class="devsite-footer-sites-link
+                  gc-analytics-event"
+           data-category="Site-Wide Custom Events"
+         
+           data-label="Footer Android Link"
+         
+         >
+          Android
+        </a>
+      </li>
+      
+      <li class="devsite-footer-sites-item">
+        <a href="//developer.chrome.com/home"
+           class="devsite-footer-sites-link
+                  gc-analytics-event"
+           data-category="Site-Wide Custom Events"
+         
+           data-label="Footer Chrome Link"
+         
+         >
+          Chrome
+        </a>
+      </li>
+      
+      <li class="devsite-footer-sites-item">
+        <a href="//firebase.google.com"
+           class="devsite-footer-sites-link
+                  gc-analytics-event"
+           data-category="Site-Wide Custom Events"
+         
+           data-label="Footer Firebase Link"
+         
+         >
+          Firebase
+        </a>
+      </li>
+      
+      <li class="devsite-footer-sites-item">
+        <a href="//cloud.google.com"
+           class="devsite-footer-sites-link
+                  gc-analytics-event"
+           data-category="Site-Wide Custom Events"
+         
+           data-label="Footer Google Cloud Platform Link"
+         
+         >
+          Google Cloud Platform
+        </a>
+      </li>
+      
+      <li class="devsite-footer-sites-item">
+        <a href="//developers.google.com/products"
+           class="devsite-footer-sites-link
+                  gc-analytics-event"
+           data-category="Site-Wide Custom Events"
+         
+           data-label="Footer All products Link"
+         
+         >
+          All products
+        </a>
+      </li>
+      
+    </ul>
+  </nav>
+  
+
+  
+  <nav class="devsite-footer-utility-links" aria-label="Utility links">
+    
+    <ul class="devsite-footer-utility-list">
+      
+      <li class="devsite-footer-utility-item
+                 ">
+        
+        
+        <a class="devsite-footer-utility-link gc-analytics-event"
+           href="//developers.google.com/terms/site-terms"
+           data-category="Site-Wide Custom Events"
+           data-label="Footer Terms link"
+         >
+          Terms
+        </a>
+        
+      </li>
+      
+      <li class="devsite-footer-utility-item
+                 ">
+        
+        
+        <a class="devsite-footer-utility-link gc-analytics-event"
+           href="//policies.google.com/privacy"
+           data-category="Site-Wide Custom Events"
+           data-label="Footer Privacy link"
+         >
+          Privacy
+        </a>
+        
+      </li>
+      
+      <li class="devsite-footer-utility-item
+                 glue-cookie-notification-bar-control">
+        
+        
+        <a class="devsite-footer-utility-link gc-analytics-event"
+           href="#"
+           data-category="Site-Wide Custom Events"
+           data-label="Footer Manage cookies link"
+         
+           aria-hidden="true"
+         >
+          Manage cookies
+        </a>
+        
+      </li>
+      
+      <li class="devsite-footer-utility-item
+                 devsite-footer-utility-button">
+        
+        <span class="devsite-footer-utility-description">Sign up for the Google Developers newsletter</span>
+        
+        
+        <a class="devsite-footer-utility-link gc-analytics-event"
+           href="//services.google.com/fb/forms/googledevelopersnewsletter/?utm_medium=referral&amp;utm_source=google-products&amp;utm_team=googledevs&amp;utm_campaign=201611-newsletter-launch"
+           data-category="Site-Wide Custom Events"
+           data-label="Footer Subscribe link"
+         >
+          Subscribe
+        </a>
+        
+      </li>
+      
+    </ul>
+    
+    
+<devsite-language-selector>
+  <ul role="presentation">
+    
+    
+    <li role="presentation">
+      <a role="menuitem" lang="en"
+        >English</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="de"
+        >Deutsch</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="es"
+        >Español</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="es_419"
+        >Español – América Latina</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="fr"
+        >Français</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="id"
+        >Indonesia</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="it"
+        >Italiano</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="pl"
+        >Polski</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="pt_br"
+        >Português – Brasil</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="vi"
+        >Tiếng Việt</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="tr"
+        >Türkçe</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="ru"
+        >Русский</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="he"
+        >עברית</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="ar"
+        >العربيّة</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="fa"
+        >فارسی</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="hi"
+        >हिंदी</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="bn"
+        >বাংলা</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="th"
+        >ภาษาไทย</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="zh_cn"
+        >中文 – 简体</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="zh_tw"
+        >中文 – 繁體</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="ja"
+        >日本語</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="ko"
+        >한국어</a>
+    </li>
+    
+  </ul>
+</devsite-language-selector>
+
+  </nav>
+</div>
+          
+        </devsite-footer-utility>
+        <devsite-panel>
+          
+        </devsite-panel>
+        
+      </section>
+      </section>
+    <devsite-sitemask></devsite-sitemask>
+    <devsite-snackbar></devsite-snackbar>
+    <devsite-tooltip ></devsite-tooltip>
+    <devsite-heading-link></devsite-heading-link>
+    <devsite-analytics>
+      
+        <script type="application/json" analytics>[]</script>
+<script type="application/json" tag-management>{&#34;at&#34;: &#34;True&#34;, &#34;ga4&#34;: [], &#34;ga4p&#34;: [], &#34;gtm&#34;: [], &#34;parameters&#34;: {&#34;internalUser&#34;: &#34;False&#34;, &#34;language&#34;: {&#34;machineTranslated&#34;: &#34;False&#34;, &#34;requested&#34;: &#34;en&#34;, &#34;served&#34;: &#34;en&#34;}, &#34;pageType&#34;: &#34;codelab&#34;, &#34;projectName&#34;: null, &#34;signedIn&#34;: &#34;False&#34;, &#34;tenant&#34;: &#34;codelabs&#34;, &#34;recommendations&#34;: {&#34;sourcePage&#34;: &#34;&#34;, &#34;sourceType&#34;: 0, &#34;sourceRank&#34;: 0, &#34;sourceIdenticalDescriptions&#34;: 0, &#34;sourceTitleWords&#34;: 0, &#34;sourceDescriptionWords&#34;: 0, &#34;experiment&#34;: &#34;&#34;}, &#34;experiment&#34;: {&#34;ids&#34;: &#34;&#34;}}}</script>
+      
+    </devsite-analytics>
+    
+      <devsite-badger></devsite-badger>
+    
+    
+    
+    
+<script nonce="JxiqPoxkkb3OxYcOWey+kO1rn3hyB2">
+  
+  (function(d,e,v,s,i,t,E){d['GoogleDevelopersObject']=i;
+    t=e.createElement(v);t.async=1;t.src=s;E=e.getElementsByTagName(v)[0];
+    E.parentNode.insertBefore(t,E);})(window, document, 'script',
+    'https://www.gstatic.com/devrel-devsite/prod/vb08cbdb02acf7f66ad9727ddfba9d81df8806422eb5dd63dba194c9c8c7997f7/codelabs/js/app_loader.js', '[17,"en",null,"/js/devsite_app_module.js","https://www.gstatic.com/devrel-devsite/prod/vb08cbdb02acf7f66ad9727ddfba9d81df8806422eb5dd63dba194c9c8c7997f7","https://www.gstatic.com/devrel-devsite/prod/vb08cbdb02acf7f66ad9727ddfba9d81df8806422eb5dd63dba194c9c8c7997f7/codelabs","https://codelabs-dot-devsite-v2-prod.appspot.com",1,null,["/_pwa/codelabs/manifest.json","https://www.gstatic.com/devrel-devsite/prod/vb08cbdb02acf7f66ad9727ddfba9d81df8806422eb5dd63dba194c9c8c7997f7/images/video-placeholder.svg","https://www.gstatic.com/devrel-devsite/prod/vb08cbdb02acf7f66ad9727ddfba9d81df8806422eb5dd63dba194c9c8c7997f7/codelabs/images/favicon.png","https://www.gstatic.com/devrel-devsite/prod/vb08cbdb02acf7f66ad9727ddfba9d81df8806422eb5dd63dba194c9c8c7997f7/codelabs/images/lockup.svg","https://fonts.googleapis.com/css?family=Google+Sans:400,500|Roboto:400,400italic,500,500italic,700,700italic|Roboto+Mono:400,500,700&display=swap"],1,null,[1,6,8,12,14,17,21,25,50,52,63,70,75,76,80,87,91,92,93,97,98,100,101,102,103,104,105,107,108,109,110,112,113,116,117,118,120,122,124,125,126,127,129,130,131,132,133,134,135,136,138,140,141,147,148,149,151,152,156,157,158,159,161,163,164,168,169,170,179,180,182,183,186,191,193,196],"AIzaSyAP-jjEJBzmIyKR4F-3XITp8yM9T1gEEI8","AIzaSyB6xiKGDR5O3Ak2okS4rLkauxGUG7XP0hg","codelabs.developers.google.com","AIzaSyAQk0fBONSGUqCNznf6Krs82Ap1-NV6J4o","AIzaSyCCxcqdrZ_7QMeLCRY20bh_SXdAYqy70KY",null,null,null,["Cloud__enable_cloud_dlp_service","MiscFeatureFlags__enable_variable_operator","EngEduTelemetry__enable_engedu_telemetry","MiscFeatureFlags__developers_footer_image","MiscFeatureFlags__enable_explain_this_code","Cloud__enable_legacy_calculator_redirect","Profiles__enable_awarding_url","Cloud__cache_serialized_dynamic_content","Search__enable_ai_eligibility_checks","Profiles__enable_completequiz_endpoint","MiscFeatureFlags__enable_explicit_template_dependencies","MiscFeatureFlags__gdp_dashboard_reskin_enabled","MiscFeatureFlags__enable_project_variables","MiscFeatureFlags__enable_firebase_utm","Search__enable_suggestions_from_borg","Cloud__enable_cloud_shell","BookNav__enable_tenant_cache_key","Analytics__enable_clearcut_logging","TpcFeatures__proxy_prod_host","Profiles__enable_user_type","MiscFeatureFlags__enable_framebox_badge_methods","Profiles__enable_dashboard_curated_recommendations","SignIn__enable_l1_signup_flow","Profiles__enable_completecodelab_endpoint","Concierge__enable_pushui","MiscFeatureFlags__enable_appearance_cookies","MiscFeatureFlags__remove_cross_domain_tracking_params","Profiles__enable_callout_notifications","DevPro__enable_developer_subscriptions","Profiles__enable_developer_profile_pages_as_content","Profiles__enable_purchase_prompts","DevPro__enable_google_one_card","Concierge__enable_remove_info_panel_tags","DevPro__enable_firebase_workspaces_card","MiscFeatureFlags__developers_footer_dark_image","DevPro__enable_g1_integration","Profiles__enable_recognition_badges","DevPro__enable_devsite_captcha","DevPro__enable_embed_profile_creation","Cloud__enable_free_trial_server_call","Experiments__reqs_query_experiments","Profiles__enable_profile_collections","Cloud__enable_cloudx_experiment_ids","Profiles__enable_complete_playlist_endpoint","DevPro__enable_vertex_credit_card","DevPro__enable_free_benefits","Search__enable_ai_search_summaries_for_all","Search__enable_page_map","DevPro__enable_nvidia_credits_card","Concierge__enable_actions_menu","Cloud__enable_cloud_shell_fte_user_flow","Profiles__enable_public_developer_profiles","DevPro__remove_eu_tax_intake_form","DevPro__enable_code_assist","DevPro__enable_devpro_offers","MiscFeatureFlags__fix_lower_breadcrumbs","Profiles__enable_stripe_subscription_management","TpcFeatures__enable_unmirrored_page_left_nav","Profiles__enable_developer_profiles_callout","Cloud__enable_llm_concierge_chat","Profiles__enable_developer_profile_benefits_ui_redesign","Profiles__enable_release_notes_notifications","MiscFeatureFlags__enable_view_transitions","Profiles__enable_targeted_hero","Profiles__enable_auto_apply_credits","Profiles__enable_playlist_community_acl","Analytics__enable_devpro_interaction_logging","CloudShell__cloud_shell_button","Search__enable_dynamic_content_confidential_banner","Profiles__enable_join_program_group_endpoint","DevPro__enable_credits_banner","Profiles__enable_page_saving","Profiles__require_profile_eligibility_for_signin","DevPro__enable_enterprise","CloudShell__cloud_code_overflow_menu","DevPro__enable_payments_first_batch","DevPro__enable_google_payments_buyflow","DevPro__enable_cloud_innovators_plus","MiscFeatureFlags__enable_variable_operator_index_yaml","Cloud__fast_free_trial"],null,null,"AIzaSyBLEMok-5suZ67qRPzx0qUtbnLmyT_kCVE","https://developerscontentserving-pa.clients6.google.com","AIzaSyCM4QpTRSqP5qI4Dvjt4OAScIN8sOUlO-k","https://developerscontentsearch-pa.clients6.google.com",1,4,null,"https://developerprofiles-pa.clients6.google.com",[17,"codelabs","Google Codelabs","codelabs.developers.google.com",null,"codelabs-dot-devsite-v2-prod.appspot.com",null,null,[null,1,null,null,null,null,null,null,null,null,null,[1],null,null,null,null,null,null,[1],null,null,null,null,[1],null,null,null,null,null,null,[1]],null,[33,null,null,null,null,null,"/images/lockup.svg",null,null,null,null,1,1,null,null,null,null,null,null,null,null,1,null,null,null,null,[]],[],null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,[6,1,14,15,20,22,23,29,32,36],null,[[],[1,1]],[[null,null,null,null,null,null,null,null,null,null,null,null,1]],null,4],null,"pk_live_5170syrHvgGVmSx9sBrnWtA5luvk9BwnVcvIi7HizpwauFG96WedXsuXh790rtij9AmGllqPtMLfhe2RSwD6Pn38V00uBCydV4m",1,1,"https://developerscontentinsights-pa.clients6.google.com","AIzaSyCg-ZUslalsEbXMfIo9ZP8qufZgo3LSBDU","AIzaSyDxT0vkxnY_KeINtA4LSePJO-4MAZPMRsE","https://developers.clients6.google.com",null,null,"AIzaSyBQom12tzI-rybN7Sf-KfeL4nwm-Rf7PmI\n",null,null,"https://developers.googleapis.com"]')
+  
+</script>
+
+    <devsite-a11y-announce></devsite-a11y-announce>
+  </body>
+</html>

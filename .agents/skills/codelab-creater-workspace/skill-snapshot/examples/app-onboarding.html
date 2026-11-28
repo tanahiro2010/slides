@@ -1,0 +1,1534 @@
+
+
+
+
+
+
+
+
+
+<!doctype html>
+<html 
+      lang="en"
+      dir="ltr">
+  <head>
+    <meta name="google-signin-client-id" content="721724668570-nbkv1cfusk7kk4eni4pjvepaus73b13t.apps.googleusercontent.com"><meta name="google-signin-scope"
+          content="profile email https://www.googleapis.com/auth/developerprofiles https://www.googleapis.com/auth/developerprofiles.award https://www.googleapis.com/auth/devprofiles.full_control.firstparty"><meta property="og:site_name" content="Google Codelabs">
+    <meta property="og:type" content="website"><meta name="theme-color" content="#1a73e8"><meta charset="utf-8">
+    <meta content="IE=Edge" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+
+    <link rel="manifest" href="/_pwa/codelabs/manifest.json"
+          crossorigin="use-credentials">
+    <link rel="preconnect" href="//www.gstatic.com" crossorigin>
+    <link rel="preconnect" href="//fonts.googleapis.com" crossorigin>
+    <link rel="preconnect" href="//www.google-analytics.com" crossorigin><link rel="stylesheet" href="//fonts.googleapis.com/css?family=Google+Sans:400,500|Roboto:400,400italic,500,500italic,700,700italic|Roboto+Mono:400,500,700&display=swap">
+      <link rel="stylesheet"
+            href="//fonts.googleapis.com/css2?family=Material+Icons&family=Material+Symbols+Outlined&display=block"><link rel="stylesheet" href="https://www.gstatic.com/devrel-devsite/prod/vb08cbdb02acf7f66ad9727ddfba9d81df8806422eb5dd63dba194c9c8c7997f7/codelabs/css/app.css">
+      <link rel="shortcut icon" href="https://www.gstatic.com/devrel-devsite/prod/vb08cbdb02acf7f66ad9727ddfba9d81df8806422eb5dd63dba194c9c8c7997f7/codelabs/images/favicon.png">
+    <link rel="apple-touch-icon" href="https://www.gstatic.com/devrel-devsite/prod/vb08cbdb02acf7f66ad9727ddfba9d81df8806422eb5dd63dba194c9c8c7997f7/codelabs/images/touchicon-180.png"><link rel="canonical" href="https://codelabs.developers.google.com/app-onboarding"><link rel="search" type="application/opensearchdescription+xml"
+            title="Google Codelabs" href="https://codelabs.developers.google.com/s/opensearch.xml">
+      <link rel="alternate" hreflang="en"
+          href="https://codelabs.developers.google.com/app-onboarding" /><link rel="alternate" hreflang="x-default" href="https://codelabs.developers.google.com/app-onboarding" /><link rel="alternate" hreflang="ar"
+          href="https://codelabs.developers.google.com/app-onboarding?hl=ar" /><link rel="alternate" hreflang="bn"
+          href="https://codelabs.developers.google.com/app-onboarding?hl=bn" /><link rel="alternate" hreflang="zh-Hans"
+          href="https://codelabs.developers.google.com/app-onboarding?hl=zh-cn" /><link rel="alternate" hreflang="zh-Hant"
+          href="https://codelabs.developers.google.com/app-onboarding?hl=zh-tw" /><link rel="alternate" hreflang="fa"
+          href="https://codelabs.developers.google.com/app-onboarding?hl=fa" /><link rel="alternate" hreflang="fr"
+          href="https://codelabs.developers.google.com/app-onboarding?hl=fr" /><link rel="alternate" hreflang="de"
+          href="https://codelabs.developers.google.com/app-onboarding?hl=de" /><link rel="alternate" hreflang="he"
+          href="https://codelabs.developers.google.com/app-onboarding?hl=he" /><link rel="alternate" hreflang="hi"
+          href="https://codelabs.developers.google.com/app-onboarding?hl=hi" /><link rel="alternate" hreflang="id"
+          href="https://codelabs.developers.google.com/app-onboarding?hl=id" /><link rel="alternate" hreflang="it"
+          href="https://codelabs.developers.google.com/app-onboarding?hl=it" /><link rel="alternate" hreflang="ja"
+          href="https://codelabs.developers.google.com/app-onboarding?hl=ja" /><link rel="alternate" hreflang="ko"
+          href="https://codelabs.developers.google.com/app-onboarding?hl=ko" /><link rel="alternate" hreflang="pl"
+          href="https://codelabs.developers.google.com/app-onboarding?hl=pl" /><link rel="alternate" hreflang="pt-BR"
+          href="https://codelabs.developers.google.com/app-onboarding?hl=pt-br" /><link rel="alternate" hreflang="ru"
+          href="https://codelabs.developers.google.com/app-onboarding?hl=ru" /><link rel="alternate" hreflang="es-419"
+          href="https://codelabs.developers.google.com/app-onboarding?hl=es-419" /><link rel="alternate" hreflang="th"
+          href="https://codelabs.developers.google.com/app-onboarding?hl=th" /><link rel="alternate" hreflang="tr"
+          href="https://codelabs.developers.google.com/app-onboarding?hl=tr" /><link rel="alternate" hreflang="vi"
+          href="https://codelabs.developers.google.com/app-onboarding?hl=vi" /><title>App Onboarding &nbsp;|&nbsp; Google Codelabs</title>
+
+<meta property="og:title" content="App Onboarding &nbsp;|&nbsp; Google Codelabs"><meta property="og:url" content="https://codelabs.developers.google.com/app-onboarding"><meta property="og:locale" content="en">
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  
+
+    </head>
+  <body class="color-scheme--light"
+        template="codelab"
+        theme="codelabs-theme"
+        type="codelab"
+        
+        
+        
+        layout="docs"
+        
+        
+        
+        
+        
+        display-toc
+        pending>
+  
+    <devsite-progress type="indeterminate" id="app-progress"></devsite-progress>
+  
+  
+    <a href="#main-content" class="skip-link button">
+      
+      Skip to main content
+    </a>
+    <section class="devsite-wrapper">
+      <devsite-cookie-notification-bar></devsite-cookie-notification-bar>
+        <devsite-header role="banner">
+  
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="devsite-header--inner" data-nosnippet>
+  <div class="devsite-top-logo-row-wrapper-wrapper">
+    <div class="devsite-top-logo-row-wrapper">
+      <div class="devsite-top-logo-row">
+        <button type="button" id="devsite-hamburger-menu"
+          class="devsite-header-icon-button button-flat material-icons gc-analytics-event"
+          data-category="Site-Wide Custom Events"
+          data-label="Navigation menu button"
+          visually-hidden
+          aria-label="Open menu">
+        </button>
+        
+<div class="devsite-product-name-wrapper">
+
+  <a href="/" class="devsite-site-logo-link gc-analytics-event"
+   data-category="Site-Wide Custom Events" data-label="Site logo" track-type="globalNav"
+   track-name="googleCodelabs" track-metadata-position="nav"
+   track-metadata-eventDetail="nav">
+  
+  <picture>
+    
+    <img src="https://www.gstatic.com/devrel-devsite/prod/vb08cbdb02acf7f66ad9727ddfba9d81df8806422eb5dd63dba194c9c8c7997f7/codelabs/images/lockup.svg" class="devsite-site-logo" alt="Google Codelabs">
+  </picture>
+  
+</a>
+
+
+
+</div>
+        <div class="devsite-top-logo-row-middle">
+          <div class="devsite-header-upper-tabs">
+            
+           </div>
+          
+<devsite-search
+    enable-signin
+    enable-search
+    enable-suggestions
+      enable-query-completion
+    
+    enable-search-summaries
+    
+    tenant-name="Google Codelabs"
+    
+    
+    
+    
+    
+    >
+  <form class="devsite-search-form" action="https://codelabs.developers.google.com/s/results" method="GET">
+    <div class="devsite-search-container">
+      <button type="button"
+              search-open
+              class="devsite-search-button devsite-header-icon-button button-flat material-icons"
+              
+              aria-label="Open search"></button>
+      <div class="devsite-searchbox">
+        <input
+          aria-activedescendant=""
+          aria-autocomplete="list"
+          
+          aria-label="Search"
+          aria-expanded="false"
+          aria-haspopup="listbox"
+          autocomplete="off"
+          class="devsite-search-field devsite-search-query"
+          name="q"
+          
+          placeholder="Search"
+          role="combobox"
+          type="text"
+          value=""
+          >
+          <div class="devsite-search-image material-icons" aria-hidden="true">
+            
+              <svg class="devsite-search-ai-image" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <g clip-path="url(#clip0_6641_386)">
+                    <path d="M19.6 21L13.3 14.7C12.8 15.1 12.225 15.4167 11.575 15.65C10.925 15.8833 10.2333 16 9.5 16C7.68333 16 6.14167 15.375 4.875 14.125C3.625 12.8583 3 11.3167 3 9.5C3 7.68333 3.625 6.15 4.875 4.9C6.14167 3.63333 7.68333 3 9.5 3C10.0167 3 10.5167 3.05833 11 3.175C11.4833 3.275 11.9417 3.43333 12.375 3.65L10.825 5.2C10.6083 5.13333 10.3917 5.08333 10.175 5.05C9.95833 5.01667 9.73333 5 9.5 5C8.25 5 7.18333 5.44167 6.3 6.325C5.43333 7.19167 5 8.25 5 9.5C5 10.75 5.43333 11.8167 6.3 12.7C7.18333 13.5667 8.25 14 9.5 14C10.6667 14 11.6667 13.625 12.5 12.875C13.35 12.1083 13.8417 11.15 13.975 10H15.975C15.925 10.6333 15.7833 11.2333 15.55 11.8C15.3333 12.3667 15.05 12.8667 14.7 13.3L21 19.6L19.6 21ZM17.5 12C17.5 10.4667 16.9667 9.16667 15.9 8.1C14.8333 7.03333 13.5333 6.5 12 6.5C13.5333 6.5 14.8333 5.96667 15.9 4.9C16.9667 3.83333 17.5 2.53333 17.5 0.999999C17.5 2.53333 18.0333 3.83333 19.1 4.9C20.1667 5.96667 21.4667 6.5 23 6.5C21.4667 6.5 20.1667 7.03333 19.1 8.1C18.0333 9.16667 17.5 10.4667 17.5 12Z" fill="#5F6368"/>
+                  </g>
+                <defs>
+                <clipPath id="clip0_6641_386">
+                <rect width="24" height="24" fill="white"/>
+                </clipPath>
+                </defs>
+              </svg>
+            
+          </div>
+          <div class="devsite-search-shortcut-icon-container" aria-hidden="true">
+            <kbd class="devsite-search-shortcut-icon">/</kbd>
+          </div>
+      </div>
+    </div>
+  </form>
+  <button type="button"
+          search-close
+          class="devsite-search-button devsite-header-icon-button button-flat material-icons"
+          
+          aria-label="Close search"></button>
+</devsite-search>
+
+        </div>
+
+        
+
+          
+
+          
+
+          
+
+          
+
+          
+<devsite-language-selector>
+  <ul role="presentation">
+    
+    
+    <li role="presentation">
+      <a role="menuitem" lang="en"
+        >English</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="de"
+        >Deutsch</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="es"
+        >Español</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="es_419"
+        >Español – América Latina</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="fr"
+        >Français</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="id"
+        >Indonesia</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="it"
+        >Italiano</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="pl"
+        >Polski</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="pt_br"
+        >Português – Brasil</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="vi"
+        >Tiếng Việt</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="tr"
+        >Türkçe</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="ru"
+        >Русский</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="he"
+        >עברית</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="ar"
+        >العربيّة</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="fa"
+        >فارسی</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="hi"
+        >हिंदी</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="bn"
+        >বাংলা</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="th"
+        >ภาษาไทย</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="zh_cn"
+        >中文 – 简体</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="zh_tw"
+        >中文 – 繁體</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="ja"
+        >日本語</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="ko"
+        >한국어</a>
+    </li>
+    
+  </ul>
+</devsite-language-selector>
+
+
+          
+
+        
+
+        
+          <devsite-user 
+                        
+                        
+                          enable-profiles
+                        
+                        
+                          fp-auth
+                        
+                        id="devsite-user">
+            
+              
+              <span class="button devsite-top-button" aria-hidden="true" visually-hidden>Sign in</span>
+            
+          </devsite-user>
+        
+        
+        
+      </div>
+    </div>
+  </div>
+
+
+
+</div>
+
+
+
+  
+</devsite-header>
+        <devsite-book-nav scrollbars hidden>
+          
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="devsite-book-nav-filter"
+     hidden>
+  <span class="filter-list-icon material-icons" aria-hidden="true"></span>
+  <input type="text"
+         placeholder="Filter"
+         
+         aria-label="Type to filter"
+         role="searchbox">
+  
+  <span class="filter-clear-button hidden"
+        data-title="Clear filter"
+        aria-label="Clear filter"
+        role="button"
+        tabindex="0"></span>
+</div>
+
+<nav class="devsite-book-nav devsite-nav nocontent" data-nosnippet
+     aria-label="Side menu">
+  <div class="devsite-mobile-header">
+    <button type="button"
+            id="devsite-close-nav"
+            class="devsite-header-icon-button button-flat material-icons gc-analytics-event"
+            data-category="Site-Wide Custom Events"
+            data-label="Close navigation"
+            aria-label="Close navigation">
+    </button>
+    <div class="devsite-product-name-wrapper">
+
+  <a href="/" class="devsite-site-logo-link gc-analytics-event"
+   data-category="Site-Wide Custom Events" data-label="Site logo" track-type="globalNav"
+   track-name="googleCodelabs" track-metadata-position="nav"
+   track-metadata-eventDetail="nav">
+  
+  <picture>
+    
+    <img src="https://www.gstatic.com/devrel-devsite/prod/vb08cbdb02acf7f66ad9727ddfba9d81df8806422eb5dd63dba194c9c8c7997f7/codelabs/images/lockup.svg" class="devsite-site-logo" alt="Google Codelabs">
+  </picture>
+  
+</a>
+
+
+</div>
+  </div>
+
+  <div class="devsite-book-nav-wrapper">
+    <div class="devsite-mobile-nav-top">
+      
+        <ul class="devsite-nav-list">
+          
+          
+          
+        </ul>
+      
+    </div>
+    
+  </div>
+</nav>
+          
+        </devsite-book-nav>
+      
+      <section id="gc-wrapper">
+        <main role="main" id="main-content" class="devsite-main-content"
+            
+              
+              has-sidebar
+            >
+          <div class="devsite-sidebar">
+            <div class="devsite-sidebar-content">
+                
+                <devsite-toc class="devsite-nav"
+                            role="navigation"
+                            aria-label="On this page"
+                            depth="1"
+                            scrollbars
+                            data-nosnippet
+                  ></devsite-toc>
+                <devsite-recommendations-sidebar class="nocontent devsite-nav" data-nosnippet>
+                </devsite-recommendations-sidebar>
+            </div>
+          </div>
+          <devsite-content>
+            
+              
+
+
+
+
+
+
+
+
+
+
+<article class="devsite-article"><style>
+      body {
+        transition: opacity ease-in 0.2s;
+      }
+
+      body[unresolved] {
+        opacity: 0;
+        display: block;
+        overflow: hidden;
+        position: relative;
+      }
+      </style>
+  
+  
+  
+  
+  
+
+  <div class="devsite-article-meta nocontent" role="navigation" data-nosnippet>
+    
+    
+    <ul class="devsite-breadcrumb-list"
+  >
+  
+</ul>
+    
+  </div>
+  
+    <h1 class="devsite-page-title" tabindex="-1">
+      App Onboarding<devsite-actions hidden data-nosnippet></devsite-actions>
+  
+      
+    </h1>
+  
+
+  <devsite-toc class="devsite-nav"
+    depth="1"
+    devsite-toc-embedded
+    >
+  </devsite-toc>
+  
+    
+  <div class="devsite-article-body clearfix
+  ">
+
+  
+    
+    
+    <google-codelab-analytics gaid="UA-49880327-14" ga4id="G-JTFZSJVVVZ"></google-codelab-analytics>
+    <google-codelab codelab-gaid=""
+                    codelab-ga4id=""
+                    doc-id="1kWmuE4cdrgu668rnwCFARSDSypvkGJ54lPRx4csIhDU"
+                    id="app-onboarding"
+                    title="App Onboarding"
+                    no-tooltip=""
+                    environment="web"
+                    category=""
+                    feedback-link=""
+                    layout="paginated"
+                    >
+      
+        <google-codelab-step label="Before you begin" duration="0" step="0">
+          
+            <google-codelab-about codelab-title="App Onboarding"
+                                  authors="Christopher Grant"
+                                  last-updated="2026-03-16T17:00:18Z"
+                                  >
+            </google-codelab-about>
+          
+          <h2 class="step-title" id="0" data-text="Before you begin" tabindex="-1">
+              1. Before you begin
+          </h2>
+          
+          <h2 is-upgraded id="self-paced-environment-setup" data-text="Self-paced environment setup" tabindex="-1">Self-paced environment setup</h2>
+<ol type="1">
+<li>Sign-in to the  <a href="http://console.cloud.google.com" target="_blank">Google Cloud Console</a> and create a new project or reuse an existing one. If you don&#39;t already have a Gmail or Google Workspace account, you must  <a href="https://accounts.google.com/SignUp" target="_blank">create one</a>.</li>
+</ol>
+<p class="image-container"><img alt="b35bf95b8bf3d5d8.png" style="width: 452.50px" src="/static/app-onboarding/img/b35bf95b8bf3d5d8.png" srcset="https://codelabs.developers.google.com/static/app-onboarding/img/b35bf95b8bf3d5d8_36.png 36w,https://codelabs.developers.google.com/static/app-onboarding/img/b35bf95b8bf3d5d8_48.png 48w,https://codelabs.developers.google.com/static/app-onboarding/img/b35bf95b8bf3d5d8_72.png 72w,https://codelabs.developers.google.com/static/app-onboarding/img/b35bf95b8bf3d5d8_96.png 96w,https://codelabs.developers.google.com/static/app-onboarding/img/b35bf95b8bf3d5d8_480.png 480w,https://codelabs.developers.google.com/static/app-onboarding/img/b35bf95b8bf3d5d8_720.png 720w,https://codelabs.developers.google.com/static/app-onboarding/img/b35bf95b8bf3d5d8_856.png 856w,https://codelabs.developers.google.com/static/app-onboarding/img/b35bf95b8bf3d5d8_960.png 960w,https://codelabs.developers.google.com/static/app-onboarding/img/b35bf95b8bf3d5d8_1440.png 1440w,https://codelabs.developers.google.com/static/app-onboarding/img/b35bf95b8bf3d5d8_1920.png 1920w,https://codelabs.developers.google.com/static/app-onboarding/img/b35bf95b8bf3d5d8_2880.png 2880w" sizes="(max-width: 840px) 100vw, 856px"></p>
+<p class="image-container"><img alt="a99b7ace416376c4.png" style="width: 401.24px" src="/static/app-onboarding/img/a99b7ace416376c4.png" srcset="https://codelabs.developers.google.com/static/app-onboarding/img/a99b7ace416376c4_36.png 36w,https://codelabs.developers.google.com/static/app-onboarding/img/a99b7ace416376c4_48.png 48w,https://codelabs.developers.google.com/static/app-onboarding/img/a99b7ace416376c4_72.png 72w,https://codelabs.developers.google.com/static/app-onboarding/img/a99b7ace416376c4_96.png 96w,https://codelabs.developers.google.com/static/app-onboarding/img/a99b7ace416376c4_480.png 480w,https://codelabs.developers.google.com/static/app-onboarding/img/a99b7ace416376c4_720.png 720w,https://codelabs.developers.google.com/static/app-onboarding/img/a99b7ace416376c4_856.png 856w,https://codelabs.developers.google.com/static/app-onboarding/img/a99b7ace416376c4_960.png 960w,https://codelabs.developers.google.com/static/app-onboarding/img/a99b7ace416376c4_1440.png 1440w,https://codelabs.developers.google.com/static/app-onboarding/img/a99b7ace416376c4_1920.png 1920w,https://codelabs.developers.google.com/static/app-onboarding/img/a99b7ace416376c4_2880.png 2880w" sizes="(max-width: 840px) 100vw, 856px"></p>
+<p class="image-container"><img alt="bd84a6d3004737c5.png" style="width: 392.00px" src="/static/app-onboarding/img/bd84a6d3004737c5.png" srcset="https://codelabs.developers.google.com/static/app-onboarding/img/bd84a6d3004737c5_36.png 36w,https://codelabs.developers.google.com/static/app-onboarding/img/bd84a6d3004737c5_48.png 48w,https://codelabs.developers.google.com/static/app-onboarding/img/bd84a6d3004737c5_72.png 72w,https://codelabs.developers.google.com/static/app-onboarding/img/bd84a6d3004737c5_96.png 96w,https://codelabs.developers.google.com/static/app-onboarding/img/bd84a6d3004737c5_480.png 480w,https://codelabs.developers.google.com/static/app-onboarding/img/bd84a6d3004737c5_720.png 720w,https://codelabs.developers.google.com/static/app-onboarding/img/bd84a6d3004737c5_856.png 856w,https://codelabs.developers.google.com/static/app-onboarding/img/bd84a6d3004737c5_960.png 960w,https://codelabs.developers.google.com/static/app-onboarding/img/bd84a6d3004737c5_1440.png 1440w,https://codelabs.developers.google.com/static/app-onboarding/img/bd84a6d3004737c5_1920.png 1920w,https://codelabs.developers.google.com/static/app-onboarding/img/bd84a6d3004737c5_2880.png 2880w" sizes="(max-width: 840px) 100vw, 856px"></p>
+<ul>
+<li>The <strong>Project name</strong> is the display name for this project&#39;s participants. It is a character string not used by Google APIs, and you can update it at any time.</li>
+<li>The <strong>Project ID</strong> must be unique across all Google Cloud projects and is immutable (cannot be changed after it has been set). The Cloud Console auto-generates a unique string; usually you don&#39;t care what it is. In most codelabs, you&#39;ll need to reference the Project ID (and it is typically identified as <code translate="no" dir="ltr">PROJECT_ID</code>), so if you don&#39;t like it, generate another random one, or, you can try your own and see if it&#39;s available. Then it&#39;s &#34;frozen&#34; after the project is created.</li>
+<li>There is a third value, a <strong>Project Number</strong> which some APIs use. Learn more about all three of these values in the  <a href="https://cloud.google.com/resource-manager/docs/creating-managing-projects#before_you_begin" target="_blank">documentation</a>.</li>
+</ul>
+<aside class="warning"><p><strong>Caution:</strong> A project ID must be globally unique and cannot be used by anyone else after you&#39;ve selected it. You are the only user of that ID. If a project is deleted, that ID can never be used again.</p>
+</aside>
+<aside class="special"><p><strong>Note:</strong> If you&#39;re using a Gmail account, you can leave the default location set to <strong>No organization</strong>. If you&#39;re using a Google Workspace account, then choose a location that makes sense for your organization.</p>
+</aside>
+<ol type="1" start="2">
+<li>Next, you&#39;ll need to  <a href="https://console.cloud.google.com/billing" target="_blank">enable billing</a> in the Cloud Console in order to use Cloud resources/APIs. Running through this codelab shouldn&#39;t cost much, if anything at all. To shut down resources so you don&#39;t incur billing beyond this tutorial, follow any &#34;clean-up&#34; instructions found at the end of the codelab. New users of Google Cloud are eligible for the  <a href="http://cloud.google.com/free" target="_blank">$300 USD Free Trial</a> program.</li>
+</ol>
+
+
+        </google-codelab-step>
+      
+        <google-codelab-step label="Preparing your workspace" duration="0" step="1">
+          
+          <h2 class="step-title" id="1" data-text="Preparing your workspace" tabindex="-1">
+              2. Preparing your workspace
+          </h2>
+          
+          <ol type="1">
+<li>Open Cloud Shell editor by visiting the following url</li>
+</ol>
+<p><code translate="no" dir="ltr">https://ide.cloud.google.com</code></p>
+<ol type="1" start="2">
+<li>Ensure your project name is set in CLI</li>
+</ol>
+<p><code translate="no" dir="ltr">gcloud config set project &#123;&#123;project-id}}</code></p>
+<p><code translate="no" dir="ltr">export PROJECT_ID=$(gcloud config get-value project)</code></p>
+<p><code translate="no" dir="ltr">export PROJECT_NUMBER=$(gcloud projects describe $PROJECT_ID --format='value(projectNumber)')</code></p>
+<ol type="1" start="3">
+<li>Enable APIs</li>
+</ol>
+<p><code translate="no" dir="ltr">gcloud services enable \</code></p>
+<p><code translate="no" dir="ltr">cloudbuild.googleapis.com \</code></p>
+<p><code translate="no" dir="ltr">secretmanager.googleapis.com</code></p>
+<ol type="1" start="4">
+<li>Provide rights to CloudDeploy</li>
+</ol>
+<p><code translate="no" dir="ltr">gcloud projects add-iam-policy-binding --member="serviceAccount:${PROJECT_NUMBER}@cloudbuild.gserviceaccount.com" --role roles/clouddeploy.admin ${PROJECT_ID}</code></p>
+<p><code translate="no" dir="ltr">gcloud projects add-iam-policy-binding --member="serviceAccount:${PROJECT_NUMBER}@cloudbuild.gserviceaccount.com" --role roles/container.developer ${PROJECT_ID}</code></p>
+<p><code translate="no" dir="ltr">gcloud projects add-iam-policy-binding --member="serviceAccount:${PROJECT_NUMBER}@cloudbuild.gserviceaccount.com" --role roles/iam.serviceAccountUser ${PROJECT_ID}</code></p>
+<p><code translate="no" dir="ltr">gcloud projects add-iam-policy-binding --member="serviceAccount:${PROJECT_NUMBER}@cloudbuild.gserviceaccount.com" --role roles/clouddeploy.jobRunner ${PROJECT_ID}</code></p>
+<ol type="1" start="5">
+<li>In the terminal window clone the application source with the following command:</li>
+</ol>
+<p><code translate="no" dir="ltr">git clone https://github.com/GoogleCloudPlatform/software-delivery-workshop.git</code></p>
+<ol type="1" start="6">
+<li>Change into the directory and set the IDE workspace to the repo root</li>
+</ol>
+<p><code translate="no" dir="ltr">cd software-delivery-workshop && rm -rf .git</code></p>
+<p><code translate="no" dir="ltr">cd delivery-platform && cloudshell workspace .</code></p>
+
+
+        </google-codelab-step>
+      
+        <google-codelab-step label="Utilizing predefined &amp; custom app templates" duration="0" step="2">
+          
+          <h2 class="step-title" id="2" data-text="Utilizing predefined &amp; custom app templates" tabindex="-1">
+              3. Utilizing predefined &amp; custom app templates
+          </h2>
+          
+          <p>Developers should be able to choose from a set of templates commonly used within the organization.  The onboarding process will create a centralized set of template repositories stored in your GitHub account. In later steps these template repositories will be copied and modified for use as the base for new applications.  For this lab you will seed your template repository with a sample structure provided here. You can add your own templates by adding additional folders modeled after the sample.</p>
+<p>In this step you will create your own repository to hold app templates, from the example files provided. A helper script is provided to simplify the interactions with GitHub.</p>
+<p>These are one time steps used to populate your template repositories. Future steps will reused these repositories.</p>
+<h2 is-upgraded id="configure-github-access" data-text="Configure GitHub Access" tabindex="-1">Configure GitHub Access</h2>
+<p>The steps in this tutorial call the GitHub API to create and configure repositories. Your GitHub username and a personal access token are required at various points that follow. The script below will help you acquire the values and store them as local variables for later use.</p>
+<p><code translate="no" dir="ltr">source ./onboard-env.sh</code></p>
+<p><code translate="no" dir="ltr">echo Git Username: $GIT_USERNAME</code></p>
+<p><code translate="no" dir="ltr">echo Git Base URL: $GIT_BASE_URL</code></p>
+<h2 is-upgraded id="create-app-template-repository" data-text="Create App Template Repository" tabindex="-1">Create App Template Repository</h2>
+<p>Sample application templates are provided along with this lab as an example of how you might integrate your own base templates. In this step you create your own copy of these files in a repo called <code translate="no" dir="ltr">mcd-app-templates</code> in your GitHub account.</p>
+<ol type="1">
+<li>Copy the template to the working directory</li>
+</ol>
+<p><code translate="no" dir="ltr">cp -R $BASE_DIR/resources/repos/app-templates $WORK_DIR</code></p>
+<p><code translate="no" dir="ltr">cd $WORK_DIR/app-templates</code></p>
+<ol type="1" start="2">
+<li>Create an empty remote repository in your GitHub account</li>
+</ol>
+<p><code translate="no" dir="ltr">$BASE_DIR/scripts/git/gh.sh create mcd-app-templates</code></p>
+<ol type="1" start="3">
+<li>Push the template repository to your remote repository</li>
+</ol>
+<p><code translate="no" dir="ltr">git init && git symbolic-ref HEAD refs/heads/main && git add . && git commit -m "initial commit"</code></p>
+<p><code translate="no" dir="ltr">git remote add origin $GIT_BASE_URL/mcd-app-templates</code></p>
+<p><code translate="no" dir="ltr">git push origin main</code></p>
+<ol type="1" start="4">
+<li>Clean up the working directory</li>
+</ol>
+<p><code translate="no" dir="ltr">cd $BASE_DIR</code></p>
+<p><code translate="no" dir="ltr">rm -rf $WORK_DIR/app-templates</code></p>
+<h2 is-upgraded id="create-shared-base-configs-repository" data-text="Create Shared Base Configs Repository" tabindex="-1">Create Shared Base Configs Repository</h2>
+<p>This tutorial utilizes a tool called Kustomize that uses base configuration files shared by multiple teams then overlays application specific configurations over top. This enables platform teams to scale across many teams and environments.</p>
+<p>In this step you create the shared configuration repository called <code translate="no" dir="ltr">mcd-shared_kustomize</code> from the samples provided</p>
+<ol type="1">
+<li>Copy the template to the working directory</li>
+</ol>
+<p><code translate="no" dir="ltr">cp -R $BASE_DIR/resources/repos/shared-kustomize $WORK_DIR</code></p>
+<p><code translate="no" dir="ltr">cd $WORK_DIR/shared-kustomize</code></p>
+<ol type="1" start="2">
+<li>Create an empty remote repository in your GitHub account</li>
+</ol>
+<p><code translate="no" dir="ltr">$BASE_DIR/scripts/git/gh.sh create mcd-shared_kustomize</code></p>
+<ol type="1" start="3">
+<li>Push the template repository to your remote repository</li>
+</ol>
+<p><code translate="no" dir="ltr">git init && git symbolic-ref HEAD refs/heads/main && git add . && git commit -m "initial commit"</code></p>
+<p><code translate="no" dir="ltr">git remote add origin $GIT_BASE_URL/mcd-shared_kustomize</code></p>
+<p><code translate="no" dir="ltr">git push origin main</code></p>
+<ol type="1" start="4">
+<li>Clean up the working directory</li>
+</ol>
+<p><code translate="no" dir="ltr">cd $BASE_DIR</code></p>
+<p><code translate="no" dir="ltr">rm -rf $WORK_DIR/shared-kustomize</code></p>
+<p>With your template repositories created you&#39;re ready to use them to create an app instance</p>
+
+
+        </google-codelab-step>
+      
+        <google-codelab-step label="Creating a new instance of an application" duration="0" step="3">
+          
+          <h2 class="step-title" id="3" data-text="Creating a new instance of an application" tabindex="-1">
+              4. Creating a new instance of an application
+          </h2>
+          
+          <p>Creating a new application from a template often requires that placeholder variables be swapped out with real values across multiple files in the template structure. Once the substitution is completed a new repository is created for the new app instance. It is this app instance repository that the developers will clone and work with in their day to day development.</p>
+<p>In this step you will substitute values in an app template and post the resulting files to a new repository.</p>
+<h2 is-upgraded id="define-a-name-for-the-new-application" data-text="Define a name for the new application" tabindex="-1">Define a name for the new application</h2>
+<p><code translate="no" dir="ltr">export APP_NAME=my-app</code></p>
+<h2 is-upgraded id="retrieve-the-golang-template-repository" data-text="Retrieve the Golang template repository" tabindex="-1">Retrieve the Golang template repository</h2>
+<p><code translate="no" dir="ltr">cd $WORK_DIR/</code></p>
+<p><code translate="no" dir="ltr">git clone -b main $GIT_BASE_URL/mcd-app-templates app-templates</code></p>
+<p><code translate="no" dir="ltr">rm -rf app-templates/.git</code></p>
+<p><code translate="no" dir="ltr">cd app-templates/golang</code></p>
+<h2 is-upgraded id="substitute-placeholder-values" data-text="Substitute placeholder values" tabindex="-1">Substitute placeholder values</h2>
+<p>One of the most common needs for onboarding is swapping out variables in templates for actual instances used in the application. For example providing the application name. The following command creates instances of all .tmpl files with the values stored in environment variables.</p>
+<p><code translate="no" dir="ltr">for template in $(find . -name '*.tmpl'); do envsubst &lt; ${template} &gt; ${template%.*}; done</code></p>
+<h2 is-upgraded id="create-a-new-repo-and-store-the-updated-files" data-text="Create a new repo and store the updated files" tabindex="-1">Create a new repo and store the updated files</h2>
+<ol type="1">
+<li>Create an empty remote repository in your GitHub account</li>
+</ol>
+<p><code translate="no" dir="ltr">$BASE_DIR/scripts/git/gh.sh create ${APP_NAME}</code></p>
+<ol type="1" start="2">
+<li>Push the template repository to your remote repository</li>
+</ol>
+<p><code translate="no" dir="ltr">git init && git symbolic-ref HEAD refs/heads/main && git add . && git commit -m "initial commit"</code></p>
+<p><code translate="no" dir="ltr">git remote add origin $GIT_BASE_URL/${APP_NAME}</code></p>
+<p><code translate="no" dir="ltr">git push origin main</code></p>
+<p>Now that the app instance has been created it&#39;s time to implement continuous builds.</p>
+
+
+        </google-codelab-step>
+      
+        <google-codelab-step label="Configuring automated pipeline execution" duration="0" step="4">
+          
+          <h2 class="step-title" id="4" data-text="Configuring automated pipeline execution" tabindex="-1">
+              5. Configuring automated pipeline execution
+          </h2>
+          
+          <p>The central part of a Continuous Integration system is the ability to execute the pipeline logic based on the events originating in the source control system. When a developer commits code in their repository events are fired that can be configured to trigger processes in other systems.</p>
+<p>In this step you will configure GitHub to call Google Cloud Build and execute your pipeline, whenever users commit or tag code in their repository.</p>
+<h2 is-upgraded id="enable-secure-access" data-text="Enable Secure Access" tabindex="-1">Enable Secure Access</h2>
+<p>You will need 2 elements to configure secure access to your application pipeline. An API key and a secret unique to the pipeline.</p>
+<h3 is-upgraded id="api-key" data-text="API Key" tabindex="-1">API Key</h3>
+<p>The API key is used to identify the client that is calling into a given API. In this case the client will be GitHub. A best practice not covered here is to lock down the scope of the API key to only the specific APIs that client will be accessing. You created the key in a previous step.</p>
+<ol type="1">
+<li>You can review the key by clicking on  <a href="https://console.cloud.google.com/apis/credentials" target="_blank">this link</a></li>
+<li>You can ensure the value is set by running the following command</li>
+</ol>
+<p><code translate="no" dir="ltr">echo $API_KEY_VALUE</code></p>
+<h3 is-upgraded id="pipeline-secret" data-text="Pipeline Secret" tabindex="-1">Pipeline Secret</h3>
+<p>The secrets are used to authorize a caller and ensure they have rights to the specific cloud build target job. You may have 2 different repositories in GitHub that should only have access to their own pipelines. While the API_KEY limits which APIs can be utilized by github (in this case the Cloud Build API is being called), the secret limits which Job in the Cloud Build API can be executed by the client.</p>
+<ol type="1">
+<li>Define the secret name, location and value</li>
+</ol>
+<p><code translate="no" dir="ltr">SECRET_NAME=${APP_NAME}-webhook-trigger-cd-secret</code></p>
+<p><code translate="no" dir="ltr">SECRET_PATH=projects/${PROJECT_NUMBER}/secrets/${SECRET_NAME}/versions/1</code></p>
+<p><code translate="no" dir="ltr">SECRET_VALUE=$(sed "s/[^a-zA-Z0-9]//g" &lt;&lt;&lt; $(openssl rand -base64 15))</code></p>
+<ol type="1" start="2">
+<li>Create the secret</li>
+</ol>
+<p><code translate="no" dir="ltr">printf ${SECRET_VALUE} | gcloud secrets create ${SECRET_NAME} --data-file=-</code></p>
+<ol type="1" start="3">
+<li>Allow Cloud Build to read the secret</li>
+</ol>
+<p><code translate="no" dir="ltr">gcloud secrets add-iam-policy-binding ${SECRET_NAME} \</code></p>
+<p><code translate="no" dir="ltr">--member=serviceAccount:service-${PROJECT_NUMBER}@gcp-sa-cloudbuild.iam.gserviceaccount.com \</code></p>
+<p><code translate="no" dir="ltr">--role='roles/secretmanager.secretAccessor'</code></p>
+<h2 is-upgraded id="create-cloud-build-trigger" data-text="Create Cloud Build Trigger" tabindex="-1">Create Cloud Build Trigger</h2>
+<p>The Cloud Build Trigger is the configuration that will actually be executing the CICD processes.</p>
+<p>The job requires a few key values to be provided on creation in order to properly configure the trigger.</p>
+<ol type="1" start="4">
+<li>Define the name of the trigger and where the configuration file can be found</li>
+</ol>
+<p><code translate="no" dir="ltr">export TRIGGER_NAME=${APP_NAME}-clouddeploy-webhook-trigger</code></p>
+<p><code translate="no" dir="ltr">export BUILD_YAML_PATH=$WORK_DIR/app-templates/golang/build/cloudbuild-cd.yaml</code></p>
+<ol type="1" start="5">
+<li>Define the location of the shared base configuration repo.</li>
+</ol>
+<p><code translate="no" dir="ltr">export KUSTOMIZE_REPO=${GIT_BASE_URL}/mcd-shared_kustomize</code></p>
+<ol type="1" start="6">
+<li>A variable was set in the onboard-env.sh script defining the project&#39;s container registry. Review the value with the command below.</li>
+</ol>
+<p><code translate="no" dir="ltr">echo $IMAGE_REPO</code></p>
+<ol type="1" start="7">
+<li>Create CloudBuild Webhook Trigger using the variables created previously. The application repo location is pulled from the body of the request from GitHub. A value below references the path in the request body where it&#39;s located<code translate="no" dir="ltr">gcloud alpha builds triggers create webhook \</code><div></div><devsite-code><pre class="devsite-click-to-copy" translate="no" dir="ltr" is-upgraded syntax="Genshi" syntax-guessed><code translate="no" dir="ltr"><span class="devsite-syntax-w"> </span>`--name=<span class="devsite-syntax-cp">${</span><span class="devsite-syntax-n">TRIGGER_NAME</span><span class="devsite-syntax-cp">}</span><span class="devsite-syntax-w"> </span>\`
+
+<span class="devsite-syntax-w"> </span>`--substitutions='_APP_NAME='<span class="devsite-syntax-cp">${</span><span class="devsite-syntax-n">APP_NAME</span><span class="devsite-syntax-cp">}</span>',_APP_REPO=$(body.repository.git_url),_CONFIG_REPO='<span class="devsite-syntax-cp">${</span><span class="devsite-syntax-n">GIT_BASE_URL</span><span class="devsite-syntax-cp">}</span>'/'<span class="devsite-syntax-cp">${</span><span class="devsite-syntax-n">CLUSTER_CONFIG_REPO</span><span class="devsite-syntax-cp">}</span>',_DEFAULT_IMAGE_REPO='<span class="devsite-syntax-cp">${</span><span class="devsite-syntax-n">IMAGE_REPO</span><span class="devsite-syntax-cp">}</span>',_KUSTOMIZE_REPO='<span class="devsite-syntax-cp">${</span><span class="devsite-syntax-n">GIT_BASE_URL</span><span class="devsite-syntax-cp">}</span>'/'<span class="devsite-syntax-cp">${</span><span class="devsite-syntax-n">SHARED_KUSTOMIZE_REPO</span><span class="devsite-syntax-cp">}</span>',_REF=$(body.ref)'<span class="devsite-syntax-w"> </span>\`
+
+<span class="devsite-syntax-w"> </span>`--inline-config=<span class="devsite-syntax-nv">$BUILD_YAML_PATH</span><span class="devsite-syntax-w"> </span>\`
+
+<span class="devsite-syntax-w"> </span>`--secret=<span class="devsite-syntax-cp">${</span><span class="devsite-syntax-n">SECRET_PATH</span><span class="devsite-syntax-cp">}</span>`
+</code></pre></devsite-code>
+</li>
+<li>Review the newly created Cloud Build trigger in the Console by  <a href="https://console.cloud.google.com/cloud-build/triggers" target="_blank">visiting this link</a></li>
+<li>Define a variable for the endpoint URL, that will be used by GitHub in the next step</li>
+</ol>
+<p><code translate="no" dir="ltr">WEBHOOK_URL="https://cloudbuild.googleapis.com/v1/projects/${PROJECT_ID}/triggers/${TRIGGER_NAME}:webhook?key=${API_KEY_VALUE}&secret=${SECRET_VALUE}"</code></p>
+<h2 is-upgraded id="configure-github-webhook" data-text="Configure GitHub Webhook" tabindex="-1">Configure GitHub Webhook</h2>
+<ol type="1">
+<li>Configure the webhook in GitHub</li>
+</ol>
+<p><code translate="no" dir="ltr">$BASE_DIR/scripts/git/gh.sh create_webhook ${APP_NAME} $WEBHOOK_URL</code></p>
+<ol type="1" start="2">
+<li>Go to the application repo and review the newly configured webhook</li>
+</ol>
+<p><code translate="no" dir="ltr">REPO_URL=${GIT_BASE_URL}/${APP_NAME}/settings/hooks</code></p>
+<p><code translate="no" dir="ltr">echo $REPO_URL</code></p>
+<p>Now that you&#39;ve manually performed all the steps needed to create a new application it&#39;s time to automate it in a script.</p>
+
+
+        </google-codelab-step>
+      
+        <google-codelab-step label="Automating all the onboarding steps" duration="0" step="5">
+          
+          <h2 class="step-title" id="5" data-text="Automating all the onboarding steps" tabindex="-1">
+              6. Automating all the onboarding steps
+          </h2>
+          
+          <p>In practice it&#39;s not feasible to execute each of the above steps for every new application. Instead the logic should be incorporated into a script for easy execution. The steps above have already been included in a script for your use.</p>
+<p>In this step you will use the script provided to create a new application</p>
+<h2 is-upgraded id="create-a-new-application" data-text="Create a new application" tabindex="-1">Create a new application</h2>
+<ol type="1">
+<li>Ensure you&#39;re in the right directory</li>
+</ol>
+<p><code translate="no" dir="ltr">cd $BASE_DIR</code></p>
+<ol type="1" start="2">
+<li>Create a new application</li>
+</ol>
+<p><code translate="no" dir="ltr">export APP_NAME=demo-app</code></p>
+<p><code translate="no" dir="ltr">./app.sh create ${APP_NAME}</code></p>
+<p>All of the steps are executed automatically.</p>
+<h2 is-upgraded id="review-the-github-repo" data-text="Review the GitHub Repo" tabindex="-1">Review the GitHub Repo</h2>
+<p>At this point you will be able to review the new repository in Github</p>
+<ol type="1">
+<li>Retrieve the  GitHub repository URL by executing the following command</li>
+</ol>
+<p><code translate="no" dir="ltr">echo ${GIT_BASE_URL}/demo-app</code></p>
+<ol type="1" start="2">
+<li>Open the URL with your web browser to review the new application</li>
+<li>Note examples where the template variables have been replace with instance values as shown in the url below</li>
+</ol>
+<p><code translate="no" dir="ltr">echo ${GIT_BASE_URL}/demo-app/blob/main/k8s/prod/deployment.yaml#L24</code></p>
+<ol type="1" start="4">
+<li>Review the web hook configured at the url below</li>
+</ol>
+<p><code translate="no" dir="ltr">echo ${GIT_BASE_URL}/demo-app/settings/hooks</code></p>
+<h2 is-upgraded id="review-the-cloudbuild-trigger" data-text="Review the CloudBuild Trigger" tabindex="-1">Review the CloudBuild Trigger</h2>
+<p>The trigger was automatically set up by the script</p>
+<ol type="1">
+<li>Review the Cloud Build trigger in the Console by  <a href="https://console.cloud.google.com/cloud-build/triggers" target="_blank">visiting this link</a></li>
+<li>Review the build history  <a href="https://console.cloud.google.com/cloud-build/builds" target="_blank">on this page</a></li>
+</ol>
+
+
+        </google-codelab-step>
+      
+    </google-codelab>
+  
+  
+
+  
+</div>
+
+  
+    
+    
+    
+  
+
+  <div class="devsite-floating-action-buttons"></div></article>
+
+
+<devsite-content-footer class="nocontent" data-nosnippet>
+  <p>Except as otherwise noted, the content of this page is licensed under the <a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 License</a>, and code samples are licensed under the <a href="https://www.apache.org/licenses/LICENSE-2.0">Apache 2.0 License</a>. For details, see the <a href="https://developers.google.com/site-policies">Google Developers Site Policies</a>. Java is a registered trademark of Oracle and/or its affiliates.</p>
+  
+</devsite-content-footer>
+
+
+<devsite-notification
+>
+</devsite-notification>
+
+
+  
+<div class="devsite-content-data">
+  
+  
+    <template class="devsite-content-data-template">
+      [[["Easy to understand","easyToUnderstand","thumb-up"],["Solved my problem","solvedMyProblem","thumb-up"],["Other","otherUp","thumb-up"]],[["Missing the information I need","missingTheInformationINeed","thumb-down"],["Too complicated / too many steps","tooComplicatedTooManySteps","thumb-down"],["Out of date","outOfDate","thumb-down"],["Samples / code issue","samplesCodeIssue","thumb-down"],["Other","otherDown","thumb-down"]],[],[],[]]
+    </template>
+  
+</div>
+            
+          </devsite-content>
+        </main>
+        <devsite-footer-promos class="devsite-footer">
+          
+            
+          
+        </devsite-footer-promos>
+        <devsite-footer-linkboxes class="devsite-footer">
+          
+            
+<nav class="devsite-footer-linkboxes nocontent"
+     aria-label="Footer links"
+     data-nosnippet>
+  
+  <ul class="devsite-footer-linkboxes-list">
+    
+    <li class="devsite-footer-linkbox ">
+    <h3 class="devsite-footer-linkbox-heading no-link">Connect</h3>
+      <ul class="devsite-footer-linkbox-list">
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//googledevelopers.blogspot.com"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 1)"
+            >
+            
+          
+            Blog
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//www.facebook.com/Google-Developers-967415219957038"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 2)"
+            >
+            
+          
+            Facebook
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//medium.com/google-developers"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 3)"
+            >
+            
+          
+            Medium
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//twitter.com/googledevs"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 4)"
+            >
+            
+          
+            Twitter
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//www.youtube.com/user/GoogleDevelopers"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 5)"
+            >
+            
+              
+              
+            
+          
+            YouTube
+          
+          </a>
+          
+          
+        </li>
+        
+      </ul>
+    </li>
+    
+    <li class="devsite-footer-linkbox ">
+    <h3 class="devsite-footer-linkbox-heading no-link">Programs</h3>
+      <ul class="devsite-footer-linkbox-list">
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//www.womentechmakers.com"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 1)"
+            >
+            
+          
+            Women Techmakers
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//developers.google.com/community/gdg"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 2)"
+            >
+            
+          
+            Google Developer Groups
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//developers.google.com/community/experts"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 3)"
+            >
+            
+          
+            Google Developer Experts
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//developers.google.com/community/accelerators"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 4)"
+            >
+            
+              
+              
+            
+          
+            Accelerators
+          
+          </a>
+          
+          
+        </li>
+        
+      </ul>
+    </li>
+    
+    <li class="devsite-footer-linkbox ">
+    <h3 class="devsite-footer-linkbox-heading no-link">Developer consoles</h3>
+      <ul class="devsite-footer-linkbox-list">
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//console.developers.google.com"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 1)"
+            >
+            
+          
+            Google API Console
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//console.cloud.google.com"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 2)"
+            >
+            
+          
+            Google Cloud Platform Console
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//play.google.com/apps/publish"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 3)"
+            >
+            
+          
+            Google Play Console
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//console.firebase.google.com"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 4)"
+            >
+            
+          
+            Firebase Console
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//console.actions.google.com"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 5)"
+            >
+            
+          
+            Actions on Google Console
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//cast.google.com/publish"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 6)"
+            >
+            
+          
+            Cast SDK Developer Console
+          
+          </a>
+          
+          
+        </li>
+        
+        <li class="devsite-footer-linkbox-item">
+          
+          <a href="//chrome.google.com/webstore/developer/dashboard"
+             class="devsite-footer-linkbox-link gc-analytics-event"
+             data-category="Site-Wide Custom Events"
+            
+             data-label="Footer Link (index 7)"
+            >
+            
+              
+              
+            
+          
+            Chrome Web Store Dashboard
+          
+          </a>
+          
+          
+        </li>
+        
+      </ul>
+    </li>
+    
+  </ul>
+  
+</nav>
+          
+        </devsite-footer-linkboxes>
+        <devsite-footer-utility class="devsite-footer">
+          
+            
+
+<div class="devsite-footer-utility nocontent" data-nosnippet>
+  
+  
+  <nav class="devsite-footer-sites" aria-label="Other Google Developers websites">
+    <a href="https://developers.google.com/"
+       class="devsite-footer-sites-logo-link gc-analytics-event"
+       data-category="Site-Wide Custom Events"
+       data-label="Footer Google Developers Link">
+      <picture>
+        
+        <img class="devsite-footer-sites-logo"
+             src="https://www.gstatic.com/devrel-devsite/prod/vb08cbdb02acf7f66ad9727ddfba9d81df8806422eb5dd63dba194c9c8c7997f7/codelabs/images/lockup-google-for-developers.svg"
+             loading="lazy"
+             alt="Google Developers">
+      </picture>
+    </a>
+    <ul class="devsite-footer-sites-list">
+      
+      <li class="devsite-footer-sites-item">
+        <a href="//developer.android.com"
+           class="devsite-footer-sites-link
+                  gc-analytics-event"
+           data-category="Site-Wide Custom Events"
+         
+           data-label="Footer Android Link"
+         
+         >
+          Android
+        </a>
+      </li>
+      
+      <li class="devsite-footer-sites-item">
+        <a href="//developer.chrome.com/home"
+           class="devsite-footer-sites-link
+                  gc-analytics-event"
+           data-category="Site-Wide Custom Events"
+         
+           data-label="Footer Chrome Link"
+         
+         >
+          Chrome
+        </a>
+      </li>
+      
+      <li class="devsite-footer-sites-item">
+        <a href="//firebase.google.com"
+           class="devsite-footer-sites-link
+                  gc-analytics-event"
+           data-category="Site-Wide Custom Events"
+         
+           data-label="Footer Firebase Link"
+         
+         >
+          Firebase
+        </a>
+      </li>
+      
+      <li class="devsite-footer-sites-item">
+        <a href="//cloud.google.com"
+           class="devsite-footer-sites-link
+                  gc-analytics-event"
+           data-category="Site-Wide Custom Events"
+         
+           data-label="Footer Google Cloud Platform Link"
+         
+         >
+          Google Cloud Platform
+        </a>
+      </li>
+      
+      <li class="devsite-footer-sites-item">
+        <a href="//developers.google.com/products"
+           class="devsite-footer-sites-link
+                  gc-analytics-event"
+           data-category="Site-Wide Custom Events"
+         
+           data-label="Footer All products Link"
+         
+         >
+          All products
+        </a>
+      </li>
+      
+    </ul>
+  </nav>
+  
+
+  
+  <nav class="devsite-footer-utility-links" aria-label="Utility links">
+    
+    <ul class="devsite-footer-utility-list">
+      
+      <li class="devsite-footer-utility-item
+                 ">
+        
+        
+        <a class="devsite-footer-utility-link gc-analytics-event"
+           href="//developers.google.com/terms/site-terms"
+           data-category="Site-Wide Custom Events"
+           data-label="Footer Terms link"
+         >
+          Terms
+        </a>
+        
+      </li>
+      
+      <li class="devsite-footer-utility-item
+                 ">
+        
+        
+        <a class="devsite-footer-utility-link gc-analytics-event"
+           href="//policies.google.com/privacy"
+           data-category="Site-Wide Custom Events"
+           data-label="Footer Privacy link"
+         >
+          Privacy
+        </a>
+        
+      </li>
+      
+      <li class="devsite-footer-utility-item
+                 glue-cookie-notification-bar-control">
+        
+        
+        <a class="devsite-footer-utility-link gc-analytics-event"
+           href="#"
+           data-category="Site-Wide Custom Events"
+           data-label="Footer Manage cookies link"
+         
+           aria-hidden="true"
+         >
+          Manage cookies
+        </a>
+        
+      </li>
+      
+      <li class="devsite-footer-utility-item
+                 devsite-footer-utility-button">
+        
+        <span class="devsite-footer-utility-description">Sign up for the Google Developers newsletter</span>
+        
+        
+        <a class="devsite-footer-utility-link gc-analytics-event"
+           href="//services.google.com/fb/forms/googledevelopersnewsletter/?utm_medium=referral&amp;utm_source=google-products&amp;utm_team=googledevs&amp;utm_campaign=201611-newsletter-launch"
+           data-category="Site-Wide Custom Events"
+           data-label="Footer Subscribe link"
+         >
+          Subscribe
+        </a>
+        
+      </li>
+      
+    </ul>
+    
+    
+<devsite-language-selector>
+  <ul role="presentation">
+    
+    
+    <li role="presentation">
+      <a role="menuitem" lang="en"
+        >English</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="de"
+        >Deutsch</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="es"
+        >Español</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="es_419"
+        >Español – América Latina</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="fr"
+        >Français</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="id"
+        >Indonesia</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="it"
+        >Italiano</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="pl"
+        >Polski</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="pt_br"
+        >Português – Brasil</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="vi"
+        >Tiếng Việt</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="tr"
+        >Türkçe</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="ru"
+        >Русский</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="he"
+        >עברית</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="ar"
+        >العربيّة</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="fa"
+        >فارسی</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="hi"
+        >हिंदी</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="bn"
+        >বাংলা</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="th"
+        >ภาษาไทย</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="zh_cn"
+        >中文 – 简体</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="zh_tw"
+        >中文 – 繁體</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="ja"
+        >日本語</a>
+    </li>
+    
+    <li role="presentation">
+      <a role="menuitem" lang="ko"
+        >한국어</a>
+    </li>
+    
+  </ul>
+</devsite-language-selector>
+
+  </nav>
+</div>
+          
+        </devsite-footer-utility>
+        <devsite-panel>
+          
+        </devsite-panel>
+        
+      </section>
+      </section>
+    <devsite-sitemask></devsite-sitemask>
+    <devsite-snackbar></devsite-snackbar>
+    <devsite-tooltip ></devsite-tooltip>
+    <devsite-heading-link></devsite-heading-link>
+    <devsite-analytics>
+      
+        <script type="application/json" analytics>[]</script>
+<script type="application/json" tag-management>{&#34;at&#34;: &#34;True&#34;, &#34;ga4&#34;: [], &#34;ga4p&#34;: [], &#34;gtm&#34;: [], &#34;parameters&#34;: {&#34;internalUser&#34;: &#34;False&#34;, &#34;language&#34;: {&#34;machineTranslated&#34;: &#34;False&#34;, &#34;requested&#34;: &#34;en&#34;, &#34;served&#34;: &#34;en&#34;}, &#34;pageType&#34;: &#34;codelab&#34;, &#34;projectName&#34;: null, &#34;signedIn&#34;: &#34;False&#34;, &#34;tenant&#34;: &#34;codelabs&#34;, &#34;recommendations&#34;: {&#34;sourcePage&#34;: &#34;&#34;, &#34;sourceType&#34;: 0, &#34;sourceRank&#34;: 0, &#34;sourceIdenticalDescriptions&#34;: 0, &#34;sourceTitleWords&#34;: 0, &#34;sourceDescriptionWords&#34;: 0, &#34;experiment&#34;: &#34;&#34;}, &#34;experiment&#34;: {&#34;ids&#34;: &#34;&#34;}}}</script>
+      
+    </devsite-analytics>
+    
+      <devsite-badger></devsite-badger>
+    
+    
+    
+    
+<script nonce="JroJHc+h+DrAaw9UjtaZmo0oHN2qvN">
+  
+  (function(d,e,v,s,i,t,E){d['GoogleDevelopersObject']=i;
+    t=e.createElement(v);t.async=1;t.src=s;E=e.getElementsByTagName(v)[0];
+    E.parentNode.insertBefore(t,E);})(window, document, 'script',
+    'https://www.gstatic.com/devrel-devsite/prod/vb08cbdb02acf7f66ad9727ddfba9d81df8806422eb5dd63dba194c9c8c7997f7/codelabs/js/app_loader.js', '[17,"en",null,"/js/devsite_app_module.js","https://www.gstatic.com/devrel-devsite/prod/vb08cbdb02acf7f66ad9727ddfba9d81df8806422eb5dd63dba194c9c8c7997f7","https://www.gstatic.com/devrel-devsite/prod/vb08cbdb02acf7f66ad9727ddfba9d81df8806422eb5dd63dba194c9c8c7997f7/codelabs","https://codelabs-dot-devsite-v2-prod.appspot.com",1,null,["/_pwa/codelabs/manifest.json","https://www.gstatic.com/devrel-devsite/prod/vb08cbdb02acf7f66ad9727ddfba9d81df8806422eb5dd63dba194c9c8c7997f7/images/video-placeholder.svg","https://www.gstatic.com/devrel-devsite/prod/vb08cbdb02acf7f66ad9727ddfba9d81df8806422eb5dd63dba194c9c8c7997f7/codelabs/images/favicon.png","https://www.gstatic.com/devrel-devsite/prod/vb08cbdb02acf7f66ad9727ddfba9d81df8806422eb5dd63dba194c9c8c7997f7/codelabs/images/lockup.svg","https://fonts.googleapis.com/css?family=Google+Sans:400,500|Roboto:400,400italic,500,500italic,700,700italic|Roboto+Mono:400,500,700&display=swap"],1,null,[1,6,8,12,14,17,21,25,50,52,63,70,75,76,80,87,91,92,93,97,98,100,101,102,103,104,105,107,108,109,110,112,113,117,118,120,122,124,125,126,127,129,130,131,132,133,134,135,136,138,140,141,147,148,149,151,152,156,157,158,159,161,163,164,168,169,170,179,180,182,183,186,191,193,196],"AIzaSyAP-jjEJBzmIyKR4F-3XITp8yM9T1gEEI8","AIzaSyB6xiKGDR5O3Ak2okS4rLkauxGUG7XP0hg","codelabs.developers.google.com","AIzaSyAQk0fBONSGUqCNznf6Krs82Ap1-NV6J4o","AIzaSyCCxcqdrZ_7QMeLCRY20bh_SXdAYqy70KY",null,null,null,["Analytics__enable_clearcut_logging","Cloud__fast_free_trial","Profiles__enable_playlist_community_acl","Cloud__enable_free_trial_server_call","Cloud__enable_llm_concierge_chat","DevPro__enable_google_one_card","Profiles__enable_dashboard_curated_recommendations","Cloud__enable_cloud_dlp_service","MiscFeatureFlags__enable_firebase_utm","Profiles__enable_callout_notifications","TpcFeatures__enable_unmirrored_page_left_nav","MiscFeatureFlags__enable_framebox_badge_methods","Profiles__enable_developer_profile_pages_as_content","Cloud__enable_legacy_calculator_redirect","Concierge__enable_pushui","Profiles__enable_stripe_subscription_management","Profiles__enable_profile_collections","DevPro__enable_firebase_workspaces_card","Profiles__enable_developer_profile_benefits_ui_redesign","DevPro__enable_enterprise","CloudShell__cloud_shell_button","BookNav__enable_tenant_cache_key","Profiles__enable_complete_playlist_endpoint","MiscFeatureFlags__developers_footer_image","Cloud__cache_serialized_dynamic_content","DevPro__enable_credits_banner","MiscFeatureFlags__developers_footer_dark_image","Profiles__enable_awarding_url","MiscFeatureFlags__fix_lower_breadcrumbs","Experiments__reqs_query_experiments","Concierge__enable_remove_info_panel_tags","Profiles__enable_join_program_group_endpoint","MiscFeatureFlags__enable_explicit_template_dependencies","Profiles__enable_developer_profiles_callout","MiscFeatureFlags__enable_project_variables","Search__enable_suggestions_from_borg","Profiles__enable_auto_apply_credits","Search__enable_dynamic_content_confidential_banner","Search__enable_ai_eligibility_checks","MiscFeatureFlags__remove_cross_domain_tracking_params","DevPro__enable_cloud_innovators_plus","Cloud__enable_cloud_shell","MiscFeatureFlags__enable_explain_this_code","DevPro__enable_g1_integration","DevPro__enable_devpro_offers","MiscFeatureFlags__enable_appearance_cookies","DevPro__enable_payments_first_batch","DevPro__enable_code_assist","Profiles__enable_release_notes_notifications","TpcFeatures__proxy_prod_host","Profiles__enable_recognition_badges","Profiles__require_profile_eligibility_for_signin","DevPro__enable_devsite_captcha","Cloud__enable_cloud_shell_fte_user_flow","DevPro__enable_nvidia_credits_card","Profiles__enable_targeted_hero","MiscFeatureFlags__enable_variable_operator","DevPro__remove_eu_tax_intake_form","DevPro__enable_embed_profile_creation","Profiles__enable_public_developer_profiles","MiscFeatureFlags__gdp_dashboard_reskin_enabled","SignIn__enable_l1_signup_flow","Search__enable_page_map","DevPro__enable_free_benefits","MiscFeatureFlags__enable_variable_operator_index_yaml","DevPro__enable_vertex_credit_card","EngEduTelemetry__enable_engedu_telemetry","Profiles__enable_purchase_prompts","Analytics__enable_devpro_interaction_logging","Profiles__enable_user_type","Concierge__enable_actions_menu","DevPro__enable_developer_subscriptions","MiscFeatureFlags__enable_view_transitions","Profiles__enable_completecodelab_endpoint","Profiles__enable_completequiz_endpoint","Profiles__enable_page_saving","DevPro__enable_google_payments_buyflow","Search__enable_ai_search_summaries_for_all","CloudShell__cloud_code_overflow_menu","Cloud__enable_cloudx_experiment_ids"],null,null,"AIzaSyBLEMok-5suZ67qRPzx0qUtbnLmyT_kCVE","https://developerscontentserving-pa.clients6.google.com","AIzaSyCM4QpTRSqP5qI4Dvjt4OAScIN8sOUlO-k","https://developerscontentsearch-pa.clients6.google.com",1,4,null,"https://developerprofiles-pa.clients6.google.com",[17,"codelabs","Google Codelabs","codelabs.developers.google.com",null,"codelabs-dot-devsite-v2-prod.appspot.com",null,null,[null,1,null,null,null,null,null,null,null,null,null,[1],null,null,null,null,null,null,[1],null,null,null,null,[1],null,null,null,null,null,null,[1]],null,[33,null,null,null,null,null,"/images/lockup.svg",null,null,null,null,1,1,null,null,null,null,null,null,null,null,1,null,null,null,null,[]],[],null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,[6,1,14,15,20,22,23,29,32,36],null,[[],[1,1]],[[null,null,null,null,null,null,null,null,null,null,null,null,1]],null,4],null,"pk_live_5170syrHvgGVmSx9sBrnWtA5luvk9BwnVcvIi7HizpwauFG96WedXsuXh790rtij9AmGllqPtMLfhe2RSwD6Pn38V00uBCydV4m",1,1,"https://developerscontentinsights-pa.clients6.google.com","AIzaSyCg-ZUslalsEbXMfIo9ZP8qufZgo3LSBDU","AIzaSyDxT0vkxnY_KeINtA4LSePJO-4MAZPMRsE","https://developers.clients6.google.com",null,null,"AIzaSyBQom12tzI-rybN7Sf-KfeL4nwm-Rf7PmI\n",null,null,"https://developers.googleapis.com"]')
+  
+</script>
+
+    <devsite-a11y-announce></devsite-a11y-announce>
+  </body>
+</html>

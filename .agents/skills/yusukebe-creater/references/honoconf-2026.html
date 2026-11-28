@@ -1,0 +1,1182 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hono in this era</title>
+<meta name="description" content="Hono Conference 2026">
+<meta name="author" content="Yusuke Wada / yusukebe">
+<meta name="generator" content="ippon-slides">
+<style>:root {
+  --slide-bg: #000;
+  --slide-fg: #fff;
+  --slide-accent: #7b42bc; /* Terraform purple */
+  --slide-accent-2: #ff6a00;
+  --slide-muted: #8a8a8a;
+  --slide-code-bg: #0d0d0d;
+  --slide-border: rgba(255, 255, 255, 0.12);
+  --slide-font: -apple-system, 'Hiragino Sans', 'Noto Sans JP', system-ui, sans-serif;
+  /* macOS には凸版文久見出しゴシックが入っている。ない環境では本文フォントに落ちる */
+  --slide-display-font: 'Toppan Bunkyu Midashi Gothic', '凸版文久見出しゴシック', var(--slide-font);
+  --slide-mono: 'SF Mono', Menlo, Consolas, monospace;
+}
+
+/* 1280x720 で 16px。画面の短い辺に合わせて rem ごと拡大縮小する */
+html {
+  font-size: max(16px, min(1.25vw, 2.223vh));
+  touch-action: manipulation;
+}
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+body {
+  background: var(--slide-bg);
+  color: var(--slide-fg);
+  font-family: var(--slide-font);
+  overflow: hidden;
+}
+#deck {
+  position: fixed;
+  inset: 0;
+}
+
+/* ---------- slide ---------- */
+
+.slide {
+  position: absolute;
+  inset: 0;
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  padding: 6vh 9vw;
+  box-sizing: border-box;
+  overflow: auto;
+  /* 日本語を文節で改行する（Chrome 119+） */
+  word-break: auto-phrase;
+}
+.slide pre {
+  word-break: normal;
+}
+.slide.active {
+  display: flex;
+  animation: slide-in 0.25s ease;
+}
+@keyframes slide-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.slide > :first-child {
+  margin-top: 0;
+}
+
+.slide h1 {
+  font-family: var(--slide-display-font);
+  font-size: calc(clamp(2.2rem, 5vw, 3.6rem) * var(--slide-size, 1));
+  line-height: 1.15;
+  margin: 0 0 1.5rem;
+}
+.slide h2 {
+  font-family: var(--slide-display-font);
+  font-size: calc(clamp(1.8rem, 4vw, 2.6rem) * var(--slide-size, 1));
+  line-height: 1.2;
+  margin: 0 0 2.2rem;
+}
+.slide h3 {
+  font-size: calc(clamp(1.4rem, 3vw, 1.9rem) * var(--slide-size, 1));
+  margin: 0 0 1rem;
+}
+.slide p,
+.slide li {
+  font-size: calc(clamp(1.1rem, 2.2vw, 1.5rem) * var(--slide-size, 1));
+  line-height: 1.6;
+}
+.slide ul,
+.slide ol {
+  padding-left: 1.4em;
+  margin: 0 0 1rem;
+}
+.slide li {
+  margin: 0.35em 0;
+}
+.slide li > ul {
+  margin: 0;
+}
+.slide li li {
+  font-size: 0.85em;
+  color: var(--slide-muted);
+}
+.slide a {
+  color: inherit;
+  text-underline-offset: 0.15em;
+}
+/* 太字 = アクセントカラー */
+.slide strong {
+  font-weight: 700;
+  color: var(--slide-accent-2);
+}
+.slide strong code {
+  color: inherit;
+}
+.slide .arrow {
+  color: var(--slide-muted);
+  font-family: 'Hiragino Sans', system-ui, sans-serif;
+  font-weight: 800;
+}
+.slide img {
+  max-height: 58vh;
+  max-width: 100%;
+  object-fit: contain;
+  display: block;
+  margin: 1rem auto;
+  border-radius: 6px;
+}
+.img-caption {
+  display: block;
+  text-align: center;
+  margin-top: 0.2rem;
+  font-size: 0.85rem;
+  color: var(--slide-muted);
+}
+
+/* `::wide::` 左右の余白を詰める */
+.slide.wide {
+  padding-left: 3vw;
+  padding-right: 3vw;
+}
+
+/* `::right::` 2 カラム */
+.slide .cols {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4vw;
+  align-items: start;
+  width: 100%;
+}
+.slide .cols > * > :first-child {
+  margin-top: 0;
+}
+.slide .cols pre {
+  margin-top: 0;
+}
+
+/* `::center::` 1 枚 1 メッセージ */
+.slide.center {
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.slide.center h1,
+.slide.center h2 {
+  margin-bottom: 0.4em;
+}
+.slide.center p {
+  font-family: var(--slide-display-font);
+  font-size: calc(clamp(1.8rem, 4.5vw, 3.5rem) * var(--slide-size, 1));
+  font-weight: 600;
+  line-height: 1.5;
+  margin: 0.2em 0;
+}
+.slide.center ul,
+.slide.center ol {
+  text-align: left;
+}
+.slide.center pre {
+  text-align: left;
+  max-width: 100%;
+}
+
+/* `-# ` で始まる段落は小さい注釈 */
+.slide .note,
+.slide.center p.note {
+  font-family: var(--slide-font);
+  font-weight: 400;
+  color: var(--slide-muted);
+}
+.slide .note {
+  font-size: calc(clamp(0.95rem, 1.8vw, 1.25rem) * var(--slide-size, 1));
+}
+.slide.center p.note {
+  font-size: clamp(1.2rem, 2.6vw, 2.1rem);
+}
+
+/* `::title::` 表紙 */
+.slide.title {
+  padding-bottom: 8vh;
+}
+.slide.title h1 {
+  margin-top: auto;
+  font-size: calc(clamp(2.6rem, 7vw, 5.2rem) * var(--slide-size, 1));
+  line-height: 1.2;
+}
+.slide.title p {
+  font-size: clamp(1.3rem, 2.6vw, 1.9rem);
+  font-weight: 600;
+  margin: 0.2em 0;
+}
+.slide.title p:last-child {
+  margin-top: auto;
+  font-size: clamp(1rem, 1.8vw, 1.3rem);
+  color: var(--slide-muted);
+}
+
+/* `::bg=white::` 明るい背景 */
+.slide.light {
+  --slide-fg: #1f1f1f;
+  --slide-accent-2: #e85d00;
+  --slide-muted: #777;
+  --slide-border: rgba(0, 0, 0, 0.12);
+  --slide-code-bg: #f0f0f0;
+  color: var(--slide-fg);
+}
+
+.slide blockquote {
+  border-left: 4px solid var(--slide-accent-2);
+  margin: 0 0 1rem;
+  padding: 0.2rem 0 0.2rem 1.2rem;
+  color: var(--slide-muted);
+}
+
+.slide table {
+  border-collapse: collapse;
+  font-size: calc(clamp(1rem, 2vw, 1.35rem) * var(--slide-size, 1));
+  margin: 0 auto 1rem 0;
+}
+.slide.center table {
+  margin: 0 auto;
+}
+.slide th,
+.slide td {
+  padding: 0.5em 1.2em;
+  border-bottom: 1px solid var(--slide-border);
+  text-align: left;
+}
+.slide th {
+  color: var(--slide-muted);
+  font-weight: 600;
+}
+.slide td.num,
+.slide th.num {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ---------- code ---------- */
+
+.slide pre {
+  position: relative;
+  font-family: var(--slide-mono);
+  font-size: calc(clamp(0.8rem, 1.35vw, 1rem) * var(--slide-size, 1));
+  background: var(--slide-code-bg);
+  border: 1px solid var(--slide-border);
+  padding: 1.2rem 1.5rem;
+  border-radius: 10px;
+  overflow: auto;
+  max-height: 64vh;
+  line-height: 1.5;
+  margin: 0 0 1rem;
+}
+.slide pre code {
+  display: block;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+.slide pre[data-lang]::before {
+  content: attr(data-lang);
+  position: absolute;
+  top: 0.5rem;
+  right: 0.8rem;
+  font-size: 0.7rem;
+  color: var(--slide-muted);
+  opacity: 0.6;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+.slide :not(pre) > code {
+  font-family: var(--slide-mono);
+  background: rgba(127, 127, 127, 0.18);
+  padding: 0.1em 0.4em;
+  border-radius: 4px;
+  font-size: 0.9em;
+}
+
+/* ハイライト（atom-one-dark 寄り） */
+.hl-c {
+  color: #7f848e;
+  font-style: italic;
+}
+.hl-s {
+  color: #98c379;
+}
+.hl-k {
+  color: #c678dd;
+}
+.hl-n {
+  color: #d19a66;
+}
+.hl-f {
+  color: #61afef;
+}
+.hl-t {
+  color: #e5c07b;
+}
+.hl-i {
+  color: #56b6c2;
+}
+/* console */
+.hl-prompt {
+  color: var(--slide-accent-2);
+  user-select: none;
+}
+.hl-cmd {
+  color: #fff;
+  font-weight: 600;
+}
+.light .hl-cmd {
+  color: #1f1f1f;
+}
+.hl-out {
+  color: #abb2bf;
+}
+.hl-err {
+  color: #ef5350;
+  font-weight: 600;
+}
+.hl-ok {
+  color: #98c379;
+}
+/* `!! ` を付けた行は行全体を帯でハイライト */
+.hl-mark {
+  display: inline-block;
+  width: calc(100% + 3rem);
+  margin: 0 -1.5rem;
+  padding: 0 1.5rem;
+  box-sizing: border-box;
+  background: rgba(255, 106, 0, 0.16);
+  box-shadow: inset 3px 0 0 var(--slide-accent-2);
+}
+
+/* ---------- chrome ---------- */
+
+#progress {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  height: 4px;
+  width: 0;
+  background: var(--slide-accent);
+  transition: width 0.2s ease;
+  z-index: 10;
+}
+#counter,
+#timer,
+#hint {
+  font-family: system-ui, -apple-system, 'Hiragino Sans', sans-serif;
+  position: fixed;
+  color: var(--slide-muted);
+  font-variant-numeric: tabular-nums;
+  z-index: 10;
+}
+#counter {
+  bottom: 12px;
+  right: 18px;
+  font-size: 0.9rem;
+}
+#timer {
+  bottom: 34px;
+  right: 18px;
+  font-size: 0.95rem;
+}
+#hint {
+  bottom: 12px;
+  left: 18px;
+  font-size: 0.8rem;
+  opacity: 0.6;
+}
+:fullscreen #hint {
+  display: none;
+}
+@media (pointer: coarse) {
+  #hint {
+    display: none;
+  }
+}
+
+/* ---------- overview（o / Esc） ---------- */
+
+#overview {
+  position: fixed;
+  inset: 0;
+  z-index: 20;
+  display: none;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  justify-content: center;
+  gap: 20px;
+  padding: 28px;
+  box-sizing: border-box;
+  overflow-y: auto;
+  background: #29292c;
+}
+body.overview #overview {
+  display: flex;
+}
+body.overview #deck,
+body.overview #progress,
+body.overview #counter,
+body.overview #timer,
+body.overview #hint,
+body.overview #presenter {
+  display: none;
+}
+.ov-item {
+  cursor: pointer;
+}
+.ov-frame {
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: var(--slide-bg);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.35);
+}
+.ov-item.current .ov-frame {
+  outline: 3px solid var(--slide-accent);
+  outline-offset: 2px;
+}
+.ov-item:hover .ov-frame {
+  border-color: var(--slide-accent);
+}
+.ov-scale {
+  position: relative;
+  transform-origin: 0 0;
+}
+#overview .slide {
+  display: flex;
+  animation: none;
+  overflow: hidden;
+}
+.ov-num {
+  margin-top: 6px;
+  text-align: center;
+  font-size: 0.8rem;
+  color: var(--slide-muted);
+  font-variant-numeric: tabular-nums;
+}
+.ov-item.current .ov-num {
+  color: var(--slide-fg);
+  font-weight: 600;
+}
+
+/* ---------- presenter（p / 別ウィンドウ） ---------- */
+
+/* 発表者ノートは本番・一覧・PDF には出さない（発表者ビューが innerHTML を別途読む） */
+.notes {
+  display: none;
+}
+
+#presenter {
+  position: fixed;
+  inset: 0;
+  z-index: 30;
+  display: none;
+  box-sizing: border-box;
+  padding: 24px;
+  gap: 24px;
+  background: #1c1c1f;
+  color: #fff;
+  font-family: system-ui, -apple-system, 'Hiragino Sans', sans-serif;
+}
+body.presenter #presenter {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+}
+body.presenter #deck,
+body.presenter #progress,
+body.presenter #counter,
+body.presenter #timer,
+body.presenter #hint,
+body.presenter #overview {
+  display: none;
+}
+
+.pv-left {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  min-width: 0;
+}
+.pv-slot:last-child {
+  opacity: 0.85;
+}
+.pv-slot:last-child .pv-frame {
+  width: 62%;
+}
+.pv-label {
+  font-size: 0.85rem;
+  color: #9a9aa0;
+  margin-bottom: 6px;
+  font-variant-numeric: tabular-nums;
+}
+.pv-frame {
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: var(--slide-bg);
+  box-shadow: 0 2px 14px rgba(0, 0, 0, 0.4);
+}
+.pv-scale {
+  position: relative;
+  transform-origin: 0 0;
+}
+#presenter .slide {
+  display: flex;
+  animation: none;
+  overflow: hidden;
+}
+
+.pv-right {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  min-width: 0;
+}
+.pv-clock {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+}
+.pv-elapsed {
+  font-size: 2.8rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
+}
+.pv-wall {
+  font-size: 1rem;
+  color: #9a9aa0;
+  font-variant-numeric: tabular-nums;
+}
+.pv-controls {
+  display: flex;
+  gap: 10px;
+}
+.pv-controls button {
+  flex: 1;
+  padding: 10px 0;
+  font-size: 1.1rem;
+  color: #fff;
+  background: #2e2e33;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 8px;
+  cursor: pointer;
+}
+.pv-controls button:hover {
+  background: var(--slide-accent);
+  border-color: var(--slide-accent);
+}
+.pv-notes {
+  flex: 1;
+  overflow-y: auto;
+  padding: 16px 18px;
+  background: #242428;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+.pv-notes .pv-empty {
+  color: #76767c;
+}
+
+/* ---------- PDF（ブラウザの印刷 → PDF に保存） ---------- */
+
+@media print {
+  @page {
+    size: 1280px 720px;
+    margin: 0;
+  }
+  html {
+    font-size: 16px;
+  }
+  html,
+  body {
+    height: auto;
+    overflow: visible;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  #deck {
+    position: static;
+  }
+  .slide {
+    display: flex !important;
+    position: relative;
+    width: 1280px;
+    height: 720px;
+    padding: 43px 115px;
+    animation: none !important;
+    overflow: hidden;
+    break-after: page;
+    background: var(--slide-bg);
+  }
+  .slide.wide {
+    padding-left: 38px;
+    padding-right: 38px;
+  }
+  .slide.center p {
+    font-size: calc(3.5rem * var(--slide-size, 1));
+  }
+  .slide.title h1 {
+    font-size: calc(5.2rem * var(--slide-size, 1));
+  }
+  #progress,
+  #counter,
+  #timer,
+  #hint,
+  #overview,
+  #presenter {
+    display: none !important;
+  }
+}
+</style>
+</head>
+<body>
+<div id="deck">
+<section class="slide title"><h1>Hono in this era</h1><p>Yusuke Wada</p><p>Hono Conference 2026 ・ October 11, 2026</p></section>
+<section class="slide center light" style="--slide-size:1.5;background:#fafafa;"><p>時代</p></section>
+<section class="slide center"><p>Hono Conference 2025</p><p>2025/10/18</p></section>
+<section class="slide"><h2>npmダウンロード数</h2><div class="cols"><div><ul><li>2025年10月 <span class="arrow">→</span> <strong>1,110万</strong> / 月</li><li>2026年9月 <span class="arrow">→</span> <strong>2.67億</strong> / 月</li></ul><p class="note">api.npmjs.org</p></div><div><p><img src="https://ss.yusukebe.com/5459227703ec8fcbcbb4ffb68e349df6a5abf95ae323569e650783abcc358278.png" alt="npm downloads"></p></div></div></section>
+<section class="slide"><ul><li><code>express</code> <span class="arrow">→</span> 2.7倍</li><li><code>react</code> <span class="arrow">→</span> 3.8倍</li><li><code>next</code> <span class="arrow">→</span> 4.1倍</li><li><code>zod</code> <span class="arrow">→</span> 6.3倍</li><li><strong><code>hono</code> <span class="arrow">→</span> 30.8倍</strong></li></ul><p class="note">2025年9月 <span class="arrow">→</span> 2026年9月の月間ダウンロード</p></section>
+<section class="slide"><h2>ちなみに⋯MCP SDK</h2><ul><li><code>@modelcontextprotocol/sdk</code>(v1) <span class="arrow">→</span> <code>@hono/node-server</code> / <code>hono</code></li><li><code>@modelcontextprotocol/node</code>(v2) <span class="arrow">→</span> <code>@hono/node-server</code></li><li><code>@modelcontextprotocol/hono</code>(v2) <span class="arrow">→</span> Hono用ミドルウェア</li></ul><p class="note">直近1ヶ月 <span class="arrow">→</span> v1 <strong>2.58億</strong>、v2 <code>server</code> 3,130万</p></section>
+<section class="slide"><h2>PR数</h2><ul><li>2025年7〜9月 <span class="arrow">→</span> <strong>82</strong></li><li>2026年7〜9月 <span class="arrow">→</span> <strong>345</strong></li></ul><p class="note">honojs/hono</p></section>
+<section class="slide center"><p>明らかに新しい時代</p></section>
+<section class="slide center"><p>何が変わった？？</p></section>
+<section class="slide center light" style="--slide-size:1.5;background:#fafafa;"><p>開発</p></section>
+<section class="slide center"><p>10月5日</p><p>honojs/hono <span class="arrow">→</span> PRを閉じる</p></section>
+<section class="slide center"><p><img src="https://ss.yusukebe.com/d8f8a2be1d6f7a37d89515e2d06e837ca405aa2e01ef721d735f481c68f6d55f.png" alt="x.com/yusukebe/status/2107027870019445007"><span class="img-caption">https://x.com/yusukebe/status/2107027870019445007</span></p></section>
+<section class="slide"><h2>何をしたか</h2><ul><li>外部コントリビューターからのPRを受け付けなくした</li><li>PRを作れるのはコラボレーターだけ</li></ul></section>
+<section class="slide"><h2>背景</h2><ul><li>PRが増えた</li><li>GitHubのinboxを見るのが追いつかない</li></ul></section>
+<section class="slide"><h2>Slop？？</h2><ul><li>品質は悪くない <span class="arrow">→</span> 問題は姿勢</li></ul></section>
+<section class="slide"><h2>「貢献」のための貢献</h2><ul><li>細かい指摘、ただのリファクタ</li><li>コミットに入るのが嫌</li><li>AIで加速</li></ul></section>
+<section class="slide center"><p><img src="https://ss.yusukebe.com/82bff37182c78f2c0544ce23d675a0518e5ea33bf58a284f47d65b46b6911c88.png" alt="x.com/yusukebe/status/2106657806732677205"><span class="img-caption">https://x.com/yusukebe/status/2106657806732677205</span></p></section>
+<section class="slide"><h2>Hono-kun</h2><ul><li>AIボットでtriage、close、PR立てる</li><li>https://github.com/honojs/hono-kun</li></ul></section>
+<section class="slide"><h2>閉じる</h2><ul><li>ある朝突然</li><li>だいぶ楽！</li><li>とはいえPRがHonoを支えてきた</li></ul></section>
+<section class="slide center"><p>OSSは死んだ？</p></section>
+<section class="slide center"><p><img src="https://ss.yusukebe.com/db3d706124b8d1680898ee401db047052ba3b5d9032e944bbf40e18c3635d29a.png" alt="x.com/yusukebe/status/2108057552223359003"><span class="img-caption">https://x.com/yusukebe/status/2108057552223359003</span></p></section>
+<section class="slide"><h2>貢献の仕方</h2><ul><li>PRをレビューしてもらう</li><li>実際に困ったバグをissueにする</li><li>欲しいものを提案する</li></ul></section>
+<section class="slide center"><p>開発が変わった</p></section>
+<section class="slide center light" style="--slide-size:1.5;background:#fafafa;"><p>ユーザー</p></section>
+<section class="slide center"><p>人間がコードを書かなくなった</p><p><span class="arrow">→</span> AIがコードを書く</p></section>
+<section class="slide center"><p>「<code>package.json</code>の中を見なくなる」</p></section>
+<section class="slide center"><p>「Honoのことを人間は忘れてしまう」</p></section>
+<section class="slide"><h2>エージェントがHonoを使う</h2><ul><li>ユーザーをエージェントとして考える</li><li>もっとエージェントのことを知らないといけない</li></ul></section>
+<section class="slide"><h2>フロントエンドカンファレンス福岡 2026</h2><ul><li>2026年9月12日</li><li>「AI時代のWebフレームワークはどこへ行く？」</li><li><a href="https://slides.yusu.ke/web-frameworks-in-the-ai-era" target="_blank" rel="noopener">slides.yusu.ke/web-frameworks-in-the-ai-era</a></li></ul></section>
+<section class="slide"><h2>Agent DX</h2><div class="cols"><div><ul><li>AIがHonoを使うDXを測る</li><li>Evals</li><li><a href="https://agent-dx.hono.dev" target="_blank" rel="noopener">agent-dx.hono.dev</a></li></ul></div><div><p><img src="/images/fec2026/agent-dx-dashboard.png" alt="agent-dx.hono.dev"></p></div></div></section>
+<section class="slide center"><p><img src="https://ss.yusukebe.com/b37fc886a8ded5bcba39bcc2c895a86fc721344b1d474054f9f485a2a6ad2a92.png" alt="x.com/yusukebe/status/2108928295127691453"><span class="img-caption">https://x.com/yusukebe/status/2108928295127691453</span></p></section>
+<section class="slide"><h2>Evals</h2><div class="cols"><div><ul><li>エージェントにタスクを解かせて、採点する</li><li>条件 <span class="arrow">→</span> fixture × ランタイム × モデル</li><li>採点は普通のテストと型チェック <span class="arrow">→</span> LLMには判定させない</li><li>成功率・トークン・時間を比較</li></ul></div><div><p><img src="/images/fec2026/evals-flow.svg" alt="Evalsの流れ"></p></div></div></section>
+<section class="slide"><h2>Claudeからも測れる</h2><pre data-lang="sh"><code>claude <span class="hl-t">-p</span> <span class="hl-s">&quot;TODOアプリをつくって。追加、編集、削除ができるように&quot;</span> \
+  <span class="hl-t">--model</span> opus <span class="hl-t">--output-format</span> stream<span class="hl-t">-json</span></code></pre><ul><li>Claudeからヘッドレスで別のClaudeを動かす</li><li>採点はスクリプトと別のClaude <span class="arrow">→</span> 自己申告は信じない</li></ul></section>
+<section class="slide center" style="--slide-size:1.5;"><p>Adoption</p></section>
+<section class="slide center"><p>AIはHonoを使うのか？？</p></section>
+<section class="slide wide"><h2>Adoptionのやり方</h2><p><img src="/images/fec2026/adoption-flow.svg" alt="Adoptionの流れ"></p></section>
+<section class="slide wide"><h2>Adoption - claude-haiku-4-5</h2><p><img src="/images/fec2026/adoption-haiku.png" alt="Adoption claude-haiku-4-5"><span class="img-caption">https://agent-dx.hono.dev</span></p></section>
+<section class="slide wide"><h2>Adoption - claude-opus-5</h2><p><img src="/images/fec2026/adoption-opus.png" alt="Adoption claude-opus-5"><span class="img-caption">https://agent-dx.hono.dev</span></p></section>
+<section class="slide"><h2>Adoption</h2><ul><li>案外使わない <span class="arrow">→</span> 素で書く</li><li>賢いモデルほど使う</li><li><code>package.json</code>に<code>hono</code>があると使う</li></ul></section>
+<section class="slide"><h2><code>package.json</code>に<code>hono</code></h2><ul><li>Cloudflare Workers <span class="arrow">→</span> <strong>5/5</strong> Hono</li><li>Node.js <span class="arrow">→</span> <strong>5/5</strong> Hono</li><li><code>hono</code>なし <span class="arrow">→</span> 素のハンドラ、itty-router、Express</li></ul><p class="note">claude-haiku-4-5・n=5・福岡のあとに追加で計測</p></section>
+<section class="slide center" style="--slide-size:1.5;"><p>Value</p></section>
+<section class="slide center"><p>Honoを使うことはAIにとって効果的か？？</p></section>
+<section class="slide wide"><h2>Valueのやり方</h2><p><img src="/images/fec2026/value-flow.svg" alt="Valueの流れ"></p></section>
+<section class="slide wide"><h2>Value</h2><p><img src="/images/fec2026/value-results.png" alt="Value results"><span class="img-caption">https://agent-dx.hono.dev</span></p></section>
+<section class="slide"><h2>Value</h2><ul><li>成功率が上がる（2/10 <span class="arrow">→</span> 4/10）</li><li>コードが<strong>30〜40%</strong>減る</li><li>トークンが<strong>15〜30%</strong>減る</li></ul></section>
+<section class="slide"><h2>ユーザーがAIになった</h2><ul><li>AIがコードを書く、AIが技術選定をする</li><li>Agent DX<ul><li>案外Honoを使わない時がある</li><li><code>hono</code>があればAIはHonoを使う</li><li>Honoを使うとAIは効率よく書ける</li></ul></li></ul></section>
+<section class="slide center light" style="--slide-size:1.5;background:#fafafa;"><p>DX</p></section>
+<section class="slide center"><p>ユーザーが変わるなら、DXも変わる</p></section>
+<section class="slide"><h2>Hono RPC</h2><pre data-lang="ts"><code><span class="hl-k">const</span> app = <span class="hl-k">new</span> <span class="hl-f">Hono</span>().<span class="hl-f">get</span>(<span class="hl-s">'/posts/:id'</span>, (c) =&gt; {
+  <span class="hl-k">return</span> c.<span class="hl-f">json</span>({ id: c.req.<span class="hl-f">param</span>(<span class="hl-s">'id'</span>) })
+})
+
+<span class="hl-k">export</span> <span class="hl-k">type</span> <span class="hl-t">AppType</span> = typeof app</code></pre><pre data-lang="ts"><code><span class="hl-k">const</span> client = hc&lt;<span class="hl-t">AppType</span>&gt;(<span class="hl-s">'/'</span>)
+<span class="hl-k">const</span> res = <span class="hl-k">await</span> client.posts[<span class="hl-s">':id'</span>].<span class="hl-f">$get</span>({ param: { id: <span class="hl-s">'123'</span> } })</code></pre></section>
+<section class="slide center"><p>型を頑張る、RPC <span class="arrow">→</span> エディタの型補完 <span class="arrow">→</span> 人間向けのDX</p></section>
+<section class="slide"><h2>RPC関係のIssue</h2><ul><li>2024〜2025年 <span class="arrow">→</span> 全体の<strong>8〜12%</strong></li><li>2026年4月〜 <span class="arrow">→</span> 全体の<strong>2〜3%</strong></li></ul><p class="note">honojs/hono・タイトルに RPC / hc / hono/client を含むissue</p></section>
+<section class="slide"><h2>AIにとっての型</h2><ul><li>型チェックはあった方がいい！</li><li><span class="arrow">→</span> <code>tsc</code>で確かめることができる</li><li><span class="arrow">→</span> 結局、型は必要</li><li>とはいえ、補完のために頑張りすぎなくていい</li></ul></section>
+<section class="slide"><h2>他に人間のためのDX</h2><ul><li>評判 <span class="arrow">→</span> 「Honoっていいらしい」</li><li>気持ちよさ <span class="arrow">→</span> 書いてて気持ちいい「フィーリング」</li><li><span class="arrow">→</span> AIは知らない</li></ul></section>
+<section class="slide"><h2>開発サーバー</h2><ul><li>人間はローカルに開発サーバーを立ち上げてブラウザで確認する</li><li>AIにとって必要か？？<ul><li>リクエストを投げて、レスポンスを確かめられればいい</li></ul></li></ul></section>
+<section class="slide center" style="--slide-size:1.5;"><p>Practical</p></section>
+<section class="slide"><h2>Practicalのひとつ</h2><ul><li><code>create-hono</code>で作ったCloudflare Workersのテンプレをそのまま使う</li><li>そこにエンドポイントを作らせる</li></ul></section>
+<section class="slide"><h2>開発サーバーを立ち上げる</h2><ul><li><code>package.json</code>に<code>&quot;dev&quot;: &quot;wrangler dev&quot;</code></li><li><strong>15/15</strong>が<code>wrangler dev</code>を起動</li><li>立ち上げること自体は悪くない</li><li>問題は⋯<ul><li>起動したままハングして失敗する</li><li>他で立ち上げてるサーバーまでkillしてしまう</li></ul></li></ul></section>
+<section class="slide"><h2>AI向けのDXを考えなくてはいけない</h2><ul><li>補完 <span class="arrow">→</span> 人間のため、型チェック <span class="arrow">→</span> AIのため</li><li>評判・気持ちよさ <span class="arrow">→</span> AIには届かない</li><li>開発サーバー <span class="arrow">→</span> ハングする・他のサーバーを止める</li></ul></section>
+<section class="slide center light" style="--slide-size:1.5;background:#fafafa;"><p>設計</p></section>
+<section class="slide center"><p>フレームワークのAPI設計はどうすればいいか？</p></section>
+<section class="slide center"><p><img src="https://ss.yusukebe.com/a180d9935b405eb41e14ebad0dc8ba3165e01c41e18e3a5e3f61c753b0222bbc.png" alt="x.com/yusukebe/status/2106722774089974199"><span class="img-caption">https://x.com/yusukebe/status/2106722774089974199</span></p></section>
+<section class="slide"><h2>✗ 万能なAPI</h2><ul><li>抽象化はされているが選択肢が多い</li><li><span class="arrow">→</span> AIが迷う</li></ul></section>
+<section class="slide"><h2>✗ 低レベルなAPI</h2><ul><li>選択肢は少ないが細かく書く必要がある</li><li><span class="arrow">→</span> トークンをたくさん使う</li></ul></section>
+<section class="slide"><h2>○ 良いAI向けAPI</h2><ul><li>抽象化されていて選択肢が少ない</li><li><span class="arrow">→</span> 少ないトークンで迷わず書ける</li></ul></section>
+<section class="slide center"><p><img src="https://ss.yusukebe.com/f149282c8d31fda25e95e3d2af68c1c6541a1a1ed7376c7729cca8b54fe072bb.png" alt="x.com/yusukebe/status/2106788928896614752"><span class="img-caption">https://x.com/yusukebe/status/2106788928896614752</span></p></section>
+<section class="slide"><h2>悪いコードではない</h2><ul><li>人間でも書いてしまいそうなコード</li><li>ただ、バリデーションはしてほしい</li><li><span class="arrow">→</span> バリデーションを迷わず書けるAPIがいい</li></ul></section>
+<section class="slide"><h2>AI向けに設計をする</h2><ul><li>AI向けのAPI <span class="arrow">→</span> 抽象化されていて、選択肢が少ない</li></ul></section>
+<section class="slide center"><p>Hono</p></section>
+<section class="slide center light" style="--slide-size:4;background:#fafafa;"><p>v5</p></section>
+<section class="slide"><h2>v5 RC</h2><ul><li><code>hono</code> <span class="arrow">→</span> <strong>5.0.0-rc.1</strong></li><li>Hono CLI <span class="arrow">→</span> <strong>1.0 RC</strong></li><li><code>create-hono</code> <span class="arrow">→</span> <strong>0.20.0-rc.1</strong></li><li>Hono Skills</li></ul><p class="note"><code>npm i hono@next</code> etc.</p></section>
+<section class="slide"><h2>パッケージサイズ</h2><div class="cols"><div><ul><li>ESM only</li><li>アダプタを分離 <span class="arrow">→</span> <code>@hono/*</code></li></ul></div><div><ul><li><strong>1.29 MB <span class="arrow">→</span> 0.70 MB</strong>（-46%）</li><li>ファイル数 <strong>574 <span class="arrow">→</span> 310</strong></li></ul><p class="note">hono 4.13.13 vs 5.0.0-rc.1（npm）</p></div></div></section>
+<section class="slide"><h2>アダプタを分離</h2><pre data-lang="ts"><code><span class="hl-c">// v4</span>
+<span class="hl-k">import</span> { serveStatic } <span class="hl-k">from</span> <span class="hl-s">'hono/bun'</span>
+
+<span class="hl-c">// v5</span>
+<span class="hl-k">import</span> { serveStatic } <span class="hl-k">from</span> <span class="hl-s">'@hono/bun'</span></code></pre><ul><li><code>@hono/bun</code> / <code>@hono/deno</code> / <code>@hono/aws-lambda</code> / <code>@hono/vercel</code> ...</li><li><code>hono/cloudflare-pages</code> <span class="arrow">→</span> 廃止、Workersを使う</li></ul></section>
+<section class="slide"><h2><code>onError()</code> / <code>notFound()</code> <span class="arrow">→</span> ミドルウェアに</h2><pre data-lang="ts"><code><span class="hl-c">// v4</span>
+app.<span class="hl-f">onError</span>((err, c) =&gt; c.<span class="hl-f">text</span>(<span class="hl-s">'Error'</span>, <span class="hl-n">500</span>))
+
+<span class="hl-c">// v5</span>
+app.<span class="hl-f">onError</span>((c) =&gt; c.<span class="hl-f">text</span>(<span class="hl-s">'Error'</span>, <span class="hl-n">500</span>)) <span class="hl-c">// c.error</span></code></pre><ul><li><code>(c, next)</code> <span class="arrow">→</span> 普通のミドルウェアと同じ形</li><li><code>notFound()</code>も同じ仕組みに</li></ul></section>
+<section class="slide"><h2>パスで絞れる・重ねられる</h2><pre data-lang="ts"><code>app.<span class="hl-f">onError</span>(<span class="hl-s">'/items/*'</span>, (c) =&gt; c.<span class="hl-f">text</span>(<span class="hl-s">'Items Error'</span>, <span class="hl-n">500</span>))
+
+app.<span class="hl-f">onError</span>(<span class="hl-k">async</span> (c, next) =&gt; {
+  console.<span class="hl-f">error</span>(c.error)
+  <span class="hl-k">await</span> <span class="hl-f">next</span>()
+})
+app.<span class="hl-f">onError</span>((c) =&gt; c.<span class="hl-f">text</span>(<span class="hl-s">'Error'</span>, <span class="hl-n">500</span>))</code></pre><ul><li>v4 <span class="arrow">→</span> パスは取れない、後から登録したもので上書き</li><li>v5 <span class="arrow">→</span> パスで絞れる、順番に重なる</li></ul></section>
+<section class="slide"><h2>サブアプリの<code>notFound()</code>が効く</h2><pre data-lang="ts"><code><span class="hl-k">const</span> api = <span class="hl-k">new</span> <span class="hl-f">Hono</span>()
+api.<span class="hl-f">notFound</span>((c) =&gt; c.<span class="hl-f">json</span>({ error: <span class="hl-s">'Not Found'</span> }, <span class="hl-n">404</span>))
+
+app.<span class="hl-f">route</span>(<span class="hl-s">'/api'</span>, api)
+app.<span class="hl-f">notFound</span>((c) =&gt; c.<span class="hl-f">text</span>(<span class="hl-s">'Page not found'</span>, <span class="hl-n">404</span>))</code></pre><ul><li><code>/api/nope</code> <span class="arrow">→</span> v4: <code>Page not found</code> / v5: <code>{&quot;error&quot;:&quot;Not Found&quot;}</code></li><li>v4 <span class="arrow">→</span> 親の<code>notFound</code>しか使われない</li></ul></section>
+<section class="slide"><h2>その他の変更</h2><ul><li>Error以外の<code>throw</code> <span class="arrow">→</span> <code>onError</code></li><li><code>c.req.query()</code> <span class="arrow">→</span> <code>undefined</code>も含む</li><li><code>c.req.json()</code> <span class="arrow">→</span> <code>unknown</code>を返す</li><li><code>c.json()</code> <span class="arrow">→</span> JSONにできない値は<code>throw</code></li><li>非推奨のものを削除 <span class="arrow">→</span> <code>app.mount()</code> / <code>app.fire()</code> etc.</li></ul></section>
+<section class="slide"><h2><code>defineHandler()</code></h2><p>バリデーションを迷わず書ける</p><pre data-lang="ts"><code><span class="hl-k">import</span> { defineHandler } <span class="hl-k">from</span> <span class="hl-s">'hono/factory'</span>
+
+app.<span class="hl-f">post</span>(
+  <span class="hl-s">'/users/:id'</span>,
+  <span class="hl-f">defineHandler</span>({
+    param: <span class="hl-t">ParamSchema</span>,
+    json: <span class="hl-t">BodySchema</span>,
+    response: <span class="hl-t">UserSchema</span>
+  })(<span class="hl-k">async</span> (c, { param, json }) =&gt; {
+    c.<span class="hl-f">status</span>(<span class="hl-n">201</span>)
+    <span class="hl-k">return</span> { id: param.id, ...json }
+  })
+)</code></pre></section>
+<section class="slide"><h2><code>defineHandler()</code></h2><ul><li>リクエストとレスポンスを1か所で検証</li><li>Standard Schema <span class="arrow">→</span> Zod / Valibot / ArkType ...</li><li>書き方が1つ <span class="arrow">→</span> AIが迷わない</li><li>experimental</li></ul></section>
+<section class="slide"><h2>Hono CLI 1.0 RC</h2><ul><li>サーバーを立てずにアプリを確かめる</li><li><code>app.request()</code>で直接リクエスト</li><li>出力は全部JSON <span class="arrow">→</span> AIが読める</li><li><code>hono --help</code> <span class="arrow">→</span> AI向けの説明から始まる</li></ul></section>
+<section class="slide"><h2><code>hono request</code></h2><pre data-lang="sh"><code>hono request /posts/1</code></pre><pre data-lang="json"><code>{
+  <span class="hl-t">&quot;ok&quot;</span>: <span class="hl-n">true</span>,
+  <span class="hl-t">&quot;data&quot;</span>: {
+    <span class="hl-t">&quot;status&quot;</span>: <span class="hl-n">200</span>,
+    <span class="hl-t">&quot;headers&quot;</span>: { <span class="hl-t">&quot;content-type&quot;</span>: <span class="hl-s">&quot;application/json&quot;</span> },
+    <span class="hl-t">&quot;body&quot;</span>: { <span class="hl-t">&quot;id&quot;</span>: <span class="hl-s">&quot;1&quot;</span>, <span class="hl-t">&quot;title&quot;</span>: <span class="hl-s">&quot;Hello&quot;</span> }
+  }
+}</code></pre></section>
+<section class="slide"><h2><code>hono batch</code></h2><pre data-lang="sh"><code>hono batch - &lt;&lt;<span class="hl-s">'EOF'</span>
+{<span class="hl-s">&quot;method&quot;</span>:<span class="hl-s">&quot;POST&quot;</span>,<span class="hl-s">&quot;path&quot;</span>:<span class="hl-s">&quot;/posts&quot;</span>,<span class="hl-s">&quot;body&quot;</span>:{<span class="hl-s">&quot;title&quot;</span>:<span class="hl-s">&quot;Hono&quot;</span>},<span class="hl-s">&quot;expect&quot;</span>:{<span class="hl-s">&quot;status&quot;</span>:201}}
+{<span class="hl-s">&quot;path&quot;</span>:<span class="hl-s">&quot;/posts/1&quot;</span>,<span class="hl-s">&quot;expect&quot;</span>:{<span class="hl-s">&quot;status&quot;</span>:200,<span class="hl-s">&quot;body&quot;</span>:{<span class="hl-s">&quot;id&quot;</span>:<span class="hl-s">&quot;1&quot;</span>}}}
+EOF</code></pre><ul><li>複数のリクエストを1回で送れる</li><li><code>expect</code> <span class="arrow">→</span> 期待するレスポンスを書く</li><li><code>&quot;failed&quot;: 0</code> になるまで直す</li></ul></section>
+<section class="slide"><h2>他のコマンド</h2><ul><li><code>hono routes</code> <span class="arrow">→</span> ソースを読まずにルート一覧</li><li><code>hono snapshot</code> <span class="arrow">→</span> 今の挙動を<code>batch</code>の形で出す <span class="arrow">→</span> リファクタの前に</li><li><code>--runtime workerd</code> <span class="arrow">→</span> 本物のバインディング（KV、D1、AI）で動かす</li><li><code>--runtime vite</code> <span class="arrow">→</span> Viteプラグインで組むアプリも（<code>request</code> / <code>batch</code>）</li></ul></section>
+<section class="slide"><h2>Hono CLIを使うと⋯</h2><ul><li>開発サーバーを立ち上げない（<strong>0/15</strong>）</li><li><code>hono snapshot</code> / <code>hono batch</code>で確かめる</li><li>全モデルで成功率<strong>100%</strong>、約<strong>30秒</strong></li></ul><p class="note">Agent DX・build-endpoints-workers・CLI + Skills</p></section>
+<section class="slide wide"><h2>Sonnet 5</h2><p><img src="/images/honoconf-2026/last-sonnet.svg" alt="build-endpoints-workers / Sonnet 5"></p></section>
+<section class="slide"><h2>賢いモデルは開発サーバーを使いこなす</h2><pre data-lang="sh"><code>(npx cf dev <span class="hl-t">--port</span> 8799 &amp;) ; ./check.sh ; pkill <span class="hl-t">-f</span> <span class="hl-s">&quot;cf dev --port 8799&quot;</span></code></pre><ul><li>Opusは1コマンドで「起動 <span class="arrow">→</span> 確認 <span class="arrow">→</span> 停止」</li><li>CLIなしでも壊さない</li><li>ただし44回中24回 <span class="arrow">→</span> <code>pkill -f vite</code>で他のサーバーまで止める</li></ul></section>
+<section class="slide"><h2>「カウンターをつくって」<span class="arrow">→</span>「パスワードつけて」</h2><ul><li>CLIなし <span class="arrow">→</span> <strong>13ターン・70秒</strong><ul><li><code>cf dev</code>を起動 <span class="arrow">→</span> curl <span class="arrow">→</span> <code>pkill -f vite</code>を2回</li></ul></li><li>CLIあり <span class="arrow">→</span> <strong>8ターン・39秒</strong><ul><li><code>hono batch</code>を1回ずつ <span class="arrow">→</span> サーバーなし</li></ul></li><li>どちらも正しく動く</li></ul><p class="note">Opus・1回ずつ</p></section>
+<section class="slide"><h2>CLIを使う理由</h2><ul><li>開発サーバーで詰まらない <span class="arrow">→</span> 起動したままハングして失敗しない</li><li>サーバーを立てない <span class="arrow">→</span> 他のプロセスを止めない</li><li>検証の道具は毎回作らず、Honoが用意する</li><li>モデルが変われば答えも変わる <span class="arrow">→</span> Agent DXで測り続ける</li></ul></section>
+<section class="slide"><h2>Starter</h2><ul><li><code>create-hono</code>のテンプレに<code>AGENTS.md</code> + Hono CLI</li><li>「<code>npm run dev</code>は人間のため」</li></ul><pre data-lang="md"><code>## Hono CLI
+
+Run `npx hono --help` first, and use the CLI instead of a dev server.</code></pre></section>
+<section class="slide"><h2>Hono Skills</h2><ul><li><code>hono</code> <span class="arrow">→</span> APIリファレンス + Hono CLIの使い方</li><li><code>hono-jsx</code> <span class="arrow">→</span> <code>hono/jsx</code>でUI</li></ul><pre data-lang="sh"><code>npx skills add honojs/skills</code></pre></section>
+<section class="slide"><h2>hono.dev/docs/agents</h2><ul><li>「Hono for Coding Agents」</li><li>全ページMarkdownで取れる <span class="arrow">→</span> <code>Accept: text/markdown</code></li><li><code>/llms.txt</code> / <code>/llms-full.txt</code></li></ul></section>
+<section class="slide center" style="--slide-size:1.5;"><p>Demo</p></section>
+<section class="slide"><h2>まとめ</h2><ul><li>時代 <span class="arrow">→</span> 明らかに新しい時代になった</li><li>開発 <span class="arrow">→</span> PRを閉じた、でも貢献の仕方は他にもある</li><li>ユーザー <span class="arrow">→</span> ユーザーがAIになった</li><li>DX <span class="arrow">→</span> AI向けのDXを考える</li><li>設計 <span class="arrow">→</span> 抽象化されていて、選択肢が少ないAPI</li><li>v5 <span class="arrow">→</span> AIのためのHono</li></ul></section>
+<section class="slide center" style="--slide-size:1.5;"><p>ありがとうございました</p></section>
+<section class="slide center light" style="background:#fafafa;"><p>One more thing</p></section>
+<section class="slide center"><p>Honoをopinionatedなフルスタックにする</p></section>
+<section class="slide"><div class="cols"><div><pre data-lang="ts"><code><span class="hl-c">// Hono v5</span>
+<span class="hl-k">import</span> { defineHandler } <span class="hl-k">from</span> <span class="hl-s">'hono/factory'</span>
+
+app.<span class="hl-f">post</span>(
+  <span class="hl-s">'/posts'</span>,
+  <span class="hl-f">defineHandler</span>({ json: <span class="hl-t">PostSchema</span> })(<span class="hl-k">async</span> (c, { json }) =&gt; {
+    <span class="hl-k">return</span> { received: <span class="hl-n">true</span> }
+  })
+)</code></pre></div><div><pre data-lang="ts"><code><span class="hl-c">// Void</span>
+<span class="hl-k">import</span> { defineHandler } <span class="hl-k">from</span> <span class="hl-s">'void'</span>
+
+<span class="hl-k">export</span> <span class="hl-k">const</span> <span class="hl-t">POST</span> = <span class="hl-f">defineHandler</span>(<span class="hl-k">async</span> (c) =&gt; {
+  <span class="hl-k">return</span> { received: <span class="hl-n">true</span> }
+})</code></pre></div></div></section>
+<section class="slide center"><p>？？？</p></section>
+<section class="slide center"><p><img src="https://ss.yusukebe.com/6f2e473739d234944a692a18b98f9788bc41654b20efe5b06776c00dd542701e.png" alt="Void"></p></section>
+<section class="slide center"><p>Void by VoidZero</p><p class="note"><a href="https://void.cloud" target="_blank" rel="noopener">void.cloud</a></p></section>
+<section class="slide center light" style="--slide-size:2;background:#fafafa;"><p>Hono v5</p></section>
+<section class="slide center" style="--slide-size:1.5;"><pre data-lang="sh"><code>npm create hono@next</code></pre><p class="note"><a href="https://hono.dev/docs/guides/migrating-to-v5" target="_blank" rel="noopener">hono.dev/docs/guides/migrating-to-v5</a></p></section>
+</div>
+<div id="overview"></div>
+<div id="presenter"></div>
+<div id="progress"></div>
+<div id="timer"></div>
+<div id="counter"></div>
+<div id="hint">← → 移動 ・ f フルスクリーン ・ o 一覧 ・ p 発表者</div>
+<script>"use strict";
+// スライドのナビゲーション。ippon が HTML に埋め込む。
+//   → / Space / PageDown / クリック右側     次へ
+//   ← / PageUp / クリック左側              前へ
+//   Home / End                              最初 / 最後
+//   f                                       フルスクリーン
+//   o / Esc                                 一覧
+//   p                                       発表者ビュー（別ウィンドウ）
+(() => {
+    const slides = Array.from(document.querySelectorAll('#deck .slide'));
+    if (!slides.length)
+        return;
+    const $ = (id) => document.getElementById(id);
+    const div = (className) => {
+        const el = document.createElement('div');
+        el.className = className;
+        return el;
+    };
+    function fmt(ms) {
+        const total = Math.floor(ms / 1000);
+        const m = Math.floor(total / 60);
+        const s = total % 60;
+        return m + ':' + (s < 10 ? '0' : '') + s;
+    }
+    // 別ウィンドウで開いたときは発表者ビューとして動く（本番のナビは動かさない）
+    if (window.name === 'ippon-presenter') {
+        presenterMode();
+        return;
+    }
+    let idx = 0;
+    const progress = $('progress');
+    const counter = $('counter');
+    const timerEl = $('timer');
+    const clamp = (n) => Math.max(0, Math.min(slides.length - 1, n));
+    // ---------- タイマー（表紙から進んだら開始、表紙に戻ったらリセット） ----------
+    let startedAt = null;
+    let ticking;
+    function syncTimer() {
+        if (idx === 0) {
+            startedAt = null;
+            clearInterval(ticking);
+            ticking = undefined;
+            timerEl.textContent = '';
+            return;
+        }
+        const t0 = (startedAt ?? (startedAt = Date.now()));
+        ticking ?? (ticking = window.setInterval(() => {
+            timerEl.textContent = fmt(Date.now() - t0);
+        }, 500));
+        timerEl.textContent = fmt(Date.now() - t0);
+    }
+    // ---------- 描画 ----------
+    function render() {
+        slides.forEach((s, i) => s.classList.toggle('active', i === idx));
+        slides[idx].scrollTop = 0;
+        counter.textContent = idx + 1 + ' / ' + slides.length;
+        progress.style.width = ((idx + 1) / slides.length) * 100 + '%';
+        syncTimer();
+        broadcast();
+    }
+    function go(n) {
+        n = clamp(n);
+        if (n === idx)
+            return;
+        idx = n;
+        render();
+        history.replaceState(null, '', '#' + (idx + 1));
+    }
+    window.addEventListener('hashchange', () => {
+        const n = parseInt(location.hash.slice(1), 10);
+        if (n)
+            go(n - 1);
+    });
+    // ---------- 発表者ビュー（別ウィンドウ）との同期 ----------
+    let presenterWin = null;
+    function openPresenter() {
+        if (presenterWin && !presenterWin.closed) {
+            presenterWin.focus();
+            return;
+        }
+        presenterWin = window.open(location.href, 'ippon-presenter', 'width=1024,height=700');
+    }
+    function broadcast() {
+        if (presenterWin && !presenterWin.closed)
+            presenterWin.postMessage({ ippon: 'state', idx, total: slides.length, startedAt }, '*');
+    }
+    window.addEventListener('message', (e) => {
+        const m = e.data;
+        if (!m || typeof m !== 'object')
+            return;
+        if (m.ippon === 'hello')
+            broadcast();
+        else if (m.ippon === 'go' && typeof m.n === 'number')
+            go(m.n);
+    });
+    const overview = $('overview');
+    let ovItems = null;
+    let ovOpen = false;
+    const THUMB = 240;
+    function buildOverview() {
+        return slides.map((s, i) => {
+            const item = div('ov-item');
+            const frame = div('ov-frame');
+            const scale = div('ov-scale');
+            const clone = s.cloneNode(true);
+            clone.classList.remove('active');
+            scale.appendChild(clone);
+            frame.appendChild(scale);
+            const num = div('ov-num');
+            num.textContent = String(i + 1);
+            item.appendChild(frame);
+            item.appendChild(num);
+            item.addEventListener('click', () => {
+                idx = i;
+                closeOverview();
+                render();
+                history.replaceState(null, '', '#' + (idx + 1));
+            });
+            overview.appendChild(item);
+            return { item, frame, scale };
+        });
+    }
+    function layoutOverview(items) {
+        const w = window.innerWidth;
+        const h = window.innerHeight;
+        const k = THUMB / w;
+        for (const t of items) {
+            t.frame.style.width = THUMB + 'px';
+            t.frame.style.height = h * k + 'px';
+            t.scale.style.width = w + 'px';
+            t.scale.style.height = h + 'px';
+            t.scale.style.transform = 'scale(' + k + ')';
+        }
+    }
+    function openOverview() {
+        const items = (ovItems ?? (ovItems = buildOverview()));
+        layoutOverview(items);
+        items.forEach((t, i) => t.item.classList.toggle('current', i === idx));
+        ovOpen = true;
+        document.body.classList.add('overview');
+        items[idx].item.scrollIntoView({ block: 'center' });
+    }
+    function closeOverview() {
+        ovOpen = false;
+        document.body.classList.remove('overview');
+    }
+    window.addEventListener('resize', () => {
+        if (ovOpen && ovItems)
+            layoutOverview(ovItems);
+    });
+    // ---------- 入力 ----------
+    document.addEventListener('keydown', (e) => {
+        if (e.metaKey || e.ctrlKey || e.altKey)
+            return;
+        if (ovOpen) {
+            if (e.key === 'Escape' || e.key === 'o')
+                closeOverview();
+            return;
+        }
+        switch (e.key) {
+            case 'ArrowRight':
+            case 'PageDown':
+            case ' ':
+                e.preventDefault();
+                go(idx + 1);
+                break;
+            case 'ArrowLeft':
+            case 'PageUp':
+                e.preventDefault();
+                go(idx - 1);
+                break;
+            case 'Home':
+                go(0);
+                break;
+            case 'End':
+                go(slides.length - 1);
+                break;
+            case 'f':
+                if (document.fullscreenElement)
+                    document.exitFullscreen();
+                else
+                    document.documentElement.requestFullscreen();
+                break;
+            case 'o':
+                openOverview();
+                break;
+            case 'p':
+                openPresenter();
+                break;
+            case 'Escape':
+                if (!document.fullscreenElement)
+                    openOverview();
+                break;
+        }
+    });
+    // 画面の右 3 割で次へ、左 3 割で前へ（リンクと文字選択は邪魔しない）
+    const deck = $('deck');
+    deck.addEventListener('click', (e) => {
+        if (e.target instanceof Element && e.target.closest('a, button'))
+            return;
+        if (String(window.getSelection() || ''))
+            return;
+        const x = e.clientX / window.innerWidth;
+        if (x > 0.7)
+            go(idx + 1);
+        else if (x < 0.3)
+            go(idx - 1);
+    });
+    // 横スワイプ
+    let touch = null;
+    deck.addEventListener('touchstart', (e) => {
+        const t = e.touches[0];
+        touch = e.touches.length === 1 && t ? { x: t.clientX, y: t.clientY } : null;
+    }, { passive: true });
+    deck.addEventListener('touchend', (e) => {
+        const t = e.changedTouches[0];
+        if (!touch || !t)
+            return;
+        const dx = t.clientX - touch.x;
+        const dy = t.clientY - touch.y;
+        touch = null;
+        if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy) * 1.5)
+            go(dx < 0 ? idx + 1 : idx - 1);
+    }, { passive: true });
+    const start = parseInt(location.hash.slice(1), 10);
+    if (start)
+        idx = clamp(start - 1);
+    render();
+    // ---------- 発表者ビュー本体（別ウィンドウで動く） ----------
+    function presenterMode() {
+        document.body.classList.add('presenter');
+        const root = $('presenter');
+        const left = div('pv-left');
+        const right = div('pv-right');
+        root.appendChild(left);
+        root.appendChild(right);
+        const makeSlot = (labelText) => {
+            const slot = div('pv-slot');
+            const label = div('pv-label');
+            label.textContent = labelText;
+            const frame = div('pv-frame');
+            const scale = div('pv-scale');
+            frame.appendChild(scale);
+            slot.appendChild(label);
+            slot.appendChild(frame);
+            left.appendChild(slot);
+            return { label, frame, scale };
+        };
+        const cur = makeSlot('現在');
+        const nxt = makeSlot('次へ');
+        const clock = div('pv-clock');
+        const elapsedEl = div('pv-elapsed');
+        const wallEl = div('pv-wall');
+        clock.appendChild(elapsedEl);
+        clock.appendChild(wallEl);
+        const controls = div('pv-controls');
+        const prevBtn = document.createElement('button');
+        prevBtn.textContent = '◀';
+        const nextBtn = document.createElement('button');
+        nextBtn.textContent = '▶';
+        controls.appendChild(prevBtn);
+        controls.appendChild(nextBtn);
+        const notesEl = div('pv-notes');
+        right.appendChild(clock);
+        right.appendChild(controls);
+        right.appendChild(notesEl);
+        let curIdx = 0;
+        let total = slides.length;
+        let startedAt = null;
+        function fitPreview(frame, scale) {
+            const w = window.innerWidth;
+            const h = window.innerHeight;
+            const fw = frame.clientWidth;
+            const k = fw / w;
+            frame.style.height = fw * (h / w) + 'px';
+            scale.style.width = w + 'px';
+            scale.style.height = h + 'px';
+            scale.style.transform = 'scale(' + k + ')';
+        }
+        function setPreview(frame, scale, i) {
+            scale.textContent = '';
+            const s = slides[i];
+            if (s)
+                scale.appendChild(s.cloneNode(true));
+            fitPreview(frame, scale);
+        }
+        function draw() {
+            cur.label.textContent = '現在  ' + (curIdx + 1) + ' / ' + total;
+            setPreview(cur.frame, cur.scale, curIdx);
+            const hasNext = curIdx + 1 < total;
+            nxt.label.textContent = hasNext ? '次へ  ' + (curIdx + 2) + ' / ' + total : 'おわり';
+            setPreview(nxt.frame, nxt.scale, hasNext ? curIdx + 1 : -1);
+            const note = slides[curIdx]?.querySelector('.notes');
+            notesEl.innerHTML = note ? note.innerHTML : '<p class="pv-empty">（ノートなし）</p>';
+        }
+        function tick() {
+            elapsedEl.textContent = startedAt == null ? '0:00' : fmt(Date.now() - startedAt);
+            wallEl.textContent = new Date().toLocaleTimeString();
+        }
+        const send = (n) => {
+            if (window.opener)
+                window.opener.postMessage({ ippon: 'go', n }, '*');
+        };
+        prevBtn.addEventListener('click', () => send(curIdx - 1));
+        nextBtn.addEventListener('click', () => send(curIdx + 1));
+        window.addEventListener('message', (e) => {
+            const m = e.data;
+            if (!m || m.ippon !== 'state')
+                return;
+            if (typeof m.idx === 'number')
+                curIdx = m.idx;
+            if (typeof m.total === 'number')
+                total = m.total;
+            startedAt = m.startedAt ?? null;
+            draw();
+            tick();
+        });
+        document.addEventListener('keydown', (e) => {
+            if (e.metaKey || e.ctrlKey || e.altKey)
+                return;
+            switch (e.key) {
+                case 'ArrowRight':
+                case 'PageDown':
+                case ' ':
+                    e.preventDefault();
+                    send(curIdx + 1);
+                    break;
+                case 'ArrowLeft':
+                case 'PageUp':
+                    e.preventDefault();
+                    send(curIdx - 1);
+                    break;
+                case 'Home':
+                    send(0);
+                    break;
+                case 'End':
+                    send(total - 1);
+                    break;
+                case 'p':
+                case 'Escape':
+                    window.close();
+                    break;
+            }
+        });
+        window.addEventListener('resize', () => {
+            fitPreview(cur.frame, cur.scale);
+            fitPreview(nxt.frame, nxt.scale);
+        });
+        window.setInterval(tick, 500);
+        // 本番ウィンドウに現在の状態を要求する
+        if (window.opener)
+            window.opener.postMessage({ ippon: 'hello' }, '*');
+        draw();
+        tick();
+    }
+})();
+</script>
+</body>
+</html>
